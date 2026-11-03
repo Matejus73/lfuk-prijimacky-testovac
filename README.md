@@ -55,18 +55,27 @@ Aplikácia simuluje oficiálny formát podkladových otázok (1000 otázok z bio
 ## 📁 Štruktúra projektu
 
 ```
-├── public/              # Statické assety
+├── .github/
+│   └── workflows/
+│       └── deploy.yml   # Automatické nasadenie na GitHub Pages
+├── public/              # Verejne dostupné statické súbory
+│   ├── favicon.svg
+│   └── icons.svg
 ├── src/
-│   ├── assets/          # Obrázky, ikony
-│   ├── components/      # UI komponenty (QuestionCard, Sidebar, Stats, etc.)
-│   ├── data/            # JSON databáza otázok (biology.json, chemistry.json)
-│   ├── types/           # TypeScript definície a rozhrania
-│   ├── hooks/           # Vlastné React hooky
+│   ├── assets/          # Obrázky a ďalšie assety
+│   ├── data/            # Databáza otázok v JSON formáte
+│   │   ├── OtazkyBio.json
+│   │   └── OtazkyChem.json
+│   ├── App.css          # Štýly hlavnej aplikácie
 │   ├── App.tsx          # Hlavný komponent aplikácie
-│   └── main.tsx         # Vstupný bod aplikácie
-├── tailwind.config.js   # Konfigurácia Tailwind CSS
-├── tsconfig.json        # Konfigurácia TypeScriptu
-└── package.json         # Projektové závislosti a skripty
+│   ├── index.css        # Globálne štýly
+│   ├── main.tsx         # Vstupný bod aplikácie
+│   └── types.ts         # TypeScript typy
+├── index.html           # HTML vstupná stránka
+├── package.json         # Závislosti a npm skripty
+├── vite.config.ts       # Konfigurácia Vite
+├── tsconfig*.json       # Konfigurácia TypeScriptu
+└── .oxlintrc.json       # Konfigurácia Oxlintu
 ```
 
 ## 📄 Licencia

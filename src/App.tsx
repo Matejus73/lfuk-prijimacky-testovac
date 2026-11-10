@@ -10,8 +10,11 @@ const datasets: Record<Subject, Question[]> = {
 };
 
 const STATS_STORAGE_KEY = 'testovac-question-stats';
+const QUESTIONS_STORAGE_KEY = 'testovac-questions';
+const FOUR_ANSWERS_STORAGE_KEY = 'testovac-four-answers';
 type HistorySort = 'ascending' | 'descending' | 'most-wrong' | 'most-correct';
-type QuestionMode = 'all' | 'revision' | 'random';
+type QuestionMode = 'all' | 'revision';
+type EditableQuestion = Question & { options: Question['options'] };
 
 const emptyStats = (): AllStats => ({
   Biology: {},
@@ -41,6 +44,33 @@ const loadStats = (): AllStats => {
   }
 };
 
+const loadQuestions = (): Record<Subject, Question[]> => {
+  const defaults = {
+    Biology: datasets.Biology,
+    Chemistry: datasets.Chemistry,
+  };
+  let savedQuestions: string | null = null;
+
+  try {
+    savedQuestions = localStorage.getItem(QUESTIONS_STORAGE_KEY);
+  } catch {
+    return defaults;
+  }
+
+  if (!savedQuestions) return defaults;
+
+  try {
+    const parsed = JSON.parse(savedQuestions) as Partial<Record<Subject, Question[]>>;
+    if (!Array.isArray(parsed.Biology) || !Array.isArray(parsed.Chemistry)) return defaults;
+    return {
+      Biology: parsed.Biology,
+      Chemistry: parsed.Chemistry,
+    };
+  } catch {
+    return defaults;
+  }
+};
+
 const getQuestionStats = (
   stats: AllStats,
   subject: Subject,
@@ -60,23 +90,39 @@ const shuffle = <T,>(items: T[]): T[] => {
   return shuffled;
 };
 
-const getUnansweredQuestions = (subject: Subject, stats: AllStats) =>
-  datasets[subject].filter((question) => {
-    const result = getQuestionStats(stats, subject, question.id)?.lastResult;
-    return !result || result === 'unanswered';
-  });
+const getRandomOptionLabels = (question: Question) =>
+  shuffle(question.options).slice(0, Math.min(4, question.options.length)).map((option) => option.label);
+
+const getInitialRandomOptionLabels = (questionSet: Record<Subject, Question[]>) =>
+  Object.fromEntries(
+    (Object.keys(questionSet) as Subject[]).flatMap((subject) =>
+      questionSet[subject].map((question) => [
+        `${subject}:${question.id}`,
+        getRandomOptionLabels(question),
+      ]),
+    ),
+  ) as Record<string, string[]>;
 
 export default function App() {
   // 1. Current selected subject
   const [currentSubject, setCurrentSubject] = useState<Subject>('Biology');
+  const [questions, setQuestions] = useState<Record<Subject, Question[]>>(() => loadQuestions());
   const [stats, setStats] = useState<AllStats>(() => loadStats());
-  const [questionMode, setQuestionMode] = useState<QuestionMode>('all');
-  const [randomQuestionIds, setRandomQuestionIds] = useState<string[]>(() =>
-    shuffle(getUnansweredQuestions('Biology', stats).map((question) => question.id)),
+  const [fourAnswersOnly, setFourAnswersOnly] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem(FOUR_ANSWERS_STORAGE_KEY) === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const [randomOptionLabels] = useState<Record<string, string[]>>(() =>
+    getInitialRandomOptionLabels(questions),
   );
+  const [questionMode, setQuestionMode] = useState<QuestionMode>('all');
+  const [randomNext, setRandomNext] = useState(false);
 
   // Active question set based on subject choice
-  const activeQuestions = datasets[currentSubject];
+  const activeQuestions = questions[currentSubject];
   const revisionQuestions = activeQuestions
     .map((question, index) => ({
       question,
@@ -86,26 +132,29 @@ export default function App() {
     .filter(({ incorrect }) => incorrect > 0);
   const questionsInMode = questionMode === 'revision'
     ? revisionQuestions.map(({ question }) => question)
-    : questionMode === 'random'
-      ? randomQuestionIds
-        .map((questionId) => activeQuestions.find((question) => question.id === questionId))
-        .filter((question): question is Question => Boolean(question))
-      : activeQuestions;
+    : activeQuestions;
 
   // 2. Question index and answer states
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [selectedLabels, setSelectedLabels] = useState<string[]>(
-    () => getQuestionStats(stats, 'Biology', datasets.Biology[0].id)?.lastAnswer ?? [],
+    () => getQuestionStats(stats, 'Biology', questions.Biology[0].id)?.lastAnswer ?? [],
   );
   const [isEvaluated, setIsEvaluated] = useState<boolean>(
-    () => Boolean(getQuestionStats(stats, 'Biology', datasets.Biology[0].id)?.lastResult),
+    () => Boolean(getQuestionStats(stats, 'Biology', questions.Biology[0].id)?.lastResult),
   );
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
   const [historySearch, setHistorySearch] = useState('');
   const [historySort, setHistorySort] = useState<HistorySort>('ascending');
   const [expandedHistoryIds, setExpandedHistoryIds] = useState<Set<string>>(new Set());
+  const [editingQuestion, setEditingQuestion] = useState<EditableQuestion | null>(null);
+  const [editError, setEditError] = useState('');
 
   const currentQuestion = questionsInMode[currentIndex] ?? activeQuestions[0];
+  const displayedOptions = fourAnswersOnly
+    ? currentQuestion.options.filter((option) =>
+      (randomOptionLabels[`${currentSubject}:${currentQuestion.id}`] ?? []).includes(option.label),
+    )
+    : currentQuestion.options;
 
   useEffect(() => {
     try {
@@ -114,6 +163,22 @@ export default function App() {
       // Persistence can be unavailable in private browsing or restricted storage contexts.
     }
   }, [stats]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(QUESTIONS_STORAGE_KEY, JSON.stringify(questions));
+    } catch {
+      // Persistence can be unavailable in private browsing or restricted storage contexts.
+    }
+  }, [questions]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(FOUR_ANSWERS_STORAGE_KEY, String(fourAnswersOnly));
+    } catch {
+      // Persistence can be unavailable in private browsing or restricted storage contexts.
+    }
+  }, [fourAnswersOnly]);
 
   const restoreQuestion = () => {
     setSelectedLabels([]);
@@ -124,32 +189,24 @@ export default function App() {
   const handleSubjectChange = (subject: Subject) => {
     setCurrentSubject(subject);
     setCurrentIndex(0);
-    setRandomQuestionIds(
-      shuffle(getUnansweredQuestions(subject, stats).map((question) => question.id)),
-    );
     restoreQuestion();
   };
 
   const handleQuestionModeChange = (mode: QuestionMode) => {
     setQuestionMode(mode);
     setCurrentIndex(0);
-    if (mode === 'random') {
-      setRandomQuestionIds(
-        shuffle(getUnansweredQuestions(currentSubject, stats).map((question) => question.id)),
-      );
-    }
     setSelectedLabels([]);
     setIsEvaluated(false);
   };
 
-  const handleRerollRandom = () => {
-    const newRandomQuestionIds = shuffle(
-      getUnansweredQuestions(currentSubject, stats).map((question) => question.id),
-    );
-    setRandomQuestionIds(newRandomQuestionIds);
-    setCurrentIndex(0);
+  const handleFourAnswersToggle = () => {
+    setFourAnswersOnly((previousValue) => !previousValue);
     setSelectedLabels([]);
     setIsEvaluated(false);
+  };
+
+  const handleRandomNextToggle = () => {
+    setRandomNext((previousValue) => !previousValue);
   };
 
   const handleToggleOption = (label: string) => {
@@ -162,8 +219,14 @@ export default function App() {
   };
 
   const handleNext = () => {
-    if (currentIndex < questionsInMode.length - 1) {
-      const nextIndex = currentIndex + 1;
+    if (questionsInMode.length > 1) {
+      const availableIndexes = questionsInMode
+        .map((_, index) => index)
+        .filter((index) => index !== currentIndex);
+      const nextIndex = randomNext
+        ? availableIndexes[Math.floor(Math.random() * availableIndexes.length)]
+        : currentIndex + 1;
+      if (nextIndex >= questionsInMode.length) return;
       setCurrentIndex(nextIndex);
       restoreQuestion();
     }
@@ -178,9 +241,10 @@ export default function App() {
   };
 
   const handleCheckAnswer = () => {
-    const correctLabels = currentQuestion.options
+    const correctLabels = displayedOptions
       .filter((option) => option.is_correct)
       .map((option) => option.label);
+    const scoreWeight = displayedOptions.length / currentQuestion.options.length;
     const result: AnswerResult = selectedLabels.length === 0
       ? 'unanswered'
       : areAnswersEqual(selectedLabels, correctLabels)
@@ -194,8 +258,8 @@ export default function App() {
         currentQuestion.id,
       );
       const nextQuestionStats: QuestionStats = {
-        correct: (previousQuestionStats?.correct ?? 0) + (result === 'correct' ? 1 : 0),
-        incorrect: (previousQuestionStats?.incorrect ?? 0) + (result === 'incorrect' ? 1 : 0),
+        correct: (previousQuestionStats?.correct ?? 0) + (result === 'correct' ? scoreWeight : 0),
+        incorrect: (previousQuestionStats?.incorrect ?? 0) + (result === 'incorrect' ? scoreWeight : 0),
         lastAnswer: selectedLabels,
         lastResult: result,
       };
@@ -239,6 +303,57 @@ export default function App() {
     }
 
     window.setTimeout(() => setCopyStatus('idle'), 2000);
+  };
+
+  const handleOpenCorrection = () => {
+    setEditingQuestion({
+      ...currentQuestion,
+      options: currentQuestion.options.map((option) => ({ ...option })),
+    });
+    setEditError('');
+  };
+
+  const handleSaveCorrection = () => {
+    if (!editingQuestion) return;
+    if (!editingQuestion.question.trim()) {
+      setEditError('Enter a question before saving.');
+      return;
+    }
+    if (editingQuestion.options.some((option) => !option.text.trim())) {
+      setEditError('Every answer must contain text.');
+      return;
+    }
+    if (!editingQuestion.options.some((option) => option.is_correct)) {
+      setEditError('Mark at least one answer as correct.');
+      return;
+    }
+
+    const correctedQuestion: Question = {
+      ...editingQuestion,
+      question: editingQuestion.question.trim(),
+      options: editingQuestion.options.map((option) => ({
+        ...option,
+        text: option.text.trim(),
+      })),
+    };
+    setQuestions((previousQuestions) => ({
+      ...previousQuestions,
+      [currentSubject]: previousQuestions[currentSubject].map((question) =>
+        question.id === correctedQuestion.id ? correctedQuestion : question,
+      ),
+    }));
+    setStats((previousStats) => ({
+      ...previousStats,
+      [currentSubject]: Object.fromEntries(
+        Object.entries(previousStats[currentSubject]).filter(([questionId]) =>
+          questionId !== correctedQuestion.id,
+        ),
+      ),
+    }));
+    setSelectedLabels([]);
+    setIsEvaluated(false);
+    setEditingQuestion(null);
+    setEditError('');
   };
 
   const answeredQuestions = activeQuestions.filter((question) =>
@@ -294,24 +409,102 @@ export default function App() {
                               : 'bg-white text-gray-700 border hover:bg-gray-50'
                       }`}
                   >
-                    {subject} ({datasets[subject].length})
+                    {subject} ({questions[subject].length})
                   </button>
               ))}
             </div>
 
+            {/* Question Controls */}
+            <div className="mb-3 space-y-3 rounded-xl bg-white p-3 shadow-md sm:p-4">
+              <div className="flex rounded-lg bg-gray-100 p-1">
+                {(['all', 'revision'] as QuestionMode[]).map((mode) => (
+                  <button
+                      key={mode}
+                      onClick={() => handleQuestionModeChange(mode)}
+                      disabled={mode === 'revision' && revisionQuestions.length === 0}
+                      className={`flex-1 rounded-md py-2 text-sm font-semibold transition ${
+                        questionMode === mode
+                          ? mode === 'revision' ? 'bg-rose-600 text-white shadow-sm' : 'bg-blue-600 text-white shadow-sm'
+                          : 'text-gray-600 hover:bg-white disabled:cursor-not-allowed disabled:opacity-40'
+                      }`}
+                  >
+                    {mode === 'all' ? 'All questions' : `Revision (${revisionQuestions.length})`}
+                  </button>
+                ))}
+              </div>
+              <div className="relative flex min-h-9 items-center justify-center">
+                <span className="text-sm font-bold tracking-wide text-gray-700">
+                  {currentSubject === 'Biology' ? 'BIO' : 'CHEM'} {currentIndex + 1}
+                </span>
+                <div className="absolute left-0 flex shrink-0 items-center gap-1">
+                  <button
+                      onClick={handleCopyCard}
+                      title={copyStatus === 'copied' ? 'Copied!' : copyStatus === 'failed' ? 'Copy failed' : 'Copy question card'}
+                      aria-label={copyStatus === 'copied' ? 'Copied!' : copyStatus === 'failed' ? 'Copy failed' : 'Copy question card'}
+                      className="flex h-8 w-8 items-center justify-center rounded-lg border text-gray-600 transition hover:bg-gray-50"
+                  >
+                    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="9" y="9" width="10" height="10" rx="1" />
+                      <path d="M5 15V5a1 1 0 0 1 1-1h10" />
+                    </svg>
+                  </button>
+                  <button
+                      onClick={handleOpenCorrection}
+                      title="Correct this question"
+                      aria-label="Correct this question"
+                      className="flex h-8 w-8 items-center justify-center rounded-lg border border-amber-300 bg-amber-50 text-amber-800 transition hover:bg-amber-100"
+                  >
+                    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 20h9" />
+                      <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
+                    </svg>
+                  </button>
+                </div>
+                <div className="absolute right-0 flex shrink-0 items-center gap-1">
+                  <span className="text-xs font-semibold text-gray-500">Random:</span>
+                  <button
+                      type="button"
+                      role="switch"
+                      aria-checked={randomNext}
+                      onClick={handleRandomNextToggle}
+                      title={randomNext ? 'Next question is random' : 'Next question follows order'}
+                      aria-label={randomNext ? 'Next question is random' : 'Next question follows order'}
+                      className={`relative h-6 w-11 rounded-full text-[10px] font-bold transition ${
+                        randomNext ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700'
+                      }`}
+                  >
+                    <span className="absolute inset-0 flex items-center justify-center">{randomNext ? 'on' : 'off'}</span>
+                  </button>
+                  <span className="text-xs font-semibold text-gray-500">Answers:</span>
+                  <button
+                      type="button"
+                      role="switch"
+                      aria-checked={fourAnswersOnly}
+                      onClick={handleFourAnswersToggle}
+                      title={fourAnswersOnly ? 'Show all answers' : 'Show 4 random answers'}
+                      aria-label={fourAnswersOnly ? 'Show all answers' : 'Show 4 random answers'}
+                      className={`relative h-6 w-11 rounded-full text-[10px] font-bold transition ${
+                        fourAnswersOnly ? 'bg-blue-600' : 'bg-gray-300 text-gray-700'
+                      }`}
+                  >
+                    <span className="absolute inset-0 flex items-center justify-center">{fourAnswersOnly ? '4' : 'all'}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
             {/* Main Question Card */}
-          <div className="flex h-[calc(100dvh-8rem)] min-h-0 min-w-0 flex-col rounded-xl bg-white p-4 shadow-md sm:p-6 lg:h-auto lg:flex-1">
+          <div
+              className="flex h-[calc(100dvh-8rem)] min-h-0 min-w-0 flex-col rounded-xl bg-white p-4 shadow-md sm:p-6 lg:h-auto lg:flex-1"
+          >
 
           {/* Header / Meta */}
-          <div className="mb-4 flex rounded-lg bg-gray-100 p-1">
-            {(['all', 'revision', 'random'] as QuestionMode[]).map((mode) => (
+          <div className="hidden">
+            {(['all', 'revision'] as QuestionMode[]).map((mode) => (
               <button
                   key={mode}
                   onClick={() => handleQuestionModeChange(mode)}
-                  disabled={
-                    (mode === 'revision' && revisionQuestions.length === 0) ||
-                    (mode === 'random' && getUnansweredQuestions(currentSubject, stats).length === 0)
-                  }
+                  disabled={mode === 'revision' && revisionQuestions.length === 0}
                   className={`flex-1 rounded-md py-2 text-sm font-semibold transition ${
                     questionMode === mode
                       ? mode === 'revision' ? 'bg-rose-600 text-white shadow-sm' : 'bg-blue-600 text-white shadow-sm'
@@ -320,27 +513,73 @@ export default function App() {
               >
                 {mode === 'all'
                   ? 'All questions'
-                  : mode === 'revision'
-                    ? `Revision (${revisionQuestions.length})`
-                    : `Random (${getUnansweredQuestions(currentSubject, stats).length})`}
+                  : `Revision (${revisionQuestions.length})`}
               </button>
             ))}
           </div>
 
-          <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b pb-3">
-          <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-100 text-blue-800">
-            {currentQuestion.subject}
-          </span>
-            <span className="min-w-0 text-sm text-gray-500 font-medium">
-            Question {currentIndex + 1} of {questionsInMode.length} ({currentQuestion.id})
-          </span>
-          <button
-              onClick={handleCopyCard}
-              title="Copy question card"
-              className="ml-3 shrink-0 rounded-lg border px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-50 transition"
-          >
-            {copyStatus === 'copied' ? 'Copied!' : copyStatus === 'failed' ? 'Copy failed' : 'Copy'}
-          </button>
+          <div className="hidden">
+            <span className="text-sm font-bold tracking-wide text-gray-700">
+              {currentSubject === 'Biology' ? 'BIO' : 'CHEM'} {currentIndex + 1}
+            </span>
+          <div className="absolute left-0 flex shrink-0 items-center gap-1">
+            <button
+                onClick={handleCopyCard}
+                title={copyStatus === 'copied' ? 'Copied!' : copyStatus === 'failed' ? 'Copy failed' : 'Copy question card'}
+                aria-label={copyStatus === 'copied' ? 'Copied!' : copyStatus === 'failed' ? 'Copy failed' : 'Copy question card'}
+                className="flex h-8 w-8 items-center justify-center rounded-lg border text-gray-600 transition hover:bg-gray-50"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="9" y="9" width="10" height="10" rx="1" />
+                <path d="M5 15V5a1 1 0 0 1 1-1h10" />
+              </svg>
+            </button>
+            <button
+                onClick={handleOpenCorrection}
+                title="Correct this question"
+                aria-label="Correct this question"
+                className="flex h-8 w-8 items-center justify-center rounded-lg border border-amber-300 bg-amber-50 text-amber-800 transition hover:bg-amber-100"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
+              </svg>
+            </button>
+          </div>
+          <div className="absolute right-0 flex shrink-0 items-center gap-1">
+            <span className="text-xs font-semibold text-gray-500">Random:</span>
+            <button
+                type="button"
+                role="switch"
+                aria-checked={randomNext}
+                onClick={handleRandomNextToggle}
+                title={randomNext ? 'Next question is random' : 'Next question follows order'}
+                aria-label={randomNext ? 'Next question is random' : 'Next question follows order'}
+                className={`relative h-6 w-11 rounded-full text-[10px] font-bold transition ${
+                  randomNext ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700'
+                }`}
+            >
+              <span className="absolute inset-0 flex items-center justify-center">
+                {randomNext ? 'on' : 'off'}
+              </span>
+            </button>
+            <span className="text-xs font-semibold text-gray-500">Answers:</span>
+            <button
+                type="button"
+                role="switch"
+                aria-checked={fourAnswersOnly}
+                onClick={handleFourAnswersToggle}
+                title={fourAnswersOnly ? 'Show all answers' : 'Show 4 random answers'}
+                aria-label={fourAnswersOnly ? 'Show all answers' : 'Show 4 random answers'}
+                className={`relative h-6 w-11 rounded-full text-[10px] font-bold transition ${
+                  fourAnswersOnly ? 'bg-blue-600' : 'bg-gray-300'
+                }`}
+            >
+              <span className="absolute inset-0 flex items-center justify-center">
+                {fourAnswersOnly ? '4' : 'all'}
+              </span>
+            </button>
+          </div>
           </div>
 
           {/* Question Text */}
@@ -350,7 +589,7 @@ export default function App() {
 
           {/* Options List */}
           <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
-            {currentQuestion.options.map((option) => {
+            {displayedOptions.map((option) => {
               const isChecked = selectedLabels.includes(option.label);
 
               let borderClass = 'border-gray-200 hover:border-blue-400';
@@ -405,16 +644,6 @@ export default function App() {
             </button>
 
             <div className="flex flex-wrap items-center justify-center gap-2">
-              {questionMode === 'random' && (
-                <button
-                    onClick={handleRerollRandom}
-                    disabled={getUnansweredQuestions(currentSubject, stats).length === 0}
-                    title="Shuffle unanswered questions again"
-                    className="px-4 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition disabled:cursor-not-allowed disabled:opacity-40"
-                >
-                  Reroll
-                </button>
-              )}
               {!isEvaluated ? (
                   <button
                       onClick={handleCheckAnswer}
@@ -436,7 +665,7 @@ export default function App() {
 
             <button
                 onClick={handleNext}
-                disabled={currentIndex === questionsInMode.length - 1}
+                disabled={!randomNext && currentIndex === questionsInMode.length - 1}
                 title="Next question"
                 aria-label="Next question"
                 className="flex h-10 w-10 items-center justify-center rounded-lg border text-xl font-medium transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
@@ -626,6 +855,117 @@ export default function App() {
             )}
           </div>
         </div>
+
+          {editingQuestion && (
+            <div className="fixed inset-0 z-10 flex items-center justify-center bg-slate-900/40 p-4">
+              <div
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="correction-title"
+                  className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-5 shadow-xl sm:p-6"
+              >
+                <div className="mb-5 flex items-start justify-between gap-4">
+                  <div>
+                    <h2 id="correction-title" className="text-xl font-bold text-gray-900">
+                      Correct {editingQuestion.id}
+                    </h2>
+                    <p className="mt-1 text-sm text-gray-500">
+                      Update the question, answer text, and which answers are correct.
+                    </p>
+                  </div>
+                  <button
+                      type="button"
+                      onClick={() => setEditingQuestion(null)}
+                      aria-label="Close correction editor"
+                      className="rounded-lg px-2 py-1 text-xl text-gray-500 hover:bg-gray-100"
+                  >
+                    ×
+                  </button>
+                </div>
+                <label className="mb-4 block">
+                  <span className="mb-1 block text-sm font-semibold text-gray-700">Question</span>
+                  <textarea
+                      value={editingQuestion.question}
+                      onChange={(event) =>
+                        setEditingQuestion((previousQuestion) =>
+                          previousQuestion
+                            ? { ...previousQuestion, question: event.target.value }
+                            : previousQuestion,
+                        )
+                      }
+                      rows={3}
+                      className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  />
+                </label>
+                <fieldset className="space-y-3">
+                  <legend className="mb-2 text-sm font-semibold text-gray-700">
+                    Answers (check every correct answer)
+                  </legend>
+                  {editingQuestion.options.map((option, optionIndex) => (
+                    <div key={option.label} className="flex items-start gap-3">
+                      <input
+                          type="checkbox"
+                          checked={option.is_correct}
+                          onChange={(event) =>
+                            setEditingQuestion((previousQuestion) => {
+                              if (!previousQuestion) return previousQuestion;
+                              const options = previousQuestion.options.map((currentOption, index) =>
+                                index === optionIndex
+                                  ? { ...currentOption, is_correct: event.target.checked }
+                                  : currentOption,
+                              );
+                              return { ...previousQuestion, options };
+                            })
+                          }
+                          aria-label={`Mark answer ${option.label} as correct`}
+                          className="mt-2 h-4 w-4 rounded text-blue-600 focus:ring-blue-500"
+                      />
+                      <span className="mt-1.5 w-5 font-semibold uppercase text-gray-700">
+                        {option.label})
+                      </span>
+                      <textarea
+                          value={option.text}
+                          onChange={(event) =>
+                            setEditingQuestion((previousQuestion) => {
+                              if (!previousQuestion) return previousQuestion;
+                              const options = previousQuestion.options.map((currentOption, index) =>
+                                index === optionIndex
+                                  ? { ...currentOption, text: event.target.value }
+                                  : currentOption,
+                              );
+                              return { ...previousQuestion, options };
+                            })
+                          }
+                          rows={2}
+                          className="min-w-0 flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                      />
+                    </div>
+                  ))}
+                </fieldset>
+                {editError && (
+                  <p role="alert" className="mt-4 rounded-lg bg-rose-50 px-3 py-2 text-sm font-medium text-rose-700">
+                    {editError}
+                  </p>
+                )}
+                <div className="mt-6 flex justify-end gap-2">
+                  <button
+                      type="button"
+                      onClick={() => setEditingQuestion(null)}
+                      className="rounded-lg border px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                      type="button"
+                      onClick={handleSaveCorrection}
+                      className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                  >
+                    Save correction
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
   );

@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import bioData from './data/OtazkyBio.json';
 import chemData from './data/OtazkyChem.json';
+import foxIcon from './assets/Fox_icon.png';
 import type { AllStats, AnswerResult, Question, QuestionStats, Subject } from './types';
 
 // Map subjects to their respective data arrays
@@ -148,6 +149,20 @@ export default function App() {
   const [expandedHistoryIds, setExpandedHistoryIds] = useState<Set<string>>(new Set());
   const [editingQuestion, setEditingQuestion] = useState<EditableQuestion | null>(null);
   const [editError, setEditError] = useState('');
+  const [foxFollowing, setFoxFollowing] = useState(false);
+  const [foxHoverTarget, setFoxHoverTarget] = useState<'question' | string | null>(null);
+  const foxHighlightTimerRef = useRef<number | null>(null);
+  const foxHoverTargetRef = useRef<'question' | string | null>(null);
+  const foxCursorRef = useRef({ x: 0, y: 0 });
+  const questionCardRef = useRef<HTMLDivElement>(null);
+  const answerRefs = useRef<Record<string, HTMLLabelElement | null>>({});
+  const foxButtonRef = useRef<HTMLButtonElement>(null);
+  const foxTargetRef = useRef({ x: 0, y: 0 });
+  const foxMotionRef = useRef({ x: 0, y: 0 });
+  const foxVelocityRef = useRef({ x: 0, y: 0 });
+  const foxRotationRef = useRef(0);
+  const foxElementRef = useRef<HTMLDivElement>(null);
+  const foxFrameRef = useRef<number | null>(null);
 
   const currentQuestion = questionsInMode[currentIndex] ?? activeQuestions[0];
   const displayedOptions = fourAnswersOnly
@@ -180,6 +195,113 @@ export default function App() {
     }
   }, [fourAnswersOnly]);
 
+  useEffect(() => {
+    if (!foxFollowing) return;
+
+    let previousTime = performance.now();
+    const animateFox = (timestamp: number) => {
+      const deltaTime = Math.min((timestamp - previousTime) / 1000, 0.05);
+      previousTime = timestamp;
+      const position = foxMotionRef.current;
+      const cursorTarget = foxCursorRef.current;
+      const highlightedElement = foxHoverTargetRef.current === 'question'
+        ? questionCardRef.current
+        : foxHoverTargetRef.current?.startsWith('answer:')
+          ? answerRefs.current[foxHoverTargetRef.current.slice('answer:'.length)]
+          : null;
+      if (highlightedElement) {
+        const bounds = highlightedElement.getBoundingClientRect();
+        const cursorX = cursorTarget.x - 26;
+        const isNearLeftCorner = cursorX <= bounds.left + bounds.width * 0.3;
+        const edgeTarget = {
+          x: isNearLeftCorner ? bounds.left - 30 : bounds.right + 30,
+          y: bounds.top - 30,
+        };
+        const cursorPull = 0.1;
+        foxTargetRef.current = {
+          x: edgeTarget.x + (cursorTarget.x - edgeTarget.x) * cursorPull,
+          y: edgeTarget.y + (cursorTarget.y - edgeTarget.y) * cursorPull,
+        };
+      } else {
+        foxTargetRef.current = cursorTarget;
+      }
+      const target = foxTargetRef.current;
+      const elapsed = timestamp / 1000;
+      const hoverAmount = highlightedElement ? 1.5 : 10;
+      const verticalHoverAmount = highlightedElement ? 1 : 7;
+      const hoverTarget = {
+        x: target.x + Math.sin(elapsed * 2.1) * hoverAmount,
+        y: target.y + Math.cos(elapsed * 1.65) * verticalHoverAmount,
+      };
+      const velocity = foxVelocityRef.current;
+      const springStrength = 42;
+      const damping = 11;
+      velocity.x += (hoverTarget.x - position.x) * springStrength * deltaTime;
+      velocity.y += (hoverTarget.y - position.y) * springStrength * deltaTime;
+      const dampingFactor = Math.exp(-damping * deltaTime);
+      velocity.x *= dampingFactor;
+      velocity.y *= dampingFactor;
+      position.x += velocity.x * deltaTime;
+      position.y += velocity.y * deltaTime;
+
+      const speed = Math.hypot(velocity.x, velocity.y);
+      const movementAngle = Math.atan2(velocity.y, velocity.x) * (180 / Math.PI);
+      const targetRotation = speed > 8 ? Math.max(-35, Math.min(35, movementAngle)) : 0;
+      const rotationDifference = ((targetRotation - foxRotationRef.current + 540) % 360) - 180;
+      foxRotationRef.current += rotationDifference * Math.min(1, deltaTime * 10);
+      foxMotionRef.current = position;
+      if (foxElementRef.current) {
+        foxElementRef.current.style.transform =
+          `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%) rotate(${foxRotationRef.current}deg)`;
+      }
+      foxFrameRef.current = window.requestAnimationFrame(animateFox);
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+      foxTargetRef.current = { x: event.clientX + 26, y: event.clientY - 26 };
+      const isNear = (element: HTMLElement | null) => {
+        if (!element) return false;
+        const bounds = element.getBoundingClientRect();
+        const padding = 6;
+        return event.clientX >= bounds.left - padding &&
+          event.clientX <= bounds.right + padding &&
+          event.clientY >= bounds.top - padding &&
+          event.clientY <= bounds.bottom + padding;
+      };
+      const answerTarget = displayedOptions.find((option) => isNear(answerRefs.current[option.label]));
+      const nextTarget = answerTarget
+        ? `answer:${answerTarget.label}`
+        : isNear(questionCardRef.current)
+          ? 'question'
+          : null;
+      foxCursorRef.current = { x: event.clientX + 26, y: event.clientY - 26 };
+      if (nextTarget !== foxHoverTargetRef.current) {
+        if (foxHighlightTimerRef.current !== null) {
+          window.clearTimeout(foxHighlightTimerRef.current);
+        }
+        foxHighlightTimerRef.current = window.setTimeout(() => {
+          foxHoverTargetRef.current = nextTarget;
+          setFoxHoverTarget(nextTarget);
+          foxHighlightTimerRef.current = null;
+        }, 60);
+      }
+    };
+
+    foxFrameRef.current = window.requestAnimationFrame(animateFox);
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (foxFrameRef.current !== null) {
+        window.cancelAnimationFrame(foxFrameRef.current);
+        foxFrameRef.current = null;
+      }
+      if (foxHighlightTimerRef.current !== null) {
+        window.clearTimeout(foxHighlightTimerRef.current);
+        foxHighlightTimerRef.current = null;
+      }
+    };
+  }, [displayedOptions, foxFollowing]);
+
   const restoreQuestion = () => {
     setSelectedLabels([]);
     setIsEvaluated(false);
@@ -207,6 +329,29 @@ export default function App() {
 
   const handleRandomNextToggle = () => {
     setRandomNext((previousValue) => !previousValue);
+  };
+
+  const handleFoxToggle = () => {
+    if (foxFollowing) {
+      setFoxFollowing(false);
+      foxHoverTargetRef.current = null;
+      setFoxHoverTarget(null);
+      return;
+    }
+
+    const buttonBounds = foxButtonRef.current?.getBoundingClientRect();
+    if (buttonBounds) {
+      const buttonPosition = {
+        x: buttonBounds.left + buttonBounds.width / 2,
+        y: buttonBounds.top + buttonBounds.height / 2,
+      };
+      foxMotionRef.current = buttonPosition;
+      foxTargetRef.current = buttonPosition;
+      foxCursorRef.current = buttonPosition;
+      foxVelocityRef.current = { x: 0, y: 0 };
+      foxRotationRef.current = 0;
+    }
+    setFoxFollowing(true);
   };
 
   const handleToggleOption = (label: string) => {
@@ -459,6 +604,18 @@ export default function App() {
                       <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
                     </svg>
                   </button>
+                  <button
+                    type="button"
+                    ref={foxButtonRef}
+                    onClick={handleFoxToggle}
+                    title={foxFollowing ? 'Stop fox' : 'Make fox follow your cursor'}
+                    aria-label={foxFollowing ? 'Stop fox' : 'Make fox follow your cursor'}
+                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-orange-600 bg-orange-500 p-1 transition hover:bg-orange-600"
+                  >
+                    {!foxFollowing && (
+                    <img src={foxIcon} alt="" className="h-full w-full object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
+                    )}
+                  </button>
                 </div>
                 <div className="absolute right-0 flex shrink-0 items-center gap-1">
                   <span className="text-xs font-semibold text-gray-500">Random:</span>
@@ -495,7 +652,12 @@ export default function App() {
 
             {/* Main Question Card */}
           <div
-              className="flex h-[calc(100dvh-8rem)] min-h-0 min-w-0 flex-col rounded-xl bg-white p-4 shadow-md sm:p-6 lg:h-auto lg:flex-1"
+              ref={questionCardRef}
+              className={`flex h-[calc(100dvh-8rem)] min-h-0 min-w-0 flex-col rounded-xl border-2 p-4 shadow-md transition-colors sm:p-6 lg:h-auto lg:flex-1 ${
+                foxFollowing && foxHoverTarget === 'question'
+                  ? 'fox-highlight'
+                  : 'border-transparent bg-white'
+              }`}
           >
 
           {/* Header / Meta */}
@@ -582,6 +744,21 @@ export default function App() {
           </div>
           </div>
 
+          {foxFollowing && (
+            <div
+                ref={foxElementRef}
+                role="presentation"
+                aria-hidden="true"
+                className="fox-fly-out fox-cursor pointer-events-none fixed z-30 h-12 w-12 object-contain"
+                style={{
+                  left: 0,
+                  top: 0,
+                  maskImage: `url(${foxIcon})`,
+                  WebkitMaskImage: `url(${foxIcon})`,
+                }}
+            />
+          )}
+
           {/* Question Text */}
           <h2 className="text-lg font-bold text-gray-900 mb-6">
             {currentQuestion.question}
@@ -610,8 +787,15 @@ export default function App() {
 
               return (
                   <label
+                      ref={(element) => {
+                        answerRefs.current[option.label] = element;
+                      }}
                       key={option.label}
-                      className={`flex items-start p-3.5 border-2 rounded-lg cursor-pointer transition ${borderClass} ${bgClass}`}
+                      className={`flex items-start p-3.5 border-2 rounded-lg cursor-pointer transition ${
+                        foxFollowing && foxHoverTarget === `answer:${option.label}`
+                          ? `fox-highlight ${bgClass}`
+                          : `${borderClass} ${bgClass}`
+                      }`}
                   >
                     <input
                         type="checkbox"

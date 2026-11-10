@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+:root {
+  --fox-orange: #f97316;
+}
+
+@keyframes fox-fly-out {
+  0% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fox-fly-out {
+  animation: fox-fly-out 450ms ease-out both;
+  transform: translate(-50%, -50%);
+}
+
+.fox-cursor {
+  background-color: var(--fox-orange);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  filter: drop-shadow(0 0 6px rgb(0 0 0 / 0.86));
+}
+
+.fox-highlight {
+  border-color: var(--fox-orange) !important;
+}

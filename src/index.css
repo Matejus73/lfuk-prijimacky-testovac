@@ -1,1 +1,149 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --background: #121212;
+    --surface: #252525;
+    --surface-raised: #393939;
+    --border: #4f4f4f;
+    --text: #ffffff;
+    --text-muted: #b8b8b8;
+    --success: #7dff95;
+    --error: #ff8080;
+    --warning: #ffbc5e;
+    --info: #87d1ff;
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+  }
+}
+
+@layer utilities {
+  .bg-slate-100 {
+    background-color: var(--background);
+  }
+
+  .bg-white,
+  .bg-gray-50 {
+    background-color: var(--surface);
+  }
+
+  .bg-gray-100 {
+    background-color: var(--surface-raised);
+  }
+
+  .bg-gray-200 {
+    background-color: var(--border);
+  }
+
+  .text-gray-900,
+  .text-gray-800,
+  .text-gray-700 {
+    color: var(--text);
+  }
+
+  .text-gray-600 {
+    color: var(--text-muted);
+  }
+
+  .text-gray-500,
+  .placeholder\:text-gray-400::placeholder {
+    color: var(--text-muted);
+  }
+
+  .border-gray-200,
+  .border-gray-300 {
+    border-color: var(--border);
+  }
+
+  .border-gray-200\/80 {
+    border-color: color-mix(in srgb, var(--border) 80%, transparent);
+  }
+
+  .hover\:bg-gray-50:hover,
+  .hover\:bg-white:hover {
+    background-color: var(--surface-raised);
+  }
+
+  .bg-emerald-50 {
+    background-color: color-mix(in srgb, var(--success) 12%, var(--background));
+  }
+
+  .bg-emerald-50\/50 {
+    background-color: color-mix(in srgb, var(--success) 7%, var(--background));
+  }
+
+  .text-emerald-800,
+  .text-emerald-900 {
+    color: var(--success);
+  }
+
+  .bg-rose-50 {
+    background-color: color-mix(in srgb, var(--error) 12%, var(--background));
+  }
+
+  .text-rose-700,
+  .text-rose-800,
+  .text-rose-900 {
+    color: var(--error);
+  }
+
+  .bg-amber-50 {
+    background-color: color-mix(in srgb, var(--warning) 18%, var(--background));
+  }
+
+  .text-amber-800 {
+    color: var(--warning);
+  }
+
+  .hover\:bg-amber-100:hover {
+    background-color: color-mix(in srgb, var(--warning) 28%, var(--background));
+  }
+
+  .bg-emerald-500 {
+    background-color: var(--success);
+  }
+
+  .bg-rose-500 {
+    background-color: var(--error);
+  }
+
+  .bg-blue-50 {
+    background-color: color-mix(in srgb, var(--info) 14%, var(--background));
+  }
+
+  .bg-blue-600 {
+    background-color: var(--info);
+    color: var(--background);
+  }
+
+  .hover\:bg-blue-700:hover {
+    background-color: color-mix(in srgb, var(--info) 82%, var(--surface));
+  }
+
+  .border-amber-300 {
+    border-color: var(--warning);
+  }
+
+  .border-emerald-300,
+  .border-emerald-400,
+  .border-emerald-500 {
+    border-color: var(--success);
+  }
+
+  .border-rose-300,
+  .border-rose-400,
+  .border-rose-500 {
+    border-color: var(--error);
+  }
+
+  .border-blue-400,
+  .border-blue-500 {
+    border-color: var(--info);
+  }
+}

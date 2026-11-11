@@ -758,9 +758,11 @@ export default function App() {
                     key={question.id}
                     className={`rounded-lg border-2 transition hover:border-blue-400 ${
                       questionStats?.lastResult === 'correct'
-                        ? `border-emerald-300 bg-emerald-50${question.id === currentQuestion.id ? ' ring-2 ring-blue-400' : ''}`
+                        ? `border-emerald-300 bg-emerald-50${question.id === currentQuestion.id ? ' ring-2 ring-inset ring-blue-400' : ''}`
                         : questionStats?.lastResult === 'incorrect'
-                          ? `border-rose-300 bg-rose-50${question.id === currentQuestion.id ? ' ring-2 ring-blue-400' : ''}`
+                          ? question.id === currentQuestion.id
+                            ? 'border-rose-300 bg-gray-100 ring-2 ring-inset ring-blue-400'
+                            : 'border-rose-300 bg-rose-50'
                           : question.id === currentQuestion.id
                             ? 'border-blue-500 bg-blue-50'
                             : 'border-gray-200'

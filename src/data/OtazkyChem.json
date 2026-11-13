@@ -852,22 +852,22 @@
     "options": [
       {
         "label": "a",
-        "text": "v orbitále pₓ môže byť maximálne 1 elektrón",
+        "text": "v orbitále px môže byť maximálne 1 elektrón",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "v orbitále p_y môžu byť maximálne 2 elektróny",
+        "text": "v orbitále py môžu byť maximálne 2 elektróny",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "v orbitále p_y môže byť maximálne 6 elektrónov",
+        "text": "v orbitále py môže byť maximálne 6 elektrónov",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "v orbitále p_z môže byť 10 elektrónov",
+        "text": "v orbitále pz môže byť maximálne 10 elektrónov",
         "is_correct": false
       },
       {
@@ -895,46 +895,46 @@
   {
     "id": "CHEM_20",
     "subject": "Chemistry",
-    "question": "Podľa Hundovho pravidla je elektrónová konfigurácia atómu:",
+    "question": "Podľa Hundovho pravidla je elektronická konfigurácia atómu:",
     "options": [
       {
         "label": "a",
-        "text": "bóru ¹¹₅B: [He] 2s² 2pₓ¹",
+        "text": "bóru 11_5B: [He] 2s² 2px¹",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "síry ³²₁₆S: 1s² 2s² 2pₓ² 2p_y² 2p_z² 3s² 3pₓ² 3p_y¹ 3p_z¹",
+        "text": "síry 32_16S: 1s² 2s² 2px² 2py² 2pz² 3s² 3px² 3py¹ 3pz¹",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "dusíka ¹⁴₇N: 1s² 2s¹ 2pₓ² 2p_y¹ 2p_z¹",
+        "text": "dusíka 14_7N: 1s² 2s¹ 2px² 2py¹ 2pz¹",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "berýlia ⁹₄Be: 1s² 2s¹ 2pₓ¹",
+        "text": "berýlia 9_4Be: 1s² 2s¹ 2px¹",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "lítia ⁷₃Li: 1s² 2s²",
+        "text": "lítia 3_7Li: 1s² 2s²",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "bóru ¹¹₅B: 1s² 2s² 2pₓ¹",
+        "text": "bóru 11_5B: 1s² 2s² 2px¹",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "dusíka ¹⁴₇N: 1s² 2s² 2pₓ¹ 2p_y¹ 2p_z¹",
+        "text": "dusíka 14_7N: 1s² 2s² 2px¹ 2py¹ 2pz¹",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "draslíka ³⁹₁₉K: [Ar] 5s¹",
+        "text": "draslíka 39_19K: [Ar] 5s¹",
         "is_correct": false
       }
     ]
@@ -2728,7 +2728,7 @@
   {
     "id": "CHEM_59",
     "subject": "Chemistry",
-    "question": "Ak ionizačná konštanta kyseliny dusitej je 4,5 · 10⁻⁴, (log 4,5 = 0,65), potom platí, že:",
+    "question": "Ak ionizačná konštanta kyseliny dusitej je 4,5·10⁻⁴, (log 4,5 = 0,65), potom platí, že:",
     "options": [
       {
         "label": "a",
@@ -3108,42 +3108,42 @@
     "options": [
       {
         "label": "a",
-        "text": "K₂SO₃, BiCl₃",
+        "text": "K_2SO_3, BiCl_3",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "RbCl, Na₂SO₄",
+        "text": "RbCl, Na_2SO_4",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "NaCN, (NH₄)₂S",
+        "text": "NaCN, (NH_4)_2S",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "Li₂SO₄, NaClO₄",
+        "text": "Li_2SO_4, NaClO_4",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "Cs₂SO₃, KF",
+        "text": "Cs_2SO_3, KF",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "CH₃COOK, K₂HPO₄",
+        "text": "CH_3COOK, K_2HPO_4",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "K₂SO₄, NaCl",
+        "text": "K_2SO_4, NaCl",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "Na₂S, KCN",
+        "text": "Na_2S, KCN",
         "is_correct": false
       }
     ]
@@ -3343,42 +3343,42 @@
     "options": [
       {
         "label": "a",
-        "text": "CoCl₂, Na₂CO₃, CHCl₃, HCl, C₂H₆",
+        "text": "CoCl_2, Na_2CO_3, CHCl_3, HCl, C_2H_6",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "CH₄, benzén, KMnO₄, CH₃COOH, K₂SO₄",
+        "text": "CH_4, benzén, KMnO_4, CH_3COOH, K_2SO_4",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "FeCl₃, H₂SO₄, NaBr, CH₃COOK, NH₄Br",
+        "text": "FeCl_3, H_2SO_4, NaBr, CH_3COOK, NH_4Br",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "CuSO₄, HI, NaNO₃, K₃[Fe(CN)₆]",
+        "text": "CuSO_4, HI, NaNO_3, K_3[Fe(CN)_6]",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "KCN, Na₂CO₃, C₆H₆, glukóza, CH₂Cl₂",
+        "text": "KCN, Na_2CO_3, C_6H_6, glukóza, CH_2Cl_2",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "KCl, CH₃COOK, NaI, (NH₄)₂S, FeCl₂",
+        "text": "KCl, CH_3COOK, NaI, (NH_4)_2S, FeCl_2",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "fruktóza, CH₂Cl₂, KBr, NiCl₂, toluén",
+        "text": "fruktóza, CH_2Cl_2, KBr, NiCl_2, toluén",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "CH₄, chloroform, HCl, NaOH, H₂S",
+        "text": "CH_4, chloroform, HCl, NaOH, H_2S",
         "is_correct": false
       }
     ]
@@ -3457,7 +3457,7 @@
       },
       {
         "label": "e",
-        "text": "má pri teplote 25 °C hodnotu Kᵥ = 1 · 10⁻¹⁴ mol² · l⁻²",
+        "text": "má pri teplote 25 °C hodnotu Kᵥ = 1.10⁻¹⁴ mol².l⁻²",
         "is_correct": true
       },
       {
@@ -3489,7 +3489,7 @@
       },
       {
         "label": "b",
-        "text": "tie, v ktorých je veľkosť rozpustených častíc vyššia ako 1 · 10⁻⁹ m",
+        "text": "tie, v ktorých je veľkosť rozpustených častíc vyššia ako 1.10⁻⁹ m",
         "is_correct": false
       },
       {
@@ -3561,12 +3561,12 @@
       },
       {
         "label": "g",
-        "text": "nižšia ako 1 · 10⁻⁹ m",
+        "text": "nižšia ako 1.10⁻⁹ m",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "1 · 10⁻⁶ - 10 · 10⁻⁶ m",
+        "text": "1.10⁻⁶ - 10.10⁻⁶ m",
         "is_correct": false
       }
     ]
@@ -3613,7 +3613,7 @@
       },
       {
         "label": "h",
-        "text": "môžeme využiť na stanovenie molárnej hmotnosti rozpustenej látky (najmä pre makromolekulové látky) podľa vzťahu: M = m / (π · V) · R · T kde M = molárna hmotnosť rozpustenej látky, m = hmotnosť rozpustenej látky, V = objem roztoku",
+        "text": "môžeme využiť na stanovenie molárnej hmotnosti rozpustenej látky (najmä pre makromolekulové látky) podľa vzťahu: M = \\frac{m}{\\pi.V} R.T kde M = molárna hmotnosť rozpustenej látky, m = hmotnosť rozpustenej látky, V = objem roztoku",
         "is_correct": true
       }
     ]
@@ -3630,7 +3630,7 @@
       },
       {
         "label": "b",
-        "text": "môžeme využiť na stanovenie molárnej hmotnosti rozpustenej látky (najmä pre makromolekulové látky) podľa vzťahu: M = (π · V / m) · R · T kde M = molárna hmotnosť rozpustenej látky, m = hmotnosť rozpustenej látky, V = objem roztoku",
+        "text": "môžeme využiť na stanovenie molárnej hmotnosti rozpustenej látky (najmä pre makromolekulové látky) podľa vzťahu: M = π.V/m . R.T kde M = molárna hmotnosť rozpustenej látky, m = hmotnosť rozpustenej látky, V = objem roztoku",
         "is_correct": false
       },
       {
@@ -4199,7 +4199,7 @@
       },
       {
         "label": "c",
-        "text": "sa osmotický tlak počíta podľa vzťahu: π = c · R / T kde: c = koncentrácia roztoku, R = plynová konštanta, T = teplota v Kelvinoch",
+        "text": "sa osmotický tlak počíta podľa vzťahu: π = c · R · T kde: c = koncentrácia roztoku, R = plynová konštanta, T = teplota v Kelvinoch",
         "is_correct": false
       },
       {
@@ -4632,7 +4632,7 @@
       },
       {
         "label": "e",
-        "text": "2 C₆H₅-CH=O ⎯OH⁻→ C₆H₅-CH₂OH + C₆H₅-COO⁻",
+        "text": "2 ◯-CH=O ⎯OH⁻→ ◯-CH₂OH + ◯-COO⁻",
         "is_correct": true
       },
       {
@@ -4769,27 +4769,27 @@
       {
         "label": "d",
         "text": "NH₄Fe(SO₄)₂·12 H₂O",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "K₄[Fe(CN)₆]",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
         "text": "K₃[Fe(CN)₆]",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "g",
         "text": "Fe(HCO₃)₂",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "h",
         "text": "Fe(OH)₂NO₃",
-        "is_correct": false
+        "is_correct": true
       }
     ]
   },
@@ -4971,7 +4971,7 @@
       },
       {
         "label": "g",
-        "text": "  OH\n  |\nO=P-O-CH₃\n  |\n  OH",
+        "text": "OH\n |\nO=P-O-CH₃\n |\n OH",
         "is_correct": false
       },
       {
@@ -5219,7 +5219,7 @@
   {
     "id": "CHEM_112",
     "subject": "Chemistry",
-    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne Cu + HNO₃ ⟶ Cu(NO₃)₂ + NO₂ + H₂O:",
+    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne Cu + HNO₃ ⟶ Cu(NO₃)₂ + NO₂ + H₂O :",
     "options": [
       {
         "label": "a",
@@ -5266,46 +5266,46 @@
   {
     "id": "CHEM_113",
     "subject": "Chemistry",
-    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne H₂O₂ + KMnO₄ + H₂SO₄ ⟶ O₂ + MnSO₄ + K₂SO₄ + H₂O:",
+    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne H_{2}O_{2} + KMnO_{4} + H_{2}SO_{4} \\longrightarrow O_{2} + MnSO_{4} + K_{2}SO_{4} + H_{2}O :",
     "options": [
       {
         "label": "a",
-        "text": "Mnᵛᴵᴵ + 5 e⁻ ⟶ Mnᴵᴵ",
+        "text": "Mn^{VII} + 5 e^{-} \\longrightarrow Mn^{II}",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "Mnᵛᴵ + 4 e⁻ ⟶ Mnᴵᴵ",
+        "text": "Mn^{VI} + 4 e^{-} \\longrightarrow Mn^{II}",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "Sᵛᴵ + 2 e⁻ ⟶ Sᴵᵛ",
+        "text": "S^{VI} + 2 e^{-} \\longrightarrow S^{IV}",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "2 O⁻ᴵ - 2 e⁻ ⟶ O₂⁰",
+        "text": "2 O^{I} - 2 e^{-} \\longrightarrow O_{2}^{0}",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "Mnᵛᴵ - 4 e⁻ ⟶ Mnᴵᴵ",
+        "text": "Mn^{VI} - 4 e^{-} \\longrightarrow Mn^{II}",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "Mnᵛᴵᴵ + 3 e⁻ ⟶ Mnᴵᵛ",
+        "text": "Mn^{VII} + 3 e^{-} \\longrightarrow Mn^{IV}",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "O⁻ᴵ + 1 e⁻ ⟶ O⁻ᴵᴵ",
+        "text": "O^{-I} - 1 e^{-} \\longrightarrow O^{-II}",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "5 + 2 + 3 ⟶ 5 + 2 + 1 + 8",
+        "text": "5 + 2 + 3 \\longrightarrow 5 + 2 + 1 + 8",
         "is_correct": true
       }
     ]
@@ -5313,7 +5313,7 @@
   {
     "id": "CHEM_114",
     "subject": "Chemistry",
-    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne Cl₂ + NaOH ⟶ NaCl + NaClO + H₂O:",
+    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne Cl₂ + NaOH ⟶ NaCl + NaClO + H₂O :",
     "options": [
       {
         "label": "a",
@@ -5360,7 +5360,7 @@
   {
     "id": "CHEM_115",
     "subject": "Chemistry",
-    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne KMnO₄ + Na₂SO₃ + H₂O ⟶ Na₂SO₄ + MnO₂ + KOH:",
+    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne KMnO₄ + Na₂SO₃ + H₂O ⟶ Na₂SO₄ + MnO₂ + KOH :",
     "options": [
       {
         "label": "a",
@@ -5394,7 +5394,7 @@
       },
       {
         "label": "g",
-        "text": "Mnᵛᴵ + 2 e ⟶ Mnᴵᵛ",
+        "text": "Mnᵛᴵ + 2 e⁻ ⟶ Mnᴵᵛ",
         "is_correct": false
       },
       {
@@ -5407,7 +5407,7 @@
   {
     "id": "CHEM_116",
     "subject": "Chemistry",
-    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne H₂O₂ ⟶ H₂O + O₂:",
+    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne H₂O₂ ⟶ H₂O + O₂ :",
     "options": [
       {
         "label": "a",
@@ -5454,7 +5454,7 @@
   {
     "id": "CHEM_117",
     "subject": "Chemistry",
-    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne SO₂ + H₂S ⟶ S + H₂O:",
+    "question": "Pre schému oxidačno-redukčnej reakcie zvoľte vhodné čiastkové reakcie, prípadne overte, či sú uvedené stechiometrické koeficienty správne SO₂ + H₂S ⟶ S + H₂O :",
     "options": [
       {
         "label": "a",
@@ -5505,17 +5505,17 @@
     "options": [
       {
         "label": "a",
-        "text": "2 Cl⁻ᴵ - 2 e⁻ ⟶ Cl₂⁰",
+        "text": "2 Cl⁻ - 2 e⁻ ⟶ Cl₂⁰",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "2 Cl⁻ᴵ - 2 e⁻ ⟶ Crᴵᴵᴵ",
+        "text": "2 Cl⁻ - 2 e⁻ ⟶ Crᴵᴵᴵ",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "Crⱽᴵ + 3 e⁻ ⟶ Crᴵᴵᴵ",
+        "text": "Crᵛᴵ + 3 e⁻ ⟶ Crᴵᴵᴵ",
         "is_correct": true
       },
       {
@@ -5530,7 +5530,7 @@
       },
       {
         "label": "f",
-        "text": "Crⱽᴵᴵ + 4 e⁻ ⟶ Crᴵᴵᴵ",
+        "text": "Crᵛᴵᴵ + 4 e⁻ ⟶ Crᴵᴵᴵ",
         "is_correct": false
       },
       {
@@ -5713,22 +5713,22 @@
       },
       {
         "label": "e",
-        "text": "možno vyjadriť ako zmenu koncentrácie reaktantov za časovú jednotku",
+        "text": "nezávisí od teploty",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "nezávisí od veľkosti aktivačnej energie",
-        "is_correct": false
+        "text": "nezávisí od koncentrácie reagujúcich látok",
+        "is_correct": true
       },
       {
         "label": "g",
-        "text": "je určená rovnovážnou konštantou",
+        "text": "s rastúcou teplotou klesá",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "závisí od teploty",
+        "text": "udáva sa v mol.dm⁻³.s⁻¹",
         "is_correct": true
       }
     ]
@@ -5877,46 +5877,46 @@
   {
     "id": "CHEM_126",
     "subject": "Chemistry",
-    "question": "Vyberte správny vzťah pre rovnovážnu konštantu reakcie N₂ + 3 H₂ ⇄ 2 NH₃:",
+    "question": "Vyberte správny vzťah pre rovnovážnu konštantu reakcie N_2 + 3 H_2 ⟶ 2 NH_3 :",
     "options": [
       {
         "label": "a",
-        "text": "K = [NH₃] / ([H₂]³ · [N₂])",
+        "text": "K = \\frac{[NH_3]}{[H_2]^3.[N_2]}",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "K = [NH₃]² / ([H₂]³ · [N₂])",
+        "text": "K = \\frac{[NH_3]^2}{[H_2]^3.[N_2]}",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "K = ([N₂] · [H₂]³) / [NH₃]²",
+        "text": "K = \\frac{[N_2].[H_2]^3}{[NH_3]^2}",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "K = [N₂] · [H₂]³",
+        "text": "K = [N_2] . [H_2]^3",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "K = [NH₃]² / ([H₂]³ + [N₂])",
+        "text": "K = \\frac{[NH_3]^2}{[H_2]^3+[N_2]}",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "K = ([N₂] + [H₂]³) / [NH₃]²",
+        "text": "K = \\frac{[N_2]+[H_2]^3}{[NH_3]^2}",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "K = ([N₂] · [H₂] · [NH₃]) / 3",
+        "text": "K = \\frac{[N_2].[H_2].[NH_3]}{3}",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "K = ([N₂] + [H₂] + [NH₃]) / 3",
+        "text": "K = \\frac{[N_2]+[H_2]+[NH_3]}{3}",
         "is_correct": false
       }
     ]
@@ -5928,42 +5928,42 @@
     "options": [
       {
         "label": "a",
-        "text": "K = ([KCl] · [KClO₄]) / [KClO₃]⁴",
+        "text": "K = ([KCl].[KClO₄]) / [KClO₃]⁴",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "K = ([KCl] · [KClO₄]²) / [KClO₃]³",
+        "text": "K = ([KCl].[KClO₄]²) / [KClO₃]³",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "K = [KClO₃]⁴ / ([KCl] · [KClO₄]³)",
+        "text": "K = [KClO₃]⁴ / ([KCl].[KClO₄]³)",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "K = ([KCl] · [KClO₄]³) / [KClO₃]⁴",
+        "text": "K = ([KCl].[KClO₄]³) / [KClO₃]⁴",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "K = ([KCl] + [KClO₄]³) / [KClO₃]⁴",
+        "text": "K = ([KCl]+[KClO₄]³) / [KClO₃]⁴",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "K = [KClO₃]⁴ / ([KCl] + [KClO₄]³)",
+        "text": "K = [KClO₃]⁴ / ([KCl]+[KClO₄]³)",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "K = ([KClO₃] · [KCl] · [KClO₄]) / 3",
+        "text": "K = ([KClO₃].[KCl].[KClO₄]) / 3",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "K = ([KClO₃] + [KCl] + [KClO₄]) / 3",
+        "text": "K = ([KClO₃]+[KCl]+[KClO₄]) / 3",
         "is_correct": false
       }
     ]
@@ -6226,7 +6226,7 @@
       {
         "label": "d",
         "text": "sú zdrojom energie",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
@@ -6978,12 +6978,12 @@
       {
         "label": "d",
         "text": "hydridy sú ternárne zlúčeniny vodíka s inými prvkami",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "zlúčeniny s nepolárnymi kovalentnými väzbami nereagujú s vodou",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
@@ -7442,7 +7442,7 @@
       },
       {
         "label": "c",
-        "text": "amfotérnych prvkov majú atóm kyslíka s oxidačným číslom I",
+        "text": "amfoterne prvkov majú atóm kyslíka s oxidačným číslom I",
         "is_correct": false
       },
       {
@@ -7907,7 +7907,7 @@
       },
       {
         "label": "b",
-        "text": "môže reagovať so silnými hydroxidmi a vytvárať soli hydrogenperoxidy MᴵHO₂ a peroxidy M₂'O₂",
+        "text": "môže reagovať so silnými hydroxidmi a vytvárať soli hydrogenperoxidy MᴵHO₂ a peroxidy M₂ᴵO₂",
         "is_correct": true
       },
       {
@@ -8043,7 +8043,7 @@
     "options": [
       {
         "label": "a",
-        "text": "možno odstrániť varom podľa rovnice: CaCO₃ + H₂O + CO₂ ⇄ Ca(HCO₃)₂",
+        "text": "možno odstrániť varom podľa rovnice: CaCO₃ + H₂O + CO₂ ⟵ ⟶ Ca(HCO₃)₂",
         "is_correct": false
       },
       {
@@ -8095,7 +8095,7 @@
       },
       {
         "label": "b",
-        "text": "možno odstrániť rozkladom solí, ktoré ju spôsobujú, t.j. NaHCO₃ a KHCO₃, podľa rovnice: 2 NaHCO₃ ⟶ Na₂CO₃ + H₂CO₃",
+        "text": "možno odstrániť rozkladom solí, ktoré ju spôsobujú, t.j. NaHCO₃ a KHCO₃, podľa rovnice: 2 NaHCO₃ ⟶ Na₂CO₃ + H₂O",
         "is_correct": false
       },
       {
@@ -8115,7 +8115,7 @@
       },
       {
         "label": "f",
-        "text": "možno odstrániť varom podľa reakcie: Ca(HCO₃)₂ ⟶ CaCO₃ + H₂O + CO₂",
+        "text": "možno odstrániť varom podľa rovnice: Ca(HCO₃)₂ ⟶ CaCO₃ + H₂O + CO₂",
         "is_correct": true
       },
       {
@@ -8299,7 +8299,7 @@
       {
         "label": "e",
         "text": "pri reakcii s alkalickými kovmi",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
@@ -8518,7 +8518,7 @@
       },
       {
         "label": "b",
-        "text": "pre svoju reaktivitu sa v prírode nevyskytujú voľné, ale len viazané v zlúčeninách",
+        "text": "pre svoju reaktivitu sa v prírode nevyskytujú voľne, ale len viazané v zlúčeninách",
         "is_correct": true
       },
       {
@@ -8528,7 +8528,7 @@
       },
       {
         "label": "d",
-        "text": "po odovzdaní jedného elektrónu získajú konfiguráciu najbližšieho nasledujúceho vzácneho plynu",
+        "text": "po odovzdaní jedného elektrónu získavajú konfiguráciu najbližšieho nasledujúceho vzácneho plynu",
         "is_correct": false
       },
       {
@@ -8805,7 +8805,7 @@
       },
       {
         "label": "c",
-        "text": "prvky, ktorých elektrónová konfigurácia valenčnej vrstvy (n) je ns²np⁶",
+        "text": "prvky, ktorých elektrónová konfigurácia valenčnej vrstvy (n) je ns²np⁴",
         "is_correct": false
       },
       {
@@ -9077,42 +9077,42 @@
     "options": [
       {
         "label": "a",
-        "text": "KCr(SO₃)₂ · 12 H₂O",
+        "text": "KCr(SO₃)₂.12 H₂O",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "K₂Cr(SO₃)₂ · 12 H₂O",
+        "text": "K₂Cr(SO₃)₂.12 H₂O",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "KCr(SO₄)₂ · 12 H₂O",
+        "text": "KCr(SO₄)₂.12 H₂O",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "K₂SO₃ - CrSO₄ · 12 H₂O",
+        "text": "K₂SO₃ - CrSO₄.12 H₂O",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "KCrS₂O₇ · 12 H₂O",
+        "text": "KCrS₂O₇.12 H₂O",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "KCr(S₂O₄)₂ · 12 H₂O",
+        "text": "KCr(S₂O₄)₂.12 H₂O",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "K[Cr(SO₃)₄] · 12 H₂O",
+        "text": "K[Cr(SO₃)₄].12 H₂O",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "K₂S₂O₄ - CrS₂O₆ · 12 H₂O",
+        "text": "K₂S₂O₄ - CrS₂O₆.12 H₂O",
         "is_correct": false
       }
     ]
@@ -9206,7 +9206,7 @@
       },
       {
         "label": "h",
-        "text": "ns²np_x²np_y¹np_z¹",
+        "text": "ns²npₓ²npᵧ¹np₂¹",
         "is_correct": true
       }
     ]
@@ -9223,7 +9223,7 @@
       },
       {
         "label": "b",
-        "text": "[He]2s²2p_x¹2p_y¹2p_z¹",
+        "text": "[He]2s²2pₓ¹2pᵧ¹2p₂¹",
         "is_correct": true
       },
       {
@@ -9526,17 +9526,17 @@
       {
         "label": "f",
         "text": "je viazaný v zlúčenine, ktorá sa tiež nazýva “rajský plyn”",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "g",
         "text": "tvorí tri oxidy: N₂O, NO₃, N₂O₇",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "h",
         "text": "nachádza sa viazaný v močovine",
-        "is_correct": true
+        "is_correct": false
       }
     ]
   },
@@ -9829,42 +9829,42 @@
     "options": [
       {
         "label": "a",
-        "text": "Bi(ClO₂)₂, SrHPO₄, (NH₄)₃AsO₄",
+        "text": "Bi(ClO₂)₂,   SrHPO₄,   (NH₄)₃AsO₄",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "Bi(ClO₃)₃, Sr₃(PO₄)₂, NH₄AsO₃",
+        "text": "Bi(ClO₃)₃,   Sr₃(PO₄)₂,   NH₄AsO₃",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "Bi(ClO₄)₃, Sr(H₂PO₄)₂, NH₄H₂AsO₄",
+        "text": "Bi(ClO₄)₃,   Sr(H₂PO₄)₂,   NH₄H₂AsO₄",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "BiClO₄, SrH₂P₂O₇, (NH₄)₂AsO₂",
+        "text": "BiClO₄,   SrH₂P₂O₇,   (NH₄)₂AsO₂",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "BiCl₃, Sr₃(PO₄)₂, (NH₄)₃AsO₃",
+        "text": "BiCl₃,   Sr₃(PO₄)₂,   (NH₄)₃AsO₃",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "Bi(ClO)₄, Sr(H₂PO₄)₂, NH₄H₂AsO₄",
+        "text": "Bi(ClO)₄,   Sr(H₂PO₄)₂,   NH₄H₂AsO₄",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "Bi(ClO)₃, Sr₂P₂O₇, (NH₄)₃AsO₃",
+        "text": "Bi(ClO)₃,   Sr₂P₂O₇,   (NH₄)₃AsO₃",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "Bi(ClO₄)₃, Sr(H₂PO₄)₂, (NH₄)₂H₂AsO₄",
+        "text": "Bi(ClO₄)₃,   Sr(H₂PO₄)₂,   (NH₄)₂H₂AsO₄",
         "is_correct": false
       }
     ]
@@ -11020,17 +11020,17 @@
       {
         "label": "d",
         "text": "KOH je slabší ako LiOH",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "NaOH je slabší ako RbOH",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
         "text": "Ca(OH)₂ je silnejší ako Ba(OH)₂",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "g",
@@ -11113,7 +11113,7 @@
       },
       {
         "label": "d",
-        "text": "podľa oxidačného čísla majú ich zlúčeniny v roztokoch rôzne sfarbenie, napr. zlúčeniny Crⱽᴵ sú žlté a zlúčeniny Crᴵᴵᴵ sú zelené",
+        "text": "podľa oxidačného čísla majú ich zlúčeniny v roztokoch rôzne sfarbenie, napr. zlúčeniny Crᵥᵢ sú žlté a zlúčeniny Crᵢᵢᵢ sú zelené",
         "is_correct": true
       },
       {
@@ -11521,42 +11521,42 @@
     "options": [
       {
         "label": "a",
-        "text": "IV v (NH₄)₂[Ce(NO₃)₆]",
+        "text": "IV v (NH4)2[Ce(NO3)6]",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "II v K₃[Co(CN)₆]",
+        "text": "V v K3[Co(CN)6]",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "III v [Fe(H₂O)₆]Cl₂",
+        "text": "III v [Fe(H2O)6]Cl2",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "IV v Cs₂[Pt(OH)₆]",
+        "text": "IV v Cs2[Pt(OH)6]",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "II v [Pt(NH₃)₆]Cl₄",
+        "text": "II v [Pt(NH3)6]Cl4",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "I v K[Au(CN)₂]",
+        "text": "I v K[Au(CN)2]",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "I v [Cu(H₂O)₄]SO₄",
+        "text": "I v [Cu(H2O)4]SO4",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "II v K₂[Ni(CN)₄]",
+        "text": "II v K2[Ni(CN)4]",
         "is_correct": true
       }
     ]
@@ -11781,7 +11781,7 @@
       },
       {
         "label": "f",
-        "text": "strieborné predmety v prostredí sulfánu na vzduchu postupne očernejú, pretože prebieha reakcia: 4 Ag + 2 H₂S + O₂ ⟶ 2 Ag₂S + 2 H₂O",
+        "text": "strieborné predmety v prostredí sulfánu na vzduchu postupne očernejú, pretože prebieha reakcia: 4 Ag + 2 H₂S + O₂ ────► 2 Ag₂S + 2 H₂O",
         "is_correct": true
       },
       {
@@ -11791,7 +11791,7 @@
       },
       {
         "label": "h",
-        "text": "v zlúčenine Na[AuCl₄] · 2 H₂O má centrálny atóm oxidačné číslo IV a koordinačné číslo 3",
+        "text": "v zlúčenine Na[AuCl₄] . 2 H₂O má centrálny atóm oxidačné číslo IV a koordinačné číslo 3",
         "is_correct": false
       }
     ]
@@ -11813,7 +11813,7 @@
       },
       {
         "label": "c",
-        "text": "síran meďnatý je súčasťou Fehlingovho činidla na dôkaz redukčných vlastností organických látok (napr. monosacharidov), pričom dochádza k reakcii: Cu²⁺ + e⁻ ⟶ Cu¹⁺",
+        "text": "síran meďnatý je súčasťou Fehlingovho činidla na dôkaz redukčných vlastností organických látok (napr. monosacharidov), pričom dochádza k reakcii: Cu²⁺ + e⁻ ⟶ Cu⁺",
         "is_correct": true
       },
       {
@@ -12105,7 +12105,7 @@
       },
       {
         "label": "e",
-        "text": "6,4 · 10⁻³ mol",
+        "text": "6,4 . 10⁻³ mol",
         "is_correct": false
       },
       {
@@ -12115,7 +12115,7 @@
       },
       {
         "label": "g",
-        "text": "1,8 · 10⁻³ mol",
+        "text": "1,8 . 10⁻³ mol",
         "is_correct": true
       },
       {
@@ -12222,7 +12222,7 @@
   {
     "id": "CHEM_261",
     "subject": "Chemistry",
-    "question": "Koľko vody treba odpariť zo 600 g 3,5 %-ného (w %) roztoku chloridu sodného, aby sme získali 12 %-ný (w %) roztok NaCl? Mᵣ(NaCl) = 58; Mᵣ(H₂O) = 18",
+    "question": "Koľko vody treba odpariť zo 600 g 3,5 %-ného (w %) roztoku chloridu sodného, aby sme získali 12 %-ný (w %) roztok NaCl? Mᵣ (NaCl) = 58; Mᵣ(H₂O) = 18",
     "options": [
       {
         "label": "a",
@@ -12721,17 +12721,17 @@
       },
       {
         "label": "f",
-        "text": "3 g KCl v 100 g roztoku",
+        "text": "6 g KCl v 200 g vody",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "6 g KCl v 200 g vody",
+        "text": "6 g KCl v 200 ml vody",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "6 g KCl v 200 ml vody",
+        "text": "3 g KCl v 100 g roztoku",
         "is_correct": false
       }
     ]
@@ -13021,7 +13021,7 @@
   {
     "id": "CHEM_278",
     "subject": "Chemistry",
-    "question": "Na rozpustenie 1 g jodidu olovnatého pri 18 °C je treba pridať vodu do objemu 1470 ml (ρ_H₂O = 1 g/cm³). Vypočítajte koncentráciu PbI₂ a iónov v roztoku a určte konštantu rozpustnosti (Kₛ) jodidu olovnatého. Aᵣ(I) = 127; Aᵣ(Pb) = 207",
+    "question": "Na rozpustenie 1 g jodidu olovnatého pri 18 °C je treba pridať vodu do objemu 1470 ml (ρH2O = 1 g/cm³). Vypočítajte koncentráciu PbI₂ a iónov v roztoku a určite konštantu rozpustnosti (KS) jodidu olovnatého. Ar(I) = 127; Ar(Pb) = 207",
     "options": [
       {
         "label": "a",
@@ -13030,12 +13030,12 @@
       },
       {
         "label": "b",
-        "text": "Kₛ = 1,28.10⁻⁶",
+        "text": "KS = 1,28.10⁻⁶",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "Kₛ = 1,28.10⁻⁸",
+        "text": "KS = 1,28.10⁻⁸",
         "is_correct": true
       },
       {
@@ -13045,7 +13045,7 @@
       },
       {
         "label": "e",
-        "text": "c(Pb²⁺) = 1, 476 mmol/l",
+        "text": "c(Pb²⁺) = 1,476 mmol/l",
         "is_correct": true
       },
       {
@@ -13055,7 +13055,7 @@
       },
       {
         "label": "g",
-        "text": "Kₛ = 2,28.10⁻⁶",
+        "text": "KS = 2,28.10⁻⁶",
         "is_correct": false
       },
       {
@@ -13397,7 +13397,7 @@
   {
     "id": "CHEM_286",
     "subject": "Chemistry",
-    "question": "Vypočítajte koncentráciu HNO₃ v roztoku, ktorý obsahuje 3,5.10⁻³ mol HNO₃ v 400 ml roztoku, resp. hmotnosť HNO₃ v 400 ml daného roztoku. Mr(HNO₃) = 63",
+    "question": "Vypočítajte koncentráciu HNO₃ v roztoku, ktorý obsahuje 3,5.10⁻³ mol HNO₃ v 400 ml roztoku, resp. hmotnosť HNO₃ v 400 ml daného roztoku. Mᵣ(HNO₃) = 63",
     "options": [
       {
         "label": "a",
@@ -14055,7 +14055,7 @@
   {
     "id": "CHEM_300",
     "subject": "Chemistry",
-    "question": "pH roztoku H₂SO₄ je 1,097. Vypočítajte koncentráciu roztoku kyseliny sírovej (log 8 = 0,903; log 4 = 0,602; antilogaritmus -1,097= 0,07998)",
+    "question": "pH roztoku H2SO4 je 1,097. Vypočítajte koncentráciu roztoku kyseliny sírovej (log 8 = 0,903; log 4 = 0,602; antilogaritmus -1,097= 0,07998)",
     "options": [
       {
         "label": "a",
@@ -14069,7 +14069,7 @@
       },
       {
         "label": "c",
-        "text": "8.10⁻³ mol/l",
+        "text": "8,10-3 mol/l",
         "is_correct": false
       },
       {
@@ -14089,7 +14089,7 @@
       },
       {
         "label": "g",
-        "text": "4.10⁻² mmol/l",
+        "text": "4.10-2 mmol/l",
         "is_correct": false
       },
       {
@@ -14337,7 +14337,7 @@
   {
     "id": "CHEM_306",
     "subject": "Chemistry",
-    "question": "Vypočítajte, koľko amoniaku vznikne pri jeho syntéze z dusíka a vodíka, ak množstvo vodíka, ktoré vstupuje do reakcie, je 4,5 mol. Aᵣ(N) = 14; Aᵣ(H) =1",
+    "question": "Vypočítajte, koľko amoniaku vznikne pri jeho syntéze z dusíka a vodíka, ak množstvo vodíka, ktoré vstupuje do reakcie, je 4,5 mol. Aᵣ(N) = 14; Aᵣ(H) = 1",
     "options": [
       {
         "label": "a",
@@ -14461,12 +14461,12 @@
       {
         "label": "f",
         "text": "4,2 g CaO",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "g",
         "text": "0,75 mol CO₂",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "h",
@@ -15673,12 +15673,12 @@
       {
         "label": "d",
         "text": "neelektrolytom môže byť ribóza",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "neelektrolytom môže byť fruktóza",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
@@ -16284,12 +16284,12 @@
       {
         "label": "d",
         "text": "11,2 litra CH ≡ CH",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "35,5 g Cl₂",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
@@ -16931,12 +16931,12 @@
       },
       {
         "label": "b",
-        "text": "1s² 2s² 2p_x¹ 2p_y¹ 2p_z¹",
+        "text": "1s² 2s² 2px¹ 2py¹ 2pz¹",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "1s² 2s¹ 2p_x¹ 2p_y¹ 2p_z¹",
+        "text": "1s² 2s¹ 2px¹ 2py¹ 2pz¹",
         "is_correct": true
       },
       {
@@ -16951,12 +16951,12 @@
       },
       {
         "label": "f",
-        "text": "1s² 2s¹ 2p_x¹ 2p_y²",
+        "text": "1s² 2s¹ 2px¹ 2py²",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "1s² 2s¹ 2p_x³",
+        "text": "1s² 2s¹ 2px³",
         "is_correct": false
       },
       {
@@ -17238,7 +17238,7 @@
       },
       {
         "label": "g",
-        "text": "-C(=O)- oxoskupina",
+        "text": "-C=O oxoskupina",
         "is_correct": true
       },
       {
@@ -17298,46 +17298,46 @@
   {
     "id": "CHEM_369",
     "subject": "Chemistry",
-    "question": "Ktoré z uvedených zlúčenín obsahujú terciárny atóm uhlíka:",
+    "question": "Vypočítajte, koľko oxidu uhličitého a koľko vody vznikne oxidáciou 20 mólov metánu za normálnych podmienok. A_r(C) = 12; A_r(O) = 16; A_r(H) = 1",
     "options": [
       {
         "label": "a",
-        "text": "CH₃-CH₂-OH",
+        "text": "40 mol CO_2",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "CH₂(OH)-CH(OH)-CH₂(OH)",
+        "text": "20 mol CO_2",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "CH₃-CH(CH₃)-CH₂-OH",
+        "text": "44,8 litra CO_2",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "(CH₃)₃C-OH",
+        "text": "448 litrov CO_2",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "HO-CH₂-CH₂-OH",
+        "text": "20 mol H_2O",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "(CH₃)₃N",
+        "text": "40 mol H_2O",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "(CH₃)₄C",
+        "text": "720 g H_2O",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "Cl₃C-COOH",
+        "text": "360 g H_2O",
         "is_correct": false
       }
     ]
@@ -17490,42 +17490,42 @@
     "options": [
       {
         "label": "a",
-        "text": "CH=CH\n|\t|\nCH₃ CH₃",
+        "text": "CH=CH\n|  |\nCH₃ CH₃",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "CH=CH\n|\t|\nBr\tBr",
+        "text": "CH=CH\n|  |\nBr Br",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "CH₂-CH₂\n|\t|\nCH₃ CH₃",
+        "text": "CH₂-CH₂\n|  |\nCH₃ CH₃",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "HOOC\tH\n   \\\t/\n    C=C\n   /\t\\\n  H\tCOOH",
+        "text": "HOOC   H\n   \\ /\n    C=C\n   /   \\\n  H     COOH",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "H\tCH₂CH₃\n \\\t/\n  C=C\n /\t\\\nH\tH",
+        "text": "H   CH₂CH₃\n \\ /\n  C=C\n /   \\\nH     H",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "H\tCH₃\n \\\t/\n  C=C\n /\t\\\nH\tH",
+        "text": "H   CH₃\n \\ /\n  C=C\n /   \\\nH     H",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "H\tCH₂CH₃\n \\\t/\n  C=C\n /\t\\\nCH₃CH₂ H",
+        "text": "H   CH₂CH₃\n \\ /\n  C=C\n /   \\\nCH₃CH₂ H",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "H\tH\n \\\t/\n  C=C\n /\t\\\nCH₃ H",
+        "text": "H   H\n \\ /\n  C=C\n /   \\\nCH₃ H",
         "is_correct": false
       }
     ]
@@ -17537,42 +17537,42 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₃-(CH₂)₆-CH₂ H\n            \\ /\n             C=C\n            /   \\\n           H     CH₂-(CH₂)₆-COOH",
+        "text": "CH₃-(CH₂)₆-CH₂       H\n          \\     /\n           C = C\n          /     \\\n         H       CH₂-(CH₂)₆-COOH",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "HOOC  H\n   \\ /\n    C=C\n   /   \\\n  H     COOH",
+        "text": "HOOC       H\n    \\     /\n     C = C\n    /     \\\n   H       COOH",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "HOOC  COOH\n   \\ /\n    C=C\n   /   \\\n  H     H",
+        "text": "HOOC      COOH\n    \\     /\n     C = C\n    /     \\\n   H       H",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "OH OH\n|  |\nCH-CH\n|  |\nH  H",
+        "text": "OH   OH\n|    |\nCH - CH\n|    |\nH    H",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "CH₃-(CH₂)₆-CH₂ CH₂-(CH₂)₆-COOH\n            \\ /\n             C=C\n            /   \\\n           H     H",
+        "text": "CH₃-(CH₂)₆-CH₂     CH₂-(CH₂)₆-COOH\n            \\     /\n             C = C\n            /     \\\n           H       H",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "OH\n|\nCH₂-CH₂\n    |\n    OH",
+        "text": "OH\n|\nCH₂ - CH₂\n      |\n      OH",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "CH₃ H\n  \\ /\n   C=C\n  /   \\\n H     CH₃",
+        "text": "CH₃      H\n  \\     /\n   C = C\n  /     \\\n H       CH₃",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "Br\n|\nCH=CH\n    |\n    Br",
+        "text": "Br\n|\nCH = CH\n      |\n      Br",
         "is_correct": true
       }
     ]
@@ -17580,46 +17580,46 @@
   {
     "id": "CHEM_375",
     "subject": "Chemistry",
-    "question": "Dvojica vzorcov zlúčenín CH₃-CO-O-CH₂-CH₃ a CH₃-CH₂-O-CO-CH₃ predstavuje:",
+    "question": "Aký objem, hmotnosť alebo látkové množstvo etánu vznikne reakciou 13 g acetylénu s objemom 44,8 litrov vodíka? A_r(H) = 1; A_r(C) = 12",
     "options": [
       {
         "label": "a",
-        "text": "konštitučné izoméry",
+        "text": "30 g",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "tautoméry",
+        "text": "1 mol",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "etylester kyseliny etánovej",
+        "text": "0,5 mol",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "rovnakú zlúčeninu",
+        "text": "11,2 litra",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "etylester kyseliny octovej",
+        "text": "22,4 litra",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "octan etylový",
+        "text": "500 mmol",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "stereoizoméry",
+        "text": "15 g",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "enantioméry",
+        "text": "0,5 mmol",
         "is_correct": false
       }
     ]
@@ -17646,27 +17646,27 @@
       },
       {
         "label": "d",
-        "text": "CH₂(CH₃)-CH₃ a CH₃-CH₂-CH₃",
+        "text": "CH₂-CH₃ a CH₃-CH₂-CH₃",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "1,4-dimetylbenzén a 1,3-dimetylbenzén",
+        "text": "H₃C-(benzene)-CH₃ a H₃C-(benzene)-CH₃(Cl) (1-chlór-2,4-dimetylbenzén)",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "1,4-dichlórbenzén a 1,3-dichlórbenzén",
+        "text": "Cl-(benzene)-Cl a Cl-(benzene)-Cl (1,3-dichlórbenzén)",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "kyselina 2-hydroxybenzoová a kyselina 2-acetoxybenzoová",
+        "text": "COOH-(benzene)-OH a COOH-(benzene)-OCOCH₃",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "1,4-dimetylbenzén a etylbenzén",
+        "text": "H₃C-(benzene)-CH₃ a (benzene)-CH₂-CH₃",
         "is_correct": true
       }
     ]
@@ -17678,17 +17678,17 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₃-NH-CO-CH₃ a CH₃-CH₂-CO-NH₂",
+        "text": "CH₃-NH-C(=O)-CH₃ a CH₃-CH₂-C(=O)-NH₂",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "CH₃-CO-CH₂-CH₃ a CH₃-CH₂-CO-CH₃",
+        "text": "CH₃-C(=O)-CH₂-CH₃ a CH₃-CH₂-C(=O)-CH₃",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "H-CO-O-CH₃ a CH₃-CO-OH",
+        "text": "H-C(=O)-O-CH₃ a CH₃-C(=O)-OH",
         "is_correct": true
       },
       {
@@ -17721,46 +17721,46 @@
   {
     "id": "CHEM_378",
     "subject": "Chemistry",
-    "question": "Izoméry cis-trans tvorí:",
+    "question": "Aký objem, hmotnosť alebo látkové množstvo etánu vznikne reakciou 13 g acetylénu s objemom 44,8 litrov vodíka? $A_r(H) = 1; A_r(C) = 12$",
     "options": [
       {
         "label": "a",
-        "text": "2-pentén (pent-2-én)",
+        "text": "30 g",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "1-chlór-1-propén (1-chlórprop-1-én)",
+        "text": "1 mol",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "1,3,5-hexatrién (hexa-1,3,5-trién)",
+        "text": "0,5 mol",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "1-pentén (pent-1-én)",
+        "text": "11,2 litra",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "propén",
+        "text": "22,4 litra",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "3-hexén (hex-3-én)",
+        "text": "500 mmol",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "2-hexén (hex-2-én)",
+        "text": "15 g",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "2-metyl-2-butén (2-metylbut-2-én)",
+        "text": "0,5 mmol",
         "is_correct": false
       }
     ]
@@ -17892,7 +17892,7 @@
       {
         "label": "f",
         "text": "CH₃-CH(Cl)-CH₂-CH₃",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "g",
@@ -17960,42 +17960,42 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₃-CH(NH₂)-COOH",
+        "text": "CH₃-CH-COOH\n   |\n   NH₂",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "CH₃-CH(OH)-COOH",
+        "text": "CH₃-CH-COOH\n   |\n   OH",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "HOOC-CH(OH)-COOH",
+        "text": "HOOC-CH-COOH\n     |\n     OH",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "HO-C(COOH)(CH₂-COOH)₂",
+        "text": "CH₂-COOH\n |\nHO-C-COOH\n |\nCH₂-COOH",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "HOOC-CH(OH)-CH₂-COOH",
+        "text": "HOOC-CH-CH₂-COOH\n     |\n     OH",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "HO-CH₂-CH(OH)-CHO",
+        "text": "HO-CH₂-CH-CHO\n       |\n       OH",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "CH₂(OH)-CH(OH)-CH(OH)-CH(OH)-CHO",
+        "text": "CH₂-CH-CH-CH-CHO\n |  |  |  |\nOH OH OH OH",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "HO-CH(COOH)-CH(COOH)-CH₂-COOH",
+        "text": "HO-CH-COOH\n   |\n   CH-COOH\n   |\n   CH₂-COOH",
         "is_correct": true
       }
     ]
@@ -18097,7 +18097,7 @@
   {
     "id": "CHEM_386",
     "subject": "Chemistry",
-    "question": "Zlúčenine vzorca CH₂=CH-C(CH₃)=CH₂ priraďte správny systémový alebo triviálny názov:",
+    "question": "Zlúčenine vzorca CH₂=CH-C=CH₂ priraďte správny systémový alebo triviálny\nCH₃\nnázov:",
     "options": [
       {
         "label": "a",
@@ -18191,7 +18191,7 @@
   {
     "id": "CHEM_388",
     "subject": "Chemistry",
-    "question": "Zlúčenina vzorca CH₃-CH(NH₂)-CH₃ predstavuje:",
+    "question": "Zlúčenina vzorca CH₃-CH-CH₃ predstavuje:\nNH₂",
     "options": [
       {
         "label": "a",
@@ -18332,7 +18332,7 @@
   {
     "id": "CHEM_391",
     "subject": "Chemistry",
-    "question": "H-C(=O)H je:",
+    "question": "H-C=O je:\n  H",
     "options": [
       {
         "label": "a",
@@ -18426,7 +18426,7 @@
   {
     "id": "CHEM_393",
     "subject": "Chemistry",
-    "question": "Zlúčenina vzorca CH₂(OH)-CH(OH)-C(=O)H je:",
+    "question": "Zlúčenina vzorca CH₂-CH-C=O je:\n  OH OH H",
     "options": [
       {
         "label": "a",
@@ -18455,7 +18455,7 @@
       },
       {
         "label": "f",
-        "text": "produktom redukcie glycerolu",
+        "text": "zlúčenina, ktorá vzniká redukciou glycerolu",
         "is_correct": false
       },
       {
@@ -18473,7 +18473,7 @@
   {
     "id": "CHEM_394",
     "subject": "Chemistry",
-    "question": "Určte systémový názov zlúčeniny CH₃-C(CH₃)=CH-COOH:",
+    "question": "Určte systémový názov zlúčeniny CH₃-C=CH-COOH:",
     "options": [
       {
         "label": "a",
@@ -18482,7 +18482,7 @@
       },
       {
         "label": "b",
-        "text": "ß-metyl-3-buténová kyselina",
+        "text": "β-metyl-3-buténová kyselina",
         "is_correct": false
       },
       {
@@ -18524,42 +18524,42 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₃-CH(CH₃)-CH₂-CH₂-CH₃   4-metylpentán",
+        "text": "CH₃-CH-CH₂-CH₂-CH₃  4-metylpentán\n    | \n    CH₃",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "CH₃-CH(CH₃)-CH₂-CH₃   2-metylbután",
+        "text": "CH₃-CH-CH₂-CH₃  2-metylbután\n    | \n    CH₃",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "CH₃-CH₂-CH₂-CH(CH₃)-CH₃   4-metylpentán",
+        "text": "CH₃-CH₂-CH₂-CH-CH₃  4-metylpentán\n                | \n                CH₃",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "CH₃-CH(CH₃)-CH₂-CH(CH₃)-CH₂-CH₃   2,4-dimetylhexán",
+        "text": "CH₃-CH-CH₂-CH-CH₂-CH₃  2,4-dimetylhexán\n    |      | \n    CH₃    CH₃",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "CH₃-C(CH₃)₂-CH₂-CH₂-CH₃   4,4-dimetylpentán",
+        "text": "CH₃-C-CH₂-CH₂-CH₃  4,4-dimetylpentán\n    | \n    CH₃",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "C₆H₅-CH=CH₂   vinylbenzén",
+        "text": "C₆H₅-CH=CH₂  vinylbenzén",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "C₆H₅-CH₃   toluén",
+        "text": "C₆H₅-CH₃  toluén",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "CH₂=CH-CH=CH₂   1,3-butadién (buta-1,3-dién)",
+        "text": "CH₂=CH-CH=CH₂  1,3-butadién (buta-1,3-dién)",
         "is_correct": true
       }
     ]
@@ -18759,17 +18759,17 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₃-CH(Cl)-CH₂-CH₃",
+        "text": "CH₃-CH-CH₂-CH₃\n      | \n      Cl",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "CH₂(Cl)-CH₂-CH₂-CH₃",
+        "text": "CH₂-CH₂-CH₂-CH₃\n      |\n      Cl",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "CH(H)=C(Cl)-CH₂-CH₃",
+        "text": "CH=C-CH₂-CH₃\n      |  |\n      H  Cl",
         "is_correct": false
       },
       {
@@ -19037,7 +19037,7 @@
   {
     "id": "CHEM_406",
     "subject": "Chemistry",
-    "question": "Reakcia CH₃OH + HCOOH —(H⁺)⟶ HCOOCH₃ + H₂O je:",
+    "question": "Reakcia CH₃OH + HCOOH ⟶ (nad šípkou H⁺) HCOOCH₃ + H₂O je:",
     "options": [
       {
         "label": "a",
@@ -19323,42 +19323,42 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₃Br   brómmetán",
+        "text": "CH₃Br brómmetán",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "CH₂=CH-Br   vinylbromid",
+        "text": "CH₂=CH-Br vinylbromid",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "C₆H₅-Br   brómbenzén",
+        "text": "C₆H₅-Br brómbenzén",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "C₂H₅-NO   nitroetán",
+        "text": "C₂H₅-NO nitroetán",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "C₂H₅CHO   propanol",
+        "text": "C₂H₅CHO propanol",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "H₂C=O   metanál",
+        "text": "H₂C=O metanál",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "CH₃-CO-CH₃   acetón",
+        "text": "CH₃-CO-CH₃ acetón",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "CH₃CHO   formaldehyd",
+        "text": "CH₃CHO formaldehyd",
         "is_correct": false
       }
     ]
@@ -19742,46 +19742,46 @@
   {
     "id": "CHEM_421",
     "subject": "Chemistry",
-    "question": "Izobutyl, 1-(2-metyl)propyl, je:",
+    "question": "Zlúčenina vzorca CH₃–CH–CH₃ predstavuje:\n                NH₂",
     "options": [
       {
         "label": "a",
-        "text": "CH₃-CH₂-CH₂-CH₂-",
+        "text": "terciárny amín",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "CH₃-CH(-)-CH₂-CH₃",
+        "text": "imín",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "(CH₃)₂CH-CH₂-",
+        "text": "substitučný derivát propánu",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "(CH₃)₃C-",
+        "text": "slabú zásadu",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "aryl",
+        "text": "nitropropán",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "alkyl",
+        "text": "2-aminopropán",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "radikál",
+        "text": "sekundárny amín",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "jednoväzbová skupina",
+        "text": "primárny amín",
         "is_correct": true
       }
     ]
@@ -19977,46 +19977,46 @@
   {
     "id": "CHEM_426",
     "subject": "Chemistry",
-    "question": "o- a p- (orto- a para-) orientujúce substituenty na aromatickom jadre sú:",
+    "question": "Zlúčenina vzorca CH₂-CH-C=O je:\n                         OH OH H",
     "options": [
       {
         "label": "a",
-        "text": "-NO₂",
+        "text": "glyceraldehyd",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "-OH",
+        "text": "dihydroxyacetón",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "-COOH",
+        "text": "oxozlúčenina",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "-CH₃",
+        "text": "aldehyd",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "-Br",
+        "text": "2,3-dihydroxypropanál",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "-COR",
+        "text": "produktom redukcie glycerolu",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "-NH₂",
+        "text": "zlúčenina opticky aktívna",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "-Cl",
+        "text": "zlúčenina obsahujúca jeden asymetrický atóm uhlíka v molekule",
         "is_correct": true
       }
     ]
@@ -20283,22 +20283,22 @@
       },
       {
         "label": "e",
-        "text": "CH₃-CH=CH-CH₃ + H₂O —(H⁺)⟶ CH₃-CH₂-CH(OH)-CH₃",
+        "text": "CH₃-CH=CH-CH₃ + H₂O —H⁺⟶ CH₃-CH₂-CH(OH)-CH₃",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "CH₃-CH=CH-CH₃ + H₂O —(H⁺)⟶ CH₃-CH(OH)-CH₂-CH₃",
+        "text": "CH₃-CH=CH-CH₃ + H₂O —H⁺⟶ CH₃-CH(OH)-CH₂-CH₃",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "CH₃-CH₂-CH=CH₂ + H₂O —(H⁺)⟶ CH₃-CH₂-CH₂-CH₂-OH",
+        "text": "CH₃-CH₂-CH=CH₂ + H₂O —H⁺⟶ CH₃-CH₂-CH₂-CH₂-OH",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "CH₃-CH₂-CH=CH₂ + H₂O —(H⁺)⟶ CH₃-CH₂-CH(OH)-CH₃",
+        "text": "CH₃-CH₂-CH=CH₂ + H₂O —H⁺⟶ CH₃-CH₂-CH(OH)-CH₃",
         "is_correct": true
       }
     ]
@@ -20310,27 +20310,27 @@
     "options": [
       {
         "label": "a",
-        "text": "C₆H₅-CH=CH-C₆H₅ + H₂O —(H⁺)⟶ C₆H₅-CH(OH)-CH₂-C₆H₅",
+        "text": "C₆H₅-CH=CH-C₆H₅ + H₂O —H⁺⟶ C₆H₅-CH(OH)-CH₂-C₆H₅",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "CH₃-CH=CH₂ + H₂O —(H⁺)⟶ CH₃-CH₂-CH₂-OH",
+        "text": "CH₃-CH=CH₂ + H₂O —H⁺⟶ CH₃-CH₂-CH₂-OH",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "Cyklohexén + H₂O —(H⁺)⟶ Cyklohexanol",
+        "text": "⬡ + H₂O —H⁺⟶ ⬡-OH",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "Benzén + H₂O —(H⁺)⟶ Fenol",
+        "text": "◯ + H₂O —H⁺⟶ ◯-OH",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "CH₃-CH₂OH —(Al₂O₃, 350-450 °C)⟶ CH₂=CH₂ + H₂O",
+        "text": "CH₃-CH₂OH —Al₂O₃, 350-450 °C⟶ CH₂=CH₂ + H₂O",
         "is_correct": true
       },
       {
@@ -20345,7 +20345,7 @@
       },
       {
         "label": "h",
-        "text": "CH≡CH + H₂O —(H₂SO₄, HgSO₄)⟶ [CH₂=CH-OH] ⟶ CH₃-C(=O)H",
+        "text": "CH≡CH + H₂O —H₂SO₄, HgSO₄⟶ [CH₂=CH-OH] ⟶ CH₃-C=O\n| H",
         "is_correct": true
       }
     ]
@@ -20357,42 +20357,42 @@
     "options": [
       {
         "label": "a",
-        "text": "C₆H₅-CH₃ + 9 O₂ ⟶ 7 CO₂ + 4 H₂O",
+        "text": "C_{6}H_{5}-CH_{3} + 9 O_{2} \\longrightarrow 7 CO_{2} + 4 H_{2}O",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "CH₃-(CH₂)₃-CH₃ + 8 O₂ ⟶ 5 CO₂ + 6 H₂O",
+        "text": "CH_{3}-(CH_{2})_{3}-CH_{3} + 8 O_{2} \\longrightarrow 5 CO_{2} + 6 H_{2}O",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "CH₄ + O₂ ⟶ CH₂O + H₂O",
+        "text": "CH_{4} + O_{2} \\longrightarrow CH_{2}O + H_{2}O",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "2 CH₄ + 4 O₂ ⟶ 2 CO₂ + 4 H₂O",
+        "text": "2 CH_{4} + 4 O_{2} \\longrightarrow 2 CO_{2} + 4 H_{2}O",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "2 C₆H₆ + 3 O₂ ⟶ 2 CH₃COOH + 2 H₂O",
+        "text": "2 C_{6}H_{6} + 3 O_{2} \\longrightarrow 2 CH_{3}COOH + 2 H_{2}O",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "CH₂=CH₂ + 2 KMnO₄ + 4 H₂O ⟶ 3 HO-CH₂-CH₂-OH + 2 MnO₂ + 2 KOH",
+        "text": "CH_{2}=CH_{2} + 2 KMnO_{4} + 4 H_{2}O \\longrightarrow 3 HO-CH_{2}-CH_{2}-OH + 2 MnO_{2} + 2 KOH",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "C₆H₁₂O₆ + 6 O₂ ⟶ 6 CO₂ + 6 H₂O",
+        "text": "C_{6}H_{12}O_{6} + 6 O_{2} \\longrightarrow 6 CO_{2} + 6 H_{2}O",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "C₁₆H₃₂O₂ + 23 O₂ ⟶ 16 CO₂ + 16 H₂O",
+        "text": "C_{16}H_{32}O_{2} + 23 O_{2} \\longrightarrow 16 CO_{2} + 16 H_{2}O",
         "is_correct": true
       }
     ]
@@ -20439,7 +20439,7 @@
       },
       {
         "label": "h",
-        "text": "CH₂=CH-CH₂-CH=CH₂ + 2 Br₂ ⟶ CH₂(Br)-CH(Br)-CH₂-CH(Br)-CH₂(Br)",
+        "text": "CH₂=CH-CH₂-CH=CH₂ + 2 Br₂ ⟶ CH₂Br-CHBr-CH₂-CHBr-CH₂Br",
         "is_correct": true
       }
     ]
@@ -20451,42 +20451,42 @@
     "options": [
       {
         "label": "a",
-        "text": "C₆H₅-NO₂ + Br₂ —(FeBr₃)⟶ p-Br-C₆H₄-NO₂ + HBr",
+        "text": "C₆H₅-NO₂ + Br₂ —(FeBr₃)⟶ Br-C₆H₄-NO₂ + HBr",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "C₆H₅-NO₂ —(HNO₃ + H₂SO₄)⟶ m-(NO₂)₂-C₆H₄",
+        "text": "C₆H₅-NO₂ —(HNO₃ + H₂SO₄)⟶ NO₂-C₆H₄-NO₂",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "C₆H₅-NO₂ —(HNO₃ + H₂SO₄)⟶ p-(NO₂)₂-C₆H₄",
+        "text": "C₆H₅-NO₂ —(HNO₃ + H₂SO₄)⟶ O₂N-C₆H₄-NO₂",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "C₆H₅-COOH + Br₂ —(FeBr₃)⟶ p-Br-C₆H₄-COOH + HBr",
+        "text": "C₆H₅-COOH + Br₂ —(FeBr₃)⟶ Br-C₆H₄-COOH + HBr",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "C₆H₅-NO₂ + Cl₂ —(AlCl₃)⟶ p-Cl-C₆H₄-NO₂ + HCl",
+        "text": "C₆H₅-NO₂ + Cl₂ —(AlCl₃)⟶ Cl-C₆H₄-NO₂ + HCl",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "C₆H₅-CH₃ + Cl₂ —(FeCl₃)⟶ m-Cl-C₆H₄-CH₃ + HCl",
+        "text": "C₆H₅-CH₃ + Cl₂ —(FeCl₃)⟶ Cl-C₆H₄-CH₃ + HCl",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "C₆H₅-NO₂ + H₂SO₄ (konc.) —(teplo)⟶ m-SO₃H-C₆H₄-NO₂",
+        "text": "C₆H₅-NO₂ + H₂SO₄ (konc.) —(teplo)⟶ SO₃H-C₆H₄-NO₂",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "C₆H₅-SO₃H + HNO₃ (konc.) —(teplo)⟶ p-NO₂-C₆H₄-SO₃H",
+        "text": "C₆H₅-SO₃H + HNO₃ (konc.) —(teplo)⟶ O₂N-C₆H₄-SO₃H",
         "is_correct": false
       }
     ]
@@ -20560,7 +20560,7 @@
       },
       {
         "label": "d",
-        "text": "CH₃-C(=O)H + 2Cu²⁺ + 5OH⁻ —(teplo)⟶ CH₃-COO⁻ + Cu₂O + 3H₂O",
+        "text": "CH₃-C(=O)H + 2Cu²⁺ + 5OH⁻ —(teplo)⟶ CH₃-C(=O)O⁻ + Cu₂O + 3H₂O",
         "is_correct": true
       },
       {
@@ -20588,46 +20588,46 @@
   {
     "id": "CHEM_439",
     "subject": "Chemistry",
-    "question": "Vyberte správne reakcie:",
+    "question": "Reakciou CH₂=CH-CH₃ + HBr → vznikne:",
     "options": [
       {
         "label": "a",
-        "text": "CH₃-C≡CH + HBr —(H⁺)⟶ CH₃-C(Br)=CH₂",
+        "text": "2-brómpropán",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "CH₃-C≡CH + HBr —(H⁺)⟶ CH₃-C(H)=CH(Br)",
+        "text": "1-brómpropán",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "CH₃-C(Br)=CH₂ + HBr —(H⁺)⟶ CH₃-CH(Br)-CH₂(Br)",
+        "text": "bromoform",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "CH₃-C(Br)=CH₂ + HBr —(H⁺)⟶ CH₃-C(Br)₂-CH₃",
+        "text": "izoprén",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "CH₃-C≡CH + H-OH —(H⁺)⟶ [CH₃-C(OH)=CH(H)] ⟶ CH₃-C(=O)-CH₃",
+        "text": "1-brómpropén",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "CH₃-C≡CH + H-OH —(H⁺)⟶ [CH₃-C(H)=CH(OH)] ⟶ CH₃-C(=O)H",
+        "text": "2-brómpropén",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "Cyklohexén + H-OH —(H⁺)⟶ Cyklohexanol",
+        "text": "alylbromid",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "Benzén + H-OH —(H⁺)⟶ Fenol",
+        "text": "vinylbromid",
         "is_correct": false
       }
     ]
@@ -20665,7 +20665,7 @@
       {
         "label": "f",
         "text": "alylchlorid",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "g",
@@ -20675,7 +20675,7 @@
       {
         "label": "h",
         "text": "etylénoxid",
-        "is_correct": true
+        "is_correct": false
       }
     ]
   },
@@ -20823,7 +20823,7 @@
   {
     "id": "CHEM_444",
     "subject": "Chemistry",
-    "question": "Reakcia CH₄ + Br₂ —(300 °C, (UV))⟶ CH₃Br + HBr je:",
+    "question": "Reakcia CH₄ + Br₂ —(300°C, (UV))→ CH₃Br + HBr je:",
     "options": [
       {
         "label": "a",
@@ -20874,42 +20874,42 @@
     "options": [
       {
         "label": "a",
-        "text": "alkén + HBr ⟶ brómalkán",
+        "text": "alkén + HBr → brómalkán",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "alkén + H₂ ⟶ alkán",
+        "text": "alkén + H₂ → alkán",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "alkén + OH⁻ ⟶ alkohol",
+        "text": "alkén + OH⁻ → alkohol",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "alkán + HCl ⟶ chlóralkán",
+        "text": "alkán + HCl → chlóralkán",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "alkén + Br₂ ⟶ dibrómalkán",
+        "text": "alkén + Br₂ → dibrómalkán",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "alkén + KMnO₄ ⟶ zmes produktov s atómom kyslíka v molekule",
+        "text": "alkén + KMnO₄ → zmes produktov s atómom kyslíka v molekule",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "alkén + HCl ⟶ chlóralkán",
+        "text": "alkén + HCl → chlóralkán",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "alkén + H₂O ⟶ ketón",
+        "text": "alkén + H₂O → ketón",
         "is_correct": false
       }
     ]
@@ -21011,7 +21011,7 @@
   {
     "id": "CHEM_448",
     "subject": "Chemistry",
-    "question": "Uvedená zlúčenina vzorca C₆H₅-C(=O)Cl je:",
+    "question": "Uvedená zlúčenina vzorca je:",
     "options": [
       {
         "label": "a",
@@ -21203,7 +21203,7 @@
     "options": [
       {
         "label": "a",
-        "text": "H-C(=O)-",
+        "text": "H-C=O",
         "is_correct": false
       },
       {
@@ -21213,7 +21213,7 @@
       },
       {
         "label": "c",
-        "text": "CH₃-C(=O)-",
+        "text": "CH₃-C=O",
         "is_correct": true
       },
       {
@@ -21594,7 +21594,7 @@
       },
       {
         "label": "d",
-        "text": "CH₂(OH)-CH(OH)-CH(OH)-CH(OH)-CH(OH)-CH₂(OH)",
+        "text": "CH₂-CH-CH-CH-CH-CH₂\n |   |   |   |   |   |\n OH  OH  OH  OH  OH  OH",
         "is_correct": false
       },
       {
@@ -21614,7 +21614,7 @@
       },
       {
         "label": "h",
-        "text": "CH₂(OH)-CH(OH)-CH₂(OH)",
+        "text": "CH₂-CH-CH₂\n |   |   |\n OH  OH  OH",
         "is_correct": false
       }
     ]
@@ -21720,7 +21720,7 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₂(OH)-CH₂-OH",
+        "text": "CH₂-CH₂-OH\n| \nOH",
         "is_correct": false
       },
       {
@@ -21735,7 +21735,7 @@
       },
       {
         "label": "d",
-        "text": "CH₂(OH)-CH₂(OH)",
+        "text": "CH₂-CH₂\n|    |\nOH OH",
         "is_correct": false
       },
       {
@@ -21745,7 +21745,7 @@
       },
       {
         "label": "f",
-        "text": "CH₃-CH(OH)-CH₃",
+        "text": "CH₃-CH-CH₃\n      | \n      OH",
         "is_correct": true
       },
       {
@@ -21810,46 +21810,46 @@
   {
     "id": "CHEM_465",
     "subject": "Chemistry",
-    "question": "Ktoré z nasledujúcich vzorcov zlúčenín odpovedajú primárnym alkoholom:",
+    "question": "Hydrogenácia acetónu je:",
     "options": [
       {
         "label": "a",
-        "text": "CH₂(OH)-CH₂-OH",
+        "text": "spojená s izomerizáciou acetónu na acetaldehyd",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "CH₂(OH)-CH₂(OH)",
+        "text": "oxidácia acetónu",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "Fenol",
+        "text": "redukcia acetónu vodíkom",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "Benzylalkohol",
+        "text": "adícia vodíka na oxoskupinu molekuly acetónu",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "CH₃-CH(CH₃)-CH₂-OH",
+        "text": "spojená so vznikom sekundárneho alkoholu",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "(CH₃)₃C-OH",
+        "text": "spojená so vznikom primárneho alkoholu",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "CH₃-CH(OH)-CH₃",
+        "text": "reakcia vzniku 2-propanolu",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "HO-CH₂-CH₂-OH",
+        "text": "reakcia vzniku 1-propanolu",
         "is_correct": true
       }
     ]
@@ -22327,7 +22327,7 @@
   {
     "id": "CHEM_476",
     "subject": "Chemistry",
-    "question": "Zlúčenina CH₃-CH(OH)-CH₃ je alkohol:",
+    "question": "Zlúčenina CH₃-CH-CH₃ je alkohol:\n          | \n          OH",
     "options": [
       {
         "label": "a",
@@ -22421,7 +22421,7 @@
   {
     "id": "CHEM_478",
     "subject": "Chemistry",
-    "question": "Zlúčenina vzorca CH₂(OH)-CH(OH)-CH₂(OH):",
+    "question": "Zlúčenina vzorca CH₂-CH-CH₂:\n          |  |  |\n          OH OH OH",
     "options": [
       {
         "label": "a",
@@ -22566,22 +22566,22 @@
     "options": [
       {
         "label": "a",
-        "text": "R-C(=O)OH",
+        "text": "R-C=O\n  OH",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "R-C(=O)R",
+        "text": "R-C=O\n  R",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "R-C(=O)H",
+        "text": "R-C=O\n  H",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "H-C(=O)H",
+        "text": "H-C=O\n  H",
         "is_correct": false
       },
       {
@@ -22613,7 +22613,7 @@
     "options": [
       {
         "label": "a",
-        "text": "(CH₃)₃C-OH",
+        "text": "CH₃\nCH₃-C-CH₃\n  OH",
         "is_correct": false
       },
       {
@@ -22623,7 +22623,7 @@
       },
       {
         "label": "c",
-        "text": "CH₃-CH₂-CH(OH)-CH₃",
+        "text": "CH₃-CH₂-CH-CH₃\n      OH",
         "is_correct": true
       },
       {
@@ -22633,7 +22633,7 @@
       },
       {
         "label": "e",
-        "text": "C₆H₅-CH₂-OH",
+        "text": "(kruh)-CH₂-OH",
         "is_correct": false
       },
       {
@@ -22643,7 +22643,7 @@
       },
       {
         "label": "g",
-        "text": "CH₃-CH(OH)-CH₃",
+        "text": "CH₃-CH-CH₃\n   OH",
         "is_correct": true
       },
       {
@@ -22656,46 +22656,46 @@
   {
     "id": "CHEM_483",
     "subject": "Chemistry",
-    "question": "Z uvedených zlúčenín vyberte vzorec p-krezolu:",
+    "question": "Not found in the provided images",
     "options": [
       {
         "label": "a",
-        "text": "1,4-dihydroxybenzén (HO-C₆H₄-OH)",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "4-brómfenol (HO-C₆H₄-Br)",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "1,4-dimetylbenzén (H₃C-C₆H₄-CH₃)",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "4-metylfenol (HO-C₆H₄-CH₃)",
+        "text": "N/A",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "1,3-dimetylbenzén",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "2-metylfenol (o-krezol)",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "4-metylcyklohexanol",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "4-metylfenol (H₃C-C₆H₄-OH)",
+        "text": "N/A",
         "is_correct": true
       }
     ]
@@ -22750,7 +22750,7 @@
   {
     "id": "CHEM_485",
     "subject": "Chemistry",
-    "question": "Doplňte štruktúru neznámej východiskovej látky (X) v reakcii: CH₃-CH₂-COOH + X ⇄ (H⁺) CH₃-CH₂-CO-OCH₂CH₂CH₃ + H₂O",
+    "question": "Doplňte štruktúru neznámej východiskovej látky (X) v reakcii: CH₃-CH₂-COOH + X ⇄ H⁺ CH₃-CH₂-CO-OCH₂CH₂CH₃ + H₂O",
     "options": [
       {
         "label": "a",
@@ -22797,46 +22797,46 @@
   {
     "id": "CHEM_486",
     "subject": "Chemistry",
-    "question": "Dôkaz aldehydu Fehlingovým činidlom je založený na:",
+    "question": "Question 486 not found in the provided images.",
     "options": [
       {
         "label": "a",
-        "text": "oxidácii aldehydu",
+        "text": "N/A",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "redukcii aldehydu",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "hydrogenácii aldehydu",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "redukcii Cu²⁺",
+        "text": "N/A",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "tvorbe zrazeniny Cu₂O",
+        "text": "N/A",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "vzniku červenej zrazeniny oxidu meďného",
+        "text": "N/A",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "vzniku oxidu meďnatého",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "na oxidácii Cu²⁺",
+        "text": "N/A",
         "is_correct": false
       }
     ]
@@ -22891,7 +22891,7 @@
   {
     "id": "CHEM_488",
     "subject": "Chemistry",
-    "question": "Zlúčenina vzorca O=C₆H₄=O (p-benzochinón) môže vznikať:",
+    "question": "Zlúčenina vzorca O=C₆H₄=O môže vznikať:",
     "options": [
       {
         "label": "a",
@@ -22942,17 +22942,17 @@
     "options": [
       {
         "label": "a",
-        "text": "etylénoxid (oxirán)",
+        "text": "H₂C-CH₂\n  \\ /\n   O",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "anizol (C₆H₅-O-CH₃)",
+        "text": "◯-O-CH₃",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "1,4-dioxán (dioxán)",
+        "text": "◯_O_O",
         "is_correct": true
       },
       {
@@ -23193,12 +23193,12 @@
       {
         "label": "d",
         "text": "vzniká oxidáciou etanolu",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "vzniká oxidáciou metanolu",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
@@ -23220,7 +23220,7 @@
   {
     "id": "CHEM_495",
     "subject": "Chemistry",
-    "question": "Zlúčenina vzorca C₆H₅-CO-CH₃ má názov:",
+    "question": "Zlúčenina vzorca —CO—CH₃ má názov:",
     "options": [
       {
         "label": "a",
@@ -23297,12 +23297,12 @@
       {
         "label": "f",
         "text": "sa nazýva aj karboxylová skupina",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "g",
         "text": "je charakteristickou skupinou aldehydov a ketónov",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "h",
@@ -23455,7 +23455,7 @@
   {
     "id": "CHEM_500",
     "subject": "Chemistry",
-    "question": "Zlúčenina vzorca HO-C₆H₄-OH (1,4) je:",
+    "question": "Zlúčenina vzorca HO—[benzen-ring]—OH je:",
     "options": [
       {
         "label": "a",
@@ -23526,7 +23526,7 @@
       },
       {
         "label": "e",
-        "text": "CH₃-CH(OH)-COOH + 5 KOH + 3 I₂ ⟶ 2 HCOOK + CHI₃ + 3 KI + 4 H₂O",
+        "text": "CH₃-CH-COOH + 5 KOH + 3 I₂ ⟶ 2 HCOOK + CHI₃ + 3 KI + 4 H₂O\n    OH",
         "is_correct": true
       },
       {
@@ -23536,7 +23536,7 @@
       },
       {
         "label": "g",
-        "text": "CH₃-CH₂I + Mg ⟶((C₂H₅)₂O) CH₃-CH₂MgI",
+        "text": "CH₃-CH₂I + Mg ⟶^( (C₂H₅)₂O ) CH₃-CH₂MgI",
         "is_correct": false
       },
       {
@@ -23690,46 +23690,46 @@
   {
     "id": "CHEM_505",
     "subject": "Chemistry",
-    "question": "Pri redukcii disulfidov vzniknú:",
+    "question": "Hydroxylové skupiny sa vyskytujú aj v molekulách:",
     "options": [
       {
         "label": "a",
-        "text": "tioétery",
+        "text": "sacharidov",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "tioly",
+        "text": "bielkovín",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "sulfokyseliny",
+        "text": "alkaloidov",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "látky so skupinou -S-S-",
+        "text": "sterolov",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "tioestery",
+        "text": "naftolov",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "tioalkoholy",
+        "text": "cholesterolu",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "látky so skupinou -SH",
+        "text": "vitamínu A",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "sírne obdoby alkoholov",
+        "text": "vitamínu E",
         "is_correct": true
       }
     ]
@@ -23737,46 +23737,46 @@
   {
     "id": "CHEM_506",
     "subject": "Chemistry",
-    "question": "Ktoré z uvedených zlúčenín patria medzi amíny:",
+    "question": "Hydroxylové skupiny sa vyskytujú aj v molekulách:",
     "options": [
       {
         "label": "a",
-        "text": "CH₃-CH₂-CO-NH₂",
+        "text": "sacharidov",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "pyrol",
+        "text": "bielkovín",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "CH₃-CO-NH₂",
+        "text": "alkaloidov",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "anilín (C₆H₅-NH₂)",
+        "text": "sterolov",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "CH₃-CH₂-NH-CH₃",
+        "text": "naftolov",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "(CH₃)₃N",
+        "text": "cholesterolu",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "pyridín",
+        "text": "vitamínu A",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "H₂N-CO-NH₂",
+        "text": "vitamínu E",
         "is_correct": false
       }
     ]
@@ -23831,7 +23831,7 @@
   {
     "id": "CHEM_508",
     "subject": "Chemistry",
-    "question": "Zlúčenina CH₃-C(=O)-CH₃ je:",
+    "question": "Zlúčenina CH₃-C=O je:\n             │\n             CH₃",
     "options": [
       {
         "label": "a",
@@ -23882,17 +23882,17 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₂(OH)-CH(OH)-CH₂(OH)",
+        "text": "CH₂-CH-CH₂\n |   |   |\n OH  OH  OH",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "CH₃-C(OH)₃",
+        "text": "HO-C-OH\n     |\n     OH",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "(CH₃)₃C-OH",
+        "text": "H₃C-C-OH\n     |\n    CH₃",
         "is_correct": true
       },
       {
@@ -23902,7 +23902,7 @@
       },
       {
         "label": "e",
-        "text": "(C₂H₅)₂C(CH₃)-OH",
+        "text": "CH₂-CH₃\n      |\nH₃C-C-CH₂-CH₃\n      |\n     OH",
         "is_correct": true
       },
       {
@@ -23917,7 +23917,7 @@
       },
       {
         "label": "h",
-        "text": "H₃C-C(CH₃)(OH)-CH₂-CH₂-CH₃",
+        "text": "CH₃\n      |\nH₃C-C-CH₂-CH₂-CH₃\n      |\n     OH",
         "is_correct": true
       }
     ]
@@ -23972,7 +23972,7 @@
   {
     "id": "CHEM_511",
     "subject": "Chemistry",
-    "question": "Oxidáciou CH₃-C(=O)H vznikne:",
+    "question": "Oxidáciou CH₃-C=O\n           |\n           H vznikne:",
     "options": [
       {
         "label": "a",
@@ -24019,46 +24019,46 @@
   {
     "id": "CHEM_512",
     "subject": "Chemistry",
-    "question": "Redukciou propanalu vzniká:",
+    "question": "Z uvedených zlúčenín vyberte vzorec p-krezolu:",
     "options": [
       {
         "label": "a",
-        "text": "CH₃-CH₂-C(=O)H",
+        "text": "HO-ベンゼンring-OH",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "CH₃-CH₂-CH₂-OH",
+        "text": "HO-ベンゼンring-Br",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "CH₃-CH(OH)-CH₃",
+        "text": "H3C-ベンゼンring-CH3",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "CH₃-CH₃",
+        "text": "...",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "primárny alkohol",
+        "text": "...",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "2-propanol (propán-2-ol)",
+        "text": "...",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "1-propanol (propán-1-ol)",
+        "text": "...",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "vinylalkohol",
+        "text": "...",
         "is_correct": false
       }
     ]
@@ -24254,46 +24254,46 @@
   {
     "id": "CHEM_517",
     "subject": "Chemistry",
-    "question": "Primárny alkohol vzniká redukciou:",
+    "question": "Kyselina pikrová je:",
     "options": [
       {
         "label": "a",
-        "text": "glycerolu",
+        "text": "výbušnina",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "benzaldehydu",
+        "text": "látka kyslej povahy",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "CH₃-CO-OCH₃",
+        "text": "základom výbušniny dynamitu",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "CH₃-CH₂-CO-CH₃",
+        "text": "základom výbušniny ekrazitu",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "CH₃-CH₂-CHO",
+        "text": "jednosýtny fenol",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "CH₃-CH₂-CH₂-CHO",
+        "text": "jedovatá zlúčenina",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "HO-CH₂-CHO",
+        "text": "2,4,6-trinitrofenol",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "acetónu",
+        "text": "žltá kryštalická látka",
         "is_correct": false
       }
     ]
@@ -24677,7 +24677,7 @@
   {
     "id": "CHEM_526",
     "subject": "Chemistry",
-    "question": "Zlúčenina C₆H₅-C(=O)CH₃ je:",
+    "question": "Zlúčenina C₆H₅-C=O je:\nCH₃",
     "options": [
       {
         "label": "a",
@@ -24724,7 +24724,7 @@
   {
     "id": "CHEM_527",
     "subject": "Chemistry",
-    "question": "Zlúčenina H₂N-C₆H₄-SO₃H (1,4) je:",
+    "question": "Zlúčenina H₂N-O-SO₃H je:",
     "options": [
       {
         "label": "a",
@@ -24771,7 +24771,7 @@
   {
     "id": "CHEM_528",
     "subject": "Chemistry",
-    "question": "Zlúčenina H₂N-C₆H₄-COOH (1,4) je:",
+    "question": "Zlúčenina H₂N-O-COOH je:",
     "options": [
       {
         "label": "a",
@@ -24916,17 +24916,17 @@
     "options": [
       {
         "label": "a",
-        "text": "(CH₃)₂C(OH)(OCH₃)",
+        "text": "CH₃-C(OH)(OCH₃)(OCH₂-CH₃)",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "(CH₃)₂CH(OCH₂CH₃)",
+        "text": "CH₃-CH(CH₃)",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "(CH₃)₂C(OCH₃)₂",
+        "text": "CH₃-C(OCH₃)₂",
         "is_correct": true
       },
       {
@@ -24963,17 +24963,17 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₃-CO-CH₃",
+        "text": "CH₃-C(=O)-CH₃",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "CH₃-CH(OH)(OCH₃)",
+        "text": "CH₃-CH(OH)-O-CH₃",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "CH₃-C(C₂H₅)(OCH₃)₂",
+        "text": "CH₃-C(OCH₃)₂-CH₃",
         "is_correct": false
       },
       {
@@ -24988,17 +24988,17 @@
       },
       {
         "label": "f",
-        "text": "cyklický poloacetál aldohexózy (α-anomér)",
+        "text": "cyklický poloacetál aldohexózy",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "(CH₃)₂C(OCH₃)₂",
+        "text": "CH₃-C(OCH₃)₃",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "cyklický poloacetál aldohexózy (β-anomér)",
+        "text": "cyklický poloacetál aldohexózy",
         "is_correct": true
       }
     ]
@@ -25025,7 +25025,7 @@
       },
       {
         "label": "d",
-        "text": "-N⁺(=O)O⁻",
+        "text": "-N⁺=O\n  O⁻",
         "is_correct": true
       },
       {
@@ -25275,7 +25275,7 @@
       },
       {
         "label": "g",
-        "text": "CH₃-CH(NH₂)-CH₃",
+        "text": "CH₃-CH-CH₃\n      NH₂",
         "is_correct": true
       },
       {
@@ -25480,42 +25480,42 @@
     "options": [
       {
         "label": "a",
-        "text": "R-NH₂",
+        "text": "R—N(H)—H",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "R-NH-R",
+        "text": "R—N(R)—R",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "R-N(R)₂",
+        "text": "R—N(—R)—H",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "NH₃",
+        "text": "H—N(H)—H",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "Ar-NH₂",
+        "text": "Ar—N(H)—H",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "R-N(H)-H",
+        "text": "R—N—H\n   │\n   H",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "H-N(R)-H",
+        "text": "H—N—H\n   │\n   R",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "H-N(Ar)-H",
+        "text": "H—N—H\n   │\n   Ar",
         "is_correct": true
       }
     ]
@@ -25617,46 +25617,46 @@
   {
     "id": "CHEM_546",
     "subject": "Chemistry",
-    "question": "Zlúčenina pyrol patrí medzi:",
+    "question": "Ktoré z uvedených zlúčenín patria medzi amíny:",
     "options": [
       {
         "label": "a",
-        "text": "amíny",
+        "text": "CH3-CH2-C(=O)NH2",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "cyklické uhľovodíky",
+        "text": "pyrrole structure",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "látky s aromatickým charakterom",
+        "text": "CH3-CO-NH2",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "terciárne amíny",
+        "text": "C6H5-NH2",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "sekundárne amíny",
+        "text": "CH3-CH2-NH-CH3",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "primárne amíny",
+        "text": "CH3-N(CH3)CH3",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "nitrozlúčeniny",
+        "text": "pyridine structure",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "zlúčeniny, ktoré sú súčasťou molekúl biologicky významných farbív",
+        "text": "H2N-CO-NH2",
         "is_correct": true
       }
     ]
@@ -25711,7 +25711,7 @@
   {
     "id": "CHEM_548",
     "subject": "Chemistry",
-    "question": "Zlúčenina H₂N-C₆H₄-NH₂ (1,4) je:",
+    "question": "Zlúčenina H₂N— —NH₂ je:",
     "options": [
       {
         "label": "a",
@@ -25946,7 +25946,7 @@
   {
     "id": "CHEM_553",
     "subject": "Chemistry",
-    "question": "Zlúčenina O=C(NH₂)₂ je:",
+    "question": "Zlúčenina: O=C<\\begin{matrix}\\text{NH}_2\\\\\\text{NH}_2\\end{matrix}>",
     "options": [
       {
         "label": "a",
@@ -26087,46 +26087,46 @@
   {
     "id": "CHEM_556",
     "subject": "Chemistry",
-    "question": "Zlúčenina HOOC-CH₂-COOH je:",
+    "question": "Medzi ketóny radíme:",
     "options": [
       {
         "label": "a",
-        "text": "kyselina propándiová",
+        "text": "hydrochinón",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "kyselina propénová",
+        "text": "p-benzochinón",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "kyselina asparágová",
+        "text": "poloacetál",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "kyselina glutámová",
+        "text": "acetón",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "kyselina propánová",
+        "text": "acetofenón",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "kyselina maleínová",
+        "text": "cyklohexanón",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "kyselina maslová",
+        "text": "propanal",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "kyselina malónová",
+        "text": "etylmetylketón",
         "is_correct": true
       }
     ]
@@ -26299,12 +26299,12 @@
       },
       {
         "label": "e",
-        "text": "H-C(=O)OH",
+        "text": "HC=O \\ OH",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "HO-C(=O)H",
+        "text": "HO-C=O \\ H",
         "is_correct": true
       },
       {
@@ -26369,7 +26369,7 @@
   {
     "id": "CHEM_562",
     "subject": "Chemistry",
-    "question": "Vzorec C₁₇H₃₃COOH môže prislúchať kyseline:",
+    "question": "Vzorec $\\text{C}_{17}\\text{H}_{33}\\text{COOH}$ môže prislúchať kyseline:",
     "options": [
       {
         "label": "a",
@@ -26416,7 +26416,7 @@
   {
     "id": "CHEM_563",
     "subject": "Chemistry",
-    "question": "Vzorec CH₂=CH-COOH prislúcha kyseline:",
+    "question": "Vzorec $\\text{CH}_2=\\text{CH}-\\text{COOH}$ prislúcha kyseline:",
     "options": [
       {
         "label": "a",
@@ -26519,28 +26519,28 @@
       },
       {
         "label": "b",
-        "text": "čím je jej hodnota Kₐ vyššia",
+        "text": "čím je jej hodnota $K_a$ vyššia",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "čím je jej hodnota pKₐ vyššia",
+        "text": "čím je jej hodnota $\\text{pK}_a$ vyššia",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "čím je jej hodnota Kₐ nižšia",
+        "text": "čím je jej hodnota $K_a$ nižšia",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "čím je jej hodnota pKₐ nižšia",
-        "is_correct": true
+        "text": "čím je jej hodnota $\\text{pK}_a$ nižšia",
+        "is_correct": false
       },
       {
         "label": "f",
         "text": "čím je koncentrovanejšia",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "g",
@@ -26557,46 +26557,46 @@
   {
     "id": "CHEM_566",
     "subject": "Chemistry",
-    "question": "Esterifikácia:",
+    "question": "Medzi ketóny radíme:",
     "options": [
       {
         "label": "a",
-        "text": "je reakcia alkoholu s aldehydom za vzniku vnútorného esteru",
+        "text": "hydrochinón",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "je nukleofilná substitúcia s adično-eliminačným mechanizmom",
+        "text": "p-benzochinón",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "je elektrofilná adícia",
+        "text": "poloacetál",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "je reakcia, pri ktorej vzniká ester a uvoľní sa voda",
+        "text": "acetón",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "sa posúva v smere tvorby reaktantov, ak odčerpávame vytvorenú vodu",
+        "text": "acetofenón",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "sa posúva v smere tvorby produktov, ak odčerpávame vytvorenú vodu",
+        "text": "cyklohexanón",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "je reakcia hydroxidov s kyselinami",
+        "text": "propanal",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "je reakcia alkoholov s kyslíkatými anorganickými kyselinami alebo organickými karboxylovými kyselinami",
+        "text": "etylmetylketón",
         "is_correct": true
       }
     ]
@@ -26792,46 +26792,46 @@
   {
     "id": "CHEM_571",
     "subject": "Chemistry",
-    "question": "Redukčné vlastnosti má kyselina:",
+    "question": "Vyberte vzorec, ktorý zodpovedá acetálu alebo ketálu:",
     "options": [
       {
         "label": "a",
-        "text": "propiónová",
+        "text": "CH3-C(OH)(OCH3)-CH2-CH3",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "mravčia",
+        "text": "CH3-CH(CH3)",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "maslová",
+        "text": "CH3-C(OCH3)2-CH3",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "oxálová (šťaveľová)",
+        "text": "CH3-C(OCH3)(H)-CH3",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "pyrohroznová",
+        "text": "CH3-CH(OH)-O-CH2-CH3",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "mliečna",
+        "text": "CH3-CH(OH)-CH2-C(=O)H",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "metánová",
+        "text": "CH3-CH(OC2H5)(OH)-CH3",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "octová",
+        "text": "CH3-C(CH3)(OC2H5)2",
         "is_correct": false
       }
     ]
@@ -26933,7 +26933,7 @@
   {
     "id": "CHEM_574",
     "subject": "Chemistry",
-    "question": "Zlúčenina CH₂=CH-C(=O)OH je:",
+    "question": "Zlúčenina CH₂=CH-C=O je:",
     "options": [
       {
         "label": "a",
@@ -27219,42 +27219,42 @@
     "options": [
       {
         "label": "a",
-        "text": "HOOC-COOH   kyselina oxálová",
+        "text": "HOOC-COOH",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "HOOC-CH₂-CH₂-COOH   kyselina jantárová",
+        "text": "HOOC-CH₂-CH₂-COOH",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "CH₃-CH₂-COOH   kyselina akrylová",
+        "text": "CH₃-CH₂-COOH",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "HOOC-CH=CH-COOH   kyselina buténdiová",
+        "text": "HOOC-CH=CH-COOH",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "CH₂=CH-COOH   kyselina adipová",
+        "text": "CH₂=CH-COOH",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "HOOC-(CH₂)₃-COOH   kyselina glutárová",
+        "text": "HOOC-(CH₂)₃-COOH",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "CH₃-CH₂-CH₂-COOH   kyselina maslová",
+        "text": "CH₃-CH₂-CH₂-COOH",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "HOOC-CH₂-CH(OH)-COOH   kyselina vínna",
+        "text": "HOOC-CH₂-CH(OH)-COOH",
         "is_correct": false
       }
     ]
@@ -27266,42 +27266,42 @@
     "options": [
       {
         "label": "a",
-        "text": "C₆H₅-COOH   kyselina benzoová",
+        "text": "kyselina benzoová",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "1,2-C₆H₄(COOH)₂   kyselina tereftalová",
+        "text": "kyselina tereftalová",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "HOOC-CH=CH-COOH (trans)   kyselina fumarová",
+        "text": "kyselina fumarová",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "HOOC-CH=CH-COOH   kyselina malónová",
+        "text": "kyselina malónová",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "(COOH)₂   kyselina oxálová",
+        "text": "kyselina oxálová",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "C₆H₁₁-COOH   kyselina cyklohexánkarboxylová",
+        "text": "kyselina cyklohexánkarboxylová",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "4-HO-C₆H₄-COOH   kyselina salicylová",
+        "text": "kyselina salicylová",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "OHC-COOH   kyselina glykolová",
+        "text": "kyselina glykolová",
         "is_correct": false
       }
     ]
@@ -27356,7 +27356,7 @@
   {
     "id": "CHEM_583",
     "subject": "Chemistry",
-    "question": "H-C(=O)OH je:",
+    "question": "H-C=O je:",
     "options": [
       {
         "label": "a",
@@ -27412,7 +27412,7 @@
       },
       {
         "label": "b",
-        "text": "H₂N-C₆H₄-SO₃H (1,4)",
+        "text": "H₂N-C₆H₄-SO₃H",
         "is_correct": false
       },
       {
@@ -27442,7 +27442,7 @@
       },
       {
         "label": "h",
-        "text": "H₂N-C₆H₄-COOH (1,4)",
+        "text": "H₂N-C₆H₄-COOH",
         "is_correct": false
       }
     ]
@@ -27450,7 +27450,7 @@
   {
     "id": "CHEM_585",
     "subject": "Chemistry",
-    "question": "Zlúčenina HO-C(CH₂-COOH)₂-COOH je kyselina, ktorá:",
+    "question": "Zlúčenina $\\begin{matrix} \\text{H}_2\\text{C}-\\text{COOH} \\\\ \\text{HO}-\\text{C}-\\text{COOH} \\\\ \\text{H}_2\\text{C}-\\text{COOH} \\end{matrix}$ je kyselina, ktorá:",
     "options": [
       {
         "label": "a",
@@ -27591,46 +27591,46 @@
   {
     "id": "CHEM_588",
     "subject": "Chemistry",
-    "question": "Karboxylové kyseliny:",
+    "question": "Ako všeobecný vzorec primárnych amínov môžeme označiť (A, = aryl):",
     "options": [
       {
         "label": "a",
-        "text": "sú väčšinou slabé kyseliny",
+        "text": "R-NH_2",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "sú väčšinou silné kyseliny",
+        "text": "R_2-NH",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "sú amfolyty",
+        "text": "R_3-N",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "majú dva rovnocenné atómy kyslíka v ionizovanej karboxylovej skupine",
+        "text": "H_2N-H_2",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "všetky patria medzi nepolárne zlúčeniny",
+        "text": "Ar-NH_2",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "sú látky, ktorých rozpustnosť vo vode závisí od dĺžky uhľovodíkového reťazca",
+        "text": "R-N-H",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "asparágová a glutámová patria medzi hydroxykyseliny",
+        "text": "H-N-H",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "majú v anióne -COO⁻ vzdialenosť a charakter väzby medzi obidvomi atómami kyslíka a atómom uhlíka rovnaké",
+        "text": "H-N-H",
         "is_correct": true
       }
     ]
@@ -27742,7 +27742,7 @@
       {
         "label": "b",
         "text": "CH₃-CH₂-COOH + CO₂ ⟶ HOOC-CH₂-CH₂-COOH",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "c",
@@ -28006,7 +28006,7 @@
       },
       {
         "label": "h",
-        "text": "CH₃-CH₂-CH₂-OH + HOOC-CH₃ ⟶ CH₃-CO-O-CH₂-CH₂-CH₃ + H₂O",
+        "text": "CH₃-CH₂-CH₂-OH + HOOC-CH₃ ⟶ CH₃-CO-O- CH₂-CH₂-CH₃ + H₂O",
         "is_correct": true
       }
     ]
@@ -28484,7 +28484,7 @@
   {
     "id": "CHEM_607",
     "subject": "Chemistry",
-    "question": "Zlúčenina CH₃-CH(OH)-COOH môže vznikať:",
+    "question": "Zlúčenina CH₃-CH-COOH môže vznikať:\nOH",
     "options": [
       {
         "label": "a",
@@ -28860,46 +28860,46 @@
   {
     "id": "CHEM_615",
     "subject": "Chemistry",
-    "question": "Glycín pri pH = 9 je prevažne v štruktúrnej forme:",
+    "question": "Vyberte správne priradenie názvu ku vzorcu karboxylovej kyseliny:",
     "options": [
       {
         "label": "a",
-        "text": "H₂N-CH₂-COO⁻",
+        "text": "kyselina benzoová",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "H₂N-CH₂-COOH",
+        "text": "kyselina tereftalová",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "H₃N⁺-CH₂-COOH",
+        "text": "kyselina fumarová",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "H₃N⁺-CH₂-COO⁻",
+        "text": "kyselina malónová",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "CH₃-CO-NH₂",
+        "text": "kyselina oxálová",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "HO-CH₂-CH₂-O⁻",
+        "text": "kyselina cyklohexánkarboxylová",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "CH₃-CO-NH₃⁺",
+        "text": "kyselina salicylová",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "H₂N-CH₂-C(=O)O⁻",
+        "text": "kyselina glykolová",
         "is_correct": true
       }
     ]
@@ -28907,7 +28907,7 @@
   {
     "id": "CHEM_616",
     "subject": "Chemistry",
-    "question": "Zlúčenina HO-CH₂-CH(NH₂)-COOH má názov:",
+    "question": "Zlúčenina HO-CH₂-CH-COOH má názov:\n                                  |\n                                 NH₂",
     "options": [
       {
         "label": "a",
@@ -28954,7 +28954,7 @@
   {
     "id": "CHEM_617",
     "subject": "Chemistry",
-    "question": "Zlúčenina HO-C₆H₄-CH₂-CH(NH₂)-COOH je:",
+    "question": "Zlúčenina HO-◯-CH₂-CH-COOH je:\n                                   |\n                                  NH₂",
     "options": [
       {
         "label": "a",
@@ -29495,7 +29495,7 @@
       },
       {
         "label": "e",
-        "text": "propiónová",
+        "text": "propionová",
         "is_correct": true
       },
       {
@@ -29518,7 +29518,7 @@
   {
     "id": "CHEM_629",
     "subject": "Chemistry",
-    "question": "Skupina H-C(=O)- je:",
+    "question": "Skupina H-C=O je:\n       │",
     "options": [
       {
         "label": "a",
@@ -29565,7 +29565,7 @@
   {
     "id": "CHEM_630",
     "subject": "Chemistry",
-    "question": "Skupina C₆H₅-C(=O)- je:",
+    "question": "Skupina ◯-C=O je:\n      │",
     "options": [
       {
         "label": "a",
@@ -29847,7 +29847,7 @@
   {
     "id": "CHEM_636",
     "subject": "Chemistry",
-    "question": "Zlúčenina, ktorá obsahuje funkčnú skupinu -C(=O)-O-C(=O)- je:",
+    "question": "Zlúčenina, ktorá obsahuje funkčnú skupinu -C-O-C- je:",
     "options": [
       {
         "label": "a",
@@ -30039,7 +30039,7 @@
     "options": [
       {
         "label": "a",
-        "text": "R-CH(NH₂)-COOH",
+        "text": "R-CH-COOH\n    |\n   NH₂",
         "is_correct": false
       },
       {
@@ -30069,7 +30069,7 @@
       },
       {
         "label": "g",
-        "text": "R-C(=O)-NH₂",
+        "text": "R-C-N-H\n    ‖ ┆\n    O H",
         "is_correct": true
       },
       {
@@ -30129,7 +30129,7 @@
   {
     "id": "CHEM_642",
     "subject": "Chemistry",
-    "question": "Zlúčenina 2-(acetyloxy)benzoová kyselina je:",
+    "question": "Zlúčenina",
     "options": [
       {
         "label": "a",
@@ -30317,7 +30317,7 @@
   {
     "id": "CHEM_646",
     "subject": "Chemistry",
-    "question": "Na tvorbe zlúčeniny CH₃-O-CO-CH₂-CH₃ sa podieľa:",
+    "question": "Na tvorbe zlúčeniny $\\text{CH}_3\\text{-O-CO-CH}_2\\text{-CH}_3$ sa podieľa:",
     "options": [
       {
         "label": "a",
@@ -30326,7 +30326,7 @@
       },
       {
         "label": "b",
-        "text": "C₂H₅OH a CH₃COOH",
+        "text": "$\\text{C}_2\\text{H}_5\\text{OH}$ a $\\text{CH}_3\\text{COOH}$",
         "is_correct": false
       },
       {
@@ -30356,7 +30356,7 @@
       },
       {
         "label": "h",
-        "text": "CH₃-CH₂-COCl a CH₃OH",
+        "text": "$\\text{CH}_3\\text{-CH}_2\\text{-COCl}$ a $\\text{CH}_3\\text{OH}$",
         "is_correct": true
       }
     ]
@@ -30411,7 +30411,7 @@
   {
     "id": "CHEM_648",
     "subject": "Chemistry",
-    "question": "Zlúčenina CH₃-CH₂-O-P(=O)(OH)₂ je:",
+    "question": "Zlúčenina $\\text{CH}_3\\text{-CH}_2\\text{-O-P(=O)}(\\text{OH})_2$ je:",
     "options": [
       {
         "label": "a",
@@ -30450,7 +30450,7 @@
       },
       {
         "label": "h",
-        "text": "ester H₃PO₄ s etanolom",
+        "text": "ester $\\text{H}_3\\text{PO}_4$ s etanolom",
         "is_correct": true
       }
     ]
@@ -30477,12 +30477,12 @@
       },
       {
         "label": "d",
-        "text": "zlúčenina vzorca CO(NH₂)₂",
+        "text": "zlúčenina vzorca $\\text{CO}(\\text{NH}_2)_2$",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "zlúčenina vzorca HCOONH₂",
+        "text": "zlúčenina vzorca $\\text{HCOONH}_2$",
         "is_correct": false
       },
       {
@@ -30744,17 +30744,17 @@
     "options": [
       {
         "label": "a",
-        "text": "H-C(=O)-",
+        "text": "H-C=O",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "CH₃-C(=O)-",
+        "text": "CH₃-C=O",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "CH₃-C(=O)-O-",
+        "text": "CH₃-C-O-\n   ‖\n   O",
         "is_correct": false
       },
       {
@@ -30928,46 +30928,46 @@
   {
     "id": "CHEM_659",
     "subject": "Chemistry",
-    "question": "Anhydrid karboxylovej kyseliny môže vzniknúť odštiepením molekuly vody z:",
+    "question": "Pri hydrogenácii oxokyselín:",
     "options": [
       {
         "label": "a",
-        "text": "2 molekúl etanolu",
+        "text": "sa adujú vodíky na karbonylovú skupinu",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "1 molekuly kyseliny adipovej",
+        "text": "vznikajú hydroxykyseliny",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "1 molekuly kyseliny octovej",
+        "text": "sa štiepi väzba medzi atómami uhlíka v molekule vedľa ketoskupiny",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "1 molekuly kyseliny propiónovej a 1 molekuly kyseliny octovej",
+        "text": "dochádza k ich indukcii",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "2 molekúl acetaldehydu",
+        "text": "dochádza k ich oxidácii",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "1 molekuly kyseliny glutárovej",
+        "text": "vznikajú aldehydokyseliny",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "1 molekuly kyseliny mliečnej",
+        "text": "vznikajú ketóny",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "1 molekuly kyseliny ftalovej",
+        "text": "vznikajú funkčné deriváty karboxylových kyselín",
         "is_correct": true
       }
     ]
@@ -30975,7 +30975,7 @@
   {
     "id": "CHEM_660",
     "subject": "Chemistry",
-    "question": "Zlúčenina CH₃-C(=O)-O-C(=O)-CH₃ je:",
+    "question": "Zlúčenina CH₃-C-O-C-CH₃ je:\n             ||  ||\n             O   O",
     "options": [
       {
         "label": "a",
@@ -31026,7 +31026,7 @@
     "options": [
       {
         "label": "a",
-        "text": "CH₂(NH₂)-COOH",
+        "text": "CH₂-COOH\n | \n NH₂",
         "is_correct": false
       },
       {
@@ -31046,7 +31046,7 @@
       },
       {
         "label": "e",
-        "text": "CH₂(NH₂)-COONH₂",
+        "text": "CH₂-COONH₂\n | \n NH₂",
         "is_correct": false
       },
       {
@@ -31069,7 +31069,7 @@
   {
     "id": "CHEM_662",
     "subject": "Chemistry",
-    "question": "Hydrolýzou zlúčeniny CH₃-CH₂-C(=O)-O-CH₃ vzniká:",
+    "question": "Hydrolýzou zlúčeniny CH₃-CH₂-C-O-CH₃ vzniká:\n                            ||\n                            O",
     "options": [
       {
         "label": "a",
@@ -31351,46 +31351,46 @@
   {
     "id": "CHEM_668",
     "subject": "Chemistry",
-    "question": "Kyselina palmitová:",
+    "question": "Z uvedených kyselín je vo vode dobre rozpustná:",
     "options": [
       {
         "label": "a",
-        "text": "je zlúčenina vzorca CH₃-(CH₂)₁₅-COOH",
+        "text": "mravčia",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "je zlúčenina vzorca CH₃-(CH₂)₁₄-COOH",
+        "text": "stearová",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "je zlúčenina vzorca CH₃-(CH₂)₁₆-COOH",
+        "text": "linolová",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "je kyselina hexadekánová",
+        "text": "octová",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "je nasýtená vyššia karboxylová kyselina",
+        "text": "propionová",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "ako aj kyselina steárová majú 16 uhlíkov",
+        "text": "palmitová",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "je 18 uhlíková karboxylová kyselina",
+        "text": "etánová",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "býva súčasťou triacylglycerolov",
+        "text": "trichlóroctová",
         "is_correct": true
       }
     ]
@@ -32206,7 +32206,7 @@
       },
       {
         "label": "b",
-        "text": "sa nachádza glycerol, vyššie karboxylové kyseliny, kyselina fosforečná a dusíková zložka napr. cholín",
+        "text": "sa nachádza glycerol,vyššie karboxylové kyseliny, kyselina fosforečná a dusíková zložka napr. cholín",
         "is_correct": true
       },
       {
@@ -33443,7 +33443,7 @@
       },
       {
         "label": "e",
-        "text": "inzulín a glukagón",
+        "text": "inzulín a glukagon",
         "is_correct": false
       },
       {
@@ -33513,7 +33513,7 @@
   {
     "id": "CHEM_714",
     "subject": "Chemistry",
-    "question": "Zlúčenina, ktorá má vzorec (päťčlánkový heterocyklus s kyslíkovým heteroatómom a dvoma konjugovanými dvojitými väzbami):",
+    "question": "Zlúčenina, ktorá má vzorec",
     "options": [
       {
         "label": "a",
@@ -34185,7 +34185,7 @@
       },
       {
         "label": "c",
-        "text": "je zlúčenina vzorca pyrimidínu (šesťčlánkový cyklus s dvoma heteroatómami dusíka)",
+        "text": "je zlúčenina vzorca: \\begin{picture}(40,20)\\put(0,0){\\line(1,0){40}}\\end{picture}",
         "is_correct": false
       },
       {
@@ -34312,46 +34312,46 @@
   {
     "id": "CHEM_731",
     "subject": "Chemistry",
-    "question": "Vyberte vzorec imidazolu:",
+    "question": "V organizme môže byť v cholesterole esterifikovaná:",
     "options": [
       {
         "label": "a",
-        "text": "päťčlánkový heterocyklus s atómom síry v polohe 1 a skupinou -NH- v polohe 3",
+        "text": "karboxylová skupina",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "päťčlánkový heterocyklus s -NH- v polohe 1 a =N- v polohe 3 (1,3-diazol)",
+        "text": "hydroxylová skupina",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "päťčlánkový heterocyklus s atómom kyslíka v polohe 1 a skupinou -NH- v polohe 3",
+        "text": "hydroxylová aj karboxylová skupina",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "päťčlánkový heterocyklus s atómom síry v polohe 1 a skupinou -NH- v polohe 2",
+        "text": "cholesterol nemá vhodnú skupinu na esterifikáciu, a preto sa vyskytuje len voľný",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "pyrolidínový kruh (nasýtený päťčlánkový heterocyklus s -NH-)",
+        "text": "oxoskupina",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "CH₃-N=N-CH₃",
+        "text": "skupina v bočnom reťazci cholesterolu",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "C₆H₅-CH₂-N=N-CH₃",
+        "text": "-OH skupina",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "trojčlánkový nenasýtený heterocyklus HC=CH spojený s -NH-",
+        "text": "-COOH skupina",
         "is_correct": false
       }
     ]
@@ -34547,46 +34547,46 @@
   {
     "id": "CHEM_736",
     "subject": "Chemistry",
-    "question": "Kyselina močová:",
+    "question": "Question 736 does not exist in the provided images.",
     "options": [
       {
         "label": "a",
-        "text": "je u plazov a vtákov konečným produktom metabolizmu purínových látok aj bielkovín",
+        "text": "N/A",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "vzniká ako produkt katabolizmu pyrimidínových látok u človeka",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "tvorí tautomérne formy",
+        "text": "N/A",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "obsahuje -COOH skupinu",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "je silná organická kyselina",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "vzniká degradáciou AMP",
+        "text": "N/A",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "vzniká degradáciou guanidínu",
+        "text": "N/A",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "u človeka vzniká degradáciou rovnakých dusíkových látok ako močovina",
+        "text": "N/A",
         "is_correct": false
       }
     ]
@@ -34782,46 +34782,46 @@
   {
     "id": "CHEM_741",
     "subject": "Chemistry",
-    "question": "6-aminopurín je:",
+    "question": "Cholesterol sa môže nachádzať v organizme človeka:",
     "options": [
       {
         "label": "a",
-        "text": "látka, ktorú si organizmus nevie syntetizovať",
+        "text": "fosforylovaný",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "guanín",
+        "text": "ako acylcholesterol",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "adenín",
+        "text": "pochádza hlavne z rastlinnej potravy",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "zlúčenina, ktorá obsahuje rovnaký heterocyklus ako teofylín",
+        "text": "v nadbytku a poškodzovať cievy",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "súčasťou DNA aj RNA",
+        "text": "vo fosfolipidoch",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "kofeín",
+        "text": "v membránach buniek",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "časť pyrimidínu",
+        "text": "v bunkách vo forme esterifikovanej aj neesterifikovanej",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "heterocyklická zlúčenina",
+        "text": "spolu s ďalšími lipidmi v lipoproteínoch",
         "is_correct": true
       }
     ]
@@ -35804,7 +35804,7 @@
       {
         "label": "g",
         "text": "obsahuje deoxyglukózu",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "h",
@@ -36380,7 +36380,7 @@
   {
     "id": "CHEM_775",
     "subject": "Chemistry",
-    "question": "Oxidáciou látky \"X\" vzniká kyselina glukurónová. O látke X možno povedať:",
+    "question": "Oxidáciou látky „X“ vzniká kyselina glukurónová. O látke X možno povedať:",
     "options": [
       {
         "label": "a",
@@ -37931,7 +37931,7 @@
   {
     "id": "CHEM_808",
     "subject": "Chemistry",
-    "question": "Uvedený štruktúrny vzorec [cyklická D-glukóza v Tollensovom vzorci s C1(HO vľavo, H), C2(HC-OH), C3(HO-CH), C4(HC-OH), C5(HC s O-mostíkom na C1), C6(CH₂-OH)] prislúcha:",
+    "question": "Uvedený štruktúrny vzorec prislúcha:",
     "options": [
       {
         "label": "a",
@@ -37978,7 +37978,7 @@
   {
     "id": "CHEM_809",
     "subject": "Chemistry",
-    "question": "Vzorec [COOH—CH(OH)—CH(OH)—CH(OH)—CH(OH)—CH₂-OH s konfiguráciou C2(OH vpravo), C3(OH vľavo), C4(OH vľavo), C5(OH vpravo)] patrí:",
+    "question": "Vzorec patri:",
     "options": [
       {
         "label": "a",
@@ -38025,7 +38025,7 @@
   {
     "id": "CHEM_810",
     "subject": "Chemistry",
-    "question": "Konfigurácia H—C(—O—)—OH (poloacetálový hydroxyl vpravo) v polohe C₁ môže patriť:",
+    "question": "Konfigurácia H—C—OH v polohe C₁ môže patriť:",
     "options": [
       {
         "label": "a",
@@ -38072,7 +38072,7 @@
   {
     "id": "CHEM_811",
     "subject": "Chemistry",
-    "question": "Zlúčenina so vzorcom [CH₂(OH)—CH(OH)—CH(OH)—CH(OH)—CH(OH)—CH₂-OH s konfiguráciou C2(OH vľavo), C3(OH vľavo), C4(OH vpravo), C5(OH vpravo)] vzniká:",
+    "question": "Zlúčenina so vzorcom vzniká:",
     "options": [
       {
         "label": "a",
@@ -38119,7 +38119,7 @@
   {
     "id": "CHEM_812",
     "subject": "Chemistry",
-    "question": "Zlúčenina so vzorcom [H-C(=O)—CH(OH)—CH(OH)—CH(OH)—CH₂-OH s troma OH vľavo] je:",
+    "question": "Zlúčenina so vzorcom\n  H—C=O\n  HO—CH\n  HO—CH\n  HO—CH\n  CH₂—OH\nje:",
     "options": [
       {
         "label": "a",
@@ -38166,7 +38166,7 @@
   {
     "id": "CHEM_813",
     "subject": "Chemistry",
-    "question": "Zlúčenina so vzorcom [CH₂(OH)—C(=O)—CH(OH)—CH(OH)—CH(OH)—CH₂-OH s konfiguráciou C3(OH vpravo), C4(OH vľavo), C5(OH vľavo)] je:",
+    "question": "Zlúčenina so vzorcom\n  CH₂—OH\n  C=O\n  HC—OH\n  HO—CH\n  HO—CH\n  CH₂—OH\nje:",
     "options": [
       {
         "label": "a",
@@ -40337,7 +40337,7 @@
       },
       {
         "label": "b",
-        "text": "β -1,6-glykozidová väzba",
+        "text": "β-1,6-glykozidová väzba",
         "is_correct": false
       },
       {
@@ -40357,7 +40357,7 @@
       },
       {
         "label": "f",
-        "text": "β -1,4-glykozidová väzba",
+        "text": "β-1,4-glykozidová väzba",
         "is_correct": true
       },
       {
@@ -41033,7 +41033,7 @@
   {
     "id": "CHEM_874",
     "subject": "Chemistry",
-    "question": "Aminokyselina v tejto podobe CH₃–CH(NH₃⁺)–COO⁻:",
+    "question": "Aminokyselina v tejto podobe CH₃-CH-COO⁻:\n│\nNH₃⁺",
     "options": [
       {
         "label": "a",
@@ -41213,7 +41213,7 @@
       },
       {
         "label": "h",
-        "text": "je v základných stavebných jednotkách bielkovín viazaná priamo na uhlíkový reťazec (-CH(NH₂)-)",
+        "text": "je v základných stavebných jednotkách bielkovín viazaná priamo na uhlíkový reťazec\n(-CH-)\n |\n NH₂",
         "is_correct": false
       }
     ]
@@ -41339,7 +41339,7 @@
       },
       {
         "label": "e",
-        "text": "zlúčenina vzorca: HOOC–CH(NH₂)–CH₂–COOH",
+        "text": "zlúčenina vzorca: HOOC-CH-CH₂-COOH\n                        NH₂",
         "is_correct": true
       },
       {
@@ -41391,7 +41391,7 @@
       },
       {
         "label": "f",
-        "text": "CH₃–CH(NH₂)–COOH",
+        "text": "CH₃-CH-COOH\n      NH₂",
         "is_correct": true
       },
       {
@@ -41409,7 +41409,7 @@
   {
     "id": "CHEM_882",
     "subject": "Chemistry",
-    "question": "CH₃–CH(NH₂)–COOH je:",
+    "question": "CH₃-CH(NH₂)-COOH je:",
     "options": [
       {
         "label": "a",
@@ -41443,7 +41443,7 @@
       },
       {
         "label": "g",
-        "text": "v bielkovinách zastupiteľná zlúčeninou: CH₂(NH₂)–CH₂–COOH",
+        "text": "v bielkovinách zastupiteľná zlúčeninou: CH₂-CH₂-COOH\n                                                NH₂",
         "is_correct": false
       },
       {
@@ -41490,7 +41490,7 @@
       },
       {
         "label": "g",
-        "text": "je zlúčenina vzorca: C₆H₅–CH₂–CH(NH₂)–COOH",
+        "text": "je zlúčenina vzorca: O-CH₂-CH(NH₂)-COOH",
         "is_correct": true
       },
       {
@@ -41537,7 +41537,7 @@
       },
       {
         "label": "g",
-        "text": "tvorí sa v procese transkripcie v jadre",
+        "text": "tvorí sa v procese transkpcie v jadre",
         "is_correct": false
       },
       {
@@ -41575,7 +41575,7 @@
       {
         "label": "e",
         "text": "na jej tvorbu je potrebná energia",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "f",
@@ -42002,7 +42002,7 @@
       },
       {
         "label": "f",
-        "text": "má vzorec H₂N–CH₂–COOH",
+        "text": "má vzorec H₂N-CH₂-COOH",
         "is_correct": true
       },
       {
@@ -42148,7 +42148,7 @@
       },
       {
         "label": "g",
-        "text": "je stabilizovaná väzbami vytváranými medzi skupinami >C=O ····· H–N< peptidových väzieb",
+        "text": "je stabilizovaná väzbami vytváranými medzi skupinami >C=O ····· H-N< peptidových väzieb",
         "is_correct": true
       },
       {
@@ -42191,7 +42191,7 @@
       {
         "label": "f",
         "text": "obsahuje vo svojej molekule heterocyklus, amino-, hydroxy- a karboxylovú skupinu",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "g",
@@ -42383,7 +42383,6 @@
       },
       {
         "label": "g",
-        "nedochádza k porušeniu sekundárnej štruktúry": "nedochádza k porušeniu sekundárnej štruktúry",
         "text": "nedochádza k porušeniu sekundárnej štruktúry",
         "is_correct": false
       },
@@ -44700,7 +44699,7 @@
   {
     "id": "CHEM_952",
     "subject": "Chemistry",
-    "question": "Zlúčenina HOOC–CH₂–CO–COOH:",
+    "question": "Zlúčenina HOOC-CH₂-CO-COOH:",
     "options": [
       {
         "label": "a",
@@ -44813,7 +44812,6 @@
       },
       {
         "label": "d",
-        "za anaeróbnych podmienok sa glykolýzou mení na kyselinu mliečnu": "za anaeróbnych podmienok sa glykolýzou mení na kyselinu mliečnu",
         "text": "za anaeróbnych podmienok sa glykolýzou mení na kyselinu mliečnu",
         "is_correct": true
       },
@@ -46882,7 +46880,7 @@
       },
       {
         "label": "d",
-        "text": "β-karotén",
+        "text": "β -karotén",
         "is_correct": false
       },
       {

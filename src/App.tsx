@@ -306,9 +306,38 @@ export default function App() {
   };
 
   const handleOpenCorrection = () => {
+    if (editingQuestion) {
+      const hasChanges = editingQuestion.question !== currentQuestion.question ||
+        editingQuestion.options.some((option, index) => {
+          const originalOption = currentQuestion.options[index];
+          return option.text !== originalOption.text || option.is_correct !== originalOption.is_correct;
+        });
+
+      if (!hasChanges) {
+        setEditingQuestion(null);
+      } else {
+        handleSaveCorrection();
+      }
+      return;
+    }
+
     setEditingQuestion({
       ...currentQuestion,
       options: currentQuestion.options.map((option) => ({ ...option })),
+    });
+    setEditError('');
+  };
+
+  const handleResetCorrection = () => {
+    if (!editingQuestion) return;
+    const defaultQuestion = datasets[currentSubject].find(
+      (question) => question.id === editingQuestion.id,
+    );
+    if (!defaultQuestion) return;
+
+    setEditingQuestion({
+      ...defaultQuestion,
+      options: defaultQuestion.options.map((option) => ({ ...option })),
     });
     setEditError('');
   };
@@ -450,9 +479,9 @@ export default function App() {
                   </button>
                   <button
                       onClick={handleOpenCorrection}
-                      title="Correct this question"
-                      aria-label="Correct this question"
-                      className="flex h-8 w-8 items-center justify-center rounded-lg border border-amber-300 bg-amber-50 text-amber-800 transition hover:bg-amber-100"
+                      title={editingQuestion ? 'Save or cancel correction' : 'Correct this question'}
+                      aria-label={editingQuestion ? 'Save or cancel correction' : 'Correct this question'}
+                      className="flex h-8 w-8 items-center justify-center rounded-lg border text-gray-600 transition hover:bg-gray-50"
                   >
                     <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M12 20h9" />
@@ -582,96 +611,196 @@ export default function App() {
           </div>
           </div>
 
-          {/* Question Text */}
-          <h2 className="text-lg font-bold text-gray-900 mb-6">
-            {currentQuestion.question}
-          </h2>
-
-          {/* Options List */}
-          <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
-            {displayedOptions.map((option) => {
-              const isChecked = selectedLabels.includes(option.label);
-
-              let borderClass = 'border-gray-200 hover:border-blue-400';
-              let bgClass = 'bg-white';
-
-              if (isEvaluated) {
-                if (option.is_correct) {
-                  borderClass = 'border-emerald-500';
-                  bgClass = 'bg-emerald-50 text-emerald-900';
-                } else if (isChecked && !option.is_correct) {
-                  borderClass = 'border-rose-500';
-                  bgClass = 'bg-rose-50 text-rose-900';
-                }
-              } else if (isChecked) {
-                borderClass = 'border-blue-500';
-                bgClass = 'bg-blue-50';
-              }
-
-              return (
-                  <label
-                      key={option.label}
-                      className={`flex items-start p-3.5 border-2 rounded-lg cursor-pointer transition ${borderClass} ${bgClass}`}
-                  >
-                    <input
-                        type="checkbox"
-                        disabled={isEvaluated}
-                        checked={isChecked}
-                        onChange={() => handleToggleOption(option.label)}
-                        className="mt-1 h-4 w-4 rounded text-blue-600 focus:ring-blue-500 cursor-pointer"
+          {editingQuestion ? (
+            <div className="min-h-0 flex-1 overflow-y-auto pr-1">
+              <label className="mb-5 block">
+                <span className="mb-1 block text-sm font-semibold text-gray-700">Question</span>
+                <textarea
+                    value={editingQuestion.question}
+                    onChange={(event) =>
+                      setEditingQuestion((previousQuestion) =>
+                        previousQuestion
+                          ? { ...previousQuestion, question: event.target.value }
+                          : previousQuestion,
+                      )
+                    }
+                    rows={3}
+                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                />
+              </label>
+              <fieldset className="space-y-3">
+                {editingQuestion.options.map((option, optionIndex) => (
+                  <div key={option.label} className="flex items-start gap-3">
+                    <label className="mt-1 cursor-pointer">
+                      <input
+                          type="checkbox"
+                          checked={option.is_correct}
+                          onChange={(event) =>
+                            setEditingQuestion((previousQuestion) => {
+                              if (!previousQuestion) return previousQuestion;
+                              const options = previousQuestion.options.map((currentOption, index) =>
+                                index === optionIndex
+                                  ? { ...currentOption, is_correct: event.target.checked }
+                                  : currentOption,
+                              );
+                              return { ...previousQuestion, options };
+                            })
+                          }
+                          aria-label={`Mark answer ${option.label} as correct`}
+                          className="edit-answer-checkbox"
+                      />
+                      <span className="edit-answer-mark" aria-hidden="true">
+                        {option.is_correct ? '✓' : '×'}
+                      </span>
+                    </label>
+                    <span className="mt-1.5 w-5 font-semibold uppercase text-gray-700">
+                      {option.label})
+                    </span>
+                    <textarea
+                        value={option.text}
+                        onChange={(event) =>
+                          setEditingQuestion((previousQuestion) => {
+                            if (!previousQuestion) return previousQuestion;
+                            const options = previousQuestion.options.map((currentOption, index) =>
+                              index === optionIndex
+                                ? { ...currentOption, text: event.target.value }
+                                : currentOption,
+                            );
+                            return { ...previousQuestion, options };
+                          })
+                        }
+                        rows={2}
+                        className="min-w-0 flex-1 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                     />
-                    <span className="ml-3 font-semibold text-gray-700 uppercase">
-                  {option.label})
-                </span>
-                    <span className="ml-2 text-gray-800 leading-snug">
-                  {option.text}
-                </span>
-                  </label>
-              );
-            })}
-          </div>
+                  </div>
+                ))}
+              </fieldset>
+              {editError && (
+                <p role="alert" className="mt-4 rounded-lg bg-rose-50 px-3 py-2 text-sm font-medium text-rose-700">
+                  {editError}
+                </p>
+              )}
+            </div>
+          ) : (
+            <>
+              {/* Question Text */}
+              <h2 className="mb-6 text-lg font-bold text-gray-900">
+                {currentQuestion.question}
+              </h2>
+
+              {/* Options List */}
+              <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
+                {displayedOptions.map((option) => {
+                  const isChecked = selectedLabels.includes(option.label);
+
+                  let borderClass = 'border-gray-200 hover:border-blue-400';
+                  let bgClass = 'bg-white';
+
+                  if (isEvaluated) {
+                    if (option.is_correct) {
+                      borderClass = 'border-emerald-500';
+                      bgClass = 'bg-emerald-50 text-emerald-900';
+                    } else if (isChecked && !option.is_correct) {
+                      borderClass = 'border-rose-500';
+                      bgClass = 'bg-rose-50 text-rose-900';
+                    }
+                  } else if (isChecked) {
+                    borderClass = 'border-blue-500';
+                    bgClass = 'bg-blue-50';
+                  }
+
+                  return (
+                      <label
+                          key={option.label}
+                          className={`flex items-start p-3.5 border-2 rounded-lg cursor-pointer transition ${borderClass} ${bgClass}`}
+                      >
+                        <input
+                            type="checkbox"
+                            disabled={isEvaluated}
+                            checked={isChecked}
+                            onChange={() => handleToggleOption(option.label)}
+                            className="mt-1 h-4 w-4 rounded text-blue-600 focus:ring-blue-500 cursor-pointer"
+                        />
+                        <span className="ml-3 font-semibold text-gray-700 uppercase">
+                      {option.label})
+                    </span>
+                        <span className="ml-2 text-gray-800 leading-snug">
+                      {option.text}
+                    </span>
+                      </label>
+                  );
+                })}
+              </div>
+            </>
+          )}
 
           {/* Navigation & Action Controls */}
           <div className="mt-auto flex shrink-0 flex-wrap items-center justify-between gap-3 border-t bg-white pb-1 pt-4">
-            <button
-                onClick={handlePrev}
-                disabled={currentIndex === 0}
-                title="Previous question"
-                aria-label="Previous question"
-                className="flex h-10 w-10 items-center justify-center rounded-lg border text-xl font-medium transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              ←
-            </button>
+            {editingQuestion ? (
+              <div className="flex w-full flex-wrap justify-end gap-2">
+                <button
+                    type="button"
+                    onClick={handleResetCorrection}
+                    className="mr-auto rounded-lg border px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  Reset to default
+                </button>
+                <button
+                    type="button"
+                    onClick={() => setEditingQuestion(null)}
+                    className="rounded-lg border px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+                <button
+                    type="button"
+                    onClick={handleSaveCorrection}
+                    className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+                >
+                  Save correction
+                </button>
+              </div>
+            ) : (
+              <>
+                <button
+                    onClick={handlePrev}
+                    disabled={currentIndex === 0}
+                    title="Previous question"
+                    aria-label="Previous question"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg border text-xl font-medium transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  ←
+                </button>
 
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {!isEvaluated ? (
-                  <button
-                      onClick={handleCheckAnswer}
-                      className="px-5 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition"
-                  >
-                    Check Answer
-                  </button>
-              ) : (
-                  <div className="flex gap-2">
-                  <button
-                      onClick={handleTryAgain}
-                      className="px-4 py-2 border rounded-lg text-sm font-medium hover:bg-gray-50 transition"
-                  >
-                    Try Again
-                  </button>
-                  </div>
-              )}
-            </div>
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  {!isEvaluated ? (
+                      <button
+                          onClick={handleCheckAnswer}
+                          className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
+                      >
+                        Check Answer
+                      </button>
+                  ) : (
+                    <button
+                        onClick={handleTryAgain}
+                        className="rounded-lg border px-4 py-2 text-sm font-medium hover:bg-gray-50 transition"
+                    >
+                      Try Again
+                    </button>
+                  )}
+                </div>
 
-            <button
-                onClick={handleNext}
-                disabled={!randomNext && currentIndex === questionsInMode.length - 1}
-                title="Next question"
-                aria-label="Next question"
-                className="flex h-10 w-10 items-center justify-center rounded-lg border text-xl font-medium transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              →
-            </button>
+                <button
+                    onClick={handleNext}
+                    disabled={!randomNext && currentIndex === questionsInMode.length - 1}
+                    title="Next question"
+                    aria-label="Next question"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg border text-xl font-medium transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  →
+                </button>
+              </>
+            )}
           </div>
 
           </div>
@@ -758,15 +887,13 @@ export default function App() {
                     key={question.id}
                     className={`rounded-lg border-2 transition hover:border-blue-400 ${
                       questionStats?.lastResult === 'correct'
-                        ? `border-emerald-300 bg-emerald-50${question.id === currentQuestion.id ? ' ring-2 ring-inset ring-blue-400' : ''}`
+                        ? 'border-emerald-300 bg-emerald-50'
                         : questionStats?.lastResult === 'incorrect'
-                          ? question.id === currentQuestion.id
-                            ? 'border-rose-300 bg-gray-100 ring-2 ring-inset ring-blue-400'
-                            : 'border-rose-300 bg-rose-50'
+                          ? 'border-rose-300 bg-rose-50'
                           : question.id === currentQuestion.id
-                            ? 'border-blue-500 bg-blue-50'
+                            ? 'border-gray-200 bg-blue-50'
                             : 'border-gray-200'
-                    }`}
+                    } ${question.id === currentQuestion.id ? 'ring-2 ring-blue-400' : ''}`}
                 >
                   <div className="flex items-center">
                     <button
@@ -858,116 +985,6 @@ export default function App() {
           </div>
         </div>
 
-          {editingQuestion && (
-            <div className="fixed inset-0 z-10 flex items-center justify-center bg-slate-900/40 p-4">
-              <div
-                  role="dialog"
-                  aria-modal="true"
-                  aria-labelledby="correction-title"
-                  className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-5 shadow-xl sm:p-6"
-              >
-                <div className="mb-5 flex items-start justify-between gap-4">
-                  <div>
-                    <h2 id="correction-title" className="text-xl font-bold text-gray-900">
-                      Correct {editingQuestion.id}
-                    </h2>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Update the question, answer text, and which answers are correct.
-                    </p>
-                  </div>
-                  <button
-                      type="button"
-                      onClick={() => setEditingQuestion(null)}
-                      aria-label="Close correction editor"
-                      className="rounded-lg px-2 py-1 text-xl text-gray-500 hover:bg-gray-100"
-                  >
-                    ×
-                  </button>
-                </div>
-                <label className="mb-4 block">
-                  <span className="mb-1 block text-sm font-semibold text-gray-700">Question</span>
-                  <textarea
-                      value={editingQuestion.question}
-                      onChange={(event) =>
-                        setEditingQuestion((previousQuestion) =>
-                          previousQuestion
-                            ? { ...previousQuestion, question: event.target.value }
-                            : previousQuestion,
-                        )
-                      }
-                      rows={3}
-                      className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                  />
-                </label>
-                <fieldset className="space-y-3">
-                  <legend className="mb-2 text-sm font-semibold text-gray-700">
-                    Answers (check every correct answer)
-                  </legend>
-                  {editingQuestion.options.map((option, optionIndex) => (
-                    <div key={option.label} className="flex items-start gap-3">
-                      <input
-                          type="checkbox"
-                          checked={option.is_correct}
-                          onChange={(event) =>
-                            setEditingQuestion((previousQuestion) => {
-                              if (!previousQuestion) return previousQuestion;
-                              const options = previousQuestion.options.map((currentOption, index) =>
-                                index === optionIndex
-                                  ? { ...currentOption, is_correct: event.target.checked }
-                                  : currentOption,
-                              );
-                              return { ...previousQuestion, options };
-                            })
-                          }
-                          aria-label={`Mark answer ${option.label} as correct`}
-                          className="mt-2 h-4 w-4 rounded text-blue-600 focus:ring-blue-500"
-                      />
-                      <span className="mt-1.5 w-5 font-semibold uppercase text-gray-700">
-                        {option.label})
-                      </span>
-                      <textarea
-                          value={option.text}
-                          onChange={(event) =>
-                            setEditingQuestion((previousQuestion) => {
-                              if (!previousQuestion) return previousQuestion;
-                              const options = previousQuestion.options.map((currentOption, index) =>
-                                index === optionIndex
-                                  ? { ...currentOption, text: event.target.value }
-                                  : currentOption,
-                              );
-                              return { ...previousQuestion, options };
-                            })
-                          }
-                          rows={2}
-                          className="min-w-0 flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                      />
-                    </div>
-                  ))}
-                </fieldset>
-                {editError && (
-                  <p role="alert" className="mt-4 rounded-lg bg-rose-50 px-3 py-2 text-sm font-medium text-rose-700">
-                    {editError}
-                  </p>
-                )}
-                <div className="mt-6 flex justify-end gap-2">
-                  <button
-                      type="button"
-                      onClick={() => setEditingQuestion(null)}
-                      className="rounded-lg border px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                      type="button"
-                      onClick={handleSaveCorrection}
-                      className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-                  >
-                    Save correction
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
   );

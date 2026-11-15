@@ -373,8 +373,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-slate-100 p-3 sm:p-5 lg:flex lg:h-screen lg:flex-col lg:overflow-hidden lg:p-6">
-      <div className="grid w-full items-start gap-4 lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-[minmax(0,1.35fr)_minmax(22rem,1fr)]">
+    <div className="app-shell min-h-screen w-full bg-slate-100 lg:flex lg:h-screen lg:flex-col lg:overflow-hidden">
+      <div className="app-layout grid w-full items-start lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-[minmax(0,1.35fr)_minmax(22rem,1fr)]">
         <div className="min-w-0 lg:flex lg:h-full lg:min-h-0 lg:flex-col">
           <SubjectSelector
             currentSubject={currentSubject}

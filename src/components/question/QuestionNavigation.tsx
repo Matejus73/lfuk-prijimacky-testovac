@@ -28,7 +28,7 @@ export function QuestionNavigation({
   onTryAgain,
 }: QuestionNavigationProps) {
   return (
-    <div className="mt-auto flex shrink-0 flex-wrap items-center justify-between gap-3 border-t bg-white pb-1 pt-4">
+    <div className="question-navigation mt-auto flex shrink-0 flex-wrap items-center justify-between border-t bg-white">
       {isEditing ? (
         <div className="flex w-full flex-wrap justify-end gap-2">
           <button

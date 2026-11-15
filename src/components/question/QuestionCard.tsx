@@ -47,7 +47,7 @@ export function QuestionCard({
   onTryAgain,
 }: QuestionCardProps) {
   return (
-    <div className="flex h-[calc(100dvh-8rem)] min-h-0 min-w-0 flex-col rounded-xl bg-white p-4 shadow-md sm:p-6 lg:h-auto lg:flex-1">
+    <div className="question-card flex h-[calc(100dvh-8rem)] min-h-0 min-w-0 flex-col rounded-xl bg-white shadow-md lg:h-auto lg:flex-1">
       {editingQuestion ? (
         <QuestionEditForm
           editingQuestion={editingQuestion}
@@ -58,7 +58,7 @@ export function QuestionCard({
         />
       ) : (
         <>
-          <h2 className="mb-6 text-lg font-bold text-gray-900">
+          <h2 className="question-card-title text-lg font-bold text-gray-900">
             {currentQuestion.question}
           </h2>
 

@@ -14,7 +14,7 @@ export function SubjectSelector({
   onSelectSubject,
 }: SubjectSelectorProps) {
   return (
-    <div className="mb-4 flex w-full flex-wrap gap-2">
+    <div className="subject-selector flex w-full flex-wrap">
       {SUBJECTS.map((subject) => {
         const isSelected = currentSubject === subject;
         return (
@@ -22,7 +22,7 @@ export function SubjectSelector({
             key={subject}
             type="button"
             onClick={() => onSelectSubject(subject)}
-            className={`min-w-[9rem] flex-1 rounded-lg py-3 text-base font-semibold transition ${
+            className={`min-w-[9rem] flex-1 rounded-lg text-base font-semibold transition ${
               isSelected
                 ? 'bg-blue-600 text-white shadow-sm'
                 : 'bg-white text-gray-700 border hover:bg-gray-50'

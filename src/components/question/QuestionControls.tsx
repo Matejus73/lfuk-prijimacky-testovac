@@ -40,13 +40,13 @@ export function QuestionControls({
   const editTitle = isEditing ? 'Save or cancel correction' : 'Correct this question';
 
   return (
-    <div className="mb-3 space-y-3 rounded-xl bg-white p-3 shadow-md sm:p-4">
+    <div className="question-controls rounded-xl bg-white shadow-md">
       {/* Mode Switcher */}
-      <div className="flex rounded-lg bg-gray-100 p-1">
+      <div className="question-mode-switcher flex rounded-lg bg-gray-100">
         <button
           type="button"
           onClick={() => onModeChange('all')}
-          className={`flex-1 rounded-md py-2 text-sm font-semibold transition ${
+          className={`flex-1 rounded-md text-sm font-semibold transition ${
             questionMode === 'all'
               ? 'bg-blue-600 text-white shadow-sm'
               : 'text-gray-600 hover:bg-white'
@@ -58,7 +58,7 @@ export function QuestionControls({
           type="button"
           onClick={() => onModeChange('revision')}
           disabled={revisionCount === 0}
-          className={`flex-1 rounded-md py-2 text-sm font-semibold transition ${
+          className={`flex-1 rounded-md text-sm font-semibold transition ${
             questionMode === 'revision'
               ? 'bg-rose-600 text-white shadow-sm'
               : 'text-gray-600 hover:bg-white disabled:cursor-not-allowed disabled:opacity-40'
@@ -69,7 +69,7 @@ export function QuestionControls({
       </div>
 
       {/* Control bar: Question tag, actions, and toggles */}
-      <div className="relative flex min-h-9 items-center justify-center">
+      <div className="question-control-bar relative flex items-center justify-center">
         <span className="text-sm font-bold tracking-wide text-gray-700">
           {subjectPrefix} {currentIndex + 1}
         </span>

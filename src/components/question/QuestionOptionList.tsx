@@ -14,7 +14,7 @@ export function QuestionOptionList({
   onToggleOption,
 }: QuestionOptionListProps) {
   return (
-    <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
+    <div className="question-option-list min-h-0 flex-1 overflow-y-auto pr-1">
       {options.map((option) => {
         const isChecked = selectedLabels.includes(option.label);
 
@@ -37,7 +37,7 @@ export function QuestionOptionList({
         return (
           <label
             key={option.label}
-            className={`flex cursor-pointer items-start rounded-lg border-2 p-3.5 transition ${borderClass} ${bgClass}`}
+            className={`question-option flex cursor-pointer items-start rounded-lg border-2 transition ${borderClass} ${bgClass}`}
           >
             <input
               type="checkbox"
@@ -46,10 +46,10 @@ export function QuestionOptionList({
               onChange={() => onToggleOption(option.label)}
               className="mt-1 h-4 w-4 cursor-pointer rounded text-blue-600 focus:ring-blue-500"
             />
-            <span className="ml-3 font-semibold uppercase text-gray-700">
+            <span className="ml-3 shrink-0 font-semibold uppercase text-gray-700">
               {option.label})
             </span>
-            <span className="ml-2 leading-snug text-gray-800">
+            <span className="question-option-text ml-2 min-w-0 leading-snug text-gray-800">
               {option.text}
             </span>
           </label>

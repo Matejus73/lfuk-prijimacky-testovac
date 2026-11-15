@@ -60,6 +60,76 @@
   }
 }
 
+@layer components {
+  .app-shell {
+    padding: clamp(0.5rem, 2dvh, 1.5rem);
+  }
+
+  .app-layout {
+    gap: clamp(0.5rem, 2dvh, 1rem);
+  }
+
+  .subject-selector {
+    gap: clamp(0.375rem, 0.9dvh, 0.5rem);
+    margin-bottom: clamp(0.5rem, 1.8dvh, 1rem);
+  }
+
+  .subject-selector > button {
+    padding-block: clamp(0.5rem, 1.3dvh, 0.75rem);
+    font-size: clamp(0.875rem, 1.8dvh, 1rem);
+  }
+
+  .question-controls {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1.5dvh, 0.75rem);
+    margin-bottom: clamp(0.5rem, 1.5dvh, 0.75rem);
+    padding: clamp(0.5rem, 1.3dvh, 1rem);
+  }
+
+  .question-mode-switcher {
+    padding: 0.25rem;
+  }
+
+  .question-mode-switcher > button {
+    padding-block: clamp(0.375rem, 1dvh, 0.5rem);
+  }
+
+  .question-control-bar {
+    min-height: clamp(2rem, 4dvh, 2.25rem);
+  }
+
+  .question-option-list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.375rem, 0.9dvh, 0.75rem);
+  }
+
+  .question-option {
+    padding: clamp(0.5rem, 1.3dvh, 0.875rem)
+      clamp(0.625rem, 1.5dvh, 0.875rem);
+    font-size: clamp(0.875rem, 1.8dvh, 1rem);
+  }
+
+  .question-option-text {
+    overflow-wrap: anywhere;
+  }
+
+  .question-card-title {
+    margin-bottom: clamp(0.875rem, 2.5dvh, 1.5rem);
+  }
+
+  .question-card.question-card {
+    padding: clamp(0.75rem, 2dvh, 1.5rem);
+  }
+
+  .question-navigation {
+    gap: clamp(0.5rem, 1.5dvh, 0.75rem);
+    padding-bottom: 0.25rem;
+    padding-top: clamp(0.5rem, 1.5dvh, 1rem);
+  }
+}
+
 @layer utilities {
   .bg-slate-100 {
     background-color: var(--background);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { QuestionCard } from './components/question/QuestionCard.tsx';
 import { QuestionControls } from './components/question/QuestionControls.tsx';
 import { SubjectSelector } from './components/question/SubjectSelector.tsx';
@@ -52,17 +52,24 @@ export default function App() {
 
   // Active question set and revision filter
   const activeQuestions = questions[currentSubject];
-  const revisionQuestions = activeQuestions
-    .map((question, index) => ({
-      question,
-      index,
-      incorrect: getQuestionStats(stats, currentSubject, question.id)?.incorrect ?? 0,
-    }))
-    .filter(({ incorrect }) => incorrect > 0);
-  const questionsInMode =
-    questionMode === 'revision'
-      ? revisionQuestions.map(({ question }) => question)
-      : activeQuestions;
+  const revisionQuestions = useMemo(
+    () =>
+      activeQuestions
+        .map((question, index) => ({
+          question,
+          index,
+          incorrect: getQuestionStats(stats, currentSubject, question.id)?.incorrect ?? 0,
+        }))
+        .filter(({ incorrect }) => incorrect > 0),
+    [activeQuestions, currentSubject, stats],
+  );
+  const questionsInMode = useMemo(
+    () =>
+      questionMode === 'revision'
+        ? revisionQuestions.map(({ question }) => question)
+        : activeQuestions,
+    [activeQuestions, questionMode, revisionQuestions],
+  );
   const randomRangeStart = Math.min(
     Math.max(randomRange.start, 1),
     Math.max(questionsInMode.length, 1),
@@ -81,18 +88,29 @@ export default function App() {
     () => Boolean(getQuestionStats(stats, 'Biology', questions.Biology[0].id)?.lastResult),
   );
   const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
+  const [copyPulseKey, setCopyPulseKey] = useState<number>(0);
+  const copyPulseIdRef = useRef(0);
+  const copyPulseTimerRef = useRef<number | null>(null);
   const [historySearch, setHistorySearch] = useState('');
   const [historySort, setHistorySort] = useState<HistorySort>('ascending');
   const [expandedHistoryIds, setExpandedHistoryIds] = useState<Set<string>>(new Set());
   const [editingQuestion, setEditingQuestion] = useState<EditableQuestion | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const editExitTimerRef = useRef<number | null>(null);
   const [editError, setEditError] = useState('');
 
   const currentQuestion = questionsInMode[currentIndex] ?? activeQuestions[0];
-  const displayedOptions = fourAnswersOnly
-    ? currentQuestion.options.filter((option) =>
-        (randomOptionLabels[`${currentSubject}:${currentQuestion.id}`] ?? []).includes(option.label),
-      )
-    : currentQuestion.options;
+  const displayedOptions = useMemo(
+    () =>
+      fourAnswersOnly
+        ? currentQuestion.options.filter((option) =>
+            (randomOptionLabels[`${currentSubject}:${currentQuestion.id}`] ?? []).includes(
+              option.label,
+            ),
+          )
+        : currentQuestion.options,
+    [currentQuestion, currentSubject, fourAnswersOnly, randomOptionLabels],
+  );
 
   // Persist state updates to localStorage
   useEffect(() => {
@@ -107,10 +125,29 @@ export default function App() {
     saveStoredFourAnswers(fourAnswersOnly);
   }, [fourAnswersOnly]);
 
-  const restoreQuestion = () => {
+  const closeEditMode = useCallback(() => {
+    if (editExitTimerRef.current !== null) {
+      window.clearTimeout(editExitTimerRef.current);
+      editExitTimerRef.current = null;
+    }
+    setIsEditing(false);
+    setEditError('');
+    editExitTimerRef.current = window.setTimeout(() => {
+      editExitTimerRef.current = null;
+      setEditingQuestion(null);
+    }, 260);
+  }, []);
+
+  const restoreQuestion = useCallback(() => {
     setSelectedLabels([]);
     setIsEvaluated(false);
-  };
+    closeEditMode();
+    if (copyPulseTimerRef.current !== null) {
+      window.clearTimeout(copyPulseTimerRef.current);
+      copyPulseTimerRef.current = null;
+    }
+    setCopyPulseKey(0);
+  }, [closeEditMode]);
 
   const handleSubjectChange = (subject: Subject) => {
     setCurrentSubject(subject);
@@ -223,6 +260,16 @@ export default function App() {
   };
 
   const handleCopyCard = async () => {
+    const nextPulse = ++copyPulseIdRef.current;
+    setCopyPulseKey(nextPulse);
+    if (copyPulseTimerRef.current !== null) {
+      window.clearTimeout(copyPulseTimerRef.current);
+    }
+    copyPulseTimerRef.current = window.setTimeout(() => {
+      copyPulseTimerRef.current = null;
+      setCopyPulseKey((current) => (current === nextPulse ? 0 : current));
+    }, 680);
+
     const cardText = formatQuestionForClipboard(
       currentSubject,
       currentQuestion,
@@ -241,7 +288,7 @@ export default function App() {
   };
 
   const handleOpenCorrection = () => {
-    if (editingQuestion) {
+    if (isEditing && editingQuestion) {
       const hasChanges =
         editingQuestion.question !== currentQuestion.question ||
         editingQuestion.options.some((option, index) => {
@@ -252,18 +299,23 @@ export default function App() {
         });
 
       if (!hasChanges) {
-        setEditingQuestion(null);
+        closeEditMode();
       } else {
         handleSaveCorrection();
       }
       return;
     }
 
+    if (editExitTimerRef.current !== null) {
+      window.clearTimeout(editExitTimerRef.current);
+      editExitTimerRef.current = null;
+    }
     setEditingQuestion({
       ...currentQuestion,
       options: currentQuestion.options.map((option) => ({ ...option })),
     });
     setEditError('');
+    setIsEditing(true);
   };
 
   const handleResetCorrection = () => {
@@ -322,8 +374,7 @@ export default function App() {
 
     setSelectedLabels([]);
     setIsEvaluated(false);
-    setEditingQuestion(null);
-    setEditError('');
+    closeEditMode();
   };
 
   const handleChangeQuestionText = (text: string) => {
@@ -350,14 +401,17 @@ export default function App() {
     });
   };
 
-  const handleSelectQuestionFromHistory = (index: number) => {
-    setQuestionMode('all');
-    setCurrentIndex(index);
-    restoreQuestion();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const handleSelectQuestionFromHistory = useCallback(
+    (index: number) => {
+      setQuestionMode('all');
+      setCurrentIndex(index);
+      restoreQuestion();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    [restoreQuestion],
+  );
 
-  const handleToggleExpandHistory = (id: string) => {
+  const handleToggleExpandHistory = useCallback((id: string) => {
     setExpandedHistoryIds((prev) => {
       const next = new Set(prev);
       if (next.has(id)) {
@@ -367,26 +421,27 @@ export default function App() {
       }
       return next;
     });
-  };
+  }, []);
 
   // Aggregated stats calculations
-  const answeredQuestionsCount = activeQuestions.filter((question) =>
-    ['correct', 'incorrect'].includes(
-      getQuestionStats(stats, currentSubject, question.id)?.lastResult ?? '',
-    ),
-  ).length;
-
-  const correctAnswersCount = activeQuestions.reduce(
-    (total, question) =>
-      total + (getQuestionStats(stats, currentSubject, question.id)?.correct ?? 0),
-    0,
-  );
-
-  const incorrectAnswersCount = activeQuestions.reduce(
-    (total, question) =>
-      total + (getQuestionStats(stats, currentSubject, question.id)?.incorrect ?? 0),
-    0,
-  );
+  const { answeredQuestionsCount, correctAnswersCount, incorrectAnswersCount } = useMemo(() => {
+    let answered = 0;
+    let correct = 0;
+    let incorrect = 0;
+    for (const question of activeQuestions) {
+      const qStats = getQuestionStats(stats, currentSubject, question.id);
+      if (qStats?.lastResult === 'correct' || qStats?.lastResult === 'incorrect') {
+        answered++;
+      }
+      correct += qStats?.correct ?? 0;
+      incorrect += qStats?.incorrect ?? 0;
+    }
+    return {
+      answeredQuestionsCount: answered,
+      correctAnswersCount: correct,
+      incorrectAnswersCount: incorrect,
+    };
+  }, [activeQuestions, currentSubject, stats]);
 
   const totalAttempts = correctAnswersCount + incorrectAnswersCount;
   const correctPercentage = totalAttempts
@@ -419,7 +474,7 @@ export default function App() {
             currentIndex={currentIndex}
             copyStatus={copyStatus}
             onCopy={handleCopyCard}
-            isEditing={Boolean(editingQuestion)}
+            isEditing={isEditing}
             onToggleEdit={handleOpenCorrection}
             randomNext={randomNext}
             onToggleRandomNext={handleRandomNextToggle}
@@ -438,13 +493,14 @@ export default function App() {
             selectedLabels={selectedLabels}
             isEvaluated={isEvaluated}
             onToggleOption={handleToggleOption}
+            isEditing={isEditing}
             editingQuestion={editingQuestion}
             onChangeQuestionText={handleChangeQuestionText}
             onToggleOptionCorrect={handleToggleOptionCorrect}
             onChangeOptionText={handleChangeOptionText}
             editError={editError}
             onResetCorrection={handleResetCorrection}
-            onCancelCorrection={() => setEditingQuestion(null)}
+            onCancelCorrection={closeEditMode}
             onSaveCorrection={handleSaveCorrection}
             onPrev={handlePrev}
             isPrevDisabled={currentIndex === 0}
@@ -455,6 +511,7 @@ export default function App() {
             }
             onCheckAnswer={handleCheckAnswer}
             onTryAgain={handleTryAgain}
+            copyPulseKey={copyPulseKey}
           />
         </div>
 

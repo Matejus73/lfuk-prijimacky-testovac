@@ -53,3 +53,38 @@ export function ArrowRightIcon({ className = 'h-5 w-5' }: IconProps) {
     </svg>
   );
 }
+
+export function CheckIcon({ className = 'h-3 w-3' }: IconProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="3.5 8.5 6.5 11.5 12.5 4.5" />
+    </svg>
+  );
+}
+
+export function CloseIcon({ className = 'h-3 w-3' }: IconProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="4.5" y1="4.5" x2="11.5" y2="11.5" />
+      <line x1="11.5" y1="4.5" x2="4.5" y2="11.5" />
+    </svg>
+  );
+}

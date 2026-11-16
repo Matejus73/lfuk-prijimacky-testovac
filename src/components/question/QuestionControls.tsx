@@ -65,7 +65,7 @@ export function QuestionControls({
         <button
           type="button"
           onClick={() => onModeChange('all')}
-          className={`relative z-10 flex-1 cursor-pointer rounded-md text-sm font-semibold transition-colors duration-150 ${
+          className={`relative z-10 flex-1 cursor-pointer rounded-md text-sm font-semibold transition-colors duration-180 ${
             questionMode === 'all'
               ? 'text-white'
               : 'text-gray-600 hover:text-gray-900'
@@ -77,7 +77,7 @@ export function QuestionControls({
           type="button"
           onClick={() => onModeChange('revision')}
           disabled={revisionCount === 0}
-          className={`relative z-10 flex-1 cursor-pointer rounded-md text-sm font-semibold transition-colors duration-150 ${
+          className={`relative z-10 flex-1 cursor-pointer rounded-md text-sm font-semibold transition-colors duration-180 ${
             questionMode === 'revision'
               ? 'text-white'
               : 'text-gray-600 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-40'
@@ -90,35 +90,75 @@ export function QuestionControls({
       {/* Control bar: Question tag, actions, and toggles */}
       <div className="question-control-bar relative flex items-center justify-center">
         <div className="question-position pointer-events-none">
-          <span className="question-position-content pointer-events-auto flex items-center gap-2 text-sm font-bold tracking-wide text-gray-700">
-            {subjectPrefix} {currentIndex + 1}
+          <span
+            className={`question-position-content pointer-events-auto flex items-center text-sm font-bold tracking-wide text-gray-700 ${
+              randomNext ? 'question-position-content-expanded' : ''
+            }`}
+          >
+            <span>
+              {subjectPrefix} {currentIndex + 1}
+            </span>
             <span
-              className={`random-range flex items-center gap-1 font-normal tracking-normal text-gray-600 ${
+              className={`random-range font-normal tracking-normal text-gray-600 ${
                 randomNext ? 'random-range-visible' : ''
               }`}
               aria-hidden={!randomNext}
             >
-              <input
-                type="number"
-                disabled={!randomNext}
-                min={1}
-                max={randomRangeEnd}
-                value={randomRangeStart}
-                onChange={(event) => onRandomRangeStartChange(Number(event.target.value))}
-                aria-label="First random question"
-                className="random-range-input"
-              />
-              <span>to</span>
-              <input
-                type="number"
-                disabled={!randomNext}
-                min={randomRangeStart}
-                max={randomRangeMax}
-                value={randomRangeEnd}
-                onChange={(event) => onRandomRangeEndChange(Number(event.target.value))}
-                aria-label="Last random question"
-                className="random-range-input"
-              />
+              <span className="random-range-inner">
+                <span
+                  className={`random-range-pill ${
+                    randomNext ? 'random-range-pill-visible' : ''
+                  }`}
+                >
+                  <span
+                    className={`random-range-track ${
+                      randomNext ? 'random-range-track-visible' : ''
+                    }`}
+                  >
+                    <span className="random-range-slot" aria-hidden="true" />
+                    <span className="random-range-slot">
+                      <input
+                        type="number"
+                        disabled={!randomNext}
+                        tabIndex={randomNext ? 0 : -1}
+                        min={1}
+                        max={randomRangeEnd}
+                        value={randomRangeStart}
+                        onChange={(event) => onRandomRangeStartChange(Number(event.target.value))}
+                        aria-label="First random question"
+                        className="random-range-input"
+                      />
+                    </span>
+                  </span>
+                </span>
+                <span>to</span>
+                <span
+                  className={`random-range-pill ${
+                    randomNext ? 'random-range-pill-visible' : ''
+                  }`}
+                >
+                  <span
+                    className={`random-range-track ${
+                      randomNext ? 'random-range-track-visible' : ''
+                    }`}
+                  >
+                    <span className="random-range-slot" aria-hidden="true" />
+                    <span className="random-range-slot">
+                      <input
+                        type="number"
+                        disabled={!randomNext}
+                        tabIndex={randomNext ? 0 : -1}
+                        min={randomRangeStart}
+                        max={randomRangeMax}
+                        value={randomRangeEnd}
+                        onChange={(event) => onRandomRangeEndChange(Number(event.target.value))}
+                        aria-label="Last random question"
+                        className="random-range-input"
+                      />
+                    </span>
+                  </span>
+                </span>
+              </span>
             </span>
           </span>
         </div>
@@ -127,7 +167,12 @@ export function QuestionControls({
           <IconButton onClick={onCopy} title={copyTitle} ariaLabel={copyTitle}>
             <CopyIcon />
           </IconButton>
-          <IconButton onClick={onToggleEdit} title={editTitle} ariaLabel={editTitle}>
+          <IconButton
+            onClick={onToggleEdit}
+            title={editTitle}
+            ariaLabel={editTitle}
+            className={isEditing ? 'border-blue-500 bg-blue-50 text-blue-600' : ''}
+          >
             <EditIcon />
           </IconButton>
         </div>

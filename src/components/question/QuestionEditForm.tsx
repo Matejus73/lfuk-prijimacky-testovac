@@ -44,6 +44,7 @@ export function QuestionEditForm({
                 <img
                   src={questionImage}
                   alt="Original question source"
+                  decoding="async"
                   className="edit-source-image"
                 />
               </a>
@@ -55,6 +56,7 @@ export function QuestionEditForm({
                 <img
                   src={answerKeyImage}
                   alt="Original answer key source"
+                  decoding="async"
                   className="edit-source-image"
                 />
               </a>

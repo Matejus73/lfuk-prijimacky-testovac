@@ -27,81 +27,168 @@ export function QuestionNavigation({
   onCheckAnswer,
   onTryAgain,
 }: QuestionNavigationProps) {
+  const handleLeftAction = () => {
+    if (isEditing) {
+      onResetCorrection();
+    } else {
+      onPrev();
+    }
+  };
+
+  const handleMiddleAction = () => {
+    if (isEditing) {
+      onCancelCorrection();
+    } else if (isEvaluated) {
+      onTryAgain();
+    } else {
+      onCheckAnswer();
+    }
+  };
+
+  const handleRightAction = () => {
+    if (isEditing) {
+      onSaveCorrection();
+    } else {
+      onNext();
+    }
+  };
+
+  const isMiddlePrimary = !isEditing && !isEvaluated;
+  const isRightPrimary = isEditing;
+
   return (
-    <div className="question-navigation mt-auto flex shrink-0 flex-wrap items-center justify-between border-t bg-white">
-      {isEditing ? (
-        <div className="flex w-full flex-wrap justify-end gap-2">
-          <button
-            type="button"
-            onClick={onResetCorrection}
-            className="mr-auto cursor-pointer rounded-lg border px-4 py-2 text-sm font-semibold text-gray-700 shadow-2xs transition-colors duration-150 hover:bg-gray-50"
+    <div className="question-navigation mt-auto flex shrink-0 items-center justify-between gap-2 border-t bg-white">
+      {/* Left button: Prev arrow morphs into Reset to default */}
+      <button
+        type="button"
+        onClick={handleLeftAction}
+        disabled={!isEditing && isPrevDisabled}
+        title={isEditing ? 'Reset to default' : 'Previous question'}
+        aria-label={isEditing ? 'Reset to default' : 'Previous question'}
+        className={`nav-morph-btn nav-arrow-btn group cursor-pointer rounded-lg border text-sm font-semibold text-gray-700 shadow-2xs hover:bg-gray-50 disabled:cursor-not-allowed disabled:hover:bg-white ${
+          isEditing ? 'nav-morph-btn-left-edit' : 'nav-morph-btn-icon'
+        }`}
+      >
+        <span className="nav-morph-stage">
+          <span
+            className={`nav-morph-track ${
+              isEditing ? 'nav-morph-track-icon-editing' : ''
+            }`}
           >
-            Reset to default
-          </button>
-          <button
-            type="button"
-            onClick={onCancelCorrection}
-            className="cursor-pointer rounded-lg border px-4 py-2 text-sm font-semibold text-gray-700 shadow-2xs transition-colors duration-150 hover:bg-gray-50"
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
-            onClick={onSaveCorrection}
-            className="cursor-pointer rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-150 hover:bg-blue-700"
-          >
-            Save correction
-          </button>
-        </div>
-      ) : (
-        <>
-          <button
-            type="button"
-            onClick={onPrev}
-            disabled={isPrevDisabled}
-            title="Previous question"
-            aria-label="Previous question"
-            className="group flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border text-gray-700 shadow-2xs transition-colors duration-150 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            <span className="transition-transform duration-150 group-hover:-translate-x-0.5">
-              <ArrowLeftIcon />
+            <span
+              className={`nav-morph-slot nav-morph-slot-icon ${
+                !isEditing && isPrevDisabled ? 'opacity-40' : ''
+              }`}
+              aria-hidden={isEditing}
+            >
+              <span className="nav-arrow-icon nav-arrow-left">
+                <ArrowLeftIcon />
+              </span>
             </span>
-          </button>
-
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {!isEvaluated ? (
-              <button
-                type="button"
-                onClick={onCheckAnswer}
-                className="cursor-pointer rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-150 hover:bg-blue-700"
-              >
-                Check Answer
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={onTryAgain}
-                className="cursor-pointer rounded-lg border px-4 py-2 text-sm font-semibold shadow-2xs transition-colors duration-150 hover:bg-gray-50"
-              >
-                Try Again
-              </button>
-            )}
-          </div>
-
-          <button
-            type="button"
-            onClick={onNext}
-            disabled={isNextDisabled}
-            title="Next question"
-            aria-label="Next question"
-            className="group flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border text-gray-700 shadow-2xs transition-colors duration-150 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            <span className="transition-transform duration-150 group-hover:translate-x-0.5">
-              <ArrowRightIcon />
+            <span
+              className="nav-morph-slot nav-morph-slot-left-edit"
+              aria-hidden={!isEditing}
+            >
+              Reset to default
             </span>
-          </button>
-        </>
-      )}
+          </span>
+        </span>
+      </button>
+
+      {/* Spacer that morphs flex-grow so middle button glides toward the right in edit mode */}
+      <div
+        className={`nav-morph-spacer ${
+          isEditing ? 'nav-morph-spacer-editing' : ''
+        }`}
+        aria-hidden="true"
+      />
+
+      {/* Middle button: Check Answer / Try Again morphs into Cancel */}
+      <button
+        type="button"
+        onClick={handleMiddleAction}
+        title={
+          isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'
+        }
+        aria-label={
+          isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'
+        }
+        className={`nav-morph-btn cursor-pointer rounded-lg border text-sm font-semibold ${
+          isMiddlePrimary
+            ? 'nav-morph-btn-primary border-transparent bg-blue-600 text-white shadow-sm hover:bg-blue-700'
+            : 'nav-morph-btn-secondary text-gray-700 shadow-2xs hover:bg-gray-50'
+        }`}
+      >
+        <span className="nav-morph-stage">
+          <span
+            className={`nav-morph-track ${
+              isEditing ? 'nav-morph-track-mid-editing' : ''
+            }`}
+          >
+            <span
+              className={`nav-morph-slot ${
+                isMiddlePrimary ? 'nav-morph-slot-primary' : 'nav-morph-slot-secondary'
+              }`}
+              aria-hidden={isEditing}
+            >
+              {isEvaluated ? 'Try Again' : 'Check Answer'}
+            </span>
+            <span
+              className="nav-morph-slot nav-morph-slot-secondary"
+              aria-hidden={!isEditing}
+            >
+              Cancel
+            </span>
+          </span>
+        </span>
+      </button>
+
+      {/* Spacer that collapses in edit mode so Cancel sits next to Save correction */}
+      <div
+        className={`nav-morph-spacer ${
+          isEditing ? 'nav-morph-spacer-collapsed' : 'nav-morph-spacer-editing'
+        }`}
+        aria-hidden="true"
+      />
+
+      {/* Right button: Next arrow morphs into Save correction */}
+      <button
+        type="button"
+        onClick={handleRightAction}
+        disabled={!isEditing && isNextDisabled}
+        title={isEditing ? 'Save correction' : 'Next question'}
+        aria-label={isEditing ? 'Save correction' : 'Next question'}
+        className={`nav-morph-btn nav-arrow-btn group cursor-pointer rounded-lg border text-sm font-semibold disabled:cursor-not-allowed disabled:hover:bg-white ${
+          isRightPrimary
+            ? 'nav-morph-btn-right-edit border-transparent bg-blue-600 text-white shadow-sm hover:bg-blue-700'
+            : 'nav-morph-btn-icon text-gray-700 shadow-2xs hover:bg-gray-50'
+        }`}
+      >
+        <span className="nav-morph-stage">
+          <span
+            className={`nav-morph-track ${
+              isEditing ? 'nav-morph-track-icon-editing' : ''
+            }`}
+          >
+            <span
+              className={`nav-morph-slot nav-morph-slot-icon ${
+                !isEditing && isNextDisabled ? 'opacity-40' : ''
+              }`}
+              aria-hidden={isEditing}
+            >
+              <span className="nav-arrow-icon nav-arrow-right">
+                <ArrowRightIcon />
+              </span>
+            </span>
+            <span
+              className="nav-morph-slot nav-morph-slot-right-edit"
+              aria-hidden={!isEditing}
+            >
+              Save correction
+            </span>
+          </span>
+        </span>
+      </button>
     </div>
   );
 }

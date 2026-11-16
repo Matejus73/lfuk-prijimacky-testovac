@@ -16,20 +16,16 @@ export function AccuracyProgressBar({
         <span>{totalAttempts} graded attempts</span>
       </div>
       <div className="flex h-3 overflow-hidden rounded-full bg-gray-200">
-        {correctPercentage > 0 && (
-          <div
-            className="bg-emerald-500 transition-[width] duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            style={{ width: `${correctPercentage}%` }}
-            title={`${correctPercentage}% correct`}
-          />
-        )}
-        {incorrectPercentage > 0 && (
-          <div
-            className="bg-rose-500 transition-[width] duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            style={{ width: `${incorrectPercentage}%` }}
-            title={`${incorrectPercentage}% incorrect`}
-          />
-        )}
+        <div
+          className="bg-emerald-500 transition-[width] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{ width: `${correctPercentage}%` }}
+          title={`${correctPercentage}% correct`}
+        />
+        <div
+          className="bg-rose-500 transition-[width] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{ width: `${incorrectPercentage}%` }}
+          title={`${incorrectPercentage}% incorrect`}
+        />
       </div>
       <div className="mt-2 flex gap-4 text-xs text-gray-600">
         <span className="flex items-center">

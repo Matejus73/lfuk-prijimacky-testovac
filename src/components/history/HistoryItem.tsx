@@ -9,8 +9,8 @@ interface HistoryItemProps {
   questionStats?: QuestionStats;
   isCurrent: boolean;
   isExpanded: boolean;
-  onSelect: () => void;
-  onToggleExpand: () => void;
+  onSelect: (index: number) => void;
+  onToggleExpand: (id: string) => void;
 }
 
 export const HistoryItem = memo(function HistoryItem({
@@ -44,7 +44,7 @@ export const HistoryItem = memo(function HistoryItem({
       <div className="flex items-center">
         <button
           type="button"
-          onClick={onSelect}
+          onClick={() => onSelect(index)}
           className="min-w-0 flex-1 cursor-pointer p-3 text-left"
         >
           <div className="flex items-center justify-between gap-3">
@@ -61,13 +61,13 @@ export const HistoryItem = memo(function HistoryItem({
 
         <div className="mr-3">
           <IconButton
-            onClick={onToggleExpand}
+            onClick={() => onToggleExpand(question.id)}
             title={isExpanded ? `Collapse ${question.id}` : `Expand ${question.id}`}
             ariaLabel={`${isExpanded ? 'Collapse' : 'Expand'} ${question.id} answer`}
           >
             <span
-              className={`inline-flex transition-transform duration-200 ease-out ${
-                isExpanded ? 'rotate-180' : 'rotate-0'
+              className={`history-chevron ${
+                isExpanded ? 'history-chevron-expanded' : ''
               }`}
             >
               <ChevronDownIcon />
@@ -77,7 +77,7 @@ export const HistoryItem = memo(function HistoryItem({
       </div>
 
       {isExpanded && (
-        <div className="border-t border-gray-200/80 px-3 pb-3 pt-2">
+        <div className="history-details border-t border-gray-200/80 px-3 pb-3 pt-2">
           <p className="mb-2 text-sm text-gray-600">
             Last answer: <span className="font-semibold text-gray-800">{lastAnswerText}</span>
           </p>
@@ -104,7 +104,7 @@ export const HistoryItem = memo(function HistoryItem({
                     checked={wasSelected}
                     disabled
                     readOnly
-                    className="mt-0.5 h-4 w-4 rounded text-blue-600"
+                    className="circle-checkbox mt-0.5"
                   />
                   <span className="ml-2 font-semibold text-gray-700">{option.label})</span>
                   <span className="ml-2 text-gray-700">{option.text}</span>

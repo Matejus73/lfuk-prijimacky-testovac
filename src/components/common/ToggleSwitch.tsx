@@ -31,29 +31,23 @@ export function ToggleSwitch({
         aria-label={ariaLabel ?? title}
         className={`toggle-switch-btn ${
           checked
-            ? 'bg-blue-600 text-white'
-            : 'bg-gray-300 text-gray-700'
+            ? 'toggle-switch-btn-active'
+            : 'toggle-switch-btn-inactive'
         }`}
       >
         <span
-          className={`toggle-switch-badge ${
+          className={`toggle-switch-track ${
             checked
-              ? 'toggle-switch-badge-active'
-              : 'toggle-switch-badge-active-hidden'
+              ? 'toggle-switch-track-checked'
+              : 'toggle-switch-track-unchecked'
           }`}
-          aria-hidden={!checked}
         >
-          {activeBadgeText}
-        </span>
-        <span
-          className={`toggle-switch-badge ${
-            checked
-              ? 'toggle-switch-badge-inactive-hidden'
-              : 'toggle-switch-badge-inactive'
-          }`}
-          aria-hidden={checked}
-        >
-          {inactiveBadgeText}
+          <span className="toggle-switch-item" aria-hidden={checked}>
+            {inactiveBadgeText}
+          </span>
+          <span className="toggle-switch-item" aria-hidden={!checked}>
+            {activeBadgeText}
+          </span>
         </span>
       </button>
     </div>

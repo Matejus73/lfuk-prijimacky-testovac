@@ -62,15 +62,20 @@ Aplikácia simuluje oficiálny formát podkladových otázok (1000 otázok z bio
 │   ├── favicon.svg
 │   └── icons.svg
 ├── src/
-│   ├── assets/          # Obrázky a ďalšie assety
+│   ├── components/      # Modulárne UI komponenty
+│   │   ├── common/      # Znovupoužiteľné prvky (IconButton, ToggleSwitch, Icons)
+│   │   ├── history/     # Komponenty histórie a vyhľadávania
+│   │   ├── question/    # Karty otázok, voľby, navigácia a editácia
+│   │   └── stats/       # Prehľad štatistík a indikátor úspešnosti
+│   ├── constants/       # Konštanty a úložiskové kľúče
 │   ├── data/            # Databáza otázok v JSON formáte
 │   │   ├── OtazkyBio.json
 │   │   └── OtazkyChem.json
-│   ├── App.css          # Štýly hlavnej aplikácie
-│   ├── App.tsx          # Hlavný komponent aplikácie
-│   ├── index.css        # Globálne štýly
+│   ├── utils/           # Pomocné funkcie pre logiku a úložisko
+│   ├── App.tsx          # Hlavný orchestrátor aplikácie
+│   ├── index.css        # Globálne štýly a farebné premenné
 │   ├── main.tsx         # Vstupný bod aplikácie
-│   └── types.ts         # TypeScript typy
+│   └── types.ts         # TypeScript typy a rozhrania
 ├── index.html           # HTML vstupná stránka
 ├── package.json         # Závislosti a npm skripty
 ├── vite.config.ts       # Konfigurácia Vite

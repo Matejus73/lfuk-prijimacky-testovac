@@ -251,12 +251,12 @@
       },
       {
         "label": "c",
-        "text": "patrí medzi vedy morfologické",
+        "text": "skúma makroskopickú stavbu orgánov",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "skúma makroskopickú stavbu orgánov",
+        "text": "patrí medzi vedy morfologické",
         "is_correct": true
       },
       {
@@ -266,12 +266,12 @@
       },
       {
         "label": "f",
-        "text": "skúma stavbu pletív rastlín",
+        "text": "skúma stavbu pletív živočíchov",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "skúma stavbu pletív živočíchov",
+        "text": "skúma stavbu pletív rastlín",
         "is_correct": true
       },
       {
@@ -288,7 +288,7 @@
     "options": [
       {
         "label": "a",
-        "text": "Aristoteles tvorca teórie abiogenézy",
+        "text": "Aristoteles - tvorca teórie abiogenézy",
         "is_correct": true
       },
       {
@@ -298,7 +298,7 @@
       },
       {
         "label": "c",
-        "text": "Vesalius zakladateľ vedeckej anatómie",
+        "text": "Vesalius - zakladateľ vedeckej anatómie",
         "is_correct": true
       },
       {
@@ -308,22 +308,22 @@
       },
       {
         "label": "e",
-        "text": "Pasteur-objaviteľ bunky",
+        "text": "Pasteur - objaviteľ bunky",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "Harvey-objaviteľ krvného obehu",
+        "text": "Harvey - objaviteľ krvného obehu",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "Darwin-tvorca evolučnej teórie",
+        "text": "Darwin - tvorca evolučnej teórie",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "Linné zakladateľ genetiky",
+        "text": "Linné - zakladateľ genetiky",
         "is_correct": false
       }
     ]
@@ -360,7 +360,7 @@
       },
       {
         "label": "f",
-        "text": "schopnost meniť sa",
+        "text": "schopnosť meniť sa",
         "is_correct": true
       },
       {
@@ -486,7 +486,7 @@
       },
       {
         "label": "c",
-        "text": "na organické látky pripadá 10 až 40% celkovej hmotnosti bunky",
+        "text": "na organické látky pripadá 10 až 40 % celkovej hmotnosti bunky",
         "is_correct": true
       },
       {
@@ -496,12 +496,12 @@
       },
       {
         "label": "e",
-        "text": "na anorganické látky pripadá 10 až 40% celkovej hmotnosti bunky",
+        "text": "na anorganické látky pripadá 10 až 40 % celkovej hmotnosti buky",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "najvyšši podiel má voda",
+        "text": "najvyšší podiel má voda",
         "is_correct": true
       },
       {
@@ -575,7 +575,7 @@
       },
       {
         "label": "b",
-        "text": "je aktivátorom rôznych chemických reakcii",
+        "text": "je aktivátorom rôznych chemických reakcií",
         "is_correct": true
       },
       {
@@ -778,12 +778,12 @@
       },
       {
         "label": "e",
-        "text": "sú rozpúšťadlom biologicky významných polárnych látok",
+        "text": "môžu mať ochrannú funkciu, napr. ak sú súčasťou voskov",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "môžu mať ochrannú funkciu, napr. ak sú súčasťou voskov",
+        "text": "sú rozpúšťadlom biologicky významných polárnych látok",
         "is_correct": false
       },
       {
@@ -942,7 +942,7 @@
   {
     "id": "BIO_21",
     "subject": "Biology",
-    "question": "Ktoré polysacharidy majú zásobnú funkelu?",
+    "question": "Ktoré polysacharidy majú zásobnú funkciu?",
     "options": [
       {
         "label": "a",
@@ -961,7 +961,7 @@
       },
       {
         "label": "d",
-        "text": "chitín",
+        "text": "chitin",
         "is_correct": false
       },
       {
@@ -1327,7 +1327,7 @@
       },
       {
         "label": "b",
-        "text": "selektivna",
+        "text": "selektívna",
         "is_correct": true
       },
       {
@@ -1394,7 +1394,7 @@
       },
       {
         "label": "f",
-        "text": "u buniek drevnatých rastlín obsahuje aj lignin",
+        "text": "u buniek drevnatých rastlín obsahuje aj lignín",
         "is_correct": true
       },
       {
@@ -1468,7 +1468,7 @@
       },
       {
         "label": "b",
-        "text": "štruktúry podobné jadru nachádzajúce u prokaryotických organizmov",
+        "text": "štruktúry podobné jadru nachádzajúce sa u prokaryotických organizmov",
         "is_correct": false
       },
       {
@@ -1577,7 +1577,7 @@
       },
       {
         "label": "e",
-        "text": "slizovitá vrstva (puzdro)",
+        "text": "slizovitá vrstva (púzdro)",
         "is_correct": true
       },
       {
@@ -2381,7 +2381,7 @@
       },
       {
         "label": "f",
-        "text": "z dvoch vnútorného obalu a vonkajšej membrány, ktorá vytvára mitochondriálne kristy",
+        "text": "z dvoch - vnútorného obalu a vonkajšej membrány, ktorá vytvára mitochondriálne kristy",
         "is_correct": false
       },
       {
@@ -2695,7 +2695,7 @@
       },
       {
         "label": "c",
-        "text": "sú zdrojom riboflavinu",
+        "text": "sú zdrojom riboflavínu",
         "is_correct": false
       },
       {
@@ -2794,7 +2794,7 @@
       },
       {
         "label": "d",
-        "text": "chromatídy",
+        "text": "chromatidy",
         "is_correct": false
       },
       {
@@ -3395,7 +3395,7 @@
       },
       {
         "label": "b",
-        "text": "majú veľkosť približne 1-10 μm",
+        "text": "majú veľkosť približne 1 - 10μm",
         "is_correct": true
       },
       {
@@ -3668,7 +3668,7 @@
   {
     "id": "BIO_79",
     "subject": "Biology",
-    "question": "Rozličné tkanivá sa môžu zoskupiť do:",
+    "question": "Rozličné tkanivá sa môžu zoskupiť do :",
     "options": [
       {
         "label": "a",
@@ -3912,7 +3912,7 @@
       },
       {
         "label": "b",
-        "text": "skúmanim štruktúry buniek živého organizmu",
+        "text": "skúmaním štruktúry buniek živého organizmu",
         "is_correct": false
       },
       {
@@ -4006,7 +4006,7 @@
       },
       {
         "label": "b",
-        "text": "vyžaduje dodanic energie",
+        "text": "vyžaduje dodanie energie",
         "is_correct": false
       },
       {
@@ -4684,7 +4684,7 @@
       },
       {
         "label": "f",
-        "text": "adenintrifosfát",
+        "text": "adeníntrifosfát",
         "is_correct": false
       },
       {
@@ -4778,7 +4778,7 @@
       },
       {
         "label": "f",
-        "text": "\"nástroje\" prenosu látok v telových tekutinách",
+        "text": "„nástroje“ prenosu látok v telových tekutinách",
         "is_correct": false
       },
       {
@@ -5102,7 +5102,7 @@
       },
       {
         "label": "e",
-        "text": "len u anaeróbnych orzanizmov",
+        "text": "len u anaeróbnych organizmov",
         "is_correct": false
       },
       {
@@ -5181,7 +5181,7 @@
       },
       {
         "label": "b",
-        "text": "oxidáciou vodika organických látok na vodu",
+        "text": "oxidáciou vodíka organických látok na vodu",
         "is_correct": true
       },
       {
@@ -5651,7 +5651,7 @@
       },
       {
         "label": "b",
-        "text": "obsahuje centroméru - primárne zúženie chromozómu",
+        "text": "obsahuje centroméru – primárne zúženie chromozómu",
         "is_correct": true
       },
       {
@@ -5661,22 +5661,22 @@
       },
       {
         "label": "d",
-        "text": "je v nepravidelných úsekoch „obalený bielkovinami\"",
+        "text": "je v nepravidelných úsekoch „obalený“ bielkovinami",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "obsahuje centroméru - sekundárne zúženie chromozómu",
+        "text": "obsahuje centroméru – sekundárne zúženie chromozómu",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "obsahuje centrozóm - primárne zúženie chromozómu",
+        "text": "obsahuje centrozóm – primárne zúženie chromozómu",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "obsahuje centriolu - primárne zúženie chromozómu",
+        "text": "obsahuje centriolu – primárne zúženie chromozómu",
         "is_correct": false
       },
       {
@@ -6116,12 +6116,12 @@
     "options": [
       {
         "label": "a",
-        "text": "G1 fáze prebiehajú syntetické procesy, je tu hlavný kontrolný uzol",
+        "text": "G1 fáze - prebiehajú syntetické procesy, je tu hlavný kontrolný uzol",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "S fáze prebieha zdvojenie jadrových chromozómov",
+        "text": "S fáze - prebieha zdvojenie jadrových chromozómov",
         "is_correct": true
       },
       {
@@ -6131,7 +6131,7 @@
       },
       {
         "label": "d",
-        "text": "M fáze sa jadro rozdelí na dve dcérske jadrá",
+        "text": "M fáze - sa jadro rozdelí na dve dcérske jadrá",
         "is_correct": true
       },
       {
@@ -6141,7 +6141,7 @@
       },
       {
         "label": "f",
-        "text": "S fáze prebieha rozdelenie dcérskych chromozómov",
+        "text": "S fáze - prebieha rozdelenie dcérskych chromozómov",
         "is_correct": false
       },
       {
@@ -6151,7 +6151,7 @@
       },
       {
         "label": "h",
-        "text": "M fáze sa jadro rozdelí na dve dcérske jadrá a zvyčajne je tu hlavný kontrolný uzol cyklu",
+        "text": "M fáze - sa jadro rozdelí na dve dcérske jadrá a zvyčajne je tu hlavný kontrolný uzol cyklu",
         "is_correct": false
       }
     ]
@@ -6188,7 +6188,7 @@
       },
       {
         "label": "f",
-        "text": "GO fáza",
+        "text": "G0 fáza",
         "is_correct": false
       },
       {
@@ -6277,7 +6277,7 @@
       },
       {
         "label": "e",
-        "text": "pozdĺžne rozdelia na dve chromatídy",
+        "text": "pozdĺžne rozdelia na dve chromatidy",
         "is_correct": false
       },
       {
@@ -6888,7 +6888,7 @@
       },
       {
         "label": "e",
-        "text": "môžu byť nerozlíšené - rovnaké (izogaméty)",
+        "text": "môžu byť nerozlíšené – rovnaké (izogaméty)",
         "is_correct": true
       },
       {
@@ -7428,7 +7428,7 @@
   {
     "id": "BIO_159",
     "subject": "Biology",
-    "question": "Individuálny vývin každého mnohobunkového živočícha pohlavným rozmnožovaním má etapu:",
+    "question": "Individuálny vývin každého mnohobunkového živočícha s pohlavným rozmnožovaním má etapu:",
     "options": [
       {
         "label": "a",
@@ -7898,7 +7898,7 @@
   {
     "id": "BIO_169",
     "subject": "Biology",
-    "question": "CAT AAG TAC AAC CGT CAC je úsek DNA: tRNA nesúce aminokyseliny budú mať antikodóny:",
+    "question": "CAT AAG TAC AAC CGT CAC je úsek DNA; tRNA nesúce aminokyseliny budú mať antikodóny:",
     "options": [
       {
         "label": "a",
@@ -8184,12 +8184,12 @@
     "options": [
       {
         "label": "a",
-        "text": "3'5'",
+        "text": "3'→5'",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "5'->3'",
+        "text": "5'→3'",
         "is_correct": true
       },
       {
@@ -8486,7 +8486,7 @@
       },
       {
         "label": "e",
-        "text": "dve deérske bunky",
+        "text": "dve dcérske bunky",
         "is_correct": false
       },
       {
@@ -8501,7 +8501,7 @@
       },
       {
         "label": "h",
-        "text": "dve rovnaké molekuky RNA, z ktorých každá obsahuje jeden reťazec z pôvodnej molekuly a jeden novosyntetizovaný, t.j. dcérsky",
+        "text": "dve rovnaké molekuly RNA, z ktorých každá obsahuje jeden reťazec z pôvodnej molekuly a jeden novosyntetizovaný, t.j. dcérsky",
         "is_correct": false
       }
     ]
@@ -8560,22 +8560,22 @@
     "options": [
       {
         "label": "a",
-        "text": "na DNA vlákne začína v smere 3'->5'",
+        "text": "na DNA vlákne začína v smere 3' -> 5'",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "novosyntetizovaná mRNA sa tvorí v smere 5'->3'",
+        "text": "novosyntetizovaná mRNA sa tvorí v smere 5' -> 3'",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "na DNA vlákne je v smere 5'->3'",
+        "text": "na DNA vlákne je v smere 5' -> 3'",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "novosyntetizovaná mRNA sa tvorí v smere 3'->5'",
+        "text": "novosyntetizovaná mRNA sa tvorí v smere 3' -> 5'",
         "is_correct": false
       },
       {
@@ -8585,17 +8585,17 @@
       },
       {
         "label": "f",
-        "text": "RNA polymeráza syntetizuje v smere 5'->3'",
+        "text": "RNA polymeráza syntetizuje v smere 5' -> 3'",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "DNA polymeráza syntetizuje v smere 5'->3'",
+        "text": "DNA polymeráza syntetizuje v smere 5' -> 3'",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "RNA polymeráza syntetizuje v smere 3'->5'",
+        "text": "RNA polymeráza syntetizuje v smere 3' -> 5'",
         "is_correct": false
       }
     ]
@@ -9030,7 +9030,7 @@
     "options": [
       {
         "label": "a",
-        "text": "anedinom",
+        "text": "adenínom",
         "is_correct": false
       },
       {
@@ -9543,7 +9543,7 @@
   {
     "id": "BIO_204",
     "subject": "Biology",
-    "question": "Aký počet aminokyselín kóduje pri syntéze bielkovín nasledovný úsek DNA ATG TCT TTT CGG GGC CGT TAC CAT CCC?",
+    "question": "Aký počet aminokyselín kóduje pri syntéze bielkovín nasledovný úsek DNA\nATG TCT TTT CGG GGC CGT TAC CAT CCC?",
     "options": [
       {
         "label": "a",
@@ -9637,7 +9637,7 @@
   {
     "id": "BIO_206",
     "subject": "Biology",
-    "question": "Aký bol úsek štruktúrneho génu, keď poradie báz v mRNA je CGA UAU CGU GCU?",
+    "question": "Aký bol úsek štruktúrneho génu, keď poradie báz v mRNA je\nCGA UAU CGU GCU?",
     "options": [
       {
         "label": "a",
@@ -9876,42 +9876,42 @@
     "options": [
       {
         "label": "a",
-        "text": "C-A",
+        "text": "C - A",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "G-C",
+        "text": "G - C",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "T-A",
+        "text": "T - A",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "U-A",
+        "text": "U - A",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "C-G",
+        "text": "C - G",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "A-T",
+        "text": "A - T",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "A-U",
+        "text": "A - U",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "G-U",
+        "text": "G - U",
         "is_correct": false
       }
     ]
@@ -9933,12 +9933,12 @@
       },
       {
         "label": "c",
-        "text": "energiu dodáva DNA-polymeriza",
+        "text": "energiu dodáva DNA-polymeráza",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "energiu dodáva adenozintrifosfät",
+        "text": "energiu dodáva adenozíntrifosfát",
         "is_correct": true
       },
       {
@@ -9948,7 +9948,7 @@
       },
       {
         "label": "f",
-        "text": "syntetizuje sa v jadierku medzi dvomi interfäzami",
+        "text": "syntetizuje sa v jadierku medzi dvomi interfázami",
         "is_correct": false
       },
       {
@@ -9970,42 +9970,42 @@
     "options": [
       {
         "label": "a",
-        "text": "3 GCU CCA UGG AAU 5",
+        "text": "3' GCU CCA UGG AAU 5'",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "5 GCA CCT AGG TTA 3",
+        "text": "5' GCA CCT AGG TTA 3'",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "3 AUU GGA UCC ACG 5",
+        "text": "3' AUU GGA UCC ACG 5'",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "5 GCC CCT AGG TTA S",
+        "text": "5' GCC CCT AGG TTA 3'",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "3 CGT GGA TCC AAU 5",
+        "text": "3' CGT GGA TCC AAU 5'",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "5 GCA CCU AGG UUA 3",
+        "text": "5' GCA CCU AGG UUA 3'",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "5 CGU GGA UCC AAU 3",
+        "text": "5' CGU GGA UCC AAU 3'",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "5 CGA GGA UCC AAU 3",
+        "text": "5' CGA GGA UCC AAU 3'",
         "is_correct": false
       }
     ]
@@ -10017,42 +10017,42 @@
     "options": [
       {
         "label": "a",
-        "text": "3 GAG CTT AAA CCC 5",
+        "text": "3' GAG CTT AAA CCC 5'",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "3 TCT AGG CCC AAA 5",
+        "text": "3' TCT AGG CCC AAA 5'",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "5 TCT UGG CCC UUU 3",
+        "text": "5' TCT UGG CCC UUU 3'",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "5 TCT AGG CCC AAA 3",
+        "text": "5' TCT AGG CCC AAA 3'",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "3 AGA TCC GGG TTT 5",
+        "text": "3' AGA TCC GGG TTT 5'",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "5 TCT AGG CCC ATA 3",
+        "text": "5' TCT AGG CCC ATA 3'",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "5 AAA CCC CGA TCT 3",
+        "text": "5' AAA CCC CGA TCT 3'",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "3 AAA CCC GGA TCT 5",
+        "text": "3' AAA CCC GGA TCT 5'",
         "is_correct": true
       }
     ]
@@ -10188,7 +10188,7 @@
       },
       {
         "label": "g",
-        "text": "IncRNA",
+        "text": "lncRNA",
         "is_correct": false
       },
       {
@@ -10210,12 +10210,12 @@
       },
       {
         "label": "b",
-        "text": "vlákno 3'->5' DNA",
+        "text": "vlákno 3´→ 5´ DNA",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "vlákno 5'->3' DNA",
+        "text": "vlákno 5´→ 3´ DNA",
         "is_correct": false
       },
       {
@@ -10225,7 +10225,7 @@
       },
       {
         "label": "e",
-        "text": "vlákno 3'->5' RNA",
+        "text": "vlákno 3´→ 5´ RNA",
         "is_correct": false
       },
       {
@@ -10324,7 +10324,7 @@
       },
       {
         "label": "f",
-        "text": "obsahujú päť alebo šesťuhlíkatý cukor",
+        "text": "obsahujú päť- alebo šesťuhlíkatý cukor",
         "is_correct": false
       },
       {
@@ -10456,17 +10456,17 @@
       {
         "label": "d",
         "text": "30%",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "40%",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
         "text": "50%",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "g",
@@ -10530,7 +10530,7 @@
   {
     "id": "BIO_225",
     "subject": "Biology",
-    "question": "Enzým, ktorý pridáva komplememtárne bázy počas replikácie je:",
+    "question": "Enzým, ktorý pridáva komplementárne bázy počas replikácie je:",
     "options": [
       {
         "label": "a",
@@ -10779,32 +10779,32 @@
       },
       {
         "label": "c",
-        "text": "DNA polymeráza syntetizuje nové vlákno v smere 3'->5'",
+        "text": "DNA polymeráza syntetizuje nové vlákno v smere 3'→5'",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "DNA primáza syntetizuje nové vlákno v smere 3'->5'",
+        "text": "DNA primáza syntetizuje nové vlákno v smere 3'→5'",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "DNA primáza syntetizuje nové vlákno v smere 5'->3' rovnako ako RNA primáza",
+        "text": "DNA primáza syntetizuje nové vlákno v smere 5'→3' rovnako ako RNA primáza",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "DNA polymeráza syntetizuje nové vlákno v smere 5'->3'",
+        "text": "DNA polymeráza syntetizuje nové vlákno v smere 5'→3'",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "DNA primáza syntetizuje nové vlákno v smere 5'->3'",
+        "text": "DNA primáza syntetizuje nové vlákno v smere 5'→3'",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "DNA primáza syntetizuje nové vlákno v smere 3'->5' rovnako ako RNA primáza",
+        "text": "DNA primáza syntetizuje nové vlákno v smere 3'→5' rovnako ako RNA primáza",
         "is_correct": false
       }
     ]
@@ -10812,46 +10812,46 @@
   {
     "id": "BIO_231",
     "subject": "Biology",
-    "question": "Uveďte jednotlivé možnosti komplementarity báz tRNA a mRNA:",
+    "question": "Uveďte jednotlivé možnosti komplementarity báz tRNA a rRNA:",
     "options": [
       {
         "label": "a",
-        "text": "tRNA: AUGCAU mRNA: UCAUUC",
+        "text": "tRNA: A U G C A U\nrRNA: U C A U U C",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "tRNA: UGACAU mRNA: CUGGCG",
+        "text": "tRNA: U G A C A U\nrRNA: C U G G C G",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "tRNA: AUGGAG mRNA: UACCUC",
+        "text": "tRNA: A U G G A G\nrRNA: U A C C U C",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "tRNA: ACGAAU mRNA: GUCUUA",
+        "text": "tRNA: A C G A A U\nrRNA: G U C U U A",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "tRNA: AACCCU mRNA: UUGGGA",
+        "text": "tRNA: A A C C C U\nrRNA: U U G G G A",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "tRNA: GCUAGC mRNA: CGAUCG",
+        "text": "tRNA: G C U A G C\nrRNA: C G A U C G",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "tRNA: UUACGU mRNA: AAUCGA",
+        "text": "tRNA: U U A C G U\nrRNA: A A U C G A",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "tRNA: UAACAU mRNA: AAUCAA",
+        "text": "tRNA: U A A C A U\nrRNA: A A U C A A",
         "is_correct": false
       }
     ]
@@ -11114,7 +11114,7 @@
       {
         "label": "d",
         "text": "ribozómová RNA",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
@@ -11427,42 +11427,42 @@
     "options": [
       {
         "label": "a",
-        "text": "tRNA: AUGCAU mRNA: UCAUUC",
+        "text": "tRNA: A U G C A U\nmRNA: U C A U U C",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "tRNA: UGACAU mRNA: CUGGCG",
+        "text": "tRNA: U G A C A U\nmRNA: C U G G C G",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "tRNA: AUGGAG mRNA: UACCUC",
+        "text": "tRNA: A U G G A G\nmRNA: U A C C U C",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "tRNA: ACGAAU mRNA: GUCUUA",
+        "text": "tRNA: A C G A A U\nmRNA: G U C U U A",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "tRNA: AACCCU mRNA: UUGGGA",
+        "text": "tRNA: A A C C C U\nmRNA: U U G G G A",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "tRNA: GCUAGC mRNA: CGAUCG",
+        "text": "tRNA: G C U A G C\nmRNA: C G A U C G",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "tRNA: UUACGU mRNA: AAUCGA",
+        "text": "tRNA: U U A C G U\nmRNA: A A U C G A",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "tRNA: UAACAU mRNA: AAUCAA",
+        "text": "tRNA: U A A C A U\nmRNA: A A U C A A",
         "is_correct": false
       }
     ]
@@ -11490,17 +11490,17 @@
       {
         "label": "d",
         "text": "je založená na princípe komplementarity",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "začína na ľubovoľnom mieste DNA",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
         "text": "je semikonzervatívna",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "g",
@@ -11709,7 +11709,7 @@
     "options": [
       {
         "label": "a",
-        "text": "MDNA",
+        "text": "mDNA",
         "is_correct": false
       },
       {
@@ -11719,17 +11719,17 @@
       },
       {
         "label": "c",
-        "text": "iDNA",
+        "text": "ribonukleová kyselina",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "IRNA",
+        "text": "tRNA",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "ribonukleová kyselina",
+        "text": "iDNA",
         "is_correct": false
       },
       {
@@ -12073,7 +12073,7 @@
       },
       {
         "label": "h",
-        "text": "prenášajú tak, že sa vyskytujú v rôznom počte kópii",
+        "text": "prenášajú tak, že sa vyskytujú v rôznom počte kópií",
         "is_correct": true
       }
     ]
@@ -12199,7 +12199,7 @@
       },
       {
         "label": "e",
-        "text": "A s genotypom AA ak je otec heterozygot",
+        "text": "A s genotypom AA, ak je otec heterozygot",
         "is_correct": false
       },
       {
@@ -12410,7 +12410,7 @@
   {
     "id": "BIO_265",
     "subject": "Biology",
-    "question": "Krvné skupiny sústavy ABO sa na Slovensku vyskytujú:",
+    "question": "Krvné skupiny sústavy AB0 sa na Slovensku vyskytujú:",
     "options": [
       {
         "label": "a",
@@ -12739,46 +12739,46 @@
   {
     "id": "BIO_272",
     "subject": "Biology",
-    "question": "Akú krvnú skupinu môže mať dieťa, ak otec má krvnú skupinu 0 a matka A?",
+    "question": "B s genotypom B0, ak je otec heterozygot",
     "options": [
       {
         "label": "a",
-        "text": "A s genotypom AA, ak je otec heterozygot",
+        "text": "pozorujeme zmenu štruktúry chromozómov",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "A alebo 0, ak je matka homozygot",
+        "text": "telová bunka má viac alebo menej chromozómov ako 2n",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "0 s genotypom 00, ak je matka homozygot",
+        "text": "sa nemenia jednotlivé gény",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "B s genotypom B0, ak je otec heterozygot",
+        "text": "sa menia jednotlivé úseky chromozómu",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "A s genotypom AA ak je matka heterozygot",
+        "text": "sa nemení počet jednotlivých chromozómov a sád",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "0 s genotypom 00, ak je matka heterozygot",
+        "text": "prokaryotická bunka má viac alebo menej chromozómov ako 2n",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "A alebo 0, ak je matka heterozygot",
+        "text": "sa mení počet chromozómov v bunke",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "A s genotypom A0, ak je matka heterozygote",
+        "text": "pozorujeme polyploidiu alebo aneuploidiu",
         "is_correct": true
       }
     ]
@@ -12974,11 +12974,11 @@
   {
     "id": "BIO_277",
     "subject": "Biology",
-    "question": "Zdraví rodičia majú postihnutú deéru cystickou fibrózou (autozomálne recesívne ochorenie). Platí tvrdenie:",
+    "question": "Zdraví rodičia majú postihnutú dcéru cystickou fibrózou (autozomálne recesívne ochorenie). Platí tvrdenie:",
     "options": [
       {
         "label": "a",
-        "text": "genotypy rodičov sú Aa x An",
+        "text": "genotypy rodičov sú Aa x Aa",
         "is_correct": true
       },
       {
@@ -12993,7 +12993,7 @@
       },
       {
         "label": "d",
-        "text": "pravdepodobnost ochorenia ďalšieho dieťaťa je 25%",
+        "text": "pravdepodobnosť ochorenia ďalšieho dieťaťa je 25%",
         "is_correct": true
       },
       {
@@ -13030,12 +13030,12 @@
       },
       {
         "label": "b",
-        "text": "XX x XdY",
+        "text": "XdX x XdY",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "XX x XY",
+        "text": "XdXd x XY",
         "is_correct": false
       },
       {
@@ -13055,12 +13055,12 @@
       },
       {
         "label": "g",
-        "text": "XX x XY",
+        "text": "XX x XdY",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "XX x XY",
+        "text": "XdX x XY",
         "is_correct": true
       }
     ]
@@ -13154,7 +13154,7 @@
       },
       {
         "label": "h",
-        "text": "recesivne, viazaný na autozóm X",
+        "text": "recesívne, viazaný na autozóm X",
         "is_correct": false
       }
     ]
@@ -13196,7 +13196,7 @@
       },
       {
         "label": "g",
-        "text": "kodominantne, spolu s iným typom enzymopatic",
+        "text": "kodominantne, spolu s iným typom enzymopatie",
         "is_correct": false
       },
       {
@@ -14619,7 +14619,7 @@
   {
     "id": "BIO_312",
     "subject": "Biology",
-    "question": "Fenylketonúria je autozómovo recesivne ochorenie. Môžu mať dvaja zdraví manželia postihnutú dcéru?",
+    "question": "Fenylketonúria je autozómovo recesívne ochorenie. Môžu mať dvaja zdraví manželia postihnutú dcéru?",
     "options": [
       {
         "label": "a",
@@ -14638,12 +14638,12 @@
       },
       {
         "label": "d",
-        "text": "je 25% šanca, že sa im narodí postihnutá deéra",
+        "text": "je 25% šanca, že sa im narodí postihnutá dcéra",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "je 50% šanca, že sa im narodí postihnutá deéra",
+        "text": "je 50% šanca, že sa im narodí postihnutá dcéra",
         "is_correct": false
       },
       {
@@ -14675,7 +14675,7 @@
       },
       {
         "label": "b",
-        "text": "dcéra dedí po otcovi recesívnu alelu pre hemofiliu",
+        "text": "dcéra dedí po otcovi recesívnu alelu pre hemofíliu",
         "is_correct": true
       },
       {
@@ -15046,7 +15046,7 @@
     "options": [
       {
         "label": "a",
-        "text": "viacerými pármi alel, napr. pri ABO systéme krvných skupín",
+        "text": "viacerými pármi alel, napr. pri AB0 systéme krvných skupín",
         "is_correct": false
       },
       {
@@ -15066,7 +15066,7 @@
       },
       {
         "label": "e",
-        "text": "jednou alelou pre ABO systém krvných skupín",
+        "text": "jednou alelou pre AB0 systém krvných skupín",
         "is_correct": true
       },
       {
@@ -15610,12 +15610,12 @@
     "options": [
       {
         "label": "a",
-        "text": "hemofilia",
+        "text": "hemofília",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "krátkoprstost",
+        "text": "krátkoprstosť",
         "is_correct": false
       },
       {
@@ -15692,7 +15692,7 @@
       },
       {
         "label": "h",
-        "text": "v pomere 9:3:3:1",
+        "text": "v pomere 9: 3: 3: 1",
         "is_correct": false
       }
     ]
@@ -16100,7 +16100,7 @@
       },
       {
         "label": "e",
-        "text": "génov malého účinku\"",
+        "text": "génov „malého účinku\"",
         "is_correct": true
       },
       {
@@ -16268,7 +16268,7 @@
     "options": [
       {
         "label": "a",
-        "text": "heterozygotne A a homozygotne (0",
+        "text": "heterozygotne A a homozygotne 0",
         "is_correct": false
       },
       {
@@ -16701,7 +16701,7 @@
       },
       {
         "label": "c",
-        "text": "sú podmienené jedným génom veľkého\" účinku",
+        "text": "sú podmienené jedným génom „veľkého“ účinku",
         "is_correct": true
       },
       {
@@ -16828,7 +16828,7 @@
   {
     "id": "BIO_359",
     "subject": "Biology",
-    "question": "Starý otec má znak dedený autozomálne recesivne. Jeho syn tento znak nemá. Ak si vezme zdravú manželku, aká je pravdepodobnosť, že vnuk bude mať znak ako starý otec?",
+    "question": "Starý otec má znak dedený autozomálne recesívne. Jeho syn tento znak nemá. Ak si vezme zdravú manželku, aká je pravdepodobnosť, že vnuk bude mať znak ako starý otec?",
     "options": [
       {
         "label": "a",
@@ -17077,7 +17077,7 @@
       },
       {
         "label": "c",
-        "text": "ich frekvencia je 10^-5 až 10^-10 na jeden gén a jednu generáciu",
+        "text": "ich frekvencia je 10⁻⁵ až 10⁻¹⁰ na jeden gén a jednu generáciu",
         "is_correct": true
       },
       {
@@ -17087,7 +17087,7 @@
       },
       {
         "label": "e",
-        "text": "ich frekvencia je 10^50 až 10^70 na jeden gén a jednu generáciu",
+        "text": "ich frekvencia je 10⁵⁰ až 10⁷⁰ na jeden gén a jednu generáciu",
         "is_correct": false
       },
       {
@@ -17213,7 +17213,7 @@
       },
       {
         "label": "b",
-        "text": "ich deéra nikdy nebude farboslepá",
+        "text": "ich dcéra nikdy nebude farboslepá",
         "is_correct": true
       },
       {
@@ -17427,7 +17427,7 @@
       {
         "label": "g",
         "text": "lokusy na chromozóme sú uložené cirkulárne",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "h",
@@ -17725,7 +17725,7 @@
     "options": [
       {
         "label": "a",
-        "text": "je rovnaká u synov",
+        "text": "je rovnaká ako u synov",
         "is_correct": false
       },
       {
@@ -17815,7 +17815,7 @@
   {
     "id": "BIO_380",
     "subject": "Biology",
-    "question": "Chromozómová výbava človeka:-",
+    "question": "Chromozómová výbava človeka:",
     "options": [
       {
         "label": "a",
@@ -17844,17 +17844,17 @@
       },
       {
         "label": "f",
-        "text": "je pár pohlavných chromozómov",
+        "text": "je chromozómová mapa",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "je tvorená aj autozómami",
+        "text": "je chromozómová mapa",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "je tvorená aj gonozómami",
+        "text": "je chromozómová mapa",
         "is_correct": true
       }
     ]
@@ -17896,7 +17896,7 @@
       },
       {
         "label": "g",
-        "text": "As pravdepodobnosťou 75%",
+        "text": "A s pravdepodobnosťou 75%",
         "is_correct": false
       },
       {
@@ -17990,7 +17990,7 @@
       },
       {
         "label": "g",
-        "text": "nebude ho mat",
+        "text": "nebude ho mať",
         "is_correct": false
       },
       {
@@ -18050,7 +18050,7 @@
   {
     "id": "BIO_385",
     "subject": "Biology",
-    "question": "Pojem panmixia\" označuje:",
+    "question": "Pojem „panmixia“ označuje:",
     "options": [
       {
         "label": "a",
@@ -18064,7 +18064,7 @@
       },
       {
         "label": "c",
-        "text": "neplodnost",
+        "text": "neplodnosť",
         "is_correct": false
       },
       {
@@ -18131,7 +18131,7 @@
       },
       {
         "label": "g",
-        "text": "môže byť submisivny a dominantný",
+        "text": "môže byť submisívny a dominantný",
         "is_correct": false
       },
       {
@@ -18826,12 +18826,12 @@
       },
       {
         "label": "e",
-        "text": "označuje sa symbolom h16",
+        "text": "označuje sa symbolom „h“",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "označuje sa symbolom h266",
+        "text": "označuje sa symbolom „h²“",
         "is_correct": true
       },
       {
@@ -18841,7 +18841,7 @@
       },
       {
         "label": "h",
-        "text": "ak h2=1, ide o znak ovplyvnený výlučne genotypom",
+        "text": "ak h²=1, ide o znak ovplyvnený výlučne genotypom",
         "is_correct": true
       }
     ]
@@ -18849,7 +18849,7 @@
   {
     "id": "BIO_402",
     "subject": "Biology",
-    "question": "Ak je koeficient dedivosti pre telesnú výšku h2=0,7, znamená to, že na fenotypovej variabilite výšky človeka sa na:",
+    "question": "Ak je koeficient dedivosti pre telesnú výšku h²=0,7, znamená to, že na fenotypovej variabilite výšky človeka sa na:",
     "options": [
       {
         "label": "a",
@@ -19103,18 +19103,18 @@
       },
       {
         "label": "d",
-        "text": "hemofilia je gonozómovo dominantné ochorenie",
-        "is_correct": false
+        "text": "hemofília je gonozómovo dominantné ochorenie",
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "daltonizmus je gonozómovo recesívne ochorenie",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
         "text": "cystická fibróza je gonozómovo recesívne ochorenie",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "g",
@@ -19507,7 +19507,7 @@
   {
     "id": "BIO_416",
     "subject": "Biology",
-    "question": "Zámena bázy v polynukleotidovom reťazci, ktorá má za následok zámena aminokyseliny v polypeptidovom reťazci s odlišnou funkciou výsledného proteínu sa nazýva:",
+    "question": "Zámena bázy v polynukleotidovom reťazci, ktorá má za následok zámenu aminokyseliny v polypeptidovom reťazci s odlišnou funkciou výsledného proteínu sa nazýva:",
     "options": [
       {
         "label": "a",
@@ -20058,12 +20058,12 @@
       },
       {
         "label": "g",
-        "text": "podľa polohy centroméry je možné chromozómy rozdeliť do štyroch kategórii",
+        "text": "podľa polohy centroméry je možné chromozómy rozdeliť do štyroch kategórií",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "primárna konstrikcia chromozómu sa volá satelit",
+        "text": "primárna konštrukcia chromozómu sa volá satelit",
         "is_correct": true
       }
     ]
@@ -20118,7 +20118,7 @@
   {
     "id": "BIO_429",
     "subject": "Biology",
-    "question": "Aký materiál je možný použiť na chromozómovú analýzu?",
+    "question": "Aký materiál je možné použiť na chromozómovú analýzu?",
     "options": [
       {
         "label": "a",
@@ -20560,12 +20560,12 @@
       },
       {
         "label": "d",
-        "text": "nie je fenotypovo rozoznateľný od dominantného homozygota",
+        "text": "heterozygot nie je fenotypovo rozoznateľný od dominantného homozygota",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "alely IA a IB v systéme ABO sú neúplne dominantné",
+        "text": "alely IA a IB v systéme AB0 sú neúplne dominantné",
         "is_correct": false
       },
       {
@@ -20711,7 +20711,7 @@
       },
       {
         "label": "f",
-        "text": "označenie hemozygota",
+        "text": "označenie hemizygota",
         "is_correct": false
       },
       {
@@ -20780,7 +20780,7 @@
     "options": [
       {
         "label": "a",
-        "text": "s reciprokým krížení dostaneme iné genotypové a fenotypové pomery",
+        "text": "s reciprokým krížením dostaneme iné genotypové a fenotypové pomery",
         "is_correct": true
       },
       {
@@ -20790,12 +20790,12 @@
       },
       {
         "label": "c",
-        "text": "môže sa objaviť uniformita hybridov, pri čom nezáleží či otec alebo matka nesú recesívnu alelu",
+        "text": "môže sa objaviť uniformita hybridov, pričom nezáleží či otec alebo matka nesú recesívnu alelu",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "je to kríženie dvoch rozdielnych genotypov, pri ktorom sa rodičovskí partneri zamieňajú vo funkcii otca a matky",
+        "text": "je to kríženie dvoch rozdielnych genotypov, pri ktorom rodičovskí partneri zamieňajú vo funkcii otca a matky",
         "is_correct": true
       },
       {
@@ -21285,7 +21285,7 @@
       },
       {
         "label": "h",
-        "text": "cieľom genetiky človeka je eliminácia patologických mutácii vytvorením čistých línií",
+        "text": "cieľom genetiky človeka je eliminácia patologických mutácií vytvorením čistých línií",
         "is_correct": false
       }
     ]
@@ -21468,7 +21468,7 @@
       },
       {
         "label": "g",
-        "text": "metóda umožňujúca detekciu veľkých chromozómových prestavieb a chromozómových aberácii",
+        "text": "metóda umožňujúca detekciu veľkých chromozómových prestavieb a chromozómových aberácií",
         "is_correct": true
       },
       {
@@ -23532,12 +23532,12 @@
       {
         "label": "f",
         "text": "88,36%",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "g",
         "text": "0,8836%",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "h",
@@ -24451,7 +24451,7 @@
       },
       {
         "label": "b",
-        "text": "p^2=1-q",
+        "text": "p²=1-q",
         "is_correct": false
       },
       {
@@ -24476,12 +24476,12 @@
       },
       {
         "label": "g",
-        "text": "p=√p^2",
+        "text": "p=√p²",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "q^2",
+        "text": "q²",
         "is_correct": false
       }
     ]
@@ -25762,7 +25762,7 @@
     "options": [
       {
         "label": "a",
-        "text": "heterotrofné organizmy, ktoré odoberajú organické látky inému žijúcemu organizmu - hostiteľovi, a do jeho tela vylučujú splodiny svojho metabolizmu",
+        "text": "heterotrofné organizmy, ktoré odoberajú organické látky inému žijúcemu organizmu – hostiteľovi, a do jeho tela vylučujú splodiny svojho metabolizmu",
         "is_correct": true
       },
       {
@@ -25844,7 +25844,7 @@
       },
       {
         "label": "h",
-        "text": "S fáze, G2 fáze a v profáze",
+        "text": "S fáze, G₂ fáze a v profáze",
         "is_correct": false
       }
     ]
@@ -26863,7 +26863,7 @@
       },
       {
         "label": "e",
-        "text": "izolované z paplesne",
+        "text": "izolované z plesne",
         "is_correct": true
       },
       {
@@ -26915,7 +26915,7 @@
       },
       {
         "label": "f",
-        "text": "aktivitou výmeny látok",
+        "text": "aktivitou látkovej výmeny",
         "is_correct": true
       },
       {
@@ -28377,7 +28377,7 @@
       },
       {
         "label": "g",
-        "text": "aktivitou prištitnych teliesok",
+        "text": "aktivitou prištítnych teliesok",
         "is_correct": true
       },
       {
@@ -28719,6 +28719,241 @@
   {
     "id": "BIO_612",
     "subject": "Biology",
+    "question": "Nadobličky človeka:",
+    "options": [
+      {
+        "label": "a",
+        "text": "sa skladajú z kôry a drene",
+        "is_correct": true
+      },
+      {
+        "label": "b",
+        "text": "sa skladajú z púzdra a jadra",
+        "is_correct": false
+      },
+      {
+        "label": "c",
+        "text": "tvoria hormóny, ktoré vylučujú do obličiek",
+        "is_correct": false
+      },
+      {
+        "label": "d",
+        "text": "tvoria hormóny, ktoré vylučujú do krvi",
+        "is_correct": true
+      },
+      {
+        "label": "e",
+        "text": "sú párové žľazy, uložené na dolnom póle obličiek",
+        "is_correct": false
+      },
+      {
+        "label": "f",
+        "text": "tvorí ich kortex a dreň",
+        "is_correct": true
+      },
+      {
+        "label": "g",
+        "text": "sú párové žľazy, uložené na hornom póle obličiek",
+        "is_correct": true
+      },
+      {
+        "label": "h",
+        "text": "tvoria hormóny, napr. tyroxín",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "BIO_613",
+    "subject": "Biology",
+    "question": "Hospodárenie s minerálnymi látkami riadi:",
+    "options": [
+      {
+        "label": "a",
+        "text": "glukokortikoidy",
+        "is_correct": false
+      },
+      {
+        "label": "b",
+        "text": "adrenalín",
+        "is_correct": false
+      },
+      {
+        "label": "c",
+        "text": "aldosterón",
+        "is_correct": true
+      },
+      {
+        "label": "d",
+        "text": "inzulín",
+        "is_correct": false
+      },
+      {
+        "label": "e",
+        "text": "noradrenalín",
+        "is_correct": false
+      },
+      {
+        "label": "f",
+        "text": "mineralokortikoidy",
+        "is_correct": true
+      },
+      {
+        "label": "g",
+        "text": "testosterón",
+        "is_correct": false
+      },
+      {
+        "label": "h",
+        "text": "tyroxín",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "BIO_614",
+    "subject": "Biology",
+    "question": "Kôra nadobličiek človeka produkuje:",
+    "options": [
+      {
+        "label": "a",
+        "text": "kortizol",
+        "is_correct": true
+      },
+      {
+        "label": "b",
+        "text": "adrenalín",
+        "is_correct": false
+      },
+      {
+        "label": "c",
+        "text": "parathormón",
+        "is_correct": false
+      },
+      {
+        "label": "d",
+        "text": "aldosterón",
+        "is_correct": true
+      },
+      {
+        "label": "e",
+        "text": "noradrenalín",
+        "is_correct": false
+      },
+      {
+        "label": "f",
+        "text": "glukokortikoidy",
+        "is_correct": true
+      },
+      {
+        "label": "g",
+        "text": "tyroxín",
+        "is_correct": false
+      },
+      {
+        "label": "h",
+        "text": "mineralokortikoidy",
+        "is_correct": true
+      }
+    ]
+  },
+  {
+    "id": "BIO_615",
+    "subject": "Biology",
+    "question": "Antidiuretický hormón u človeka:",
+    "options": [
+      {
+        "label": "a",
+        "text": "vylučuje sa viac, ak je v organizme nedostatok vody",
+        "is_correct": true
+      },
+      {
+        "label": "b",
+        "text": "znižuje koncentráciu moču",
+        "is_correct": false
+      },
+      {
+        "label": "c",
+        "text": "riadi hospodárenie organizmu s vodou",
+        "is_correct": true
+      },
+      {
+        "label": "d",
+        "text": "riadi prietok moču močovým mechúrom",
+        "is_correct": false
+      },
+      {
+        "label": "e",
+        "text": "zvyšuje spätné vstrebávanie vody do krvi v obličke",
+        "is_correct": true
+      },
+      {
+        "label": "f",
+        "text": "zvyšuje hustotu moču",
+        "is_correct": true
+      },
+      {
+        "label": "g",
+        "text": "pôsobí proti vylučovaniu vody močom",
+        "is_correct": true
+      },
+      {
+        "label": "h",
+        "text": "znižuje spätné vstrebávanie vody do krvi",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "BIO_616",
+    "subject": "Biology",
+    "question": "Ktorá žľaza človeka produkuje tyroxín?",
+    "options": [
+      {
+        "label": "a",
+        "text": "podžalúdková žľaza",
+        "is_correct": false
+      },
+      {
+        "label": "b",
+        "text": "štítna žľaza",
+        "is_correct": true
+      },
+      {
+        "label": "c",
+        "text": "prištítne telieska",
+        "is_correct": false
+      },
+      {
+        "label": "d",
+        "text": "podmozgová žľaza",
+        "is_correct": false
+      },
+      {
+        "label": "e",
+        "text": "hypofýza",
+        "is_correct": false
+      },
+      {
+        "label": "f",
+        "text": "fylogeneticky najmladšia žľaza s vnútorným vylučovaním",
+        "is_correct": false
+      },
+      {
+        "label": "g",
+        "text": "zadný lalok hypofýzy",
+        "is_correct": false
+      },
+      {
+        "label": "h",
+        "text": "predný lalok hypofýzy",
+        "is_correct": false
+      }
+    ]
+  },
+  {
+    "id": "BIO_617",
+    "subject": "Biology",
     "question": "Dreň nadobličiek človeka produkuje:",
     "options": [
       {
@@ -28748,7 +28983,7 @@
       },
       {
         "label": "f",
-        "text": "melatonin",
+        "text": "melatonín",
         "is_correct": false
       },
       {
@@ -28764,7 +28999,7 @@
     ]
   },
   {
-    "id": "BIO_613",
+    "id": "BIO_618",
     "subject": "Biology",
     "question": "Predný lalok hypofýzy človeka produkuje hormón:",
     "options": [
@@ -28811,7 +29046,7 @@
     ]
   },
   {
-    "id": "BIO_614",
+    "id": "BIO_619",
     "subject": "Biology",
     "question": "Nedostatočná činnosť štítnej žľazy u mladého organizmu sa môže prejaviť:",
     "options": [
@@ -28858,7 +29093,7 @@
     ]
   },
   {
-    "id": "BIO_615",
+    "id": "BIO_620",
     "subject": "Biology",
     "question": "Glukagón:",
     "options": [
@@ -28905,7 +29140,7 @@
     ]
   },
   {
-    "id": "BIO_616",
+    "id": "BIO_621",
     "subject": "Biology",
     "question": "Prištítne telieska človeka:",
     "options": [
@@ -28952,7 +29187,7 @@
     ]
   },
   {
-    "id": "BIO_617",
+    "id": "BIO_622",
     "subject": "Biology",
     "question": "Rastový hormón u človeka:",
     "options": [
@@ -28999,7 +29234,7 @@
     ]
   },
   {
-    "id": "BIO_618",
+    "id": "BIO_623",
     "subject": "Biology",
     "question": "Hormóny drene nadobličiek:",
     "options": [
@@ -29046,7 +29281,7 @@
     ]
   },
   {
-    "id": "BIO_619",
+    "id": "BIO_624",
     "subject": "Biology",
     "question": "O hormónoch u človeka je pravdivé tvrdenie:",
     "options": [
@@ -29093,7 +29328,7 @@
     ]
   },
   {
-    "id": "BIO_620",
+    "id": "BIO_625",
     "subject": "Biology",
     "question": "Čiernobiele videnie za šera umožňujú:",
     "options": [
@@ -29140,7 +29375,7 @@
     ]
   },
   {
-    "id": "BIO_621",
+    "id": "BIO_626",
     "subject": "Biology",
     "question": "Ktoré tvrdenie o nervových bunkách je správne?",
     "options": [
@@ -29187,7 +29422,7 @@
     ]
   },
   {
-    "id": "BIO_622",
+    "id": "BIO_627",
     "subject": "Biology",
     "question": "Aký je rozdiel medzi nervovou a gliovou bunkou?",
     "options": [
@@ -29203,12 +29438,12 @@
       },
       {
         "label": "c",
-        "text": "gliové bunky sú v mozga menej početné ako nervové bunky",
+        "text": "gliové bunky sú v mozgu menej početné ako nervové bunky",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "gliové bunky majú schopnost deliť sa aj v dospelosti, zatiaľ čo neuróny majú obmedzenú schopnost delenia",
+        "text": "gliové bunky majú schopnosť deliť sa aj v dospelosti, zatiaľ čo neuróny majú obmedzenú schopnosť delenia",
         "is_correct": true
       },
       {
@@ -29218,7 +29453,7 @@
       },
       {
         "label": "f",
-        "text": "nervové bunky sa dokážu deliť po dosiahnutí určitého veku života a hromadením mutácií tak vznikajú nervové ochorenia ako esenciálna hypertenzia kortezu",
+        "text": "nervové bunky sa dokážu deliť po dosiahnutí určitého veku života a hromadením mutácií tak vznikajú nervové ochorenia ako esenciálna hypertenzia kortexu",
         "is_correct": false
       },
       {
@@ -29228,15 +29463,15 @@
       },
       {
         "label": "h",
-        "text": "neuróny prenášajú elektrické a chemické signály medzi bunkami, gliové bunky nemajú schopnost prenášať elektrické signály, ale podporujú a modulujú funkciu neurónov",
+        "text": "neuróny prenášajú elektrické a chemické signály medzi bunkami, gliové bunky nemajú schopnosť prenášať elektrické signály, ale podporujú a modulujú funkciu neurónov",
         "is_correct": true
       }
     ]
   },
   {
-    "id": "BIO_623",
+    "id": "BIO_628",
     "subject": "Biology",
-    "question": "Ktoré tvrdenie o akčnom potenciály je správne?",
+    "question": "Ktoré tvrdenie o akčnom potenciáli je správne?",
     "options": [
       {
         "label": "a",
@@ -29281,7 +29516,7 @@
     ]
   },
   {
-    "id": "BIO_624",
+    "id": "BIO_629",
     "subject": "Biology",
     "question": "Medzi neurotransmitery patria:",
     "options": [
@@ -29322,13 +29557,13 @@
       },
       {
         "label": "h",
-        "text": "histamin",
+        "text": "histamín",
         "is_correct": true
       }
     ]
   },
   {
-    "id": "BIO_625",
+    "id": "BIO_630",
     "subject": "Biology",
     "question": "Ktoré tvrdenie o periférnom nervovom systéme je správne?",
     "options": [
@@ -29349,7 +29584,7 @@
       },
       {
         "label": "d",
-        "text": "somatický nervový systém inervuje kostrové svaly a je ovládaný võľou",
+        "text": "somatický nervový systém inervuje kostrové svaly a je ovládaný vôľou",
         "is_correct": true
       },
       {
@@ -29375,7 +29610,7 @@
     ]
   },
   {
-    "id": "BIO_626",
+    "id": "BIO_631",
     "subject": "Biology",
     "question": "Základným funkčným prvkom nervovej sústavy je:",
     "options": [
@@ -29422,7 +29657,7 @@
     ]
   },
   {
-    "id": "BIO_627",
+    "id": "BIO_632",
     "subject": "Biology",
     "question": "Ktoré tvrdenie o autonómnom nervovom systéme je správne?",
     "options": [
@@ -29433,7 +29668,7 @@
       },
       {
         "label": "b",
-        "text": "sympatikus je zodpovedný za stresovú reakciu fight or flight\"",
+        "text": "sympatikus je zodpovedný za stresovú reakciu „fight or flight“",
         "is_correct": true
       },
       {
@@ -29443,7 +29678,7 @@
       },
       {
         "label": "d",
-        "text": "parasympatikus je zodpovedný za funkciu rest and digest\"",
+        "text": "parasympatikus je zodpovedný za funkciu „rest and digest“",
         "is_correct": true
       },
       {
@@ -29469,7 +29704,7 @@
     ]
   },
   {
-    "id": "BIO_628",
+    "id": "BIO_633",
     "subject": "Biology",
     "question": "Mozog človeka sa skladá:",
     "options": [
@@ -29516,7 +29751,7 @@
     ]
   },
   {
-    "id": "BIO_629",
+    "id": "BIO_634",
     "subject": "Biology",
     "question": "Mozog človeka sa delí na tri základné časti:",
     "options": [
@@ -29563,7 +29798,7 @@
     ]
   },
   {
-    "id": "BIO_630",
+    "id": "BIO_635",
     "subject": "Biology",
     "question": "Ktoré tvrdenia sú pravdivé o prednom mozgu?",
     "options": [
@@ -29610,7 +29845,7 @@
     ]
   },
   {
-    "id": "BIO_631",
+    "id": "BIO_636",
     "subject": "Biology",
     "question": "Aká je funkcia retikulárnej formácie?",
     "options": [
@@ -29657,7 +29892,7 @@
     ]
   },
   {
-    "id": "BIO_632",
+    "id": "BIO_637",
     "subject": "Biology",
     "question": "Ktoré tvrdenie o limbickom systéme nie je pravdivé?",
     "options": [
@@ -29704,7 +29939,7 @@
     ]
   },
   {
-    "id": "BIO_633",
+    "id": "BIO_638",
     "subject": "Biology",
     "question": "Čo je vrcholom vyššej nervovej činnosti?",
     "options": [
@@ -29751,7 +29986,7 @@
     ]
   },
   {
-    "id": "BIO_634",
+    "id": "BIO_639",
     "subject": "Biology",
     "question": "Aký je rozdiel medzi podmienenými a nepodmienenými reflexmi?",
     "options": [
@@ -29798,7 +30033,7 @@
     ]
   },
   {
-    "id": "BIO_635",
+    "id": "BIO_640",
     "subject": "Biology",
     "question": "Ktoré tvrdenie o medzimozgu je správne?",
     "options": [
@@ -29819,17 +30054,17 @@
       },
       {
         "label": "d",
-        "text": "tvorí ho podlôžko thalamus a lôžko hypothalamus",
+        "text": "tvorí ho podložko thalamus a lôžko hypothalamus",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "je koordinačným centrom autonómnych funkcií",
+        "text": "tvorí ho lôžko hyperthalamus a lôžko thalamus",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "tvorí ho lôžko hyperthalamus a lôžko thalamus",
+        "text": "je koordinačným centrom autonómnych funkcií",
         "is_correct": true
       },
       {
@@ -29845,7 +30080,7 @@
     ]
   },
   {
-    "id": "BIO_636",
+    "id": "BIO_641",
     "subject": "Biology",
     "question": "K zadnému mozgu patria:",
     "options": [
@@ -29871,7 +30106,7 @@
       },
       {
         "label": "e",
-        "text": "predĺžená miecha, ktorá sprostredkúva obranné reflexy",
+        "text": "predĺžená miecha, ktorá sprostredkuje obranné reflexy",
         "is_correct": true
       },
       {
@@ -29882,7 +30117,7 @@
       {
         "label": "g",
         "text": "predĺžená miecha, ktorá koordinuje pohybové funkcie",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "h",
@@ -29892,7 +30127,7 @@
     ]
   },
   {
-    "id": "BIO_637",
+    "id": "BIO_642",
     "subject": "Biology",
     "question": "Ktoré tvrdenie je správne o hlavových nervoch?",
     "options": [
@@ -29939,7 +30174,7 @@
     ]
   },
   {
-    "id": "BIO_638",
+    "id": "BIO_643",
     "subject": "Biology",
     "question": "Ktoré tvrdenie o hlavových nervoch je správne?",
     "options": [
@@ -29986,7 +30221,7 @@
     ]
   },
   {
-    "id": "BIO_639",
+    "id": "BIO_644",
     "subject": "Biology",
     "question": "Spoločnou vlastnosťou receptorových buniek je:",
     "options": [
@@ -30017,7 +30252,7 @@
       },
       {
         "label": "f",
-        "text": "drásavosť",
+        "text": "dráždivosť",
         "is_correct": false
       },
       {
@@ -30033,7 +30268,7 @@
     ]
   },
   {
-    "id": "BIO_640",
+    "id": "BIO_645",
     "subject": "Biology",
     "question": "Ktoré tvrdenie o receptoroch je správne?",
     "options": [
@@ -30054,7 +30289,7 @@
       },
       {
         "label": "d",
-        "text": "podľa pôvodu adekvátneho podnetu ich delíme na chemoreceptory. mechanoreceptory, fotoreceptory a nocireceptory",
+        "text": "podľa pôvodu adekvátneho podnetu ich delíme na chemoreceptory, mechanoreceptory, fotoreceptory a nocireceptory",
         "is_correct": false
       },
       {
@@ -30069,7 +30304,7 @@
       },
       {
         "label": "g",
-        "text": "forma energie, na ktorú je receptor najnecitlivejší, sa nazýva adekvátny podnet",
+        "text": "forma energie, na ktorú je receptor najcitlivejší, sa nazýva adekvátny podnet",
         "is_correct": false
       },
       {
@@ -30080,7 +30315,7 @@
     ]
   },
   {
-    "id": "BIO_641",
+    "id": "BIO_646",
     "subject": "Biology",
     "question": "Čo sú proprioreceptory?",
     "options": [
@@ -30127,7 +30362,7 @@
     ]
   },
   {
-    "id": "BIO_642",
+    "id": "BIO_647",
     "subject": "Biology",
     "question": "Ktoré tvrdenie o zmysloch nie je správne?",
     "options": [
@@ -30158,7 +30393,7 @@
       },
       {
         "label": "f",
-        "text": "ústredie chuti je v kôre záhlavného laloku, rovnako ako pre hmat",
+        "text": "ústredie chuti je v kôre záhlavného laloka, rovnako ako pre hmat",
         "is_correct": true
       },
       {
@@ -30174,7 +30409,7 @@
     ]
   },
   {
-    "id": "BIO_643",
+    "id": "BIO_648",
     "subject": "Biology",
     "question": "Medzi mechanoreceptory patria:",
     "options": [
@@ -30221,7 +30456,7 @@
     ]
   },
   {
-    "id": "BIO_644",
+    "id": "BIO_649",
     "subject": "Biology",
     "question": "Zložité vrodené reakcie organizmu nazývame:",
     "options": [
@@ -30268,7 +30503,7 @@
     ]
   },
   {
-    "id": "BIO_645",
+    "id": "BIO_650",
     "subject": "Biology",
     "question": "Čo nastáva pri šírení vzruchu po nervovom vlákne?",
     "options": [
@@ -30289,7 +30524,7 @@
       },
       {
         "label": "d",
-        "text": "pohyb iónov Na+ a Cl cez bunkovú membránu",
+        "text": "pohyb iónov Na⁺ a Cl⁻ cez bunkovú membránu",
         "is_correct": false
       },
       {
@@ -30299,7 +30534,7 @@
       },
       {
         "label": "f",
-        "text": "pohyb iónov Na+ a K+ cez bunkovú membránu",
+        "text": "pohyb iónov Na⁺ a K⁺ cez bunkovú membránu",
         "is_correct": true
       },
       {
@@ -30310,241 +30545,6 @@
       {
         "label": "h",
         "text": "aktívny potenciál",
-        "is_correct": false
-      }
-    ]
-  },
-  {
-    "id": "BIO_646",
-    "subject": "Biology",
-    "question": "Kde končia motorické nervové vlákna?",
-    "options": [
-      {
-        "label": "a",
-        "text": "v hladkých kostrových svaloch",
-        "is_correct": false
-      },
-      {
-        "label": "b",
-        "text": "v hladkej svalovine vnútorných orgánov",
-        "is_correct": false
-      },
-      {
-        "label": "c",
-        "text": "v priečne pruhovanej svalovine vnútorných orgánov",
-        "is_correct": false
-      },
-      {
-        "label": "d",
-        "text": "v priečne pruhovanej svalovine kostrových svalov",
-        "is_correct": true
-      },
-      {
-        "label": "e",
-        "text": "na nervovosvalovej platničke",
-        "is_correct": true
-      },
-      {
-        "label": "f",
-        "text": "v priečne pruhovanej svalovine myokardu",
-        "is_correct": false
-      },
-      {
-        "label": "g",
-        "text": "napríklad v okohybných svaloch",
-        "is_correct": true
-      },
-      {
-        "label": "h",
-        "text": "napríklad v svalovine ciev",
-        "is_correct": false
-      }
-    ]
-  },
-  {
-    "id": "BIO_647",
-    "subject": "Biology",
-    "question": "Senzorickou jednotkou nervovej regulácie sú:",
-    "options": [
-      {
-        "label": "a",
-        "text": "receptory",
-        "is_correct": true
-      },
-      {
-        "label": "b",
-        "text": "reflex",
-        "is_correct": false
-      },
-      {
-        "label": "c",
-        "text": "bunky alebo zakončenia nervových vlákien, schopné premeny energie pôsobiacej na ne z vnútorného prostredia na signál (zmenu elektrického potenciálu na bunkovej membráne)",
-        "is_correct": true
-      },
-      {
-        "label": "d",
-        "text": "neurity",
-        "is_correct": false
-      },
-      {
-        "label": "e",
-        "text": "bunky alebo zakončenia nervových vlákien, schopné premeny energie pôsobiacej na ne z vonkajšieho prostredia na signál (zmenu elektrického potenciálu na bunkovej membráne)",
-        "is_correct": true
-      },
-      {
-        "label": "f",
-        "text": "bunky alebo zakončenia nervových vlákien, schopné premeny energie pôsobiacej na ne z vonkajšieho prostredia na signál (zmenu elektrochemického potenciálu na bunkovej membráne)",
-        "is_correct": false
-      },
-      {
-        "label": "g",
-        "text": "špecializované zmyslové bunky alebo zakončenia odstredivých nervových vlákien",
-        "is_correct": false
-      },
-      {
-        "label": "h",
-        "text": "špecializované zmyslové bunky alebo zakončenia dostredivých nervových vlákien",
-        "is_correct": true
-      }
-    ]
-  },
-  {
-    "id": "BIO_648",
-    "subject": "Biology",
-    "question": "Na základe toho, odkiaľ prichádzajú podnety, rozdeľujeme receptory na:",
-    "options": [
-      {
-        "label": "a",
-        "text": "chemoreceptory",
-        "is_correct": false
-      },
-      {
-        "label": "b",
-        "text": "rádioreceptory",
-        "is_correct": false
-      },
-      {
-        "label": "c",
-        "text": "interoreceptory",
-        "is_correct": true
-      },
-      {
-        "label": "d",
-        "text": "mechanoreceptory",
-        "is_correct": false
-      },
-      {
-        "label": "e",
-        "text": "exteroreceptory",
-        "is_correct": true
-      },
-      {
-        "label": "f",
-        "text": "membránové receptory",
-        "is_correct": false
-      },
-      {
-        "label": "g",
-        "text": "fotoreceptory",
-        "is_correct": false
-      },
-      {
-        "label": "h",
-        "text": "nocireceptory",
-        "is_correct": false
-      }
-    ]
-  },
-  {
-    "id": "BIO_649",
-    "subject": "Biology",
-    "question": "Forma signálu, na ktorú je receptor najcitlivejší, sa nazýva:",
-    "options": [
-      {
-        "label": "a",
-        "text": "advokátny podnet",
-        "is_correct": false
-      },
-      {
-        "label": "b",
-        "text": "reflex",
-        "is_correct": false
-      },
-      {
-        "label": "c",
-        "text": "vlnenie vzduchu",
-        "is_correct": false
-      },
-      {
-        "label": "d",
-        "text": "optimálny podnet",
-        "is_correct": false
-      },
-      {
-        "label": "e",
-        "text": "maximálny vzruch",
-        "is_correct": false
-      },
-      {
-        "label": "f",
-        "text": "adekvátny vzruch",
-        "is_correct": false
-      },
-      {
-        "label": "g",
-        "text": "elektrická energia",
-        "is_correct": false
-      },
-      {
-        "label": "h",
-        "text": "akčný potenciál",
-        "is_correct": false
-      }
-    ]
-  },
-  {
-    "id": "BIO_650",
-    "subject": "Biology",
-    "question": "Akými nervovými vláknami sa prenáša vzruch z kožného receptora do mozgu?",
-    "options": [
-      {
-        "label": "a",
-        "text": "odstredivými",
-        "is_correct": false
-      },
-      {
-        "label": "b",
-        "text": "odstredivými a dostredivými",
-        "is_correct": false
-      },
-      {
-        "label": "c",
-        "text": "dostredivými",
-        "is_correct": true
-      },
-      {
-        "label": "d",
-        "text": "odstredivými vláknami, ktoré sú privádzané zadnými koreňmi miechy",
-        "is_correct": false
-      },
-      {
-        "label": "e",
-        "text": "dostredivými vláknami, ktoré sú privádzané zadnými koreňmi miechy",
-        "is_correct": true
-      },
-      {
-        "label": "f",
-        "text": "dostredivými vláknami, ktoré sú privádzané prednými koreňmi miechy",
-        "is_correct": false
-      },
-      {
-        "label": "g",
-        "text": "odstredivými vláknami, ktoré sú privádzané prednými koreňmi miechy",
-        "is_correct": false
-      },
-      {
-        "label": "h",
-        "text": "gliovými",
         "is_correct": false
       }
     ]
@@ -30838,7 +30838,7 @@
     "options": [
       {
         "label": "a",
-        "text": "pod bliznou",
+        "text": "pod blizou",
         "is_correct": false
       },
       {
@@ -30858,7 +30858,7 @@
       },
       {
         "label": "e",
-        "text": "na zadnej ploche sklovea",
+        "text": "na zadnej ploche sklovca",
         "is_correct": false
       },
       {
@@ -30905,17 +30905,17 @@
       },
       {
         "label": "e",
-        "text": "hned po fertilizácii",
+        "text": "hneď po fertilizácii",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "hned po narodení, napríklad cicací reflex",
+        "text": "hneď po narodení, napríklad cicací reflex",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "hned po narodení, napríklad patelárny reflex",
+        "text": "hneď po narodení, napríklad patelárny reflex",
         "is_correct": false
       },
       {
@@ -32142,7 +32142,7 @@
       },
       {
         "label": "h",
-        "text": "prebieha optimálne ako aktívna staroba\"",
+        "text": "prebieha optimálne ako „aktívna staroba“",
         "is_correct": true
       }
     ]
@@ -32268,7 +32268,7 @@
       },
       {
         "label": "e",
-        "text": "nconatálne (neonatálne)",
+        "text": "nconatálne",
         "is_correct": false
       },
       {
@@ -32300,7 +32300,7 @@
       },
       {
         "label": "b",
-        "text": "pohlavného pokoja vo vyššom veku",
+        "text": "pohlavného kľudu vo vyššom veku",
         "is_correct": true
       },
       {
@@ -32555,12 +32555,12 @@
       },
       {
         "label": "f",
-        "text": "30-35 týždňov",
+        "text": "30 - 35 týždňov",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "39-40 týždňov",
+        "text": "39 - 40 týždňov",
         "is_correct": true
       },
       {
@@ -32612,7 +32612,7 @@
       },
       {
         "label": "h",
-        "text": "petaktin",
+        "text": "petaktín",
         "is_correct": false
       }
     ]
@@ -32644,7 +32644,7 @@
       },
       {
         "label": "e",
-        "text": "dospelost",
+        "text": "dospelosť",
         "is_correct": true
       },
       {
@@ -32691,7 +32691,7 @@
       },
       {
         "label": "e",
-        "text": "pesticidy",
+        "text": "pesticídy",
         "is_correct": true
       },
       {
@@ -32733,7 +32733,7 @@
       },
       {
         "label": "d",
-        "text": "tehotenstvo, vyžadujúce špeciálnu starostlivost",
+        "text": "tehotenstvo, vyžadujúce špeciálnu starostlivosť",
         "is_correct": true
       },
       {
@@ -32795,7 +32795,7 @@
       },
       {
         "label": "g",
-        "text": "vylučujú v množstve 200-300 miliónov",
+        "text": "vylučujú v množstve 200 - 300 miliónov",
         "is_correct": true
       },
       {
@@ -32832,7 +32832,7 @@
       },
       {
         "label": "e",
-        "text": "gonorrhea",
+        "text": "gonorrhoea",
         "is_correct": true
       },
       {
@@ -32958,7 +32958,7 @@
       },
       {
         "label": "b",
-        "text": "trvá do konca 1. mesiaca po narodeni",
+        "text": "trvá do konca 1. mesiaca po narodení",
         "is_correct": true
       },
       {
@@ -32973,7 +32973,7 @@
       },
       {
         "label": "e",
-        "text": "na jeho začiatku, po narodeni, obehová sústava novorodenca sa oddelí od matkinej",
+        "text": "na jeho začiatku, po narodení, obehová sústava novorodenca sa oddelí od matkinej",
         "is_correct": true
       },
       {
@@ -32983,8 +32983,8 @@
       },
       {
         "label": "g",
-        "text": "trvá od konca 1. mesiaca - do konca 1. roku po narodeni",
-        "is_correct": false
+        "text": "trvá od konca 1. mesiaca - do konca 1. roku po narodení",
+        "is_correct": true
       },
       {
         "label": "h",
@@ -33176,7 +33176,7 @@
       },
       {
         "label": "h",
-        "text": "placenta sa porodi ako prvá",
+        "text": "placenta sa porodí ako prvá",
         "is_correct": false
       }
     ]
@@ -33381,7 +33381,7 @@
       },
       {
         "label": "b",
-        "text": "nasleduje po predchádzajúcom menštruačnom krvácani",
+        "text": "nasleduje po predchádzajúcom menštruačnom krvácaní",
         "is_correct": true
       },
       {
@@ -33829,7 +33829,7 @@
       },
       {
         "label": "g",
-        "text": "žena pri nej stratí asi 4-5 1 krvi",
+        "text": "žena pri nej stratí asi 4-5 l krvi",
         "is_correct": false
       },
       {
@@ -33992,7 +33992,7 @@
       },
       {
         "label": "b",
-        "text": "trvá 8-10 rokov",
+        "text": "trvá 8 - 10 rokov",
         "is_correct": true
       },
       {
@@ -34018,7 +34018,7 @@
       {
         "label": "g",
         "text": "zastavuje sa rozvoj primárnych a sekundárnych pohlavných znakov",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "h",
@@ -34237,27 +34237,27 @@
       },
       {
         "label": "d",
-        "text": "tvorí závesný aparát pre pohybové orgány",
+        "text": "d",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "nechráni telo pred stratou vody",
+        "text": "e",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "tvorí základ rôznych pokožkových útvarov",
+        "text": "f",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "nemá zásadný význam pre látkovú výmenu",
+        "text": "g",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "zabraňuje vnikaniu choroboplodných zárodkov",
+        "text": "h",
         "is_correct": true
       }
     ]
@@ -34269,7 +34269,7 @@
     "options": [
       {
         "label": "a",
-        "text": "má plochu 1,1 až 1,5 m2",
+        "text": "má plochu 1,1 až 1,5 m²",
         "is_correct": false
       },
       {
@@ -34279,7 +34279,7 @@
       },
       {
         "label": "c",
-        "text": "má plochu asi 1,6 až 2 m2",
+        "text": "má plochu asi 1,6 až 2 m²",
         "is_correct": true
       },
       {
@@ -34477,7 +34477,7 @@
       },
       {
         "label": "e",
-        "text": "proprioreceptory",
+        "text": "proprioceptory",
         "is_correct": false
       },
       {
@@ -34923,46 +34923,46 @@
   {
     "id": "BIO_744",
     "subject": "Biology",
-    "question": "Erytrocyty dospelého človeka sa tvoria:",
+    "question": "Aký je počet hrudníkových stavcov v chrbtici človeka?",
     "options": [
       {
         "label": "a",
-        "text": "v kostnej dreni krátkych kostí",
+        "text": "desať",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "v slezine",
+        "text": "jedenásť",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "vo svaloch",
+        "text": "dvanásť",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "v okostici dlhých kostí",
+        "text": "trinásť",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "v kostnej dreni plochých kosti",
+        "text": "štrnásť",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "v obličkách",
+        "text": "pätnásť",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "v pečeni",
+        "text": "šestnásť",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "v miazgových uzlinách",
+        "text": "sedemnásť",
         "is_correct": false
       }
     ]
@@ -35412,27 +35412,27 @@
       },
       {
         "label": "d",
-        "text": "vyživuje chrupku",
+        "text": "d)",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "inervuje kosť",
+        "text": "e)",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "rozhoduje o pohyblivosti kĺbu",
+        "text": "f)",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "je dôležitou súčasťou kĺbu",
+        "text": "g)",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "zmierňuje trenie",
+        "text": "h)",
         "is_correct": true
       }
     ]
@@ -35479,7 +35479,7 @@
       },
       {
         "label": "h",
-        "text": "ihlica a stelinová kosť",
+        "text": "ihlica a stehnová kosť",
         "is_correct": false
       }
     ]
@@ -35628,46 +35628,46 @@
   {
     "id": "BIO_759",
     "subject": "Biology",
-    "question": "Kosti správne zoradené od najväčšej po najmenšiu sú:",
+    "question": "Srdcová svalovina",
     "options": [
       {
         "label": "a",
-        "text": "panva, lebka, jabĺčko",
+        "text": "má schopnosť kontrakcie",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "hrudná kosť, stavec, strmienok",
+        "text": "sa zmršťuje arytmicky",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "jabĺčko, článok prsta, píšťala",
+        "text": "sa zmršťuje automaticky",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "kľúčna kosť, ramenná kosť, stehnová kosť",
+        "text": "sa zmršťuje rytmicky",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "kostrč, krížová kosť, panvová kosť",
+        "text": "sa zmršťuje a neochabuje",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "kosť zápästia, jabĺčko, lebka",
+        "text": "pracuje vo fázach - systola a diastola",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "lebka, jabĺčko, kosť zápästia",
+        "text": "vykonáva statickú prácu",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "stehnová kosť, ramenná kosť, kľúčna kosť",
+        "text": "obsahuje priehradky, ktoré rozdeľujú jednotlivé vlákna",
         "is_correct": true
       }
     ]
@@ -35863,46 +35863,46 @@
   {
     "id": "BIO_764",
     "subject": "Biology",
-    "question": "Čo môžeme tvrdiť o spojení nosiča a čapovca?",
+    "question": "...",
     "options": [
       {
         "label": "a",
-        "text": "je to kĺbové spojenie",
+        "text": "...",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "nie je to kĺbové spojenie",
+        "text": "...",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "je to zvláštny typ spojenia stavcov",
+        "text": "sa zmršťuje automaticky",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "zub čapovca umožňuje otáčavé pohyby hlavy",
+        "text": "sa zmršťuje rytmicky",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "zub čapovca je kĺbovo spojený s nosičom",
+        "text": "sa zmršťuje a neochabuje",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "zub čapovca je kĺbovo spojený s oblúkom nosiča",
+        "text": "pracuje vo fázach - systola a diastola",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "zub čapovca je kĺbovo spojený so zadným oblúkom nosiča",
+        "text": "vykonáva statickú prácu",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "zub čapovca je kĺbovo spojený s predným oblúkom nosiča",
+        "text": "obsahuje priehradky, ktoré rozdeľujú jednotlivé vlákna",
         "is_correct": true
       }
     ]
@@ -36098,46 +36098,46 @@
   {
     "id": "BIO_769",
     "subject": "Biology",
-    "question": "Čo platí o prvých dvoch krčných stavcoch a ich spojeniach?",
+    "question": "O svaloch brucha u človeka platí, že:",
     "options": [
       {
         "label": "a",
-        "text": "atlas nemá telo",
+        "text": "patrí k nim priamy sval brucha",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "atlas má predný oblúk",
+        "text": "zaraďujeme k nim svaly na zadnej stene trupu",
         "is_correct": true
       },
       {
         "label": "c",
-        "text": "atlas nemá zadný oblúk",
+        "text": "sú väčšinou rozsiahle a ploché",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "atlas má zadný oblúk",
+        "text": "patrí k nim lichobežníkový sval",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "atlas má dva zadné oblúky",
+        "text": "patrí k nim vonkajší šikmý sval brucha",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "atlas sa spája s lebkou",
+        "text": "tvoria nepružnú brušnú stenu",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "čapovec má hore výbežok - „zub\"",
+        "text": "ich silným sťahom vznikne tzv. brušný lis",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "v otvore nosiča je priečny väz",
+        "text": "patrí k nim poloblanitý sval",
         "is_correct": true
       }
     ]
@@ -36268,7 +36268,7 @@
       },
       {
         "label": "f",
-        "text": "4-5 hrudníkových stavcov",
+        "text": "4 – 5 hrudníkových stavcov",
         "is_correct": false
       },
       {
@@ -36333,46 +36333,46 @@
   {
     "id": "BIO_774",
     "subject": "Biology",
-    "question": "Aký je počet hrudníkových stavcov v chrbtici človeka?",
+    "question": "Sval, ktorý spôsobuje ohnutie v lakťovom kĺbe sa nazýva:",
     "options": [
       {
         "label": "a",
-        "text": "desať",
+        "text": "lichobežníkový sval",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "jedenásť",
+        "text": "trojhlavý sval ramena",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "dvanásť",
+        "text": "dlhý sval stehna",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "štrnást",
+        "text": "dvojhlavý sval ramena",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "trinást",
+        "text": "prsný sval",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "sedem",
+        "text": "trojhlavý sval lýtka",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "osem",
+        "text": "vretenný sval",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "deviť",
+        "text": "krajčírsky sval",
         "is_correct": false
       }
     ]
@@ -36803,46 +36803,46 @@
   {
     "id": "BIO_784",
     "subject": "Biology",
-    "question": "Srdcová svalovina:",
+    "question": "Zuby človeka:",
     "options": [
       {
         "label": "a",
-        "text": "má schopnosť kontrakcie",
+        "text": "nachádzajú sa v ústnej dutine",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "sa zmršťuje arytmicky",
+        "text": "hlt sa rozdrobí medzi rezákmi",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "sa zmršťuje automaticky",
+        "text": "sú dôležité pre reč",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "sa zmršťuje rytmicky",
+        "text": "rezáky odhryznú sústo",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "sa zmršťuje a neochabuje",
+        "text": "črenové zuby odhryznú hlt",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "pracuje vo fázach systola a diastola",
+        "text": "hlt sa rozdrobí medzi stoličkami",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "vykonáva statickú prácu",
+        "text": "sa nenachádzajú v čeľusti",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "obsahuje priehradky, ktoré rozdeľujú jednotlivé vlákna",
+        "text": "sa nachádzajú v sánke",
         "is_correct": true
       }
     ]
@@ -36854,7 +36854,7 @@
     "options": [
       {
         "label": "a",
-        "text": "má schopnost kontrakcie",
+        "text": "má schopnosť kontrakcie",
         "is_correct": true
       },
       {
@@ -37038,46 +37038,46 @@
   {
     "id": "BIO_789",
     "subject": "Biology",
-    "question": "K svalom tváre patrí:",
+    "question": "K hlavným súčastiam žalúdzkovej šťavy človeka patrí:",
     "options": [
       {
         "label": "a",
-        "text": "vretenný sval",
+        "text": "pepsín",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "napínač širokej pokrývky",
+        "text": "trypsín",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "veľký jarmový sval",
+        "text": "kyselina chlorovodíková",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "spánkový sval",
+        "text": "lipáza",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "smiechový sval",
+        "text": "HCl",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "pílový predný sval",
+        "text": "hlien",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "predný píšťalový sval",
+        "text": "mucín",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "malý jarmový sval",
+        "text": "ptyalín",
         "is_correct": true
       }
     ]
@@ -37287,32 +37287,32 @@
       },
       {
         "label": "c",
-        "text": "sú väčšinou rozsiahle a ploché",
+        "text": "c) svaly, ktoré otáčajú hlavu",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "patrí k nim lichobežníkový sval",
+        "text": "d) svaly stredného ucha",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "patrí k nim vonkajší šikmý sval brucha",
+        "text": "e) svaly, ktoré nakláňajú ušnicu",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "tvoria nepružnú brušnú stenu",
+        "text": "f) očné zvierače",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "ich silným sťahom vznikne tzv. brušný lis",
+        "text": "g) svaly, ktoré otáčajú hlavu",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "patrí k nim poloblanitý sval",
+        "text": "h) bránica",
         "is_correct": false
       }
     ]
@@ -37508,46 +37508,46 @@
   {
     "id": "BIO_799",
     "subject": "Biology",
-    "question": "Ktoré významné zvierače ovládané vôľou patria medzi svaly panvy?",
+    "question": "Tenké črevo u človeka:",
     "options": [
       {
         "label": "a",
-        "text": "len vnútorný zvierač močovej rúry",
+        "text": "sa začína dvanástnikom",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "len vonkajší análny zvierač",
+        "text": "má priemernú dĺžku 1,5 až 2 m",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "vonkajší a vnútorný zvierač močovej rúry",
+        "text": "má priemernú dĺžku 2 až 3 m",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "vonkajší zvierač močovej rúry",
+        "text": "má priemernú dĺžku 4 až 6 m",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "vonkajší análny zvierač",
+        "text": "má priemernú dĺžku 6 až 7 m",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "pílový predný sval",
+        "text": "má priemernú šírku 4 - 5,5 cm",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "napínač širokej pokrývky",
+        "text": "má priemernú šírku 3 - 3,5 cm",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "slabinový kanál",
+        "text": "sa končí dvanástnikom",
         "is_correct": false
       }
     ]
@@ -38299,7 +38299,7 @@
       },
       {
         "label": "h",
-        "text": "obsahujú aj baktericídne látky (napr. ptyalin)",
+        "text": "obsahujú aj baktericídne látky (napr. ptyalín)",
         "is_correct": false
       }
     ]
@@ -38401,7 +38401,7 @@
   {
     "id": "BIO_818",
     "subject": "Biology",
-    "question": "Hlien mucín:",
+    "question": "Hlien - mucín:",
     "options": [
       {
         "label": "a",
@@ -38482,12 +38482,12 @@
       },
       {
         "label": "g",
-        "text": "mucin",
+        "text": "mucín",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "ptyalin",
+        "text": "ptyalín",
         "is_correct": false
       }
     ]
@@ -38499,7 +38499,7 @@
     "options": [
       {
         "label": "a",
-        "text": "bráni znehodnocovaniu vitamínu B1",
+        "text": "bráni znehodnocovaniu vitamínu B₁",
         "is_correct": true
       },
       {
@@ -38524,7 +38524,7 @@
       },
       {
         "label": "f",
-        "text": "bráni znehodnocovaniu vitamínov B2 a C",
+        "text": "bráni znehodnocovaniu vitamínov B₂ a C",
         "is_correct": true
       },
       {
@@ -38576,7 +38576,7 @@
       },
       {
         "label": "g",
-        "text": "mucin",
+        "text": "mucín",
         "is_correct": false
       },
       {
@@ -38645,7 +38645,7 @@
       },
       {
         "label": "b",
-        "text": "má priemernú dĺžku 1,5 až 2m",
+        "text": "má priemernú dĺžku 1,5 až 2 m",
         "is_correct": false
       },
       {
@@ -38734,7 +38734,7 @@
     "options": [
       {
         "label": "a",
-        "text": "ptyalin",
+        "text": "ptyalín",
         "is_correct": false
       },
       {
@@ -38811,7 +38811,7 @@
       },
       {
         "label": "g",
-        "text": "HCI",
+        "text": "HCl",
         "is_correct": false
       },
       {
@@ -39059,7 +39059,7 @@
   {
     "id": "BIO_832",
     "subject": "Biology",
-    "question": "Žič u človeka:",
+    "question": "Žlč u človeka:",
     "options": [
       {
         "label": "a",
@@ -39303,7 +39303,7 @@
       },
       {
         "label": "b",
-        "text": "prebieha v ňom obmedzené vstrebávanie napr. vody",
+        "text": "prebieha v ňom obmedzené vstrebávanie - napr. vody",
         "is_correct": true
       },
       {
@@ -39328,7 +39328,7 @@
       },
       {
         "label": "g",
-        "text": "činnosťou baktérií vznikajú plyny, ktoré napínajú jeho stenu a utimujú jeho činnosť",
+        "text": "činnosťou baktérií vznikajú plyny, ktoré napínajú jeho stenu a utlmujú jeho činnosť",
         "is_correct": false
       },
       {
@@ -39365,17 +39365,17 @@
       },
       {
         "label": "e",
-        "text": "šírku 3-5 cm",
+        "text": "šírku 3 - 5 cm",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "šírku 5-8 cm",
+        "text": "šírku 5 - 8 cm",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "šírku 7-8 cm",
+        "text": "šírku 7 - 8 cm",
         "is_correct": false
       },
       {
@@ -39417,7 +39417,7 @@
       },
       {
         "label": "f",
-        "text": "sťahom vonkajšieho a vnútorného zvicrača",
+        "text": "sťahom vonkajšieho a vnútorného zvierača",
         "is_correct": false
       },
       {
@@ -39867,7 +39867,7 @@
       },
       {
         "label": "b",
-        "text": "hemofilia",
+        "text": "hemofília",
         "is_correct": false
       },
       {
@@ -40140,7 +40140,7 @@
   {
     "id": "BIO_855",
     "subject": "Biology",
-    "question": "Ako sa nazýva vitamín B?",
+    "question": "Ako sa nazýva vitamín B6?",
     "options": [
       {
         "label": "a",
@@ -40154,7 +40154,7 @@
       },
       {
         "label": "c",
-        "text": "pyridoxin",
+        "text": "pyridoxín",
         "is_correct": true
       },
       {
@@ -40179,7 +40179,7 @@
       },
       {
         "label": "h",
-        "text": "aneurin",
+        "text": "aneurín",
         "is_correct": false
       }
     ]
@@ -40300,7 +40300,7 @@
       },
       {
         "label": "d",
-        "text": "sa vyskytuje pri hemofilii",
+        "text": "sa vyskytuje pri hemofílii",
         "is_correct": false
       },
       {
@@ -40592,7 +40592,7 @@
       },
       {
         "label": "f",
-        "text": "obsahom pektinu",
+        "text": "obsahom pektínu",
         "is_correct": false
       },
       {
@@ -40639,7 +40639,7 @@
       },
       {
         "label": "f",
-        "text": "pri jeho nedostatku vzniká krvácanie do tkanív a dutin",
+        "text": "pri jeho nedostatku vzniká krvácanie do tkanív a dutín",
         "is_correct": true
       },
       {
@@ -40686,7 +40686,7 @@
       },
       {
         "label": "f",
-        "text": "kobalamin",
+        "text": "kobalamín",
         "is_correct": false
       },
       {
@@ -40696,7 +40696,7 @@
       },
       {
         "label": "h",
-        "text": "niacin",
+        "text": "niacín",
         "is_correct": false
       }
     ]
@@ -40713,17 +40713,17 @@
       },
       {
         "label": "b",
-        "text": "B1",
+        "text": "B₁",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "B2",
+        "text": "B₂",
         "is_correct": true
       },
       {
         "label": "d",
-        "text": "B12",
+        "text": "B₁₂",
         "is_correct": false
       },
       {
@@ -40733,7 +40733,7 @@
       },
       {
         "label": "f",
-        "text": "riboflavin",
+        "text": "riboflavín",
         "is_correct": true
       },
       {
@@ -41554,37 +41554,37 @@
     "options": [
       {
         "label": "a",
-        "text": "metylhemoglobin",
+        "text": "metylhemoglobín",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "oxyhemoglobin",
+        "text": "oxyhemoglobín",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "etylhemoglobin",
+        "text": "etylhemoglobín",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "methemoglobin",
+        "text": "methemoglobín",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "karboxyhemoglobin",
+        "text": "karboxyhemoglobín",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "karbonylhemoglobin",
+        "text": "karbonylhemoglobín",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "metanolhemoglobin",
+        "text": "metanolhemoglobín",
         "is_correct": false
       },
       {
@@ -41626,7 +41626,7 @@
       },
       {
         "label": "f",
-        "text": "kobalamin",
+        "text": "kobalamín",
         "is_correct": true
       },
       {
@@ -41648,22 +41648,22 @@
     "options": [
       {
         "label": "a",
-        "text": "je ich u dospelého muža v jednom litri priemerne 4,3 až 5,3x10^12",
+        "text": "je ich u dospelého muža v jednom litri priemerne 4,3 až 5,3 x 10¹²",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "je ich u dospelého muža v jednom litri priemerne 7x10^12",
+        "text": "je ich u dospelého muža v jednom litri priemerne 7 x 10¹²",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "je ich u dospelej ženy v jednom litri priemerne 3x10^12",
+        "text": "je ich u dospelej ženy v jednom litri priemerne 3 x 10¹²",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "je ich u dospelej ženy v jednom litri priemerne 3,8 až 4,8x10^12",
+        "text": "je ich u dospelej ženy v jednom litri priemerne 3,8 až 4,8 x 10¹²",
         "is_correct": true
       },
       {
@@ -41852,12 +41852,12 @@
       {
         "label": "d",
         "text": "nie je ich viac druhov",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "žijú rôzne dlho",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
@@ -42128,7 +42128,7 @@
       },
       {
         "label": "c",
-        "text": "nemá aglutininy",
+        "text": "nemá aglutiníny",
         "is_correct": false
       },
       {
@@ -42212,12 +42212,12 @@
     "options": [
       {
         "label": "a",
-        "text": "vľavo áno, vpravo nie ide o krvnú skupinu A",
+        "text": "vľavo áno, vpravo nie - ide o krvnú skupinu A",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "vľavo áno, vpravo nie ide o krvnú skupinu B",
+        "text": "vľavo áno, vpravo nie - ide o krvnú skupinu B",
         "is_correct": true
       },
       {
@@ -42237,7 +42237,7 @@
       },
       {
         "label": "f",
-        "text": "vpravo nie, vľavo áno ide o krvnú skupinu B",
+        "text": "vpravo nie, vľavo áno - ide o krvnú skupinu B",
         "is_correct": true
       },
       {
@@ -42321,12 +42321,12 @@
       },
       {
         "label": "d",
-        "text": "vľavo nie, vpravo áno ide o krvnú skupinu 0",
+        "text": "vľavo nie, vpravo áno - ide o krvnú skupinu 0",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "vpravo áno, vľavo nie ide o krvnú skupinu A",
+        "text": "vpravo áno, vľavo nie - ide o krvnú skupinu A",
         "is_correct": true
       },
       {
@@ -42358,12 +42358,12 @@
       },
       {
         "label": "b",
-        "text": "vľavo nie, vpravo nie ide o krvnú skupinu B",
+        "text": "vľavo nie, vpravo nie - ide o krvnú skupinu B",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "vľavo nie, vpravo nie ide o krvnú skupinu AB",
+        "text": "vľavo nie, vpravo nie - ide o krvnú skupinu AB",
         "is_correct": false
       },
       {
@@ -42373,17 +42373,17 @@
       },
       {
         "label": "e",
-        "text": "vpravo nie, vľavo nie ide o krvnú skupinu A",
+        "text": "vpravo nie, vľavo nie - ide o krvnú skupinu A",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "vpravo nie, vľavo nie ide o krvnú skupinu B",
+        "text": "vpravo nie, vľavo nie - ide o krvnú skupinu B",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "vpravo nie, vľavo nie ide o krvnú skupinu AB",
+        "text": "vpravo nie, vľavo nie - ide o krvnú skupinu AB",
         "is_correct": false
       },
       {
@@ -42556,7 +42556,7 @@
       },
       {
         "label": "d",
-        "text": "aglutininy",
+        "text": "aglutiníny",
         "is_correct": false
       },
       {
@@ -42866,46 +42866,46 @@
   {
     "id": "BIO_913",
     "subject": "Biology",
-    "question": "Systola je:",
+    "question": "Ktoré ekosystémy závisia od dodatkovej energie?",
     "options": [
       {
         "label": "a",
-        "text": "vytlačenie krvi stiahnutím svaloviny srdca",
+        "text": "prírodné",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "naplnenie srdca krvou",
+        "text": "umelé",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "naplnenie predsiení krvou",
+        "text": "viazané",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "vysoká frekvencia činnosti srdca",
+        "text": "slobodné",
         "is_correct": false
       },
       {
         "label": "e",
-        "text": "súčasť srdcového cyklu",
+        "text": "poľnohospodárske",
         "is_correct": true
       },
       {
         "label": "f",
-        "text": "naplnenie komôr krvou",
+        "text": "poloparazitické",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "fáza činnosti srdca",
+        "text": "mäsožravé",
         "is_correct": true
       },
       {
         "label": "h",
-        "text": "stav nečinnosti srdca",
+        "text": "dažďový prales",
         "is_correct": false
       }
     ]
@@ -43101,46 +43101,46 @@
   {
     "id": "BIO_918",
     "subject": "Biology",
-    "question": "EKG je:",
+    "question": "Ktoré činnosti človeka môžu negatívne ovplyvňovať životné prostredie?",
     "options": [
       {
         "label": "a",
-        "text": "záznam zmien elektrických potenciálov pri činnosti srdcového svalu",
+        "text": "veľkoplošné poľnohospodárstvo",
         "is_correct": true
       },
       {
         "label": "b",
-        "text": "elektroencefalogram",
+        "text": "priemysel",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "grafický záznam mechanickej práce srdca",
+        "text": "doprava",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "elektrokardiogram",
+        "text": "rekreačná činnosť človeka",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "znázorňuje činnosť chlopní",
+        "text": "nadmerné využívanie prírodných zdrojov",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "záznam, ktorý má u stavovcov dosť podobný tvar",
+        "text": "rýchle a nehospodárne čerpanie energetických zdrojov",
         "is_correct": true
       },
       {
         "label": "g",
-        "text": "znázorňuje prúdenie krvi v dutinovom systéme srdca",
+        "text": "chemizácia prostredia",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "záznam statickej práce srdca",
+        "text": "zvyšovanie rádioaktivity",
         "is_correct": false
       }
     ]
@@ -43209,22 +43209,22 @@
       },
       {
         "label": "c",
-        "text": "diastolický 100-120 torr",
+        "text": "diastolický 100 - 120 torr",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "systolický 100-120 torr",
+        "text": "systolický 100 - 120 torr",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "diastolický 120-140 torr",
+        "text": "diastolický 120 - 140 torr",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "systolický 180-200 torr",
+        "text": "systolický 180 - 200 torr",
         "is_correct": false
       },
       {
@@ -43234,7 +43234,7 @@
       },
       {
         "label": "h",
-        "text": "diastolický 140-160 torr",
+        "text": "diastolický 140 - 160 torr",
         "is_correct": false
       }
     ]
@@ -43336,46 +43336,46 @@
   {
     "id": "BIO_923",
     "subject": "Biology",
-    "question": "Tlak, ktorý zodpovedá najnižšiemu tlaku v tepne, sa volá:",
+    "question": "Homo sapiens sapiens žil už pred:",
     "options": [
       {
         "label": "a",
-        "text": "osmotický",
+        "text": "10 000 rokmi",
         "is_correct": false
       },
       {
         "label": "b",
-        "text": "systolický",
+        "text": "40 000 rokmi",
         "is_correct": false
       },
       {
         "label": "c",
-        "text": "onkotický",
+        "text": "100 000 rokmi",
         "is_correct": false
       },
       {
         "label": "d",
-        "text": "diastolický",
+        "text": "250 000 rokmi",
         "is_correct": true
       },
       {
         "label": "e",
-        "text": "hydrostatický",
+        "text": "150 000 rokmi",
         "is_correct": false
       },
       {
         "label": "f",
-        "text": "hydrodynamický",
+        "text": "80 000 rokmi",
         "is_correct": false
       },
       {
         "label": "g",
-        "text": "maximálny",
+        "text": "110 000 rokmi",
         "is_correct": false
       },
       {
         "label": "h",
-        "text": "Archimedov",
+        "text": "140 000 rokmi",
         "is_correct": false
       }
     ]
@@ -43737,7 +43737,7 @@
       {
         "label": "e",
         "text": "prebieha v nich výmena O₂ a CO₂",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",
@@ -45236,7 +45236,7 @@
       {
         "label": "d",
         "text": "voda oceánov",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "e",
@@ -46373,7 +46373,7 @@
       },
       {
         "label": "f",
-        "text": "podčeľad",
+        "text": "podčeľaď",
         "is_correct": false
       },
       {
@@ -46561,7 +46561,7 @@
       },
       {
         "label": "f",
-        "text": "parazity sú anaeróbne",
+        "text": "prarazity sú anaeróbne",
         "is_correct": false
       },
       {
@@ -46818,7 +46818,7 @@
     "options": [
       {
         "label": "a",
-        "text": "mal výšku 155-170 cm",
+        "text": "mal výšku 155 - 170 cm",
         "is_correct": true
       },
       {
@@ -46881,12 +46881,12 @@
       {
         "label": "d",
         "text": "pohlavný vývoj",
-        "is_correct": false
+        "is_correct": true
       },
       {
         "label": "e",
         "text": "prírodný výber",
-        "is_correct": true
+        "is_correct": false
       },
       {
         "label": "f",

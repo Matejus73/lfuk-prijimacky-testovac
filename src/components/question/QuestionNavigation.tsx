@@ -34,21 +34,21 @@ export function QuestionNavigation({
           <button
             type="button"
             onClick={onResetCorrection}
-            className="mr-auto rounded-lg border px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
+            className="mr-auto cursor-pointer rounded-lg border px-4 py-2 text-sm font-semibold text-gray-700 shadow-2xs transition-colors duration-150 hover:bg-gray-50"
           >
             Reset to default
           </button>
           <button
             type="button"
             onClick={onCancelCorrection}
-            className="rounded-lg border px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
+            className="cursor-pointer rounded-lg border px-4 py-2 text-sm font-semibold text-gray-700 shadow-2xs transition-colors duration-150 hover:bg-gray-50"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={onSaveCorrection}
-            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
+            className="cursor-pointer rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-150 hover:bg-blue-700"
           >
             Save correction
           </button>
@@ -61,9 +61,11 @@ export function QuestionNavigation({
             disabled={isPrevDisabled}
             title="Previous question"
             aria-label="Previous question"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border text-gray-700 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+            className="group flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border text-gray-700 shadow-2xs transition-colors duration-150 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
           >
-            <ArrowLeftIcon />
+            <span className="transition-transform duration-150 group-hover:-translate-x-0.5">
+              <ArrowLeftIcon />
+            </span>
           </button>
 
           <div className="flex flex-wrap items-center justify-center gap-2">
@@ -71,7 +73,7 @@ export function QuestionNavigation({
               <button
                 type="button"
                 onClick={onCheckAnswer}
-                className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+                className="cursor-pointer rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors duration-150 hover:bg-blue-700"
               >
                 Check Answer
               </button>
@@ -79,7 +81,7 @@ export function QuestionNavigation({
               <button
                 type="button"
                 onClick={onTryAgain}
-                className="rounded-lg border px-4 py-2 text-sm font-semibold transition hover:bg-gray-50"
+                className="cursor-pointer rounded-lg border px-4 py-2 text-sm font-semibold shadow-2xs transition-colors duration-150 hover:bg-gray-50"
               >
                 Try Again
               </button>
@@ -92,9 +94,11 @@ export function QuestionNavigation({
             disabled={isNextDisabled}
             title="Next question"
             aria-label="Next question"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border text-gray-700 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
+            className="group flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border text-gray-700 shadow-2xs transition-colors duration-150 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40"
           >
-            <ArrowRightIcon />
+            <span className="transition-transform duration-150 group-hover:translate-x-0.5">
+              <ArrowRightIcon />
+            </span>
           </button>
         </>
       )}

@@ -48,6 +48,7 @@ export default function App() {
   );
   const [questionMode, setQuestionMode] = useState<QuestionMode>('all');
   const [randomNext, setRandomNext] = useState(false);
+  const [randomRange, setRandomRange] = useState({ start: 1, end: datasets.Biology.length });
 
   // Active question set and revision filter
   const activeQuestions = questions[currentSubject];
@@ -62,6 +63,14 @@ export default function App() {
     questionMode === 'revision'
       ? revisionQuestions.map(({ question }) => question)
       : activeQuestions;
+  const randomRangeStart = Math.min(
+    Math.max(randomRange.start, 1),
+    Math.max(questionsInMode.length, 1),
+  );
+  const randomRangeEnd = Math.min(
+    Math.max(randomRange.end, randomRangeStart),
+    Math.max(questionsInMode.length, randomRangeStart),
+  );
 
   // Question navigation and answer states
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -124,6 +133,21 @@ export default function App() {
     setRandomNext((prev) => !prev);
   };
 
+  const handleRandomRangeStartChange = (value: number) => {
+    if (!Number.isFinite(value)) return;
+    const start = Math.min(Math.max(Math.round(value), 1), randomRangeEnd);
+    setRandomRange((previous) => ({ start, end: Math.max(previous.end, start) }));
+  };
+
+  const handleRandomRangeEndChange = (value: number) => {
+    if (!Number.isFinite(value)) return;
+    const end = Math.min(
+      Math.max(Math.round(value), randomRangeStart),
+      Math.max(questionsInMode.length, randomRangeStart),
+    );
+    setRandomRange((previous) => ({ start: Math.min(previous.start, end), end }));
+  };
+
   const handleToggleOption = (label: string) => {
     if (isEvaluated) return;
     setSelectedLabels((prev) =>
@@ -135,11 +159,16 @@ export default function App() {
     if (questionsInMode.length > 1) {
       const availableIndexes = questionsInMode
         .map((_, index) => index)
-        .filter((index) => index !== currentIndex);
+        .filter(
+          (index) =>
+            index >= randomRangeStart - 1 &&
+            index <= randomRangeEnd - 1 &&
+            index !== currentIndex,
+        );
       const nextIndex = randomNext
         ? availableIndexes[Math.floor(Math.random() * availableIndexes.length)]
         : currentIndex + 1;
-      if (nextIndex >= questionsInMode.length) return;
+      if (nextIndex === undefined || nextIndex >= questionsInMode.length) return;
       setCurrentIndex(nextIndex);
       restoreQuestion();
     }
@@ -394,6 +423,11 @@ export default function App() {
             onToggleEdit={handleOpenCorrection}
             randomNext={randomNext}
             onToggleRandomNext={handleRandomNextToggle}
+            randomRangeStart={randomRangeStart}
+            randomRangeEnd={randomRangeEnd}
+            randomRangeMax={Math.max(questionsInMode.length, 1)}
+            onRandomRangeStartChange={handleRandomRangeStartChange}
+            onRandomRangeEndChange={handleRandomRangeEndChange}
             fourAnswersOnly={fourAnswersOnly}
             onToggleFourAnswers={handleFourAnswersToggle}
           />
@@ -415,7 +449,10 @@ export default function App() {
             onPrev={handlePrev}
             isPrevDisabled={currentIndex === 0}
             onNext={handleNext}
-            isNextDisabled={!randomNext && currentIndex === questionsInMode.length - 1}
+            isNextDisabled={
+              (!randomNext && currentIndex === questionsInMode.length - 1) ||
+              (randomNext && randomRangeStart === randomRangeEnd)
+            }
             onCheckAnswer={handleCheckAnswer}
             onTryAgain={handleTryAgain}
           />

@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import type { Question, QuestionStats } from '../../types.ts';
 import { IconButton } from '../common/IconButton.tsx';
-import { ChevronDownIcon, ChevronUpIcon } from '../common/Icons.tsx';
+import { ChevronDownIcon } from '../common/Icons.tsx';
 
 interface HistoryItemProps {
   question: Question;
@@ -12,7 +13,7 @@ interface HistoryItemProps {
   onToggleExpand: () => void;
 }
 
-export function HistoryItem({
+export const HistoryItem = memo(function HistoryItem({
   question,
   index,
   questionStats,
@@ -38,13 +39,13 @@ export function HistoryItem({
 
   return (
     <div
-      className={`rounded-lg border-2 transition hover:border-blue-400 ${statusBorderClass} ${activeRingClass}`}
+      className={`rounded-lg border-2 shadow-2xs transition-colors duration-150 hover:border-blue-400 ${statusBorderClass} ${activeRingClass}`}
     >
       <div className="flex items-center">
         <button
           type="button"
           onClick={onSelect}
-          className="min-w-0 flex-1 p-3 text-left"
+          className="min-w-0 flex-1 cursor-pointer p-3 text-left"
         >
           <div className="flex items-center justify-between gap-3">
             <span className="font-semibold text-gray-800">
@@ -64,7 +65,13 @@ export function HistoryItem({
             title={isExpanded ? `Collapse ${question.id}` : `Expand ${question.id}`}
             ariaLabel={`${isExpanded ? 'Collapse' : 'Expand'} ${question.id} answer`}
           >
-            {isExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
+            <span
+              className={`inline-flex transition-transform duration-200 ease-out ${
+                isExpanded ? 'rotate-180' : 'rotate-0'
+              }`}
+            >
+              <ChevronDownIcon />
+            </span>
           </IconButton>
         </div>
       </div>
@@ -90,7 +97,7 @@ export function HistoryItem({
               return (
                 <label
                   key={option.label}
-                  className={`flex items-start rounded-lg border p-2 text-sm ${optionStyle}`}
+                  className={`flex items-start rounded-lg border p-2 text-sm transition-colors duration-150 ${optionStyle}`}
                 >
                   <input
                     type="checkbox"
@@ -109,4 +116,4 @@ export function HistoryItem({
       )}
     </div>
   );
-}
+});

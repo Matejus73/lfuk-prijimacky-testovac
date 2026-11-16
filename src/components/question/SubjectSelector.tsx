@@ -22,10 +22,10 @@ export function SubjectSelector({
             key={subject}
             type="button"
             onClick={() => onSelectSubject(subject)}
-            className={`min-w-[9rem] flex-1 rounded-lg text-base font-semibold transition ${
+            className={`min-w-[9rem] flex-1 cursor-pointer rounded-lg text-base font-semibold shadow-xs transition-colors duration-150 ${
               isSelected
-                ? 'bg-blue-600 text-white shadow-sm'
-                : 'bg-white text-gray-700 border hover:bg-gray-50'
+                ? 'bg-blue-600 text-white shadow-sm ring-2 ring-blue-500/30'
+                : 'border bg-white text-gray-700 hover:bg-gray-50'
             }`}
           >
             {subject} ({questionCounts[subject] ?? 0})

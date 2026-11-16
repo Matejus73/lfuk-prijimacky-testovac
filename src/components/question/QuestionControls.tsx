@@ -15,6 +15,11 @@ interface QuestionControlsProps {
   onToggleEdit: () => void;
   randomNext: boolean;
   onToggleRandomNext: () => void;
+  randomRangeStart: number;
+  randomRangeEnd: number;
+  randomRangeMax: number;
+  onRandomRangeStartChange: (value: number) => void;
+  onRandomRangeEndChange: (value: number) => void;
   fourAnswersOnly: boolean;
   onToggleFourAnswers: () => void;
 }
@@ -31,6 +36,11 @@ export function QuestionControls({
   onToggleEdit,
   randomNext,
   onToggleRandomNext,
+  randomRangeStart,
+  randomRangeEnd,
+  randomRangeMax,
+  onRandomRangeStartChange,
+  onRandomRangeEndChange,
   fourAnswersOnly,
   onToggleFourAnswers,
 }: QuestionControlsProps) {
@@ -42,14 +52,23 @@ export function QuestionControls({
   return (
     <div className="question-controls rounded-xl bg-white shadow-md">
       {/* Mode Switcher */}
-      <div className="question-mode-switcher flex rounded-lg bg-gray-100">
+      <div className="question-mode-switcher relative flex rounded-lg bg-gray-100 p-1">
+        {/* Sliding background indicator pill */}
+        <div
+          className={`mode-switcher-pill ${
+            questionMode === 'all'
+              ? 'mode-switcher-pill-all'
+              : 'mode-switcher-pill-revision'
+          }`}
+        />
+
         <button
           type="button"
           onClick={() => onModeChange('all')}
-          className={`flex-1 rounded-md text-sm font-semibold transition ${
+          className={`relative z-10 flex-1 cursor-pointer rounded-md text-sm font-semibold transition-colors duration-150 ${
             questionMode === 'all'
-              ? 'bg-blue-600 text-white shadow-sm'
-              : 'text-gray-600 hover:bg-white'
+              ? 'text-white'
+              : 'text-gray-600 hover:text-gray-900'
           }`}
         >
           All questions
@@ -58,10 +77,10 @@ export function QuestionControls({
           type="button"
           onClick={() => onModeChange('revision')}
           disabled={revisionCount === 0}
-          className={`flex-1 rounded-md text-sm font-semibold transition ${
+          className={`relative z-10 flex-1 cursor-pointer rounded-md text-sm font-semibold transition-colors duration-150 ${
             questionMode === 'revision'
-              ? 'bg-rose-600 text-white shadow-sm'
-              : 'text-gray-600 hover:bg-white disabled:cursor-not-allowed disabled:opacity-40'
+              ? 'text-white'
+              : 'text-gray-600 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-40'
           }`}
         >
           Revision ({revisionCount})
@@ -70,9 +89,39 @@ export function QuestionControls({
 
       {/* Control bar: Question tag, actions, and toggles */}
       <div className="question-control-bar relative flex items-center justify-center">
-        <span className="text-sm font-bold tracking-wide text-gray-700">
-          {subjectPrefix} {currentIndex + 1}
-        </span>
+        <div className="question-position pointer-events-none">
+          <span className="question-position-content pointer-events-auto flex items-center gap-2 text-sm font-bold tracking-wide text-gray-700">
+            {subjectPrefix} {currentIndex + 1}
+            <span
+              className={`random-range flex items-center gap-1 font-normal tracking-normal text-gray-600 ${
+                randomNext ? 'random-range-visible' : ''
+              }`}
+              aria-hidden={!randomNext}
+            >
+              <input
+                type="number"
+                disabled={!randomNext}
+                min={1}
+                max={randomRangeEnd}
+                value={randomRangeStart}
+                onChange={(event) => onRandomRangeStartChange(Number(event.target.value))}
+                aria-label="First random question"
+                className="random-range-input"
+              />
+              <span>to</span>
+              <input
+                type="number"
+                disabled={!randomNext}
+                min={randomRangeStart}
+                max={randomRangeMax}
+                value={randomRangeEnd}
+                onChange={(event) => onRandomRangeEndChange(Number(event.target.value))}
+                aria-label="Last random question"
+                className="random-range-input"
+              />
+            </span>
+          </span>
+        </div>
 
         <div className="absolute left-0 flex shrink-0 items-center gap-1">
           <IconButton onClick={onCopy} title={copyTitle} ariaLabel={copyTitle}>
@@ -102,6 +151,7 @@ export function QuestionControls({
           />
         </div>
       </div>
+
     </div>
   );
 }

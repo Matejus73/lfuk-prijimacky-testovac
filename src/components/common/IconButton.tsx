@@ -24,7 +24,7 @@ export function IconButton({
       disabled={disabled}
       title={title}
       aria-label={ariaLabel ?? title}
-      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border text-gray-600 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-40 ${className}`}
+      className={`flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-lg border text-gray-600 shadow-2xs transition-colors duration-150 hover:bg-gray-50 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-40 ${className}`}
     >
       {children}
     </button>

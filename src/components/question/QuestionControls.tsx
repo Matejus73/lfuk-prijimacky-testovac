@@ -1,6 +1,8 @@
+import { useRef } from 'react';
 import type { CopyStatus, QuestionMode, Subject } from '../../types.ts';
+import { FoxCompanion } from '../common/FoxCompanion.tsx';
 import { IconButton } from '../common/IconButton.tsx';
-import { CopyIcon, EditIcon } from '../common/Icons.tsx';
+import { CloseIcon, CopyIcon, EditIcon, FoxIcon } from '../common/Icons.tsx';
 import { ToggleSwitch } from '../common/ToggleSwitch.tsx';
 
 interface QuestionControlsProps {
@@ -8,11 +10,14 @@ interface QuestionControlsProps {
   onModeChange: (mode: QuestionMode) => void;
   revisionCount: number;
   subject: Subject;
+  questionId: string;
   currentIndex: number;
   copyStatus: CopyStatus;
   onCopy: () => void;
   isEditing: boolean;
   onToggleEdit: () => void;
+  isFoxActive: boolean;
+  onToggleFox: () => void;
   randomNext: boolean;
   onToggleRandomNext: () => void;
   randomRangeStart: number;
@@ -29,11 +34,14 @@ export function QuestionControls({
   onModeChange,
   revisionCount,
   subject,
+  questionId,
   currentIndex,
   copyStatus,
   onCopy,
   isEditing,
   onToggleEdit,
+  isFoxActive,
+  onToggleFox,
   randomNext,
   onToggleRandomNext,
   randomRangeStart,
@@ -44,10 +52,12 @@ export function QuestionControls({
   fourAnswersOnly,
   onToggleFourAnswers,
 }: QuestionControlsProps) {
+  const foxButtonRef = useRef<HTMLButtonElement | null>(null);
   const subjectPrefix = subject === 'Biology' ? 'BIO' : 'CHEM';
   const copyTitle =
     copyStatus === 'copied' ? 'Copied!' : copyStatus === 'failed' ? 'Copy failed' : 'Copy question card';
   const editTitle = isEditing ? 'Save or cancel correction' : 'Correct this question';
+  const foxTitle = isFoxActive ? 'Disable fox mode' : 'Enable fox mode';
 
   return (
     <div className="question-controls rounded-xl bg-white shadow-md">
@@ -175,6 +185,21 @@ export function QuestionControls({
           >
             <EditIcon />
           </IconButton>
+          <IconButton
+            buttonRef={foxButtonRef}
+            onClick={onToggleFox}
+            title={foxTitle}
+            ariaLabel={foxTitle}
+            ariaPressed={isFoxActive}
+            className={isFoxActive ? 'fox-btn-active' : ''}
+          >
+            {isFoxActive ? <CloseIcon className="h-4 w-4" /> : <FoxIcon />}
+          </IconButton>
+          <FoxCompanion
+            isActive={isFoxActive}
+            buttonRef={foxButtonRef}
+            questionKey={`${subject}:${questionId}`}
+          />
         </div>
 
         <div className="absolute right-0 flex shrink-0 items-center gap-2">

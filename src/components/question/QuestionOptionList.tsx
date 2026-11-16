@@ -67,6 +67,7 @@ export function QuestionOptionList({
           >
             <div className="question-option-drawer-inner">
               <div
+                data-fox-target={isRowHidden ? undefined : 'answer'}
                 onClick={() => {
                   if (!isEditing && !isEvaluated) {
                     onToggleOption(option.label);

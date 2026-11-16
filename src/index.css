@@ -15,6 +15,7 @@
     --error: #ff8080;
     --warning: #ffbc5e;
     --info: #87d1ff;
+    --fox-orange: #ff7338;
     --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
@@ -1060,5 +1061,61 @@
   .border-blue-400,
   .border-blue-500 {
     border-color: var(--info);
+  }
+
+  .fox-btn-active,
+  .fox-btn-active:hover {
+    border-color: var(--fox-orange);
+    background-color: color-mix(in srgb, var(--fox-orange) 14%, var(--background));
+    color: var(--fox-orange);
+  }
+
+  .fox-companion {
+    will-change: transform;
+  }
+
+  .fox-target-highlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    pointer-events: none;
+    border: 2px solid var(--fox-orange);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--fox-orange) 35%, transparent),
+                0 0 12px color-mix(in srgb, var(--fox-orange) 20%, transparent);
+    transition: opacity 100ms var(--ease-fluid);
+    will-change: transform, width, height, border-width, opacity;
+  }
+
+  .fox-target-highlight-pinned {
+    z-index: 41;
+    border-width: 4px;
+    box-shadow: 0 0 14px color-mix(in srgb, var(--fox-orange) 24%, transparent);
+  }
+
+  .fox-target-highlight-hover {
+    border-color: color-mix(in srgb, var(--fox-orange) 52%, var(--background));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--fox-orange) 16%, transparent),
+                0 0 10px color-mix(in srgb, var(--fox-orange) 10%, transparent);
+  }
+
+  html.fox-cursor-active,
+  html.fox-cursor-active body,
+  html.fox-cursor-active button:not(:disabled),
+  html.fox-cursor-active a,
+  html.fox-cursor-active [role='button']:not([aria-disabled='true']),
+  html.fox-cursor-active [role='switch']:not(:disabled),
+  html.fox-cursor-active label,
+  html.fox-cursor-active select,
+  html.fox-cursor-active .cursor-pointer:not(:disabled) {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M2.6 4.2C2.1 2.5 2.5 2.1 4.2 2.6L20.3 7.8C22 8.4 22 9.6 20.3 10.3L14.3 12.6C13.1 13.1 13.1 13.1 12.6 14.3L10.3 20.3C9.6 22 8.4 22 7.8 20.3Z' fill='%23ff7338'/%3E%3C/svg%3E") 3 3, auto;
+  }
+
+  html.fox-cursor-active input[type='text'],
+  html.fox-cursor-active input[type='search'],
+  html.fox-cursor-active input[type='number'],
+  html.fox-cursor-active input:not([type]),
+  html.fox-cursor-active textarea {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M9 4H15M12 4V20M9 20H15' fill='none' stroke='%23ff7338' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") 12 12, text;
   }
 }

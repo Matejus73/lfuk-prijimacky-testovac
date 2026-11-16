@@ -158,6 +158,8 @@ export function QuestionCard({
           </div>
 
           <div
+            data-fox-target="question"
+            data-fox-pad={isEditing ? undefined : 'true'}
             className={`question-title-morph ${
               isEditing ? 'question-title-morph-editing' : ''
             }`}

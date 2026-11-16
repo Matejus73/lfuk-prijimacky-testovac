@@ -20,6 +20,14 @@ export function EditIcon({ className = 'h-4 w-4' }: IconProps) {
   );
 }
 
+export function FoxIcon({ className = 'h-4 w-4' }: IconProps) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} fill="currentColor">
+      <path d="M5.5 2.3 10.3 7h3.4l4.8-4.7c.4-.4 1-.2 1.1.3l1.1 8.8 1.3 4c.1.3 0 .7-.3.9L12 22l-9.7-5.7c-.3-.2-.4-.6-.3-.9l1.3-4L4.4 2.6c.1-.5.7-.7 1.1-.3Z" />
+    </svg>
+  );
+}
+
 export function ChevronUpIcon({ className = 'h-4 w-4' }: IconProps) {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

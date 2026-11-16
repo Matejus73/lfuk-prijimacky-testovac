@@ -96,6 +96,7 @@ export default function App() {
   const [expandedHistoryIds, setExpandedHistoryIds] = useState<Set<string>>(new Set());
   const [editingQuestion, setEditingQuestion] = useState<EditableQuestion | null>(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [isFoxActive, setIsFoxActive] = useState(false);
   const editExitTimerRef = useRef<number | null>(null);
   const [editError, setEditError] = useState('');
 
@@ -124,6 +125,13 @@ export default function App() {
   useEffect(() => {
     saveStoredFourAnswers(fourAnswersOnly);
   }, [fourAnswersOnly]);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('fox-cursor-active', isFoxActive);
+    return () => {
+      document.documentElement.classList.remove('fox-cursor-active');
+    };
+  }, [isFoxActive]);
 
   const closeEditMode = useCallback(() => {
     if (editExitTimerRef.current !== null) {
@@ -168,6 +176,10 @@ export default function App() {
 
   const handleRandomNextToggle = () => {
     setRandomNext((prev) => !prev);
+  };
+
+  const handleFoxToggle = () => {
+    setIsFoxActive((prev) => !prev);
   };
 
   const handleRandomRangeStartChange = (value: number) => {
@@ -471,11 +483,14 @@ export default function App() {
             onModeChange={handleQuestionModeChange}
             revisionCount={revisionQuestions.length}
             subject={currentSubject}
+            questionId={currentQuestion.id}
             currentIndex={currentIndex}
             copyStatus={copyStatus}
             onCopy={handleCopyCard}
             isEditing={isEditing}
             onToggleEdit={handleOpenCorrection}
+            isFoxActive={isFoxActive}
+            onToggleFox={handleFoxToggle}
             randomNext={randomNext}
             onToggleRandomNext={handleRandomNextToggle}
             randomRangeStart={randomRangeStart}

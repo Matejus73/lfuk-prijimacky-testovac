@@ -39,6 +39,7 @@ export const HistoryItem = memo(function HistoryItem({
 
   return (
     <div
+      data-fox-target="question"
       className={`rounded-lg border-2 shadow-2xs transition-colors duration-150 hover:border-blue-400 ${statusBorderClass} ${activeRingClass}`}
     >
       <div className="flex items-center">
@@ -59,7 +60,7 @@ export const HistoryItem = memo(function HistoryItem({
           </div>
         </button>
 
-        <div className="mr-3">
+        <div className="mr-3" data-fox-ignore="true">
           <IconButton
             onClick={() => onToggleExpand(question.id)}
             title={isExpanded ? `Collapse ${question.id}` : `Expand ${question.id}`}
@@ -97,6 +98,7 @@ export const HistoryItem = memo(function HistoryItem({
               return (
                 <label
                   key={option.label}
+                  data-fox-target="answer"
                   className={`flex items-start rounded-lg border p-2 text-sm transition-colors duration-150 ${optionStyle}`}
                 >
                   <input

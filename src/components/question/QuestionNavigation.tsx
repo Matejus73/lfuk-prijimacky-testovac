@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { ArrowLeftIcon, ArrowRightIcon } from '../common/Icons.tsx';
 
 interface QuestionNavigationProps {
@@ -14,7 +15,7 @@ interface QuestionNavigationProps {
   onTryAgain: () => void;
 }
 
-export function QuestionNavigation({
+export const QuestionNavigation = memo(function QuestionNavigation({
   isEditing,
   onResetCorrection,
   onCancelCorrection,
@@ -55,9 +56,12 @@ export function QuestionNavigation({
 
   const isMiddlePrimary = !isEditing && !isEvaluated;
   const isRightPrimary = isEditing;
+  const middleEditingTrackClass = isEvaluated
+    ? 'nav-morph-track-mid-secondary-editing'
+    : 'nav-morph-track-mid-primary-editing';
 
   return (
-    <div className="question-navigation mt-auto flex shrink-0 items-center justify-between gap-2 border-t bg-white">
+    <div className="question-navigation mt-auto flex shrink-0 items-center justify-between gap-2 border-t border-gray-200 bg-white">
       {/* Left button: Prev arrow morphs into Reset to default */}
       <button
         type="button"
@@ -65,7 +69,7 @@ export function QuestionNavigation({
         disabled={!isEditing && isPrevDisabled}
         title={isEditing ? 'Reset to default' : 'Previous question'}
         aria-label={isEditing ? 'Reset to default' : 'Previous question'}
-        className={`nav-morph-btn nav-arrow-btn group cursor-pointer rounded-lg border text-sm font-semibold text-gray-700 shadow-2xs hover:bg-gray-50 disabled:cursor-not-allowed disabled:hover:bg-white ${
+        className={`nav-morph-btn nav-arrow-btn group cursor-pointer rounded-lg border border-gray-200 bg-white text-sm font-semibold text-gray-700 shadow-2xs hover:border-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:hover:border-gray-200 disabled:hover:bg-white ${
           isEditing ? 'nav-morph-btn-left-edit' : 'nav-morph-btn-icon'
         }`}
       >
@@ -97,9 +101,7 @@ export function QuestionNavigation({
 
       {/* Spacer that morphs flex-grow so middle button glides toward the right in edit mode */}
       <div
-        className={`nav-morph-spacer ${
-          isEditing ? 'nav-morph-spacer-editing' : ''
-        }`}
+        className={`nav-morph-spacer ${isEditing ? 'nav-morph-spacer-editing' : ''}`}
         aria-hidden="true"
       />
 
@@ -107,27 +109,21 @@ export function QuestionNavigation({
       <button
         type="button"
         onClick={handleMiddleAction}
-        title={
-          isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'
-        }
-        aria-label={
-          isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'
-        }
+        title={isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'}
+        aria-label={isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'}
         className={`nav-morph-btn cursor-pointer rounded-lg border text-sm font-semibold ${
           isMiddlePrimary
-            ? 'nav-morph-btn-primary border-transparent bg-blue-600 text-white shadow-sm hover:bg-blue-700'
-            : 'nav-morph-btn-secondary text-gray-700 shadow-2xs hover:bg-gray-50'
+            ? 'nav-morph-btn-primary border-blue-500 bg-blue-600 text-white shadow-sm hover:bg-blue-700'
+            : 'nav-morph-btn-secondary border-gray-200 bg-white text-gray-700 shadow-2xs hover:border-gray-300 hover:bg-gray-50'
         }`}
       >
         <span className="nav-morph-stage">
           <span
-            className={`nav-morph-track ${
-              isEditing ? 'nav-morph-track-mid-editing' : ''
-            }`}
+            className={`nav-morph-track ${isEditing ? middleEditingTrackClass : ''}`}
           >
             <span
               className={`nav-morph-slot ${
-                isMiddlePrimary ? 'nav-morph-slot-primary' : 'nav-morph-slot-secondary'
+                isEvaluated ? 'nav-morph-slot-secondary' : 'nav-morph-slot-primary'
               }`}
               aria-hidden={isEditing}
             >
@@ -158,10 +154,10 @@ export function QuestionNavigation({
         disabled={!isEditing && isNextDisabled}
         title={isEditing ? 'Save correction' : 'Next question'}
         aria-label={isEditing ? 'Save correction' : 'Next question'}
-        className={`nav-morph-btn nav-arrow-btn group cursor-pointer rounded-lg border text-sm font-semibold disabled:cursor-not-allowed disabled:hover:bg-white ${
+        className={`nav-morph-btn nav-arrow-btn group cursor-pointer rounded-lg border text-sm font-semibold disabled:cursor-not-allowed disabled:hover:border-gray-200 disabled:hover:bg-white ${
           isRightPrimary
-            ? 'nav-morph-btn-right-edit border-transparent bg-blue-600 text-white shadow-sm hover:bg-blue-700'
-            : 'nav-morph-btn-icon text-gray-700 shadow-2xs hover:bg-gray-50'
+            ? 'nav-morph-btn-right-edit border-blue-500 bg-blue-600 text-white shadow-sm hover:bg-blue-700'
+            : 'nav-morph-btn-icon border-gray-200 bg-white text-gray-700 shadow-2xs hover:border-gray-300 hover:bg-gray-50'
         }`}
       >
         <span className="nav-morph-stage">
@@ -191,4 +187,4 @@ export function QuestionNavigation({
       </button>
     </div>
   );
-}
+});

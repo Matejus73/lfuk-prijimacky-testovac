@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { Subject } from '../../types.ts';
 
 interface SubjectSelectorProps {
@@ -8,7 +9,7 @@ interface SubjectSelectorProps {
 
 const SUBJECTS: Subject[] = ['Biology', 'Chemistry'];
 
-export function SubjectSelector({
+export const SubjectSelector = memo(function SubjectSelector({
   currentSubject,
   questionCounts,
   onSelectSubject,
@@ -21,11 +22,12 @@ export function SubjectSelector({
           <button
             key={subject}
             type="button"
+            aria-pressed={isSelected}
             onClick={() => onSelectSubject(subject)}
-            className={`min-w-[9rem] flex-1 cursor-pointer rounded-lg text-base font-semibold shadow-xs transition-colors duration-150 ${
+            className={`min-w-[9rem] flex-1 cursor-pointer rounded-lg border text-base font-semibold transition-colors duration-150 ${
               isSelected
-                ? 'bg-blue-600 text-white shadow-sm ring-2 ring-blue-500/30'
-                : 'border bg-white text-gray-700 hover:bg-gray-50'
+                ? 'border-transparent bg-blue-600 text-white shadow-sm'
+                : 'border-gray-200 bg-white text-gray-700 shadow-2xs hover:border-gray-300 hover:bg-gray-50'
             }`}
           >
             {subject} ({questionCounts[subject] ?? 0})
@@ -34,4 +36,4 @@ export function SubjectSelector({
       })}
     </div>
   );
-}
+});

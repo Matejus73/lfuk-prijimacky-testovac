@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import type { Question, QuestionStats } from '../../types.ts';
+import { roundStat } from '../../utils/questionUtils.ts';
 import { IconButton } from '../common/IconButton.tsx';
 import { ChevronDownIcon } from '../common/Icons.tsx';
 
@@ -26,20 +27,20 @@ export const HistoryItem = memo(function HistoryItem({
     ? questionStats.lastAnswer.join(', ')
     : 'No answer';
 
-  let statusBorderClass = 'border-gray-200';
+  let statusBorderClass = 'border-gray-200 bg-white';
   if (questionStats?.lastResult === 'correct') {
     statusBorderClass = 'border-emerald-500 bg-emerald-50';
   } else if (questionStats?.lastResult === 'incorrect') {
     statusBorderClass = 'border-rose-500 bg-rose-50';
   } else if (isCurrent) {
-    statusBorderClass = 'border-gray-200 bg-blue-50';
+    statusBorderClass = 'border-blue-500 bg-blue-50';
   }
 
   const activeRingClass = isCurrent ? 'ring-2 ring-blue-400' : '';
 
   return (
     <div
-      className={`rounded-lg border-2 shadow-2xs transition-colors duration-150 hover:border-blue-400 ${statusBorderClass} ${activeRingClass}`}
+      className={`history-item rounded-lg border-2 shadow-2xs transition-colors duration-150 hover:border-blue-400 ${statusBorderClass} ${activeRingClass}`}
     >
       <div className="flex items-center">
         <button
@@ -53,7 +54,7 @@ export const HistoryItem = memo(function HistoryItem({
             </span>
             <span className="text-xs text-gray-500">
               {questionStats?.lastResult && questionStats.lastResult !== 'unanswered'
-                ? `${questionStats.correct} correct / ${questionStats.incorrect} incorrect`
+                ? `${roundStat(questionStats.correct)} correct / ${roundStat(questionStats.incorrect)} incorrect`
                 : 'Not answered'}
             </span>
           </div>
@@ -64,6 +65,7 @@ export const HistoryItem = memo(function HistoryItem({
             onClick={() => onToggleExpand(question.id)}
             title={isExpanded ? `Collapse ${question.id}` : `Expand ${question.id}`}
             ariaLabel={`${isExpanded ? 'Collapse' : 'Expand'} ${question.id} answer`}
+            ariaExpanded={isExpanded}
           >
             <span
               className={`history-chevron ${
@@ -77,11 +79,12 @@ export const HistoryItem = memo(function HistoryItem({
       </div>
 
       {isExpanded && (
-        <div className="history-details border-t border-gray-200/80 px-3 pb-3 pt-2">
+        <div className="history-details border-t border-gray-200/80 px-3 pb-3 pt-2.5">
           <p className="mb-2 text-sm text-gray-600">
-            Last answer: <span className="font-semibold text-gray-800">{lastAnswerText}</span>
+            Last answer:{' '}
+            <span className="font-semibold text-gray-800">{lastAnswerText}</span>
           </p>
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             {question.options.map((option) => {
               const wasSelected = questionStats?.lastAnswer?.includes(option.label) ?? false;
               let optionStyle = 'border-gray-200 bg-white';
@@ -101,13 +104,18 @@ export const HistoryItem = memo(function HistoryItem({
                 >
                   <input
                     type="checkbox"
+                    name={`history-${question.id}-option-${option.label}`}
                     checked={wasSelected}
                     disabled
                     readOnly
-                    className="circle-checkbox mt-0.5"
+                    className="circle-checkbox mt-[0.1875rem]"
                   />
-                  <span className="ml-2 font-semibold text-gray-700">{option.label})</span>
-                  <span className="ml-2 text-gray-700">{option.text}</span>
+                  <span className="ml-2 shrink-0 font-semibold uppercase leading-snug text-gray-700">
+                    {option.label})
+                  </span>
+                  <span className="question-option-text ml-2 min-w-0 leading-snug text-gray-700">
+                    {option.text}
+                  </span>
                 </label>
               );
             })}

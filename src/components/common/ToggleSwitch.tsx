@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface ToggleSwitchProps {
   checked: boolean;
   onChange: () => void;
@@ -8,7 +10,7 @@ interface ToggleSwitchProps {
   ariaLabel?: string;
 }
 
-export function ToggleSwitch({
+export const ToggleSwitch = memo(function ToggleSwitch({
   checked,
   onChange,
   label,
@@ -19,9 +21,7 @@ export function ToggleSwitch({
 }: ToggleSwitchProps) {
   return (
     <div className="flex shrink-0 items-center gap-1.5">
-      <span className="text-xs font-semibold text-gray-500">
-        {label}:
-      </span>
+      <span className="text-xs font-semibold text-gray-500">{label}:</span>
       <button
         type="button"
         role="switch"
@@ -30,16 +30,12 @@ export function ToggleSwitch({
         title={title}
         aria-label={ariaLabel ?? title}
         className={`toggle-switch-btn ${
-          checked
-            ? 'toggle-switch-btn-active'
-            : 'toggle-switch-btn-inactive'
+          checked ? 'toggle-switch-btn-active' : 'toggle-switch-btn-inactive'
         }`}
       >
         <span
           className={`toggle-switch-track ${
-            checked
-              ? 'toggle-switch-track-checked'
-              : 'toggle-switch-track-unchecked'
+            checked ? 'toggle-switch-track-checked' : 'toggle-switch-track-unchecked'
           }`}
         >
           <span className="toggle-switch-item" aria-hidden={checked}>
@@ -52,4 +48,4 @@ export function ToggleSwitch({
       </button>
     </div>
   );
-}
+});

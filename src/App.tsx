@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { QuestionHistory } from './components/history/QuestionHistory.tsx';
 import { QuestionCard } from './components/question/QuestionCard.tsx';
 import { QuestionControls } from './components/question/QuestionControls.tsx';
 import { SubjectSelector } from './components/question/SubjectSelector.tsx';
-import { QuestionHistory } from './components/history/QuestionHistory.tsx';
 import bioData from './data/OtazkyBio.json';
 import chemData from './data/OtazkyChem.json';
 import type {
@@ -21,6 +21,8 @@ import {
   formatQuestionForClipboard,
   getInitialRandomOptionLabels,
   getQuestionStats,
+  getRandomOptionLabels,
+  roundStat,
 } from './utils/questionUtils.ts';
 import {
   loadStoredFourAnswers,
@@ -43,7 +45,7 @@ export default function App() {
   );
   const [stats, setStats] = useState<AllStats>(() => loadStoredStats());
   const [fourAnswersOnly, setFourAnswersOnly] = useState<boolean>(() => loadStoredFourAnswers());
-  const [randomOptionLabels] = useState<Record<string, string[]>>(() =>
+  const [randomOptionLabels, setRandomOptionLabels] = useState<Record<string, string[]>>(() =>
     getInitialRandomOptionLabels(questions),
   );
   const [questionMode, setQuestionMode] = useState<QuestionMode>('all');
@@ -54,26 +56,19 @@ export default function App() {
   const activeQuestions = questions[currentSubject];
   const revisionQuestions = useMemo(
     () =>
-      activeQuestions
-        .map((question, index) => ({
-          question,
-          index,
-          incorrect: getQuestionStats(stats, currentSubject, question.id)?.incorrect ?? 0,
-        }))
-        .filter(({ incorrect }) => incorrect > 0),
+      activeQuestions.filter(
+        (question) => (getQuestionStats(stats, currentSubject, question.id)?.incorrect ?? 0) > 0,
+      ),
     [activeQuestions, currentSubject, stats],
   );
-  const questionsInMode = useMemo(
-    () =>
-      questionMode === 'revision'
-        ? revisionQuestions.map(({ question }) => question)
-        : activeQuestions,
-    [activeQuestions, questionMode, revisionQuestions],
-  );
-  const randomRangeStart = Math.min(
-    Math.max(randomRange.start, 1),
-    Math.max(questionsInMode.length, 1),
-  );
+
+  const effectiveQuestionMode: QuestionMode =
+    questionMode === 'revision' && revisionQuestions.length === 0 ? 'all' : questionMode;
+  const questionsInMode =
+    effectiveQuestionMode === 'revision' ? revisionQuestions : activeQuestions;
+
+  const randomRangeMax = Math.max(questionsInMode.length, 1);
+  const randomRangeStart = Math.min(Math.max(randomRange.start, 1), randomRangeMax);
   const randomRangeEnd = Math.min(
     Math.max(randomRange.end, randomRangeStart),
     Math.max(questionsInMode.length, randomRangeStart),
@@ -81,16 +76,27 @@ export default function App() {
 
   // Question navigation and answer states
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [selectedLabels, setSelectedLabels] = useState<string[]>(
-    () => getQuestionStats(stats, 'Biology', questions.Biology[0].id)?.lastAnswer ?? [],
+  const safeCurrentIndex = Math.min(
+    currentIndex,
+    Math.max(questionsInMode.length - 1, 0),
   );
-  const [isEvaluated, setIsEvaluated] = useState<boolean>(
-    () => Boolean(getQuestionStats(stats, 'Biology', questions.Biology[0].id)?.lastResult),
-  );
+
+  const [selectedLabels, setSelectedLabels] = useState<string[]>(() => {
+    const initialStats = getQuestionStats(stats, 'Biology', questions.Biology[0].id);
+    return initialStats?.lastResult === 'correct' || initialStats?.lastResult === 'incorrect'
+      ? initialStats.lastAnswer
+      : [];
+  });
+  const [isEvaluated, setIsEvaluated] = useState<boolean>(() => {
+    const initialResult = getQuestionStats(stats, 'Biology', questions.Biology[0].id)?.lastResult;
+    return initialResult === 'correct' || initialResult === 'incorrect';
+  });
+
   const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
   const [copyPulseKey, setCopyPulseKey] = useState<number>(0);
   const copyPulseIdRef = useRef(0);
   const copyPulseTimerRef = useRef<number | null>(null);
+  const copyStatusTimerRef = useRef<number | null>(null);
   const [historySearch, setHistorySearch] = useState('');
   const [historySort, setHistorySort] = useState<HistorySort>('ascending');
   const [expandedHistoryIds, setExpandedHistoryIds] = useState<Set<string>>(new Set());
@@ -99,31 +105,58 @@ export default function App() {
   const editExitTimerRef = useRef<number | null>(null);
   const [editError, setEditError] = useState('');
 
-  const currentQuestion = questionsInMode[currentIndex] ?? activeQuestions[0];
-  const displayedOptions = useMemo(
-    () =>
-      fourAnswersOnly
-        ? currentQuestion.options.filter((option) =>
-            (randomOptionLabels[`${currentSubject}:${currentQuestion.id}`] ?? []).includes(
-              option.label,
-            ),
-          )
-        : currentQuestion.options,
-    [currentQuestion, currentSubject, fourAnswersOnly, randomOptionLabels],
-  );
+  const currentQuestion = questionsInMode[safeCurrentIndex] ?? activeQuestions[0];
+  const displayedOptions = useMemo(() => {
+    if (!fourAnswersOnly) {
+      return currentQuestion.options;
+    }
+    const labels = randomOptionLabels[`${currentSubject}:${currentQuestion.id}`] ?? [];
+    return currentQuestion.options.filter((option) => labels.includes(option.label));
+  }, [currentQuestion, currentSubject, fourAnswersOnly, randomOptionLabels]);
 
-  // Persist state updates to localStorage
+  // Persist state updates to localStorage (skipping redundant initial mount write)
+  const didMountStatsRef = useRef(false);
   useEffect(() => {
+    if (!didMountStatsRef.current) {
+      didMountStatsRef.current = true;
+      return;
+    }
     saveStoredStats(stats);
   }, [stats]);
 
+  const didMountQuestionsRef = useRef(false);
   useEffect(() => {
+    if (!didMountQuestionsRef.current) {
+      didMountQuestionsRef.current = true;
+      return;
+    }
     saveStoredQuestions(questions);
   }, [questions]);
 
+  const didMountFourAnswersRef = useRef(false);
   useEffect(() => {
+    if (!didMountFourAnswersRef.current) {
+      didMountFourAnswersRef.current = true;
+      return;
+    }
     saveStoredFourAnswers(fourAnswersOnly);
   }, [fourAnswersOnly]);
+
+  // Clean up pending timers on unmount
+  useEffect(
+    () => () => {
+      if (copyPulseTimerRef.current !== null) {
+        window.clearTimeout(copyPulseTimerRef.current);
+      }
+      if (copyStatusTimerRef.current !== null) {
+        window.clearTimeout(copyStatusTimerRef.current);
+      }
+      if (editExitTimerRef.current !== null) {
+        window.clearTimeout(editExitTimerRef.current);
+      }
+    },
+    [],
+  );
 
   const closeEditMode = useCallback(() => {
     if (editExitTimerRef.current !== null) {
@@ -149,76 +182,104 @@ export default function App() {
     setCopyPulseKey(0);
   }, [closeEditMode]);
 
-  const handleSubjectChange = (subject: Subject) => {
-    setCurrentSubject(subject);
-    setCurrentIndex(0);
-    restoreQuestion();
-  };
+  const handleSubjectChange = useCallback(
+    (subject: Subject) => {
+      setCurrentSubject(subject);
+      setCurrentIndex(0);
+      restoreQuestion();
+    },
+    [restoreQuestion],
+  );
 
-  const handleQuestionModeChange = (mode: QuestionMode) => {
-    setQuestionMode(mode);
-    setCurrentIndex(0);
-    restoreQuestion();
-  };
+  const handleQuestionModeChange = useCallback(
+    (mode: QuestionMode) => {
+      setQuestionMode(mode);
+      setCurrentIndex(0);
+      restoreQuestion();
+    },
+    [restoreQuestion],
+  );
 
-  const handleFourAnswersToggle = () => {
+  const handleFourAnswersToggle = useCallback(() => {
     setFourAnswersOnly((prev) => !prev);
     restoreQuestion();
-  };
+  }, [restoreQuestion]);
 
-  const handleRandomNextToggle = () => {
+  const handleRandomNextToggle = useCallback(() => {
     setRandomNext((prev) => !prev);
-  };
+  }, []);
 
-  const handleRandomRangeStartChange = (value: number) => {
-    if (!Number.isFinite(value)) return;
-    const start = Math.min(Math.max(Math.round(value), 1), randomRangeEnd);
-    setRandomRange((previous) => ({ start, end: Math.max(previous.end, start) }));
-  };
+  const handleRandomRangeStartChange = useCallback(
+    (value: number) => {
+      if (!Number.isFinite(value)) return;
+      const start = Math.min(Math.max(Math.round(value), 1), randomRangeEnd);
+      setRandomRange((previous) => ({ start, end: Math.max(previous.end, start) }));
+    },
+    [randomRangeEnd],
+  );
 
-  const handleRandomRangeEndChange = (value: number) => {
-    if (!Number.isFinite(value)) return;
-    const end = Math.min(
-      Math.max(Math.round(value), randomRangeStart),
-      Math.max(questionsInMode.length, randomRangeStart),
-    );
-    setRandomRange((previous) => ({ start: Math.min(previous.start, end), end }));
-  };
+  const handleRandomRangeEndChange = useCallback(
+    (value: number) => {
+      if (!Number.isFinite(value)) return;
+      const end = Math.min(
+        Math.max(Math.round(value), randomRangeStart),
+        Math.max(questionsInMode.length, randomRangeStart),
+      );
+      setRandomRange((previous) => ({ start: Math.min(previous.start, end), end }));
+    },
+    [questionsInMode.length, randomRangeStart],
+  );
 
-  const handleToggleOption = (label: string) => {
-    if (isEvaluated) return;
-    setSelectedLabels((prev) =>
-      prev.includes(label) ? prev.filter((item) => item !== label) : [...prev, label],
-    );
-  };
+  const handleToggleOption = useCallback(
+    (label: string) => {
+      if (isEvaluated) return;
+      setSelectedLabels((prev) =>
+        prev.includes(label) ? prev.filter((item) => item !== label) : [...prev, label],
+      );
+    },
+    [isEvaluated],
+  );
 
-  const handleNext = () => {
-    if (questionsInMode.length > 1) {
-      const availableIndexes = questionsInMode
-        .map((_, index) => index)
-        .filter(
-          (index) =>
-            index >= randomRangeStart - 1 &&
-            index <= randomRangeEnd - 1 &&
-            index !== currentIndex,
-        );
-      const nextIndex = randomNext
-        ? availableIndexes[Math.floor(Math.random() * availableIndexes.length)]
-        : currentIndex + 1;
-      if (nextIndex === undefined || nextIndex >= questionsInMode.length) return;
-      setCurrentIndex(nextIndex);
+  const handleNext = useCallback(() => {
+    if (questionsInMode.length <= 1) return;
+
+    let nextIndex: number;
+    if (randomNext) {
+      const startIdx = randomRangeStart - 1;
+      const endIdx = randomRangeEnd - 1;
+      const totalInRange = endIdx - startIdx + 1;
+      const isCurrentInRange = safeCurrentIndex >= startIdx && safeCurrentIndex <= endIdx;
+      const availableCount = totalInRange - (isCurrentInRange ? 1 : 0);
+      if (availableCount <= 0) return;
+
+      const offset = Math.floor(Math.random() * availableCount);
+      const candidate = startIdx + offset;
+      nextIndex =
+        isCurrentInRange && candidate >= safeCurrentIndex ? candidate + 1 : candidate;
+    } else {
+      nextIndex = safeCurrentIndex + 1;
+    }
+
+    if (nextIndex < 0 || nextIndex >= questionsInMode.length) return;
+    setCurrentIndex(nextIndex);
+    restoreQuestion();
+  }, [
+    questionsInMode.length,
+    randomNext,
+    randomRangeEnd,
+    randomRangeStart,
+    restoreQuestion,
+    safeCurrentIndex,
+  ]);
+
+  const handlePrev = useCallback(() => {
+    if (safeCurrentIndex > 0) {
+      setCurrentIndex(safeCurrentIndex - 1);
       restoreQuestion();
     }
-  };
+  }, [restoreQuestion, safeCurrentIndex]);
 
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      restoreQuestion();
-    }
-  };
-
-  const handleCheckAnswer = () => {
+  const handleCheckAnswer = useCallback(() => {
     const correctLabels = displayedOptions
       .filter((option) => option.is_correct)
       .map((option) => option.label);
@@ -237,8 +298,12 @@ export default function App() {
         currentQuestion.id,
       );
       const nextQuestionStats: QuestionStats = {
-        correct: (previousQuestionStats?.correct ?? 0) + (result === 'correct' ? scoreWeight : 0),
-        incorrect: (previousQuestionStats?.incorrect ?? 0) + (result === 'incorrect' ? scoreWeight : 0),
+        correct: roundStat(
+          (previousQuestionStats?.correct ?? 0) + (result === 'correct' ? scoreWeight : 0),
+        ),
+        incorrect: roundStat(
+          (previousQuestionStats?.incorrect ?? 0) + (result === 'incorrect' ? scoreWeight : 0),
+        ),
         lastAnswer: selectedLabels,
         lastResult: result,
       };
@@ -252,14 +317,14 @@ export default function App() {
       };
     });
     setIsEvaluated(true);
-  };
+  }, [currentQuestion.id, currentQuestion.options.length, currentSubject, displayedOptions, selectedLabels]);
 
-  const handleTryAgain = () => {
+  const handleTryAgain = useCallback(() => {
     setSelectedLabels([]);
     setIsEvaluated(false);
-  };
+  }, []);
 
-  const handleCopyCard = async () => {
+  const handleCopyCard = useCallback(async () => {
     const nextPulse = ++copyPulseIdRef.current;
     setCopyPulseKey(nextPulse);
     if (copyPulseTimerRef.current !== null) {
@@ -284,10 +349,72 @@ export default function App() {
       setCopyStatus('failed');
     }
 
-    window.setTimeout(() => setCopyStatus('idle'), 2000);
-  };
+    if (copyStatusTimerRef.current !== null) {
+      window.clearTimeout(copyStatusTimerRef.current);
+    }
+    copyStatusTimerRef.current = window.setTimeout(() => {
+      copyStatusTimerRef.current = null;
+      setCopyStatus('idle');
+    }, 2000);
+  }, [currentQuestion, currentSubject, selectedLabels, stats]);
 
-  const handleOpenCorrection = () => {
+  const handleSaveCorrection = useCallback(() => {
+    if (!editingQuestion) return;
+    if (!editingQuestion.question.trim()) {
+      setEditError('Enter a question before saving.');
+      return;
+    }
+    if (editingQuestion.options.some((option) => !option.text.trim())) {
+      setEditError('Every answer must contain text.');
+      return;
+    }
+    if (!editingQuestion.options.some((option) => option.is_correct)) {
+      setEditError('Mark at least one answer as correct.');
+      return;
+    }
+
+    const correctedQuestion: Question = {
+      ...editingQuestion,
+      question: editingQuestion.question.trim(),
+      options: editingQuestion.options.map((option) => ({
+        ...option,
+        text: option.text.trim(),
+      })),
+    };
+
+    const questionKey = `${currentSubject}:${correctedQuestion.id}`;
+    setRandomOptionLabels((prev) => ({
+      ...prev,
+      [questionKey]: getRandomOptionLabels(correctedQuestion),
+    }));
+
+    setQuestions((previousQuestions) => ({
+      ...previousQuestions,
+      [currentSubject]: previousQuestions[currentSubject].map((question) =>
+        question.id === correctedQuestion.id ? correctedQuestion : question,
+      ),
+    }));
+
+    setStats((previousStats) => ({
+      ...previousStats,
+      [currentSubject]: Object.fromEntries(
+        Object.entries(previousStats[currentSubject]).filter(
+          ([questionId]) => questionId !== correctedQuestion.id,
+        ),
+      ),
+    }));
+
+    if (questionMode === 'revision' && revisionQuestions.length <= 1) {
+      setQuestionMode('all');
+      setCurrentIndex(0);
+    }
+
+    setSelectedLabels([]);
+    setIsEvaluated(false);
+    closeEditMode();
+  }, [closeEditMode, currentSubject, editingQuestion, questionMode, revisionQuestions.length]);
+
+  const handleOpenCorrection = useCallback(() => {
     if (isEditing && editingQuestion) {
       const hasChanges =
         editingQuestion.question !== currentQuestion.question ||
@@ -316,9 +443,9 @@ export default function App() {
     });
     setEditError('');
     setIsEditing(true);
-  };
+  }, [closeEditMode, currentQuestion, editingQuestion, handleSaveCorrection, isEditing]);
 
-  const handleResetCorrection = () => {
+  const handleResetCorrection = useCallback(() => {
     if (!editingQuestion) return;
     const defaultQuestion = datasets[currentSubject].find(
       (question) => question.id === editingQuestion.id,
@@ -330,58 +457,13 @@ export default function App() {
       options: defaultQuestion.options.map((option) => ({ ...option })),
     });
     setEditError('');
-  };
+  }, [currentSubject, editingQuestion]);
 
-  const handleSaveCorrection = () => {
-    if (!editingQuestion) return;
-    if (!editingQuestion.question.trim()) {
-      setEditError('Enter a question before saving.');
-      return;
-    }
-    if (editingQuestion.options.some((option) => !option.text.trim())) {
-      setEditError('Every answer must contain text.');
-      return;
-    }
-    if (!editingQuestion.options.some((option) => option.is_correct)) {
-      setEditError('Mark at least one answer as correct.');
-      return;
-    }
-
-    const correctedQuestion: Question = {
-      ...editingQuestion,
-      question: editingQuestion.question.trim(),
-      options: editingQuestion.options.map((option) => ({
-        ...option,
-        text: option.text.trim(),
-      })),
-    };
-
-    setQuestions((previousQuestions) => ({
-      ...previousQuestions,
-      [currentSubject]: previousQuestions[currentSubject].map((question) =>
-        question.id === correctedQuestion.id ? correctedQuestion : question,
-      ),
-    }));
-
-    setStats((previousStats) => ({
-      ...previousStats,
-      [currentSubject]: Object.fromEntries(
-        Object.entries(previousStats[currentSubject]).filter(
-          ([questionId]) => questionId !== correctedQuestion.id,
-        ),
-      ),
-    }));
-
-    setSelectedLabels([]);
-    setIsEvaluated(false);
-    closeEditMode();
-  };
-
-  const handleChangeQuestionText = (text: string) => {
+  const handleChangeQuestionText = useCallback((text: string) => {
     setEditingQuestion((prev) => (prev ? { ...prev, question: text } : prev));
-  };
+  }, []);
 
-  const handleToggleOptionCorrect = (optionIndex: number, isCorrect: boolean) => {
+  const handleToggleOptionCorrect = useCallback((optionIndex: number, isCorrect: boolean) => {
     setEditingQuestion((prev) => {
       if (!prev) return prev;
       const options = prev.options.map((option, index) =>
@@ -389,9 +471,9 @@ export default function App() {
       );
       return { ...prev, options };
     });
-  };
+  }, []);
 
-  const handleChangeOptionText = (optionIndex: number, text: string) => {
+  const handleChangeOptionText = useCallback((optionIndex: number, text: string) => {
     setEditingQuestion((prev) => {
       if (!prev) return prev;
       const options = prev.options.map((option, index) =>
@@ -399,7 +481,7 @@ export default function App() {
       );
       return { ...prev, options };
     });
-  };
+  }, []);
 
   const handleSelectQuestionFromHistory = useCallback(
     (index: number) => {
@@ -438,23 +520,32 @@ export default function App() {
     }
     return {
       answeredQuestionsCount: answered,
-      correctAnswersCount: correct,
-      incorrectAnswersCount: incorrect,
+      correctAnswersCount: roundStat(correct),
+      incorrectAnswersCount: roundStat(incorrect),
     };
   }, [activeQuestions, currentSubject, stats]);
 
-  const totalAttempts = correctAnswersCount + incorrectAnswersCount;
+  const totalAttempts = roundStat(correctAnswersCount + incorrectAnswersCount);
   const correctPercentage = totalAttempts
     ? Math.round((correctAnswersCount / totalAttempts) * 100)
     : 0;
-  const incorrectPercentage = totalAttempts
-    ? Math.round((incorrectAnswersCount / totalAttempts) * 100)
-    : 0;
+  const incorrectPercentage = totalAttempts ? 100 - correctPercentage : 0;
 
-  const questionCounts: Record<Subject, number> = {
-    Biology: questions.Biology.length,
-    Chemistry: questions.Chemistry.length,
-  };
+  const questionCounts = useMemo<Record<Subject, number>>(
+    () => ({
+      Biology: questions.Biology.length,
+      Chemistry: questions.Chemistry.length,
+    }),
+    [questions.Biology.length, questions.Chemistry.length],
+  );
+
+  const totalInRange = randomRangeEnd - randomRangeStart + 1;
+  const isCurrentInRange =
+    safeCurrentIndex >= randomRangeStart - 1 && safeCurrentIndex <= randomRangeEnd - 1;
+  const availableRandomCount = totalInRange - (isCurrentInRange ? 1 : 0);
+  const isNextDisabled = randomNext
+    ? availableRandomCount <= 0
+    : safeCurrentIndex >= questionsInMode.length - 1;
 
   return (
     <div className="app-shell min-h-screen w-full bg-slate-100 lg:flex lg:h-screen lg:flex-col lg:overflow-hidden">
@@ -467,11 +558,11 @@ export default function App() {
           />
 
           <QuestionControls
-            questionMode={questionMode}
+            questionMode={effectiveQuestionMode}
             onModeChange={handleQuestionModeChange}
             revisionCount={revisionQuestions.length}
             subject={currentSubject}
-            currentIndex={currentIndex}
+            currentIndex={safeCurrentIndex}
             copyStatus={copyStatus}
             onCopy={handleCopyCard}
             isEditing={isEditing}
@@ -480,7 +571,7 @@ export default function App() {
             onToggleRandomNext={handleRandomNextToggle}
             randomRangeStart={randomRangeStart}
             randomRangeEnd={randomRangeEnd}
-            randomRangeMax={Math.max(questionsInMode.length, 1)}
+            randomRangeMax={randomRangeMax}
             onRandomRangeStartChange={handleRandomRangeStartChange}
             onRandomRangeEndChange={handleRandomRangeEndChange}
             fourAnswersOnly={fourAnswersOnly}
@@ -503,12 +594,9 @@ export default function App() {
             onCancelCorrection={closeEditMode}
             onSaveCorrection={handleSaveCorrection}
             onPrev={handlePrev}
-            isPrevDisabled={currentIndex === 0}
+            isPrevDisabled={safeCurrentIndex === 0}
             onNext={handleNext}
-            isNextDisabled={
-              (!randomNext && currentIndex === questionsInMode.length - 1) ||
-              (randomNext && randomRangeStart === randomRangeEnd)
-            }
+            isNextDisabled={isNextDisabled}
             onCheckAnswer={handleCheckAnswer}
             onTryAgain={handleTryAgain}
             copyPulseKey={copyPulseKey}

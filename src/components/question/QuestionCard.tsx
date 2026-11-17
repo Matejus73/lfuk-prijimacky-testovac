@@ -1,12 +1,12 @@
+import { memo, useEffect } from 'react';
 import type { EditableQuestion, Option, Question } from '../../types.ts';
+import {
+  getQuestionSourceImages,
+  preloadSourceImage,
+} from '../../utils/sourceImageUtils.ts';
 import { QuestionNavigation } from './QuestionNavigation.tsx';
 import { QuestionOptionList } from './QuestionOptionList.tsx';
-
-const sourceImages = import.meta.glob('../../data/Original data/*/*.jpg', {
-  eager: true,
-  import: 'default',
-  query: '?url',
-}) as Record<string, string>;
+import { SourceImageSlot } from './SourceImageSlot.tsx';
 
 interface QuestionCardProps {
   currentQuestion: Question;
@@ -32,7 +32,7 @@ interface QuestionCardProps {
   copyPulseKey: number;
 }
 
-export function QuestionCard({
+export const QuestionCard = memo(function QuestionCard({
   currentQuestion,
   displayedOptions,
   selectedLabels,
@@ -64,22 +64,26 @@ export function QuestionCard({
 
   const activeSubject = editingQuestion?.subject ?? currentQuestion.subject;
   const activeQuestionId = editingQuestion?.id ?? currentQuestion.id;
-  const imagePrefix = activeSubject === 'Biology' ? 'BIO' : 'CHEM';
-  const questionNumber = activeQuestionId.split('_')[1]?.padStart(4, '0');
-  const questionImage =
-    questionNumber &&
-    sourceImages[
-      `../../data/Original data/${imagePrefix}_q/${imagePrefix}_${questionNumber}_question.jpg`
-    ];
-  const answerKeyImage =
-    questionNumber &&
-    sourceImages[
-      `../../data/Original data/${imagePrefix}_a/${imagePrefix}_${questionNumber}_key.jpg`
-    ];
+  const { questionImage, answerKeyImage } = getQuestionSourceImages(
+    activeSubject,
+    activeQuestionId,
+  );
+  const currentImages = getQuestionSourceImages(
+    currentQuestion.subject,
+    currentQuestion.id,
+  );
 
-  const questionValue = isEditing && editingQuestion
-    ? editingQuestion.question
-    : currentQuestion.question;
+  useEffect(() => {
+    if (currentImages.questionImage) {
+      void preloadSourceImage(currentImages.questionImage);
+    }
+    if (currentImages.answerKeyImage) {
+      void preloadSourceImage(currentImages.answerKeyImage);
+    }
+  }, [currentImages.questionImage, currentImages.answerKeyImage]);
+
+  const questionValue =
+    isEditing && editingQuestion ? editingQuestion.question : currentQuestion.question;
 
   return (
     <div
@@ -97,44 +101,36 @@ export function QuestionCard({
 
       <div
         className={`relative flex min-h-0 flex-1 flex-col ${
-          isEditing ? 'overflow-y-auto pr-3' : ''
+          isEditing ? 'question-card-body-editing' : ''
         }`}
       >
         {/* Source images morphing drawer */}
         <div
-          className={`edit-source-drawer ${
-            isEditing ? 'edit-source-drawer-open' : ''
-          }`}
+          className={`edit-source-drawer ${isEditing ? 'edit-source-drawer-open' : ''}`}
           inert={!isEditing}
           aria-hidden={!isEditing}
         >
           <div className="edit-source-drawer-inner">
-            {editingQuestion && (
-              <div className="edit-source-images mb-4 rounded-lg border border-gray-200 bg-gray-50 p-2">
-                <div className="grid gap-3 sm:grid-cols-2">
+            {editingQuestion && (questionImage || answerKeyImage) && (
+              <div className="edit-source-images mb-4 rounded-lg border border-gray-200 bg-gray-50 p-2.5">
+                <div className="grid items-start gap-3 sm:grid-cols-2">
                   {questionImage && (
-                    <figure className="min-w-0">
-                      <a href={questionImage} target="_blank" rel="noreferrer">
-                        <img
-                          src={questionImage}
-                          alt="Original question source"
-                          decoding="async"
-                          className="edit-source-image"
-                        />
-                      </a>
-                    </figure>
+                    <SourceImageSlot
+                      key={questionImage}
+                      src={questionImage}
+                      alt="Original question source"
+                      variant="question"
+                      placeholderLabel="Loading question image..."
+                    />
                   )}
                   {answerKeyImage && (
-                    <figure className="min-w-0">
-                      <a href={answerKeyImage} target="_blank" rel="noreferrer">
-                        <img
-                          src={answerKeyImage}
-                          alt="Original answer key source"
-                          decoding="async"
-                          className="edit-source-image"
-                        />
-                      </a>
-                    </figure>
+                    <SourceImageSlot
+                      key={answerKeyImage}
+                      src={answerKeyImage}
+                      alt="Original answer key source"
+                      variant="key"
+                      placeholderLabel="Loading answer key..."
+                    />
                   )}
                 </div>
               </div>
@@ -145,9 +141,7 @@ export function QuestionCard({
         {/* Question title morphing into editable question box */}
         <div className="question-morph-section">
           <div
-            className={`edit-label-drawer ${
-              isEditing ? 'edit-label-drawer-open' : ''
-            }`}
+            className={`edit-label-drawer ${isEditing ? 'edit-label-drawer-open' : ''}`}
             aria-hidden={!isEditing}
           >
             <div className="edit-label-drawer-inner">
@@ -164,6 +158,7 @@ export function QuestionCard({
           >
             {isEditing ? (
               <textarea
+                name="edit-question-text"
                 value={questionValue}
                 onChange={(event) => onChangeQuestionText(event.target.value)}
                 aria-label="Question"
@@ -193,7 +188,7 @@ export function QuestionCard({
         {editError && (
           <p
             role="alert"
-            className="mt-4 rounded-lg bg-rose-50 px-3 py-2 text-sm font-semibold text-rose-700"
+            className="mt-4 rounded-lg border border-rose-500/40 bg-rose-50 px-3 py-2 text-sm font-semibold text-rose-700"
           >
             {editError}
           </p>
@@ -205,56 +200,19 @@ export function QuestionCard({
             className="copy-ghost-layer pointer-events-none absolute inset-0 flex flex-col select-none overflow-hidden"
             aria-hidden="true"
           >
-            <div className="question-card-title text-lg font-bold text-gray-900">
-              {currentQuestion.question}
+            <div className="question-morph-section">
+              <div className="question-title-morph">
+                <div className="question-title-heading">{currentQuestion.question}</div>
+              </div>
             </div>
 
-            <div className="question-option-list min-h-0 flex-1 overflow-hidden pr-1">
-              {displayedOptions.map((option) => {
-                const isChecked = selectedLabels.includes(option.label);
-
-                let borderClass = 'border-gray-200';
-                let bgClass = 'bg-white';
-
-                if (isEvaluated) {
-                  if (option.is_correct) {
-                    borderClass = 'border-emerald-500 ring-1 ring-emerald-500/30';
-                    bgClass = 'bg-emerald-50 text-emerald-900';
-                  } else if (isChecked && !option.is_correct) {
-                    borderClass = 'border-rose-500 ring-1 ring-rose-500/30';
-                    bgClass = 'bg-rose-50 text-rose-900';
-                  }
-                } else if (isChecked) {
-                  borderClass = 'border-blue-500 ring-1 ring-blue-500/30';
-                  bgClass = 'bg-blue-50';
-                }
-
-                return (
-                  <div
-                    key={option.label}
-                    className={`question-option flex items-start rounded-lg border-2 ${borderClass} ${bgClass}`}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={isChecked}
-                      readOnly
-                      tabIndex={-1}
-                      className="circle-checkbox mt-1"
-                    />
-                    <span
-                      className={`ml-3 shrink-0 font-semibold uppercase ${
-                        isChecked ? 'text-blue-600' : 'text-gray-700'
-                      }`}
-                    >
-                      {option.label})
-                    </span>
-                    <span className="question-option-text ml-2 min-w-0 leading-snug text-gray-800">
-                      {option.text}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
+            <QuestionOptionList
+              options={displayedOptions}
+              allOptions={currentQuestion.options}
+              selectedLabels={selectedLabels}
+              isEvaluated={isEvaluated}
+              isGhost
+            />
           </div>
         )}
       </div>
@@ -274,4 +232,4 @@ export function QuestionCard({
       />
     </div>
   );
-}
+});

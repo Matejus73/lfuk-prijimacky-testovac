@@ -28,6 +28,7 @@ interface QuestionHistoryProps {
 
 interface HistoryListProps {
   items: Array<{ question: Question; index: number }>;
+  searchQuery: string;
   stats: AllStats;
   currentSubject: Subject;
   currentQuestionId: string;
@@ -39,6 +40,7 @@ interface HistoryListProps {
 const HistoryList = memo(
   function HistoryList({
     items,
+    searchQuery,
     stats,
     currentSubject,
     currentQuestionId,
@@ -47,7 +49,7 @@ const HistoryList = memo(
     onSelectQuestionByIndex,
   }: HistoryListProps) {
     return (
-      <div className="history-list min-h-0 max-h-[70vh] space-y-2 overflow-y-auto pr-2 lg:flex-1 lg:max-h-none">
+      <div className="history-list min-h-0 max-h-[70vh] space-y-2 overflow-y-auto lg:flex-1 lg:max-h-none">
         {items.map(({ question, index }) => {
           const questionStats = getQuestionStats(stats, currentSubject, question.id);
           const isCurrent = question.id === currentQuestionId;
@@ -66,11 +68,17 @@ const HistoryList = memo(
             />
           );
         })}
+        {items.length === 0 && (
+          <p className="rounded-lg border border-dashed border-gray-300 px-3 py-6 text-center text-sm text-gray-500">
+            No questions match “{searchQuery}”.
+          </p>
+        )}
       </div>
     );
   },
   (prev, next) =>
     prev.items === next.items &&
+    prev.searchQuery === next.searchQuery &&
     prev.stats === next.stats &&
     prev.currentSubject === next.currentSubject &&
     prev.currentQuestionId === next.currentQuestionId &&
@@ -98,31 +106,45 @@ export const QuestionHistory = memo(function QuestionHistory({
 }: QuestionHistoryProps) {
   const unansweredCount = activeQuestions.length - answeredQuestionsCount;
 
+  const indexedQuestions = useMemo(
+    () =>
+      activeQuestions.map((question, index) => ({
+        question,
+        index,
+        searchText: `${question.id} ${question.question}`.toLocaleLowerCase(),
+      })),
+    [activeQuestions],
+  );
+
   const filteredHistoryQuestions = useMemo(() => {
     const normalizedSearch = historySearch.trim().toLocaleLowerCase();
-    return activeQuestions
-      .map((question, index) => ({ question, index }))
-      .filter(({ question }) =>
-        `${question.id} ${question.question}`.toLocaleLowerCase().includes(normalizedSearch),
-      )
-      .sort((left, right) => {
-        const leftStats = getQuestionStats(stats, currentSubject, left.question.id);
-        const rightStats = getQuestionStats(stats, currentSubject, right.question.id);
+    const matched = normalizedSearch
+      ? indexedQuestions.filter((entry) => entry.searchText.includes(normalizedSearch))
+      : indexedQuestions;
 
-        if (historySort === 'most-wrong') {
-          return (rightStats?.incorrect ?? 0) - (leftStats?.incorrect ?? 0);
-        }
-        if (historySort === 'most-correct') {
-          return (rightStats?.correct ?? 0) - (leftStats?.correct ?? 0);
-        }
+    if (historySort === 'ascending') {
+      return matched;
+    }
+    if (historySort === 'descending') {
+      return [...matched].reverse();
+    }
 
-        const questionOrder = left.index - right.index;
-        return historySort === 'ascending' ? questionOrder : -questionOrder;
-      });
-  }, [activeQuestions, currentSubject, historySearch, historySort, stats]);
+    return [...matched].sort((left, right) => {
+      const leftStats = getQuestionStats(stats, currentSubject, left.question.id);
+      const rightStats = getQuestionStats(stats, currentSubject, right.question.id);
+
+      if (historySort === 'most-wrong') {
+        const diff = (rightStats?.incorrect ?? 0) - (leftStats?.incorrect ?? 0);
+        return diff !== 0 ? diff : left.index - right.index;
+      }
+
+      const diff = (rightStats?.correct ?? 0) - (leftStats?.correct ?? 0);
+      return diff !== 0 ? diff : left.index - right.index;
+    });
+  }, [currentSubject, historySearch, historySort, indexedQuestions, stats]);
 
   return (
-    <div className="min-h-0 min-w-0 rounded-xl bg-white p-4 shadow-md sm:p-6 lg:flex lg:h-full lg:min-h-0 lg:flex-col lg:overflow-hidden">
+    <div className="history-card min-h-0 min-w-0 rounded-xl bg-white shadow-md lg:flex lg:h-full lg:min-h-0 lg:flex-col lg:overflow-hidden">
       <StatsOverview
         unansweredCount={unansweredCount}
         correctCount={correctAnswersCount}
@@ -144,6 +166,7 @@ export const QuestionHistory = memo(function QuestionHistory({
 
       <HistoryList
         items={filteredHistoryQuestions}
+        searchQuery={historySearch}
         stats={stats}
         currentSubject={currentSubject}
         currentQuestionId={currentQuestionId}

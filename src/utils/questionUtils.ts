@@ -6,6 +6,8 @@ export const getQuestionStats = (
   questionId: string,
 ): QuestionStats | undefined => stats[subject]?.[questionId];
 
+export const roundStat = (value: number): number => Math.round(value * 100) / 100;
+
 export const areAnswersEqual = (selectedLabels: string[], correctLabels: string[]): boolean =>
   selectedLabels.length === correctLabels.length &&
   selectedLabels.every((label) => correctLabels.includes(label));
@@ -19,10 +21,22 @@ export const shuffle = <T,>(items: T[]): T[] => {
   return shuffled;
 };
 
-export const getRandomOptionLabels = (question: Question): string[] =>
-  shuffle(question.options)
-    .slice(0, Math.min(4, question.options.length))
-    .map((option) => option.label);
+export const getRandomOptionLabels = (question: Question): string[] => {
+  const targetCount = Math.min(4, question.options.length);
+  if (targetCount === 0) return [];
+
+  const shuffled = shuffle(question.options);
+  const picked = shuffled.slice(0, targetCount);
+
+  if (!picked.some((option) => option.is_correct)) {
+    const correctOptions = shuffled.slice(targetCount).filter((option) => option.is_correct);
+    if (correctOptions.length > 0) {
+      picked[picked.length - 1] = correctOptions[0];
+    }
+  }
+
+  return picked.map((option) => option.label);
+};
 
 export const getInitialRandomOptionLabels = (
   questionSet: Record<Subject, Question[]>,

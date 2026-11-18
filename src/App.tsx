@@ -114,12 +114,14 @@ export default function App() {
   );
 
   const [selectedLabels, setSelectedLabels] = useState<string[]>(() => {
+    if (fourAnswersOnly) return [];
     const initialStats = getQuestionStats(stats, 'Biology', questions.Biology[0].id);
     return initialStats?.lastResult === 'correct' || initialStats?.lastResult === 'incorrect'
       ? initialStats.lastAnswer
       : [];
   });
   const [isEvaluated, setIsEvaluated] = useState<boolean>(() => {
+    if (fourAnswersOnly) return false;
     const initialResult = getQuestionStats(stats, 'Biology', questions.Biology[0].id)?.lastResult;
     return initialResult === 'correct' || initialResult === 'incorrect';
   });
@@ -346,6 +348,14 @@ export default function App() {
     setCopyStatus('idle');
   }, []);
 
+  const randomizeFourOptions = useCallback((subject: Subject, question: Question) => {
+    const questionKey = `${subject}:${question.id}`;
+    setRandomOptionLabels((prev) => ({
+      ...prev,
+      [questionKey]: getRandomOptionLabels(question, prev[questionKey]),
+    }));
+  }, []);
+
   const randomizeQuestionOptions = useCallback((subject: Subject, question: Question) => {
     const questionKey = `${subject}:${question.id}`;
     setRandomOptionLabels((prev) => ({
@@ -361,15 +371,23 @@ export default function App() {
     }));
   }, []);
 
-  const randomizeIfAnswered = useCallback(
+  const prepareQuestionOptions = useCallback(
     (subject: Subject, question: Question | undefined) => {
       if (!question) return;
+      randomizeFourOptions(subject, question);
       const targetStats = getQuestionStats(stats, subject, question.id);
       if (targetStats?.lastResult === 'correct' || targetStats?.lastResult === 'incorrect') {
-        randomizeQuestionOptions(subject, question);
+        const questionKey = `${subject}:${question.id}`;
+        setAllOptionOrders((prev) => ({
+          ...prev,
+          [questionKey]: getReshuffledOptionLabels(
+            question,
+            prev[questionKey] ?? question.options.map((option) => option.label),
+          ),
+        }));
       }
     },
-    [randomizeQuestionOptions, stats],
+    [randomizeFourOptions, stats],
   );
 
   const handleSubjectChange = useCallback(
@@ -386,12 +404,12 @@ export default function App() {
         questionMode === 'revision' && targetRevisionQuestions.length > 0
           ? targetRevisionQuestions
           : targetActiveQuestions;
-      randomizeIfAnswered(subject, targetList[0]);
+      prepareQuestionOptions(subject, targetList[0]);
       setCurrentSubject(subject);
       setCurrentIndex(0);
       restoreQuestion();
     },
-    [currentSubject, questionMode, questions, randomizeIfAnswered, restoreQuestion, stats],
+    [currentSubject, prepareQuestionOptions, questionMode, questions, restoreQuestion, stats],
   );
 
   const handleQuestionModeChange = useCallback(
@@ -400,18 +418,22 @@ export default function App() {
         mode === 'revision' && revisionQuestions.length > 0
           ? revisionQuestions
           : activeQuestions;
-      randomizeIfAnswered(currentSubject, targetList[0]);
+      prepareQuestionOptions(currentSubject, targetList[0]);
       setQuestionMode(mode);
       setCurrentIndex(0);
       restoreQuestion();
     },
-    [activeQuestions, currentSubject, randomizeIfAnswered, restoreQuestion, revisionQuestions],
+    [activeQuestions, currentSubject, prepareQuestionOptions, restoreQuestion, revisionQuestions],
   );
 
   const handleFourAnswersToggle = useCallback(() => {
-    setFourAnswersOnly((prev) => !prev);
+    const nextFourAnswersOnly = !fourAnswersOnly;
+    if (nextFourAnswersOnly) {
+      randomizeFourOptions(currentSubject, currentQuestion);
+    }
+    setFourAnswersOnly(nextFourAnswersOnly);
     restoreQuestion();
-  }, [restoreQuestion]);
+  }, [currentQuestion, currentSubject, fourAnswersOnly, randomizeFourOptions, restoreQuestion]);
 
   const handleRandomNextToggle = useCallback(() => {
     setRandomNext((prev) => !prev);
@@ -478,14 +500,14 @@ export default function App() {
       resolvedIndex = unpinnedIdx >= 0 ? unpinnedIdx : 0;
     }
 
-    randomizeIfAnswered(currentSubject, targetQuestion);
+    prepareQuestionOptions(currentSubject, targetQuestion);
     setCurrentIndex(resolvedIndex);
     restoreQuestion();
   }, [
     currentSubject,
     effectiveQuestionMode,
+    prepareQuestionOptions,
     questionsInMode,
-    randomizeIfAnswered,
     randomNext,
     randomRangeEnd,
     randomRangeStart,
@@ -507,15 +529,15 @@ export default function App() {
         resolvedIndex = unpinnedIdx >= 0 ? unpinnedIdx : 0;
       }
 
-      randomizeIfAnswered(currentSubject, targetQuestion);
+      prepareQuestionOptions(currentSubject, targetQuestion);
       setCurrentIndex(resolvedIndex);
       restoreQuestion();
     }
   }, [
     currentSubject,
     effectiveQuestionMode,
+    prepareQuestionOptions,
     questionsInMode,
-    randomizeIfAnswered,
     restoreQuestion,
     revisionPinnedQuestionId,
     revisionQuestions,
@@ -652,7 +674,7 @@ export default function App() {
       const questionKey = `${currentSubject}:${correctedQuestion.id}`;
       setRandomOptionLabels((prev) => ({
         ...prev,
-        [questionKey]: getRandomOptionLabels(correctedQuestion),
+        [questionKey]: getRandomOptionLabels(correctedQuestion, prev[questionKey]),
       }));
       setAllOptionOrders((prev) => {
         if (!(questionKey in prev)) return prev;
@@ -825,7 +847,7 @@ export default function App() {
 
   const handleSelectQuestionFromHistory = useCallback(
     (index: number) => {
-      randomizeIfAnswered(currentSubject, activeQuestions[index]);
+      prepareQuestionOptions(currentSubject, activeQuestions[index]);
       setQuestionMode('all');
       setCurrentIndex(index);
       restoreQuestion();
@@ -834,7 +856,7 @@ export default function App() {
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     },
-    [activeQuestions, currentSubject, randomizeIfAnswered, restoreQuestion],
+    [activeQuestions, currentSubject, prepareQuestionOptions, restoreQuestion],
   );
 
   const handleToggleExpandHistory = useCallback((id: string) => {

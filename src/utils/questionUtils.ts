@@ -28,10 +28,13 @@ export const shuffle = <T,>(items: T[]): T[] => {
   return shuffled;
 };
 
-export const getRandomOptionLabels = (
-  question: Question,
-  previousLabels?: string[],
-): string[] => {
+const haveSameLabelSet = (left: string[], right: string[]): boolean => {
+  if (left.length !== right.length) return false;
+  const rightSet = new Set(right);
+  return left.every((label) => rightSet.has(label));
+};
+
+const pickFourOptionLabels = (question: Question): string[] => {
   const targetCount = Math.min(4, question.options.length);
   if (targetCount === 0) return [];
 
@@ -46,7 +49,28 @@ export const getRandomOptionLabels = (
     }
   }
 
-  const labels = picked.map((option) => option.label);
+  return picked.map((option) => option.label);
+};
+
+export const getRandomOptionLabels = (
+  question: Question,
+  previousLabels?: string[],
+): string[] => {
+  const targetCount = Math.min(4, question.options.length);
+  if (targetCount === 0) return [];
+
+  let labels = pickFourOptionLabels(question);
+
+  if (
+    previousLabels &&
+    previousLabels.length === labels.length &&
+    question.options.length > targetCount
+  ) {
+    for (let attempt = 0; attempt < 11 && haveSameLabelSet(labels, previousLabels); attempt += 1) {
+      labels = pickFourOptionLabels(question);
+    }
+  }
+
   if (
     previousLabels &&
     labels.length > 1 &&

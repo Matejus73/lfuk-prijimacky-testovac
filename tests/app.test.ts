@@ -156,6 +156,16 @@ describe('questionUtils', () => {
     }
   });
 
+  it('getRandomOptionLabels picks a different subset when more than 4 options exist', () => {
+    let prev = getRandomOptionLabels(sampleQuestion);
+    for (let run = 0; run < 40; run += 1) {
+      const next = getRandomOptionLabels(sampleQuestion, prev);
+      assert.equal(next.length, 4);
+      assert.notDeepEqual([...next].sort(), [...prev].sort());
+      prev = next;
+    }
+  });
+
   it('getReshuffledOptionLabels preserves all labels and avoids repeating previous order', () => {
     let prev = sampleQuestion.options.map((option) => option.label);
     for (let run = 0; run < 20; run += 1) {
@@ -657,4 +667,3 @@ describe('storageUtils', () => {
     assert.equal(loadStoredFourAnswers(), false);
   });
 });
-

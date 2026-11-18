@@ -166,6 +166,11 @@
     transition: color var(--duration-base) var(--ease-fluid);
   }
 
+  .sort-option-icon {
+    color: inherit;
+    transition: color var(--duration-base) var(--ease-fluid);
+  }
+
   .sort-trigger:hover,
   .sort-trigger[aria-expanded='true'],
   .sort-trigger:focus-visible {
@@ -178,6 +183,9 @@
     outline-offset: 2px;
   }
 
+  .sort-trigger:hover .sort-option-icon,
+  .sort-trigger[aria-expanded='true'] .sort-option-icon,
+  .sort-trigger:focus-visible .sort-option-icon,
   .sort-trigger:hover .history-chevron,
   .sort-trigger[aria-expanded='true'] .history-chevron,
   .sort-trigger:focus-visible .history-chevron {
@@ -185,9 +193,11 @@
   }
 
   .sort-menu {
-    border: var(--outline-secondary) solid var(--border);
+    border: var(--outline-button) solid var(--border);
     border-radius: var(--radius-lg);
     background-color: var(--surface);
+    box-shadow: 0 10px 26px -6px rgba(0, 0, 0, 0.56),
+                0 2px 6px rgba(0, 0, 0, 0.28);
     transform-origin: top right;
     animation: sort-menu-enter var(--duration-fast) var(--ease-fluid) both;
   }
@@ -199,6 +209,11 @@
                 color var(--duration-fast) var(--ease-fluid);
   }
 
+  .sort-menu-option:focus-visible {
+    outline: var(--outline-primary) solid var(--highlight);
+    outline-offset: -2px;
+  }
+
   .sort-menu-option:hover {
     background-color: var(--highlight-subtle);
     color: var(--text);
@@ -208,6 +223,7 @@
   .sort-menu-option-selected:hover {
     background-color: var(--highlight-soft);
     color: var(--highlight);
+    font-weight: 600;
   }
 
   @keyframes sort-menu-enter {

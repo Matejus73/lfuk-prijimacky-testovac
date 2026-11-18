@@ -3,6 +3,7 @@ import { beforeEach, describe, it } from 'node:test';
 import {
   FOUR_ANSWERS_STORAGE_KEY,
   QUESTIONS_STORAGE_KEY,
+  STATS_COLLAPSED_STORAGE_KEY,
   STATS_STORAGE_KEY,
 } from '../src/constants/storage.ts';
 import bioData from '../src/data/OtazkyBio.json' with { type: 'json' };
@@ -34,9 +35,11 @@ import {
   emptyStats,
   loadStoredFourAnswers,
   loadStoredQuestions,
+  loadStoredStatsCollapsed,
   loadStoredStats,
   saveStoredFourAnswers,
   saveStoredQuestions,
+  saveStoredStatsCollapsed,
   saveStoredStats,
 } from '../src/utils/storageUtils.ts';
 
@@ -665,5 +668,14 @@ describe('storageUtils', () => {
     assert.equal(loadStoredFourAnswers(), true);
     saveStoredFourAnswers(false);
     assert.equal(loadStoredFourAnswers(), false);
+  });
+
+  it('loads and saves statsCollapsed preference', () => {
+    assert.equal(loadStoredStatsCollapsed(), false);
+    saveStoredStatsCollapsed(true);
+    assert.equal(memoryStorage.getItem(STATS_COLLAPSED_STORAGE_KEY), 'true');
+    assert.equal(loadStoredStatsCollapsed(), true);
+    saveStoredStatsCollapsed(false);
+    assert.equal(loadStoredStatsCollapsed(), false);
   });
 });

@@ -1,4 +1,9 @@
-import { FOUR_ANSWERS_STORAGE_KEY, QUESTIONS_STORAGE_KEY, STATS_STORAGE_KEY } from '../constants/storage.ts';
+import {
+  FOUR_ANSWERS_STORAGE_KEY,
+  QUESTIONS_STORAGE_KEY,
+  STATS_COLLAPSED_STORAGE_KEY,
+  STATS_STORAGE_KEY,
+} from '../constants/storage.ts';
 import type { AllStats, Question, StatsByQuestion, Subject } from '../types.ts';
 import { normalizeQuestionStats } from './scoringUtils.ts';
 
@@ -94,6 +99,22 @@ export const loadStoredFourAnswers = (): boolean => {
 export const saveStoredFourAnswers = (enabled: boolean): void => {
   try {
     localStorage.setItem(FOUR_ANSWERS_STORAGE_KEY, String(enabled));
+  } catch {
+    // Storage can be unavailable in restricted contexts.
+  }
+};
+
+export const loadStoredStatsCollapsed = (): boolean => {
+  try {
+    return localStorage.getItem(STATS_COLLAPSED_STORAGE_KEY) === 'true';
+  } catch {
+    return false;
+  }
+};
+
+export const saveStoredStatsCollapsed = (collapsed: boolean): void => {
+  try {
+    localStorage.setItem(STATS_COLLAPSED_STORAGE_KEY, String(collapsed));
   } catch {
     // Storage can be unavailable in restricted contexts.
   }

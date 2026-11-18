@@ -1,7 +1,6 @@
 import { memo, type KeyboardEvent, type ReactNode, useEffect, useRef, useState } from 'react';
 import type { HistorySort } from '../../types.ts';
 import {
-  CheckIcon,
   ChevronDownIcon,
   SearchIcon,
   SortAscendingIcon,
@@ -29,25 +28,25 @@ const SORT_OPTIONS: SortOptionItem[] = [
     value: 'ascending',
     label: 'Ascending',
     ariaLabel: 'Order ascending',
-    icon: <SortAscendingIcon className="h-4 w-4 shrink-0 text-blue-600" />,
+    icon: <SortAscendingIcon className="sort-option-icon h-3.5 w-3.5 shrink-0" />,
   },
   {
     value: 'descending',
     label: 'Descending',
     ariaLabel: 'Order descending',
-    icon: <SortDescendingIcon className="h-4 w-4 shrink-0 text-blue-600" />,
+    icon: <SortDescendingIcon className="sort-option-icon h-3.5 w-3.5 shrink-0" />,
   },
   {
     value: 'least-known',
     label: 'Least known',
     ariaLabel: 'Rank from least known to best known',
-    icon: <SortLeastKnownIcon className="h-4 w-4 shrink-0 text-rose-700" />,
+    icon: <SortLeastKnownIcon className="sort-option-icon h-3.5 w-3.5 shrink-0" />,
   },
   {
     value: 'most-known',
     label: 'Best known',
     ariaLabel: 'Rank from best known to least known',
-    icon: <SortBestKnownIcon className="h-4 w-4 shrink-0 text-emerald-800" />,
+    icon: <SortBestKnownIcon className="sort-option-icon h-3.5 w-3.5 shrink-0" />,
   },
 ];
 
@@ -185,7 +184,7 @@ export const HistorySearchAndSort = memo(function HistorySearchAndSort({
             <div
               role="listbox"
               aria-labelledby="history-sort"
-              className="sort-menu absolute right-0 top-full z-30 mt-1.5 min-w-full w-max p-1 shadow-lg"
+              className="sort-menu absolute right-0 top-full z-30 mt-2 flex min-w-full w-max flex-col gap-0.5 p-1"
             >
               {SORT_OPTIONS.map((option, index) => {
                 const isSelected = option.value === sortOption;
@@ -201,19 +200,12 @@ export const HistorySearchAndSort = memo(function HistorySearchAndSort({
                     aria-label={option.ariaLabel}
                     onClick={() => handleSelectOption(option.value)}
                     onKeyDown={(event) => handleOptionKeyDown(event, index)}
-                    className={`sort-menu-option flex w-full cursor-pointer items-center justify-between gap-3 px-2.5 py-1.5 text-left text-xs font-medium ${
+                    className={`sort-menu-option flex w-full cursor-pointer items-center gap-2 px-2.5 py-1.5 text-left text-xs font-medium ${
                       isSelected ? 'sort-menu-option-selected' : ''
                     }`}
                   >
-                    <span className="flex items-center gap-2">
-                      {option.icon}
-                      <span className="whitespace-nowrap">{option.label}</span>
-                    </span>
-                    <CheckIcon
-                      className={`h-3 w-3 shrink-0 text-blue-600 transition-opacity duration-150 ${
-                        isSelected ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    />
+                    {option.icon}
+                    <span className="whitespace-nowrap">{option.label}</span>
                   </button>
                 );
               })}

@@ -216,7 +216,9 @@ export default function App() {
       if (!layoutEl || !stageEl) return;
 
       const statsHeaderEl = layoutEl.querySelector<HTMLElement>('.stats-header');
-      const barEl = layoutEl.querySelector<HTMLElement>('.accuracy-bar-wrap');
+      const barEl =
+        layoutEl.querySelector<HTMLElement>('.stats-top-row') ??
+        layoutEl.querySelector<HTMLElement>('.accuracy-bar-wrap');
       if (!statsHeaderEl || !barEl) return;
 
       if (window.innerWidth < 1024) {

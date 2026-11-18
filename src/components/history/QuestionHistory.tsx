@@ -11,6 +11,11 @@ import {
 import type { AllStats, HistorySort, Question, Subject } from '../../types.ts';
 import { getQuestionStats } from '../../utils/questionUtils.ts';
 import { compareByKnowledge, type KnowledgeSummary } from '../../utils/scoringUtils.ts';
+import {
+  loadStoredStatsCollapsed,
+  saveStoredStatsCollapsed,
+} from '../../utils/storageUtils.ts';
+import { ChevronDownIcon } from '../common/Icons.tsx';
 import { AccuracyProgressBar } from '../stats/AccuracyProgressBar.tsx';
 import { StatsDetails } from '../stats/StatsDetails.tsx';
 import { HistoryItem } from './HistoryItem.tsx';
@@ -331,6 +336,18 @@ export const QuestionHistory = memo(function QuestionHistory({
   onToggleExpandHistory,
   onSelectQuestionByIndex,
 }: QuestionHistoryProps) {
+  const [isStatsCollapsed, setIsStatsCollapsed] = useState<boolean>(() =>
+    loadStoredStatsCollapsed(),
+  );
+
+  const handleToggleStatsCollapsed = useCallback(() => {
+    setIsStatsCollapsed((prev) => {
+      const next = !prev;
+      saveStoredStatsCollapsed(next);
+      return next;
+    });
+  }, []);
+
   const [subjectTransition, setSubjectTransition] = useState<{
     subject: Subject;
     direction: 'next' | 'prev';
@@ -418,22 +435,56 @@ export const QuestionHistory = memo(function QuestionHistory({
 
   return (
     <div className="history-card min-h-0 min-w-0 lg:flex lg:h-full lg:min-h-0 lg:flex-col lg:overflow-hidden">
-      <div className="stats-header flex shrink-0 flex-col gap-2">
-        <AccuracyProgressBar
-          knowsCount={knowledgeSummary.knowsCount}
-          almostCount={knowledgeSummary.almostCount}
-          doesntKnowCount={knowledgeSummary.doesntKnowCount}
-          answeredCount={knowledgeSummary.answeredCount}
-        />
+      <div className="stats-header flex shrink-0 flex-col">
+        <div className="stats-top-row">
+          <AccuracyProgressBar
+            knowsCount={knowledgeSummary.knowsCount}
+            almostCount={knowledgeSummary.almostCount}
+            doesntKnowCount={knowledgeSummary.doesntKnowCount}
+            answeredCount={knowledgeSummary.answeredCount}
+          />
 
-        <StatsDetails
-          unansweredCount={knowledgeSummary.unansweredCount}
-          totalQuestions={knowledgeSummary.total}
-          answeredCount={knowledgeSummary.answeredCount}
-          revisionCount={knowledgeSummary.revisionCount}
-          totalAttempts={knowledgeSummary.totalAttempts}
-          averageMasteryPercentage={knowledgeSummary.averageMasteryPercentage}
-        />
+          <button
+            type="button"
+            onClick={handleToggleStatsCollapsed}
+            title={isStatsCollapsed ? 'Show detailed statistics' : 'Hide detailed statistics'}
+            aria-label={
+              isStatsCollapsed ? 'Expand detailed statistics' : 'Collapse detailed statistics'
+            }
+            aria-expanded={!isStatsCollapsed}
+            aria-controls="stats-details-drawer"
+            className="stats-collapse-btn flex h-6 w-6 shrink-0 cursor-pointer items-center justify-center rounded-md"
+          >
+            <span
+              className={`stats-collapse-chevron ${
+                isStatsCollapsed ? '' : 'stats-collapse-chevron-expanded'
+              }`}
+              aria-hidden="true"
+            >
+              <ChevronDownIcon className="h-3.5 w-3.5" />
+            </span>
+          </button>
+        </div>
+
+        <div
+          id="stats-details-drawer"
+          className={`stats-details-drawer ${
+            isStatsCollapsed ? '' : 'stats-details-drawer-open'
+          }`}
+          inert={isStatsCollapsed}
+          aria-hidden={isStatsCollapsed}
+        >
+          <div className="stats-details-drawer-inner">
+            <StatsDetails
+              unansweredCount={knowledgeSummary.unansweredCount}
+              totalQuestions={knowledgeSummary.total}
+              answeredCount={knowledgeSummary.answeredCount}
+              revisionCount={knowledgeSummary.revisionCount}
+              totalAttempts={knowledgeSummary.totalAttempts}
+              averageMasteryPercentage={knowledgeSummary.averageMasteryPercentage}
+            />
+          </div>
+        </div>
       </div>
 
       <HistorySearchAndSort

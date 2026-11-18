@@ -72,6 +72,12 @@
     .circle-checkbox::after,
     .history-chevron,
     .history-details-drawer,
+    .sort-trigger,
+    .sort-option-icon,
+    .sort-menu-option,
+    .stats-collapse-btn,
+    .stats-collapse-chevron,
+    .stats-details-drawer,
     .stats-item,
     .stats-coverage-fill {
       transition-duration: 0ms !important;

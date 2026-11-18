@@ -1,142 +1,253 @@
+import type { CSSProperties } from 'react';
+import {
+  ArrowDown10,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUp01,
+  Check,
+  ChevronDown,
+  CircleDot,
+  CircleQuestionMark,
+  Copy,
+  Gauge,
+  Image,
+  ListChecks,
+  Pencil,
+  PencilLine,
+  Repeat,
+  Search,
+  Tally5,
+  TrendingDown,
+  TrendingUp,
+  X,
+} from 'lucide-react';
+
 interface IconProps {
   className?: string;
+  strokeWidth?: number;
 }
 
-export function CopyIcon({ className = 'h-4 w-4' }: IconProps) {
+const iconStyle = (strokeWidth?: number): CSSProperties | undefined =>
+  strokeWidth !== undefined && strokeWidth !== 2
+    ? ({ '--icon-stroke-scale': strokeWidth / 2 } as CSSProperties)
+    : undefined;
+
+export function CopyIcon({ className = 'h-4 w-4', strokeWidth = 2 }: IconProps) {
   return (
-    <svg
+    <Copy
       aria-hidden="true"
-      viewBox="0 0 24 24"
       className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-    >
-      <rect x="9" y="9" width="10" height="10" rx="1" />
-      <path d="M5 15V5a1 1 0 0 1 1-1h10" />
-    </svg>
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
   );
 }
 
-export function EditIcon({ className = 'h-4 w-4' }: IconProps) {
+export function CircleHelpIcon({ className = 'h-4 w-4', strokeWidth = 2 }: IconProps) {
   return (
-    <svg
+    <CircleQuestionMark
       aria-hidden="true"
-      viewBox="0 0 24 24"
       className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-    >
-      <path d="M12 20h9" />
-      <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z" />
-    </svg>
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
   );
 }
 
-export function ChevronDownIcon({ className = 'h-4 w-4' }: IconProps) {
+export function AlmostIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2.25 }: IconProps) {
   return (
-    <svg
+    <CircleDot
       aria-hidden="true"
-      viewBox="0 0 24 24"
       className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
   );
 }
 
-export function ArrowLeftIcon({ className = 'h-5 w-5' }: IconProps) {
+export function EditIcon({ className = 'h-4 w-4', strokeWidth = 2 }: IconProps) {
   return (
-    <svg
+    <PencilLine
       aria-hidden="true"
-      viewBox="0 0 24 24"
       className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="19" y1="12" x2="5" y2="12" />
-      <polyline points="12 19 5 12 12 5" />
-    </svg>
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
   );
 }
 
-export function ArrowRightIcon({ className = 'h-5 w-5' }: IconProps) {
+export function ModifiedIcon({ className = 'h-3 w-3', strokeWidth = 2.25 }: IconProps) {
   return (
-    <svg
+    <Pencil
       aria-hidden="true"
-      viewBox="0 0 24 24"
       className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
   );
 }
 
-export function CheckIcon({ className = 'h-3 w-3' }: IconProps) {
+export function ChevronDownIcon({ className = 'h-4 w-4', strokeWidth = 2.25 }: IconProps) {
   return (
-    <svg
+    <ChevronDown
       aria-hidden="true"
-      viewBox="0 0 16 16"
       className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="3.5 8.5 6.5 11.5 12.5 4.5" />
-    </svg>
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
   );
 }
 
-export function CloseIcon({ className = 'h-3 w-3' }: IconProps) {
+export function ArrowLeftIcon({ className = 'h-5 w-5', strokeWidth = 2 }: IconProps) {
   return (
-    <svg
+    <ArrowLeft
       aria-hidden="true"
-      viewBox="0 0 16 16"
       className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4.5" y1="4.5" x2="11.5" y2="11.5" />
-      <line x1="11.5" y1="4.5" x2="4.5" y2="11.5" />
-    </svg>
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
   );
 }
 
-export function ImagePlaceholderIcon({ className = 'h-5 w-5' }: IconProps) {
+export function ArrowRightIcon({ className = 'h-5 w-5', strokeWidth = 2 }: IconProps) {
   return (
-    <svg
+    <ArrowRight
       aria-hidden="true"
-      viewBox="0 0 24 24"
       className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect x="3" y="4" width="18" height="16" rx="2" />
-      <circle cx="8.5" cy="9.5" r="1.5" />
-      <path d="m21 15-4.5-4.5L7 20" />
-    </svg>
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function CheckIcon({ className = 'h-3 w-3', strokeWidth = 3.25 }: IconProps) {
+  return (
+    <Check
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function CloseIcon({ className = 'h-3 w-3', strokeWidth = 3.25 }: IconProps) {
+  return (
+    <X
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function ImagePlaceholderIcon({ className = 'h-5 w-5', strokeWidth = 1.8 }: IconProps) {
+  return (
+    <Image
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function SearchIcon({ className = 'h-4 w-4', strokeWidth = 2 }: IconProps) {
+  return (
+    <Search
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function SortAscendingIcon({ className = 'h-4 w-4', strokeWidth = 2 }: IconProps) {
+  return (
+    <ArrowUp01
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function SortDescendingIcon({ className = 'h-4 w-4', strokeWidth = 2 }: IconProps) {
+  return (
+    <ArrowDown10
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function SortLeastKnownIcon({ className = 'h-4 w-4', strokeWidth = 2 }: IconProps) {
+  return (
+    <TrendingDown
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function SortBestKnownIcon({ className = 'h-4 w-4', strokeWidth = 2 }: IconProps) {
+  return (
+    <TrendingUp
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function AnsweredIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: IconProps) {
+  return (
+    <ListChecks
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function MasteryIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: IconProps) {
+  return (
+    <Gauge
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function AttemptsIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: IconProps) {
+  return (
+    <Tally5
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function ReviseIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: IconProps) {
+  return (
+    <Repeat
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
   );
 }

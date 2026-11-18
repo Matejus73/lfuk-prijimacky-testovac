@@ -1,4 +1,11 @@
-import type { AllStats, AnswerResult, Question, QuestionStats, Subject } from '../types.ts';
+import type {
+  AllStats,
+  AnswerResult,
+  Question,
+  QuestionEditDiff,
+  QuestionStats,
+  Subject,
+} from '../types.ts';
 
 export const getQuestionStats = (
   stats: AllStats,
@@ -21,7 +28,10 @@ export const shuffle = <T,>(items: T[]): T[] => {
   return shuffled;
 };
 
-export const getRandomOptionLabels = (question: Question): string[] => {
+export const getRandomOptionLabels = (
+  question: Question,
+  previousLabels?: string[],
+): string[] => {
   const targetCount = Math.min(4, question.options.length);
   if (targetCount === 0) return [];
 
@@ -31,11 +41,41 @@ export const getRandomOptionLabels = (question: Question): string[] => {
   if (!picked.some((option) => option.is_correct)) {
     const correctOptions = shuffled.slice(targetCount).filter((option) => option.is_correct);
     if (correctOptions.length > 0) {
-      picked[picked.length - 1] = correctOptions[0];
+      const replaceIndex = Math.floor(Math.random() * picked.length);
+      picked[replaceIndex] = correctOptions[0];
     }
   }
 
-  return picked.map((option) => option.label);
+  const labels = picked.map((option) => option.label);
+  if (
+    previousLabels &&
+    labels.length > 1 &&
+    previousLabels.length === labels.length &&
+    labels.every((label, index) => label === previousLabels[index])
+  ) {
+    return [...labels.slice(1), labels[0]];
+  }
+
+  return labels;
+};
+
+export const getReshuffledOptionLabels = (
+  question: Question,
+  previousLabels?: string[],
+): string[] => {
+  const labels = question.options.map((option) => option.label);
+  if (labels.length <= 1) return labels;
+
+  const next = shuffle(labels);
+  if (
+    previousLabels &&
+    previousLabels.length === next.length &&
+    next.every((label, index) => label === previousLabels[index])
+  ) {
+    return [...next.slice(1), next[0]];
+  }
+
+  return next;
 };
 
 export const getInitialRandomOptionLabels = (
@@ -49,6 +89,47 @@ export const getInitialRandomOptionLabels = (
       ]),
     ),
   );
+
+export const getQuestionEditDiff = (
+  question: Question,
+  originalQuestion?: Question,
+): QuestionEditDiff => {
+  if (!originalQuestion) {
+    return {
+      isEdited: false,
+      isQuestionTextEdited: false,
+      editedOptions: {},
+    };
+  }
+
+  const isQuestionTextEdited = question.question.trim() !== originalQuestion.question.trim();
+  const originalByLabel = new Map(
+    originalQuestion.options.map((option) => [option.label, option] as const),
+  );
+  const editedOptions: QuestionEditDiff['editedOptions'] = {};
+  let hasEditedOption = false;
+
+  for (const option of question.options) {
+    const originalOption = originalByLabel.get(option.label);
+    const isCorrectEdited = originalOption ? option.is_correct !== originalOption.is_correct : true;
+    const isTextEdited = originalOption ? option.text.trim() !== originalOption.text.trim() : true;
+    const isEdited = isCorrectEdited || isTextEdited;
+    if (isEdited) {
+      hasEditedOption = true;
+    }
+    editedOptions[option.label] = {
+      isCorrectEdited,
+      isTextEdited,
+      isEdited,
+    };
+  }
+
+  return {
+    isEdited: isQuestionTextEdited || hasEditedOption,
+    isQuestionTextEdited,
+    editedOptions,
+  };
+};
 
 export const formatQuestionForClipboard = (
   subject: Subject,

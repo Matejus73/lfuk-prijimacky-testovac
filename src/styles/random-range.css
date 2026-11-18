@@ -1,0 +1,132 @@
+@layer components {
+  /* Random range pills inside active selection tab — solid borderless pills */
+  .random-range {
+    position: relative;
+    z-index: 3;
+    display: inline-grid;
+    grid-template-columns: 0fr;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: grid-template-columns var(--duration-morph) var(--ease-fluid),
+                margin-left var(--duration-morph) var(--ease-fluid),
+                opacity var(--duration-base) var(--ease-fluid);
+  }
+
+  .random-range-visible {
+    grid-template-columns: 1fr;
+    margin-left: 0.25rem;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .random-range-inner {
+    display: flex;
+    min-width: 0;
+    overflow: hidden;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 2px 0;
+    margin: -2px 0;
+  }
+
+  .random-range-separator {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .random-range-pill {
+    position: relative;
+    display: inline-block;
+    width: 1.375rem;
+    height: 1.375rem;
+    flex-shrink: 0;
+    overflow: clip;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background-color: var(--control-bg);
+    box-shadow: none;
+    transform: scale(0.75);
+    transition: transform var(--duration-morph) var(--ease-fluid),
+                width var(--duration-morph) var(--ease-fluid),
+                background-color var(--duration-base) var(--ease-fluid);
+  }
+
+  .random-range-pill-visible {
+    width: 2.375rem;
+    transform: scale(1);
+  }
+
+  .random-range-pill:hover:not(:focus-within) {
+    background-color: color-mix(in srgb, var(--highlight) 26%, var(--control-bg));
+  }
+
+  .random-range-pill:focus-within {
+    background-color: var(--highlight);
+  }
+
+  @media (min-width: 640px) {
+    .random-range-pill-visible {
+      width: 2.5rem;
+    }
+  }
+
+  .random-range-track {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    flex-shrink: 0;
+    transform: translate3d(0, 0, 0);
+    transition: transform var(--duration-morph) var(--ease-fluid);
+  }
+
+  .random-range-track-visible {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  .random-range-slot {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .random-range-input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--text);
+    font-size: 10px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    text-align: center;
+    outline: none;
+    appearance: textfield;
+    transition: color var(--duration-base) var(--ease-fluid);
+  }
+
+  .random-range-input::-webkit-inner-spin-button,
+  .random-range-input::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+  }
+
+  .random-range-pill:focus-within .random-range-input,
+  .random-range-input:focus-visible,
+  .random-range-input:focus {
+    color: var(--background);
+    box-shadow: none;
+  }
+}

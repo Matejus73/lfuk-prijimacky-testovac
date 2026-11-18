@@ -1,0 +1,307 @@
+@layer components {
+  .icon-btn {
+    border-width: var(--outline-button);
+    border-style: solid;
+    border-color: var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--surface);
+    color: var(--text-muted);
+    transition: border-color var(--duration-base) var(--ease-fluid),
+                background-color var(--duration-base) var(--ease-fluid),
+                color var(--duration-base) var(--ease-fluid);
+  }
+
+  .icon-btn:hover:not(:disabled) {
+    border-color: var(--highlight);
+    background-color: var(--highlight-subtle);
+    color: var(--text);
+  }
+
+  .icon-btn:focus-visible {
+    outline: var(--outline-primary) solid var(--highlight);
+    outline-offset: 1px;
+  }
+
+  .icon-btn-active-highlight {
+    border-color: var(--highlight);
+    background-color: var(--highlight-soft);
+    color: var(--highlight);
+  }
+
+  .icon-btn-active-highlight:hover:not(:disabled) {
+    border-color: var(--highlight);
+    background-color: color-mix(in srgb, var(--highlight) 20%, var(--background));
+    color: var(--highlight);
+  }
+
+  .icon-btn-active-edit {
+    border-color: var(--edit);
+    background-color: var(--edit-soft);
+    color: var(--edit);
+  }
+
+  .icon-btn-active-edit:hover:not(:disabled) {
+    border-color: color-mix(in srgb, var(--edit) 85%, white);
+    background-color: color-mix(in srgb, var(--edit) 22%, var(--background));
+    color: var(--edit);
+  }
+
+  .icon-btn-active-edit:focus-visible {
+    outline: var(--outline-primary) solid var(--edit);
+    outline-offset: 1px;
+  }
+
+  .icon-btn-active-copy {
+    border-color: var(--copy-border);
+    background-color: var(--copy-soft);
+    color: var(--copy);
+  }
+
+  .icon-btn-active-copy:hover:not(:disabled) {
+    border-color: var(--copy-border-hover);
+    background-color: var(--copy-hover);
+    color: var(--copy);
+  }
+
+  .icon-btn-active-copy:focus-visible {
+    outline: var(--outline-primary) solid var(--copy);
+    outline-offset: 1px;
+  }
+
+  /* Custom circular checkbox — solid borderless circle toggle */
+  .circle-checkbox {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background-color: var(--control-bg);
+    appearance: none;
+    transition: background-color var(--duration-base) var(--ease-fluid),
+                transform var(--duration-fast) var(--ease-fluid);
+  }
+
+  .circle-checkbox::after {
+    content: '';
+    width: 0.72rem;
+    height: 0.72rem;
+    background-color: var(--background);
+    transform: scale(0);
+    transition: transform var(--duration-fast) var(--ease-fluid);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+  }
+
+  .question-option:hover .circle-checkbox:not(:disabled):not(:checked) {
+    background-color: color-mix(in srgb, var(--highlight) 32%, var(--control-bg));
+  }
+
+  .circle-checkbox:checked {
+    background-color: var(--highlight);
+  }
+
+  .circle-checkbox:checked::after {
+    transform: scale(1);
+  }
+
+  .circle-checkbox:focus-visible {
+    outline: var(--outline-primary) solid var(--highlight);
+    outline-offset: 2px;
+  }
+
+  /* History search line & inline sort filter */
+  .history-search-bar {
+    margin-bottom: var(--space-search-gap);
+    border-bottom: var(--line-decorative) solid var(--border);
+    transition: border-color var(--duration-base) var(--ease-fluid);
+  }
+
+  .history-search-bar:hover {
+    border-bottom-color: var(--highlight);
+  }
+
+  .history-search-bar:focus-within {
+    border-bottom-color: var(--highlight);
+  }
+
+  .search-line-input {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .search-line-input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .search-field-icon {
+    color: var(--text-muted);
+    transition: color var(--duration-base) var(--ease-fluid);
+  }
+
+  .search-field:hover .search-field-icon,
+  .search-field:focus-within .search-field-icon {
+    color: var(--highlight);
+  }
+
+  .sort-trigger {
+    border: 0;
+    border-radius: var(--radius-sm);
+    outline: none;
+    background-color: transparent;
+    box-shadow: none;
+    color: var(--text-muted);
+    transition: color var(--duration-base) var(--ease-fluid);
+  }
+
+  .sort-trigger:hover,
+  .sort-trigger[aria-expanded='true'],
+  .sort-trigger:focus-visible {
+    box-shadow: none;
+    color: var(--text);
+  }
+
+  .sort-trigger:focus-visible {
+    outline: var(--outline-primary) solid var(--highlight);
+    outline-offset: 2px;
+  }
+
+  .sort-trigger:hover .history-chevron,
+  .sort-trigger[aria-expanded='true'] .history-chevron,
+  .sort-trigger:focus-visible .history-chevron {
+    color: var(--highlight);
+  }
+
+  .sort-menu {
+    border: var(--outline-secondary) solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: var(--surface);
+    transform-origin: top right;
+    animation: sort-menu-enter var(--duration-fast) var(--ease-fluid) both;
+  }
+
+  .sort-menu-option {
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    transition: background-color var(--duration-fast) var(--ease-fluid),
+                color var(--duration-fast) var(--ease-fluid);
+  }
+
+  .sort-menu-option:hover {
+    background-color: var(--highlight-subtle);
+    color: var(--text);
+  }
+
+  .sort-menu-option-selected,
+  .sort-menu-option-selected:hover {
+    background-color: var(--highlight-soft);
+    color: var(--highlight);
+  }
+
+  @keyframes sort-menu-enter {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -4px, 0) scale(0.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  /* Toggle switch — solid borderless pill */
+  .toggle-switch-btn {
+    position: relative;
+    height: 1.5rem;
+    width: 2.75rem;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    border-radius: var(--radius-pill);
+    font-size: 10px;
+    font-weight: 700;
+    transition: background-color var(--duration-base) var(--ease-fluid),
+                color var(--duration-base) var(--ease-fluid);
+  }
+
+  .toggle-switch-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  .toggle-switch-btn:focus-visible {
+    outline: var(--outline-primary) solid var(--highlight);
+    outline-offset: 2px;
+  }
+
+  .toggle-switch-btn-active-revision:focus-visible {
+    outline-color: var(--revision);
+  }
+
+  .toggle-switch-btn-active {
+    background-color: var(--highlight);
+    color: var(--background);
+  }
+
+  .toggle-switch-btn-active:hover:not(:disabled) {
+    background-color: var(--highlight-hover);
+  }
+
+  .toggle-switch-btn-active-revision {
+    background-color: var(--revision);
+    color: var(--background);
+  }
+
+  .toggle-switch-btn-active-revision:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--revision) 84%, var(--surface));
+  }
+
+  .toggle-switch-btn-inactive {
+    background-color: var(--control-bg);
+    color: var(--text);
+  }
+
+  .toggle-switch-btn-inactive:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--highlight) 26%, var(--control-bg));
+  }
+
+  .toggle-switch-track {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    pointer-events: none;
+    transition: transform var(--duration-slide) var(--ease-fluid);
+  }
+
+  .toggle-switch-track-unchecked {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .toggle-switch-track-checked {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  .toggle-switch-item {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  }
+}

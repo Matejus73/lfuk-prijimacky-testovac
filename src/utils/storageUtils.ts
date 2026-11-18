@@ -1,10 +1,23 @@
 import { FOUR_ANSWERS_STORAGE_KEY, QUESTIONS_STORAGE_KEY, STATS_STORAGE_KEY } from '../constants/storage.ts';
-import type { AllStats, Question, Subject } from '../types.ts';
+import type { AllStats, Question, StatsByQuestion, Subject } from '../types.ts';
+import { normalizeQuestionStats } from './scoringUtils.ts';
 
 export const emptyStats = (): AllStats => ({
   Biology: {},
   Chemistry: {},
 });
+
+const normalizeSubjectStats = (raw: unknown): StatsByQuestion => {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+  const result: StatsByQuestion = {};
+  for (const [questionId, value] of Object.entries(raw as Record<string, unknown>)) {
+    const normalized = normalizeQuestionStats(value);
+    if (normalized) {
+      result[questionId] = normalized;
+    }
+  }
+  return result;
+};
 
 export const loadStoredStats = (): AllStats => {
   const defaults = emptyStats();
@@ -19,10 +32,10 @@ export const loadStoredStats = (): AllStats => {
   if (!savedStats) return defaults;
 
   try {
-    const parsed = JSON.parse(savedStats) as Partial<AllStats>;
+    const parsed = JSON.parse(savedStats) as Partial<Record<Subject, unknown>>;
     return {
-      Biology: parsed.Biology ?? {},
-      Chemistry: parsed.Chemistry ?? {},
+      Biology: normalizeSubjectStats(parsed.Biology),
+      Chemistry: normalizeSubjectStats(parsed.Chemistry),
     };
   } catch {
     return defaults;

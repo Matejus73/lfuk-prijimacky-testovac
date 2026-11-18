@@ -1,0 +1,163 @@
+@layer components {
+  @media (prefers-reduced-motion: reduce) {
+    .rolling-number-enter-up,
+    .rolling-number-exit-up,
+    .rolling-number-enter-down,
+    .rolling-number-exit-down,
+    .subject-content-enter-next,
+    .history-list-enter-next,
+    .subject-content-enter-prev,
+    .history-list-enter-prev,
+    .history-number-jump-a,
+    .history-number-jump-b,
+    .copy-card-shutter-a,
+    .copy-card-shutter-b,
+    .copy-tab-shutter-a,
+    .copy-tab-shutter-b,
+    .copy-card-flash,
+    .subject-tab-flash,
+    .subject-tab-flash::before,
+    .subject-tab-seam-flash,
+    .subject-tab-fillet-flash::before,
+    .subject-tab-fillet-flash::after,
+    .copy-ghost-layer,
+    .edit-source-placeholder::after,
+    .edit-error-banner,
+    .question-option-list-editing .question-option-drawer-inner,
+    .sort-menu {
+      animation: none !important;
+    }
+
+    .subject-selector,
+    .subject-tab,
+    .subject-tab-surface,
+    .subject-tab-surface-hover,
+    .subject-tab-surface-active,
+    .subject-tab-fillet::before,
+    .subject-tab-fillet::after,
+    .subject-tab-edit-icon,
+    .subject-tab-copy-icon,
+    .subject-tab-number,
+    .random-range,
+    .random-range-pill,
+    .random-range-track,
+    .accuracy-bar-track,
+    .accuracy-bar-count,
+    .edit-actions-spacer,
+    .edit-source-drawer,
+    .edit-images-toggle-btn,
+    .edit-images-toggle-drawer,
+    .edit-images-toggle-chevron,
+    .edit-section-drawer,
+    .section-pill-btn,
+    .section-pill-track,
+    .question-morph-section,
+    .question-title-morph,
+    .option-text-morph,
+    .question-border-label,
+    .question-option-drawer,
+    .question-option-morph,
+    .option-indicator-morph,
+    .option-indicator-track,
+    .option-label-morph,
+    .edit-answer-mark,
+    .edit-answer-mark-track,
+    .nav-morph-slot,
+    .nav-morph-spacer,
+    .nav-morph-btn,
+    .nav-morph-track,
+    .toggle-switch-btn,
+    .toggle-switch-track,
+    .circle-checkbox,
+    .circle-checkbox::after,
+    .history-chevron,
+    .history-details-drawer,
+    .stats-item,
+    .stats-coverage-fill {
+      transition-duration: 0ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .bg-slate-100 {
+    background-color: var(--background);
+  }
+
+  .bg-white {
+    background-color: var(--surface);
+  }
+
+  .text-gray-900,
+  .text-gray-800,
+  .text-gray-700 {
+    color: var(--text);
+  }
+
+  .text-gray-600,
+  .text-gray-500 {
+    color: var(--text-muted);
+  }
+
+  .hover\:text-gray-900:hover {
+    color: var(--text);
+  }
+
+  .text-blue-600 {
+    color: var(--highlight);
+  }
+
+  .text-emerald-800 {
+    color: var(--correct);
+  }
+
+  .text-amber-500 {
+    color: var(--almost);
+  }
+
+  .text-rose-700,
+  .text-rose-800 {
+    color: var(--incorrect);
+  }
+
+  .border-gray-200,
+  .border-gray-300 {
+    border-color: var(--border);
+  }
+
+  .bg-emerald-50 {
+    background-color: var(--correct-soft);
+  }
+
+  .bg-emerald-50\/50 {
+    background-color: var(--correct-subtle);
+  }
+
+  .bg-rose-50 {
+    background-color: var(--incorrect-soft);
+  }
+
+  .bg-emerald-500 {
+    background-color: var(--correct);
+  }
+
+  .bg-amber-500 {
+    background-color: var(--almost);
+  }
+
+  .bg-rose-500 {
+    background-color: var(--incorrect);
+  }
+
+  .border-emerald-500 {
+    border-color: var(--correct);
+  }
+
+  .border-rose-500 {
+    border-color: var(--incorrect);
+  }
+
+  .border-rose-500\/40 {
+    border-color: color-mix(in srgb, var(--incorrect) 40%, transparent);
+  }
+}

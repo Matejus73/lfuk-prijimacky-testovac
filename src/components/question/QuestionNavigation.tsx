@@ -56,12 +56,14 @@ export const QuestionNavigation = memo(function QuestionNavigation({
 
   const isMiddlePrimary = !isEditing && !isEvaluated;
   const isRightPrimary = isEditing;
-  const middleEditingTrackClass = isEvaluated
-    ? 'nav-morph-track-mid-secondary-editing'
-    : 'nav-morph-track-mid-primary-editing';
+  const middleTrackClass = isEditing
+    ? 'nav-morph-track-mid-editing'
+    : isEvaluated
+      ? 'nav-morph-track-mid-evaluated'
+      : '';
 
   return (
-    <div className="question-navigation mt-auto flex shrink-0 items-center justify-between gap-2 border-t border-gray-200 bg-white">
+    <div className="question-navigation mt-auto flex shrink-0 items-center justify-between">
       {/* Left button: Prev arrow morphs into Reset to default */}
       <button
         type="button"
@@ -69,7 +71,7 @@ export const QuestionNavigation = memo(function QuestionNavigation({
         disabled={!isEditing && isPrevDisabled}
         title={isEditing ? 'Reset to default' : 'Previous question'}
         aria-label={isEditing ? 'Reset to default' : 'Previous question'}
-        className={`nav-morph-btn nav-arrow-btn group cursor-pointer rounded-lg border border-gray-200 bg-white text-sm font-semibold text-gray-700 shadow-2xs hover:border-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:hover:border-gray-200 disabled:hover:bg-white ${
+        className={`nav-morph-btn nav-morph-btn-secondary-surface nav-arrow-btn group cursor-pointer shadow-2xs ${
           isEditing ? 'nav-morph-btn-left-edit' : 'nav-morph-btn-icon'
         }`}
       >
@@ -80,9 +82,7 @@ export const QuestionNavigation = memo(function QuestionNavigation({
             }`}
           >
             <span
-              className={`nav-morph-slot nav-morph-slot-icon ${
-                !isEditing && isPrevDisabled ? 'opacity-40' : ''
-              }`}
+              className="nav-morph-slot nav-morph-slot-icon"
               aria-hidden={isEditing}
             >
               <span className="nav-arrow-icon nav-arrow-left">
@@ -99,35 +99,34 @@ export const QuestionNavigation = memo(function QuestionNavigation({
         </span>
       </button>
 
-      {/* Spacer that morphs flex-grow so middle button glides toward the right in edit mode */}
-      <div
-        className={`nav-morph-spacer ${isEditing ? 'nav-morph-spacer-editing' : ''}`}
-        aria-hidden="true"
-      />
+      {/* Left spacer keeps middle button centered in normal mode and pushes Cancel right in edit mode */}
+      <div className="nav-morph-spacer nav-morph-spacer-expanded" aria-hidden="true" />
 
-      {/* Middle button: Check Answer / Try Again morphs into Cancel */}
+      {/* Middle button: Check Answer <-> Try Again <-> Cancel */}
       <button
         type="button"
         onClick={handleMiddleAction}
         title={isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'}
         aria-label={isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'}
-        className={`nav-morph-btn cursor-pointer rounded-lg border text-sm font-semibold ${
+        className={`nav-morph-btn cursor-pointer ${
           isMiddlePrimary
-            ? 'nav-morph-btn-primary border-blue-500 bg-blue-600 text-white shadow-sm hover:bg-blue-700'
-            : 'nav-morph-btn-secondary border-gray-200 bg-white text-gray-700 shadow-2xs hover:border-gray-300 hover:bg-gray-50'
+            ? 'nav-morph-btn-primary nav-morph-btn-primary-surface shadow-sm'
+            : 'nav-morph-btn-secondary nav-morph-btn-secondary-surface shadow-2xs'
         }`}
       >
         <span className="nav-morph-stage">
-          <span
-            className={`nav-morph-track ${isEditing ? middleEditingTrackClass : ''}`}
-          >
+          <span className={`nav-morph-track ${middleTrackClass}`.trim()}>
             <span
-              className={`nav-morph-slot ${
-                isEvaluated ? 'nav-morph-slot-secondary' : 'nav-morph-slot-primary'
-              }`}
-              aria-hidden={isEditing}
+              className="nav-morph-slot nav-morph-slot-primary"
+              aria-hidden={isEditing || isEvaluated}
             >
-              {isEvaluated ? 'Try Again' : 'Check Answer'}
+              Check Answer
+            </span>
+            <span
+              className="nav-morph-slot nav-morph-slot-secondary"
+              aria-hidden={isEditing || !isEvaluated}
+            >
+              Try Again
             </span>
             <span
               className="nav-morph-slot nav-morph-slot-secondary"
@@ -139,10 +138,10 @@ export const QuestionNavigation = memo(function QuestionNavigation({
         </span>
       </button>
 
-      {/* Spacer that collapses in edit mode so Cancel sits next to Save correction */}
+      {/* Right spacer collapses to single button gap in edit mode so Cancel sits next to Save correction */}
       <div
         className={`nav-morph-spacer ${
-          isEditing ? 'nav-morph-spacer-collapsed' : 'nav-morph-spacer-editing'
+          isEditing ? 'nav-morph-spacer-collapsed' : 'nav-morph-spacer-expanded'
         }`}
         aria-hidden="true"
       />
@@ -154,10 +153,10 @@ export const QuestionNavigation = memo(function QuestionNavigation({
         disabled={!isEditing && isNextDisabled}
         title={isEditing ? 'Save correction' : 'Next question'}
         aria-label={isEditing ? 'Save correction' : 'Next question'}
-        className={`nav-morph-btn nav-arrow-btn group cursor-pointer rounded-lg border text-sm font-semibold disabled:cursor-not-allowed disabled:hover:border-gray-200 disabled:hover:bg-white ${
+        className={`nav-morph-btn nav-arrow-btn group cursor-pointer ${
           isRightPrimary
-            ? 'nav-morph-btn-right-edit border-blue-500 bg-blue-600 text-white shadow-sm hover:bg-blue-700'
-            : 'nav-morph-btn-icon border-gray-200 bg-white text-gray-700 shadow-2xs hover:border-gray-300 hover:bg-gray-50'
+            ? 'nav-morph-btn-right-edit nav-morph-btn-save shadow-sm'
+            : 'nav-morph-btn-icon nav-morph-btn-secondary-surface shadow-2xs'
         }`}
       >
         <span className="nav-morph-stage">
@@ -167,9 +166,7 @@ export const QuestionNavigation = memo(function QuestionNavigation({
             }`}
           >
             <span
-              className={`nav-morph-slot nav-morph-slot-icon ${
-                !isEditing && isNextDisabled ? 'opacity-40' : ''
-              }`}
+              className="nav-morph-slot nav-morph-slot-icon"
               aria-hidden={isEditing}
             >
               <span className="nav-arrow-icon nav-arrow-right">

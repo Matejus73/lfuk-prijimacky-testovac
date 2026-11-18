@@ -1,0 +1,129 @@
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    /* Core surfaces & text */
+    --background: #000000;
+    --surface: #252525;
+    --surface-raised: #393939;
+    --border: #4f4f4f;
+    --border-hover: #686868;
+    --control-bg: #4f4f4f;
+    --text: #ffffff;
+    --text-muted: #b8b8b8;
+
+    /* Unified highlight color & variations */
+    --highlight: #23bfca;
+    --highlight-soft: color-mix(in srgb, var(--highlight) 30%, var(--background));
+    --highlight-subtle: color-mix(in srgb, var(--highlight) 8%, var(--surface));
+    --highlight-hover: color-mix(in srgb, var(--highlight) 100%, var(--surface));
+
+    /* Unified green, amber & red (derived variations) */
+    --correct: #05913A;
+    --correct-soft: color-mix(in srgb, var(--correct) 16%, var(--surface));
+    --correct-subtle: color-mix(in srgb, var(--correct) 9%, var(--surface));
+    --almost: #e39e1d;
+    --incorrect: #a62d15;
+    --incorrect-soft: color-mix(in srgb, var(--incorrect) 16%, var(--surface));
+
+    /* Mode-specific colors: editing, copy, revision */
+    --edit: var(--almost);
+    --edit-soft: color-mix(in srgb, var(--edit) 16%, var(--background));
+    --edit-hover: color-mix(in srgb, var(--edit) 84%, var(--surface));
+    --edit-ring: 0 0 0 2px color-mix(in srgb, var(--edit) 28%, transparent);
+    --copy: #ffffff;
+    --copy-soft: color-mix(in srgb, var(--copy) 10%, transparent);
+    --copy-border: color-mix(in srgb, var(--copy) 52%, transparent);
+    --copy-hover: color-mix(in srgb, var(--copy) 15%, transparent);
+    --copy-border-hover: color-mix(in srgb, var(--copy) 72%, transparent);
+    --revision: var(--incorrect);
+
+    /* History item colors */
+    --history-item-hover: var(--highlight-subtle);
+    --history-question-text: color-mix(in srgb, var(--text) 78%, var(--text-muted));
+
+    /* Radii & unified outline / line widths */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-pill: 9999px;
+    --outline-primary: 3px;
+    --outline-secondary: 3px;
+    --outline-button: 2px;
+    --line-decorative: 2px;
+    --line-icon: 3px;
+
+    /* Fluid layout spacing & typography */
+    --space-shell: clamp(0.875rem, min(4dvh, 4vw), 3rem);
+    --space-layout-gap: clamp(1rem, 2.5dvh, 1.5rem);
+    --space-layout-col-gap: clamp(1.75rem, 3vw, 3rem);
+    --space-section-gap: clamp(0.375rem, 1dvh, 0.5rem);
+    --space-stats-gap: 2rem;
+    --space-search-gap: 1.5rem;
+    --space-card-line-gap: clamp(0.75rem, 1.75dvh, 1.125rem);
+    --card-btn-inset: clamp(0.875rem, 2dvh, 1.375rem);
+    --space-card-pad: calc(var(--card-btn-inset) + 1rem);
+    --space-title-gap: clamp(0.875rem, 2.5dvh, 1.5rem);
+    --space-option-gap: clamp(0.375rem, 0.9dvh, 0.75rem);
+    --space-edit-gap: clamp(0.5rem, 1.15dvh, 0.875rem);
+    --space-option-py: clamp(0.5rem, 1.3dvh, 0.875rem);
+    --space-option-px: clamp(0.625rem, 1.5dvh, 0.875rem);
+    --font-fluid-base: clamp(0.875rem, 1.8dvh, 1rem);
+
+    /* Motion */
+    --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration-fast: 160ms;
+    --duration-base: 180ms;
+    --duration-slide: 200ms;
+    --duration-morph: 200ms;
+    --duration-roll: 460ms;
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border);
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.1875rem;
+    height: 0.1875rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: var(--radius-pill);
+    background-color: var(--border);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--border-hover);
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-color: var(--border) transparent;
+      scrollbar-width: thin;
+    }
+  }
+
+  input[type='checkbox'] {
+    accent-color: var(--highlight);
+  }
+
+  svg.lucide {
+    stroke-width: calc(var(--line-icon) * var(--icon-stroke-scale, 1));
+  }
+}

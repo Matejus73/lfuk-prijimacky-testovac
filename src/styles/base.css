@@ -3,12 +3,12 @@
     color-scheme: dark;
 
     /* Core surfaces & text */
-    --background: #000000;
+    --background: #090909;
     --surface: #252525;
-    --surface-raised: #393939;
+    --surface-raised: #454545;
     --border: #4f4f4f;
     --border-hover: #686868;
-    --control-bg: #4f4f4f;
+    --control-bg: #353535;
     --text: #ffffff;
     --text-muted: #b8b8b8;
 

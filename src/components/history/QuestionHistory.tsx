@@ -301,6 +301,13 @@ const HistoryList = memo(
           </div>
         </div>
 
+        <div
+          className={`history-scroll-shades ${
+            isScrolledTop ? 'history-scroll-shades-top' : ''
+          } ${isScrolledBottom ? 'history-scroll-shades-bottom' : ''}`}
+          aria-hidden="true"
+        />
+
         {cornerMaskClass && (
           <div
             className={`scroll-window-corners scroll-window-corners-history ${cornerMaskClass}`}

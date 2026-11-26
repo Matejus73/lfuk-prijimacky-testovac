@@ -108,10 +108,10 @@ export const QuestionNavigation = memo(function QuestionNavigation({
         onClick={handleMiddleAction}
         title={isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'}
         aria-label={isEditing ? 'Cancel' : isEvaluated ? 'Try Again' : 'Check Answer'}
-        className={`nav-morph-btn cursor-pointer ${
+        className={`nav-morph-btn cursor-pointer shadow-2xs ${
           isMiddlePrimary
-            ? 'nav-morph-btn-primary nav-morph-btn-primary-surface shadow-sm'
-            : 'nav-morph-btn-secondary nav-morph-btn-secondary-surface shadow-2xs'
+            ? 'nav-morph-btn-primary nav-morph-btn-primary-surface'
+            : 'nav-morph-btn-secondary nav-morph-btn-secondary-surface'
         }`}
       >
         <span className="nav-morph-stage">

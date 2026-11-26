@@ -180,6 +180,7 @@
     margin: 0;
     padding-right: 4.25rem;
     color: var(--text);
+    font-family: var(--app-font-family);
     font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.75rem;
@@ -202,12 +203,14 @@
   .question-title-textarea {
     flex: 1 1 auto;
     min-height: 1.5rem;
+    font-family: var(--app-font-family);
     font-weight: 500;
     line-height: 1.375rem;
   }
 
   .option-text-textarea {
     min-height: 1.3125rem;
+    font-family: var(--app-body-font-family);
     line-height: 1.3125rem;
   }
 
@@ -453,7 +456,8 @@
     font-size: 10px;
     font-weight: 700;
     transition: background-color var(--duration-base) var(--ease-fluid),
-                color var(--duration-base) var(--ease-fluid);
+                color var(--duration-base) var(--ease-fluid),
+                box-shadow var(--duration-base) var(--ease-fluid);
   }
 
   .section-pill-btn:focus-visible {
@@ -498,6 +502,8 @@
   }
 
   .section-pill-track {
+    position: relative;
+    z-index: 1;
     display: flex;
     width: 400%;
     height: 100%;

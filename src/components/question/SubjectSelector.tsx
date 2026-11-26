@@ -21,6 +21,79 @@ interface SubjectSelectorProps {
 
 const SUBJECTS: Subject[] = ['Biology', 'Chemistry'];
 
+const FILLET_FILL_PATH = 'M 0 0 L 0.5 0 L 0.5 1 A 5.5 5.5 0 0 0 6 6.5 L 6 9 L 0 9 Z';
+const FILLET_BORDER_PATH = 'M 0.5 0 L 0.5 1 A 5.5 5.5 0 0 0 6 6.5';
+const FILLET_SPECULAR_PATH = 'M 0.5 2 A 5.5 5.5 0 0 0 6 7.5';
+
+function TabFillet({
+  side,
+  subject,
+  copyPulseKey,
+  isSelected,
+}: {
+  side: 'left' | 'right';
+  subject: Subject;
+  copyPulseKey: number;
+  isSelected: boolean;
+}) {
+  const gradientId = `tab-fillet-spec-${subject.toLowerCase()}-${side}`;
+
+  return (
+    <span className={`subject-tab-fillet subject-tab-fillet-${side}`} aria-hidden="true">
+      <svg
+        className="subject-tab-fillet-svg"
+        viewBox="0 0 6 9"
+        width="6"
+        height="9"
+        shapeRendering="geometricPrecision"
+      >
+        <defs>
+          <linearGradient
+            id={gradientId}
+            x1="0.5"
+            y1="2"
+            x2="6"
+            y2="7.5"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0%" stopColor="var(--surface-specular)" stopOpacity="0" />
+            <stop offset="42%" stopColor="var(--surface-specular)" stopOpacity="0" />
+            <stop offset="100%" stopColor="var(--surface-specular)" stopOpacity="1" />
+          </linearGradient>
+        </defs>
+        <path d={FILLET_FILL_PATH} className="subject-tab-fillet-fill" />
+        <path
+          d={FILLET_SPECULAR_PATH}
+          fill="none"
+          stroke={`url(#${gradientId})`}
+          strokeWidth="1"
+          className="subject-tab-fillet-specular"
+        />
+        <path
+          d={FILLET_BORDER_PATH}
+          fill="none"
+          stroke="var(--surface-border-top)"
+          strokeWidth="1"
+          className="subject-tab-fillet-border"
+        />
+      </svg>
+      {isSelected && copyPulseKey > 0 && (
+        <svg
+          key={`fillet-${side}-${copyPulseKey}`}
+          className="subject-tab-fillet-flash"
+          viewBox="0 0 6 9"
+          width="6"
+          height="9"
+          shapeRendering="geometricPrecision"
+        >
+          <path d={FILLET_FILL_PATH} className="subject-tab-fillet-flash-dip" />
+          <path d={FILLET_FILL_PATH} className="subject-tab-fillet-flash-glow" />
+        </svg>
+      )}
+    </span>
+  );
+}
+
 export const SubjectSelector = memo(function SubjectSelector({
   currentSubject,
   onSelectSubject,
@@ -90,194 +163,196 @@ export const SubjectSelector = memo(function SubjectSelector({
               isSelected ? 'subject-tab-active' : 'subject-tab-inactive'
             } ${tabShutterClass}`.trim()}
           >
-            <span className="subject-tab-fillet subject-tab-fillet-left" aria-hidden="true">
-              {isSelected && copyPulseKey > 0 && (
-                <span key={`fillet-left-${copyPulseKey}`} className="subject-tab-fillet-flash" />
-              )}
-            </span>
-            <span className="subject-tab-fillet subject-tab-fillet-right" aria-hidden="true">
-              {isSelected && copyPulseKey > 0 && (
-                <span key={`fillet-right-${copyPulseKey}`} className="subject-tab-fillet-flash" />
-              )}
-            </span>
-            <span className="subject-tab-surface">
-              <span className="subject-tab-surface-hover" aria-hidden="true" />
-              <span className="subject-tab-surface-active" aria-hidden="true" />
-              {isSelected && copyPulseKey > 0 && (
+            <TabFillet
+              side="left"
+              subject={subject}
+              copyPulseKey={copyPulseKey}
+              isSelected={isSelected}
+            />
+            <TabFillet
+              side="right"
+              subject={subject}
+              copyPulseKey={copyPulseKey}
+              isSelected={isSelected}
+            />
+            <span className="subject-tab-clip">
+              <span className="subject-tab-surface">
+                <span className="subject-tab-surface-hover" aria-hidden="true" />
+                <span className="subject-tab-surface-active" aria-hidden="true" />
+                {isSelected && copyPulseKey > 0 && (
+                  <span
+                    key={`tab-flash-${copyPulseKey}`}
+                    className="subject-tab-flash"
+                    aria-hidden="true"
+                  />
+                )}
+                <button
+                  type="button"
+                  aria-pressed={isSelected}
+                  onClick={() => onSelectSubject(subject)}
+                  className="subject-tab-button"
+                >
+                  <span className="sr-only">
+                    {subject}
+                    {isSelected && isEditing ? ' (editing)' : ''}
+                    {isSelected && isCopied ? ' (copied)' : ''}
+                  </span>
+                </button>
+
                 <span
-                  key={`tab-flash-${copyPulseKey}`}
-                  className="subject-tab-flash"
+                  className={`subject-tab-edit-icon ${
+                    isTabEditIconVisible ? 'subject-tab-edit-icon-visible' : ''
+                  }`}
                   aria-hidden="true"
-                />
-              )}
-              <button
-                type="button"
-                aria-pressed={isSelected}
-                onClick={() => onSelectSubject(subject)}
-                className="subject-tab-button"
-              >
-                <span className="sr-only">
+                >
+                  <span className="subject-tab-edit-icon-inner">
+                    <EditIcon className="h-3.5 w-3.5 shrink-0" />
+                  </span>
+                </span>
+
+                <span
+                  className={`subject-tab-copy-icon ${
+                    isTabCopyIconVisible ? 'subject-tab-copy-icon-visible' : ''
+                  }`}
+                  aria-hidden="true"
+                >
+                  <span className="subject-tab-copy-icon-inner">
+                    <CopyIcon className="h-3.5 w-3.5 shrink-0" />
+                  </span>
+                </span>
+
+                <span className="subject-tab-title" aria-hidden="true">
                   {subject}
-                  {isSelected && isEditing ? ' (editing)' : ''}
-                  {isSelected && isCopied ? ' (copied)' : ''}
                 </span>
-              </button>
 
-              <span
-                className={`subject-tab-edit-icon ${
-                  isTabEditIconVisible ? 'subject-tab-edit-icon-visible' : ''
-                }`}
-                aria-hidden="true"
-              >
-                <span className="subject-tab-edit-icon-inner">
-                  <EditIcon className="h-3.5 w-3.5 shrink-0" />
-                </span>
-              </span>
-
-              <span
-                className={`subject-tab-copy-icon ${
-                  isTabCopyIconVisible ? 'subject-tab-copy-icon-visible' : ''
-                }`}
-                aria-hidden="true"
-              >
-                <span className="subject-tab-copy-icon-inner">
-                  <CopyIcon className="h-3.5 w-3.5 shrink-0" />
-                </span>
-              </span>
-
-              <span className="subject-tab-title" aria-hidden="true">
-                {subject}
-              </span>
-
-              <span
-                className={`random-range ${isRangeVisible ? 'random-range-visible' : ''}`}
-                inert={!isRangeVisible}
-                aria-hidden={!isRangeVisible}
-              >
-                <span className="random-range-inner">
-                  <span
-                    className={`random-range-pill ${
-                      isRangeVisible ? 'random-range-pill-visible' : ''
-                    }`}
-                  >
+                <span
+                  className={`random-range ${isRangeVisible ? 'random-range-visible' : ''}`}
+                  inert={!isRangeVisible}
+                  aria-hidden={!isRangeVisible}
+                >
+                  <span className="random-range-inner">
                     <span
-                      className={`random-range-track ${
-                        isRangeVisible ? 'random-range-track-visible' : ''
+                      className={`random-range-pill ${
+                        isRangeVisible ? 'random-range-pill-visible' : ''
                       }`}
                     >
-                      <span className="random-range-slot" aria-hidden="true" />
-                      <span className="random-range-slot">
-                        <input
-                          type="number"
-                          name={`random-range-start-${subject.toLowerCase()}`}
-                          disabled={!isRangeVisible}
-                          tabIndex={isRangeVisible ? 0 : -1}
-                          min={1}
-                          max={randomRangeEnd}
-                          value={
-                            isRangeVisible && focusedBound === 'start'
-                              ? draftValue
-                              : randomRangeStart
-                          }
-                          onFocus={() => {
-                            setFocusedBound('start');
-                            setDraftValue(String(randomRangeStart));
-                          }}
-                          onChange={(event) => {
-                            const raw = event.target.value;
-                            setDraftValue(raw);
-                            if (raw.trim() === '') return;
-                            const parsed = Number(raw);
-                            if (
-                              Number.isFinite(parsed) &&
-                              parsed >= 1 &&
-                              parsed <= randomRangeEnd
-                            ) {
-                              onRandomRangeStartChange(parsed);
+                      <span
+                        className={`random-range-track ${
+                          isRangeVisible ? 'random-range-track-visible' : ''
+                        }`}
+                      >
+                        <span className="random-range-slot" aria-hidden="true" />
+                        <span className="random-range-slot">
+                          <input
+                            type="number"
+                            name={`random-range-start-${subject.toLowerCase()}`}
+                            disabled={!isRangeVisible}
+                            tabIndex={isRangeVisible ? 0 : -1}
+                            min={1}
+                            max={randomRangeEnd}
+                            value={
+                              isRangeVisible && focusedBound === 'start'
+                                ? draftValue
+                                : randomRangeStart
                             }
-                          }}
-                          onBlur={() => commitStartDraft(draftValue)}
-                          onKeyDown={(event) => {
-                            if (event.key === 'Enter') {
-                              event.currentTarget.blur();
-                            }
-                          }}
-                          aria-label="First random question"
-                          className="random-range-input"
-                        />
+                            onFocus={() => {
+                              setFocusedBound('start');
+                              setDraftValue(String(randomRangeStart));
+                            }}
+                            onChange={(event) => {
+                              const raw = event.target.value;
+                              setDraftValue(raw);
+                              if (raw.trim() === '') return;
+                              const parsed = Number(raw);
+                              if (
+                                Number.isFinite(parsed) &&
+                                parsed >= 1 &&
+                                parsed <= randomRangeEnd
+                              ) {
+                                onRandomRangeStartChange(parsed);
+                              }
+                            }}
+                            onBlur={() => commitStartDraft(draftValue)}
+                            onKeyDown={(event) => {
+                              if (event.key === 'Enter') {
+                                event.currentTarget.blur();
+                              }
+                            }}
+                            aria-label="First random question"
+                            className="random-range-input"
+                          />
+                        </span>
                       </span>
                     </span>
-                  </span>
 
-                  <span className="random-range-separator">to</span>
+                    <span className="random-range-separator">to</span>
 
-                  <span
-                    className={`random-range-pill ${
-                      isRangeVisible ? 'random-range-pill-visible' : ''
-                    }`}
-                  >
                     <span
-                      className={`random-range-track ${
-                        isRangeVisible ? 'random-range-track-visible' : ''
+                      className={`random-range-pill ${
+                        isRangeVisible ? 'random-range-pill-visible' : ''
                       }`}
                     >
-                      <span className="random-range-slot" aria-hidden="true" />
-                      <span className="random-range-slot">
-                        <input
-                          type="number"
-                          name={`random-range-end-${subject.toLowerCase()}`}
-                          disabled={!isRangeVisible}
-                          tabIndex={isRangeVisible ? 0 : -1}
-                          min={randomRangeStart}
-                          max={randomRangeMax}
-                          value={
-                            isRangeVisible && focusedBound === 'end'
-                              ? draftValue
-                              : randomRangeEnd
-                          }
-                          onFocus={() => {
-                            setFocusedBound('end');
-                            setDraftValue(String(randomRangeEnd));
-                          }}
-                          onChange={(event) => {
-                            const raw = event.target.value;
-                            setDraftValue(raw);
-                            if (raw.trim() === '') return;
-                            const parsed = Number(raw);
-                            if (
-                              Number.isFinite(parsed) &&
-                              parsed >= randomRangeStart &&
-                              parsed <= randomRangeMax
-                            ) {
-                              onRandomRangeEndChange(parsed);
+                      <span
+                        className={`random-range-track ${
+                          isRangeVisible ? 'random-range-track-visible' : ''
+                        }`}
+                      >
+                        <span className="random-range-slot" aria-hidden="true" />
+                        <span className="random-range-slot">
+                          <input
+                            type="number"
+                            name={`random-range-end-${subject.toLowerCase()}`}
+                            disabled={!isRangeVisible}
+                            tabIndex={isRangeVisible ? 0 : -1}
+                            min={randomRangeStart}
+                            max={randomRangeMax}
+                            value={
+                              isRangeVisible && focusedBound === 'end' ? draftValue : randomRangeEnd
                             }
-                          }}
-                          onBlur={() => commitEndDraft(draftValue)}
-                          onKeyDown={(event) => {
-                            if (event.key === 'Enter') {
-                              event.currentTarget.blur();
-                            }
-                          }}
-                          aria-label="Last random question"
-                          className="random-range-input"
-                        />
+                            onFocus={() => {
+                              setFocusedBound('end');
+                              setDraftValue(String(randomRangeEnd));
+                            }}
+                            onChange={(event) => {
+                              const raw = event.target.value;
+                              setDraftValue(raw);
+                              if (raw.trim() === '') return;
+                              const parsed = Number(raw);
+                              if (
+                                Number.isFinite(parsed) &&
+                                parsed >= randomRangeStart &&
+                                parsed <= randomRangeMax
+                              ) {
+                                onRandomRangeEndChange(parsed);
+                              }
+                            }}
+                            onBlur={() => commitEndDraft(draftValue)}
+                            onKeyDown={(event) => {
+                              if (event.key === 'Enter') {
+                                event.currentTarget.blur();
+                              }
+                            }}
+                            aria-label="Last random question"
+                            className="random-range-input"
+                          />
+                        </span>
                       </span>
                     </span>
                   </span>
                 </span>
-              </span>
 
-              <span
-                className={`subject-tab-number ${
-                  isSelected ? 'subject-tab-number-visible' : 'subject-tab-number-hidden'
-                }`}
-                aria-hidden={!isSelected}
-              >
-                {isSelected && <span className="sr-only"> Question </span>}
-                <RollingNumber value={tabNumber} align="right" />
+                <span
+                  className={`subject-tab-number ${
+                    isSelected ? 'subject-tab-number-visible' : 'subject-tab-number-hidden'
+                  }`}
+                  aria-hidden={!isSelected}
+                >
+                  {isSelected && <span className="sr-only"> Question </span>}
+                  <RollingNumber value={tabNumber} align="right" />
+                </span>
               </span>
             </span>
-            {isSelected && <span className="subject-tab-seam" aria-hidden="true" />}
+            <span className="subject-tab-seam" aria-hidden="true" />
             {isSelected && copyPulseKey > 0 && (
               <span
                 key={`tab-seam-flash-${copyPulseKey}`}

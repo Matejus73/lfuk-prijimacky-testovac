@@ -18,23 +18,26 @@
     .subject-tab-flash,
     .subject-tab-flash::before,
     .subject-tab-seam-flash,
-    .subject-tab-fillet-flash::before,
-    .subject-tab-fillet-flash::after,
+    .subject-tab-fillet-flash-dip,
+    .subject-tab-fillet-flash-glow,
     .copy-ghost-layer,
     .edit-source-placeholder::after,
     .edit-error-banner,
     .question-option-list-editing .question-option-drawer-inner,
-    .sort-menu {
+    .sort-menu,
+    .debug-fx-panel {
       animation: none !important;
     }
 
+    .question-card,
+    .question-option::after,
     .subject-selector,
     .subject-tab,
     .subject-tab-surface,
     .subject-tab-surface-hover,
     .subject-tab-surface-active,
-    .subject-tab-fillet::before,
-    .subject-tab-fillet::after,
+    .subject-tab-fillet,
+    .subject-tab-seam,
     .subject-tab-edit-icon,
     .subject-tab-copy-icon,
     .subject-tab-number,
@@ -70,6 +73,11 @@
     .toggle-switch-track,
     .circle-checkbox,
     .circle-checkbox::after,
+    .history-scroll-shades::before,
+    .history-scroll-shades::after,
+    .history-item,
+    .history-item::before,
+    .history-item::after,
     .history-chevron,
     .history-details-drawer,
     .sort-trigger,
@@ -79,7 +87,11 @@
     .stats-collapse-chevron,
     .stats-details-drawer,
     .stats-item,
-    .stats-coverage-fill {
+    .stats-coverage-fill,
+    .debug-fx-fab,
+    .debug-fx-chip,
+    .debug-fx-icon-action,
+    .debug-fx-footer-btn {
       transition-duration: 0ms !important;
     }
   }

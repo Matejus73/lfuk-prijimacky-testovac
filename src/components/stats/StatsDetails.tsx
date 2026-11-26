@@ -52,10 +52,10 @@ export const StatsDetails = memo(function StatsDetails({
 
         <div className="stats-coverage-track" aria-hidden="true">
           <div
-            className="stats-coverage-fill"
+            className={`stats-coverage-fill ${answeredCount === 0 ? 'opacity-0' : ''}`}
             style={{
               width: `${coveragePercentage}%`,
-              minWidth: answeredCount > 0 ? '0.375rem' : undefined,
+              minWidth: answeredCount > 0 ? '0.5rem' : undefined,
             }}
           />
         </div>

@@ -23,7 +23,7 @@
     position: relative;
     z-index: 10;
     border-top: var(--line-decorative) solid var(--border);
-    background-color: var(--surface);
+    background-color: transparent;
     padding-bottom: 0;
     padding-top: var(--space-card-line-gap);
   }
@@ -74,14 +74,15 @@
 
   .nav-morph-btn-primary-surface {
     border-color: var(--highlight);
-    background-color: var(--highlight);
-    color: var(--background);
+    background-color: var(--highlight-soft);
+    color: var(--text);
     font-weight: 600;
   }
 
   .nav-morph-btn-primary-surface:not(:disabled):hover {
-    border-color: var(--highlight-hover);
-    background-color: var(--highlight-hover);
+    border-color: var(--highlight);
+    background-color: color-mix(in srgb, var(--highlight) 42%, var(--background));
+    color: var(--text);
   }
 
   .nav-morph-btn-icon {

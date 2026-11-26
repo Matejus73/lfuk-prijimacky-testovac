@@ -3,6 +3,7 @@
   .rolling-number {
     display: inline-flex;
     align-items: baseline;
+    font-family: var(--app-number-font-family);
     font-variant-numeric: tabular-nums;
   }
 

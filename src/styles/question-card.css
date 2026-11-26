@@ -5,6 +5,7 @@
     align-items: center;
     gap: 0.25rem;
     flex-shrink: 0;
+    font-family: var(--app-number-font-family);
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: -0.01em;
@@ -105,17 +106,41 @@
     display: flex;
     flex: 1 1 0%;
     min-width: 0;
-    height: 0.625rem;
+    height: calc(0.5rem + 2 * (var(--stats-track-padding) + var(--stats-track-border-width)));
+    padding: var(--stats-track-padding);
     overflow: hidden;
+    border: var(--stats-track-border-width) solid transparent;
     border-radius: var(--radius-pill);
-    background-color: var(--surface);
+    background:
+      color-mix(in srgb, var(--background) var(--stats-track-sink), var(--surface)) padding-box,
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, #000000 var(--stats-track-border-top-shade), var(--background)) 0%,
+        color-mix(in srgb, var(--text) var(--stats-track-border-mid-mix), var(--background)) 52%,
+        color-mix(in srgb, var(--text) var(--stats-track-border-bottom-mix), var(--background)) 100%
+      ) border-box;
+    box-shadow:
+      inset 0 1.5px 2.5px color-mix(in srgb, #000000 var(--stats-track-inner-shadow-opacity), transparent),
+      inset 0 -0.5px 0 color-mix(in srgb, var(--text) var(--stats-track-bottom-rim-opacity), transparent);
   }
 
   .stats-coverage-fill {
+    --bar-color: var(--highlight);
+    --bar-pill-sheen: var(--stats-coverage-pill-sheen);
+    --bar-top-rim: var(--stats-coverage-top-rim);
+    --bar-bottom-shade: var(--stats-coverage-bottom-shade);
+    --bar-bottom-rim: var(--stats-coverage-bottom-rim);
+    --bar-grad-depth: var(--stats-coverage-grad-depth);
+    --bar-border-width: var(--stats-coverage-border-width);
+    --bar-border-top-mix: var(--stats-coverage-border-top-mix);
+    --bar-border-bottom-mix: var(--stats-coverage-border-bottom-mix);
+    position: relative;
     height: 100%;
+    overflow: hidden;
     border-radius: var(--radius-pill);
     background-color: var(--highlight);
-    transition: width 280ms var(--ease-fluid);
+    transition: width 280ms var(--ease-fluid),
+                opacity var(--duration-base) var(--ease-fluid);
   }
 
   .stats-numbers-row {
@@ -133,23 +158,41 @@
     flex: 0 1 0%;
     min-width: 0;
     max-width: 0;
-    height: 0.625rem;
+    height: calc(0.5rem + 2 * (var(--stats-track-padding) + var(--stats-track-border-width)));
+    padding: var(--stats-track-padding) 0;
     margin-left: 0;
     overflow: hidden;
+    border-style: solid;
+    border-color: transparent;
+    border-width: var(--stats-track-border-width) 0;
     border-radius: var(--radius-pill);
-    background-color: var(--surface);
+    background:
+      color-mix(in srgb, var(--background) var(--stats-track-sink), var(--surface)) padding-box,
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, #000000 var(--stats-track-border-top-shade), var(--background)) 0%,
+        color-mix(in srgb, var(--text) var(--stats-track-border-mid-mix), var(--background)) 52%,
+        color-mix(in srgb, var(--text) var(--stats-track-border-bottom-mix), var(--background)) 100%
+      ) border-box;
+    box-shadow:
+      inset 0 1.5px 2.5px color-mix(in srgb, #000000 var(--stats-track-inner-shadow-opacity), transparent),
+      inset 0 -0.5px 0 color-mix(in srgb, var(--text) var(--stats-track-bottom-rim-opacity), transparent);
     opacity: 0;
     transition: flex-grow 280ms var(--ease-fluid),
                 min-width 280ms var(--ease-fluid),
                 max-width 280ms var(--ease-fluid),
+                padding 280ms var(--ease-fluid),
+                border-width 280ms var(--ease-fluid),
                 margin-left 280ms var(--ease-fluid),
                 opacity var(--duration-base) var(--ease-fluid);
   }
 
   .accuracy-bar-track-active {
     flex-grow: var(--segment-grow, 1);
-    min-width: 0.375rem;
+    min-width: calc(0.5rem + 2 * (var(--stats-track-padding) + var(--stats-track-border-width)));
     max-width: 100%;
+    padding: var(--stats-track-padding);
+    border-width: var(--stats-track-border-width);
     margin-left: 0.5rem;
     opacity: 1;
   }
@@ -158,22 +201,96 @@
     margin-left: 0.625rem;
   }
 
+  :root[data-bar-track-fx='off'] .stats-coverage-track,
+  :root[data-bar-track-fx='off'] .accuracy-bar-track {
+    height: 0.625rem;
+    padding: 0;
+    border: 0;
+    background: color-mix(in srgb, var(--background) 28%, var(--surface));
+    box-shadow:
+      inset 0 1px 1.5px rgba(0, 0, 0, 0.32),
+      inset 0 -0.5px 0 color-mix(in srgb, var(--text) 6%, transparent);
+  }
+
+  :root[data-bar-track-fx='off'] .accuracy-bar-track-active {
+    min-width: 0.375rem;
+  }
+
   .accuracy-bar-segment {
+    position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     border-radius: var(--radius-pill);
   }
 
   .accuracy-bar-segment-knows {
+    --bar-color: var(--correct);
+    --bar-pill-sheen: var(--stats-knows-pill-sheen);
+    --bar-top-rim: var(--stats-knows-top-rim);
+    --bar-bottom-shade: var(--stats-knows-bottom-shade);
+    --bar-bottom-rim: var(--stats-knows-bottom-rim);
+    --bar-grad-depth: var(--stats-knows-grad-depth);
+    --bar-border-width: var(--stats-knows-border-width);
+    --bar-border-top-mix: var(--stats-knows-border-top-mix);
+    --bar-border-bottom-mix: var(--stats-knows-border-bottom-mix);
     background-color: var(--correct);
   }
 
   .accuracy-bar-segment-almost {
+    --bar-color: var(--almost);
+    --bar-pill-sheen: var(--stats-almost-pill-sheen);
+    --bar-top-rim: var(--stats-almost-top-rim);
+    --bar-bottom-shade: var(--stats-almost-bottom-shade);
+    --bar-bottom-rim: var(--stats-almost-bottom-rim);
+    --bar-grad-depth: var(--stats-almost-grad-depth);
+    --bar-border-width: var(--stats-almost-border-width);
+    --bar-border-top-mix: var(--stats-almost-border-top-mix);
+    --bar-border-bottom-mix: var(--stats-almost-border-bottom-mix);
     background-color: var(--almost);
   }
 
   .accuracy-bar-segment-doesnt-know {
+    --bar-color: var(--incorrect);
+    --bar-pill-sheen: var(--stats-doesnt-know-pill-sheen);
+    --bar-top-rim: var(--stats-doesnt-know-top-rim);
+    --bar-bottom-shade: var(--stats-doesnt-know-bottom-shade);
+    --bar-bottom-rim: var(--stats-doesnt-know-bottom-rim);
+    --bar-grad-depth: var(--stats-doesnt-know-grad-depth);
+    --bar-border-width: var(--stats-doesnt-know-border-width);
+    --bar-border-top-mix: var(--stats-doesnt-know-border-top-mix);
+    --bar-border-bottom-mix: var(--stats-doesnt-know-border-bottom-mix);
     background-color: var(--incorrect);
+  }
+
+  /* Thin rounded pill shine + low-sitting edge (per bar color) */
+  :root:not([data-stats-fx-knows='off']) .accuracy-bar-segment-knows,
+  :root:not([data-stats-fx-almost='off']) .accuracy-bar-segment-almost,
+  :root:not([data-stats-fx-doesnt-know='off']) .accuracy-bar-segment-doesnt-know,
+  :root:not([data-stats-fx-coverage='off']) .stats-coverage-fill {
+    border: var(--bar-border-width) solid transparent;
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, #ffffff var(--bar-pill-sheen), transparent) 0%,
+        color-mix(in srgb, #ffffff calc(var(--bar-pill-sheen) * 0.45), transparent) 38%,
+        transparent 58%,
+        color-mix(in srgb, #000000 var(--bar-bottom-shade), transparent) 100%
+      ) padding-box,
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--bar-color) 94%, #ffffff) 0%,
+        var(--bar-color) 52%,
+        color-mix(in srgb, var(--background) var(--bar-grad-depth), var(--bar-color)) 100%
+      ) padding-box,
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--text) var(--bar-border-top-mix), var(--bar-color)) 0%,
+        color-mix(in srgb, var(--text) var(--bar-border-bottom-mix), var(--bar-color)) 100%
+      ) border-box;
+    box-shadow:
+      inset 0 1px 1.5px color-mix(in srgb, #ffffff var(--bar-top-rim), transparent),
+      inset 0 -1px 1px color-mix(in srgb, #000000 var(--bar-bottom-rim), transparent);
   }
 
   .accuracy-bar-count {
@@ -181,6 +298,7 @@
     align-items: center;
     gap: 0.25rem;
     flex-shrink: 0;
+    font-family: var(--app-number-font-family);
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: -0.01em;
@@ -193,19 +311,49 @@
     margin-left: 0.5rem;
   }
 
-  /* Question card & scroll frame */
+  /* Question card (elevated surface) & scroll frame */
   .question-card.question-card {
     position: relative;
     z-index: 10;
     padding: var(--space-card-pad);
-    box-shadow: 0 10px 26px -6px rgba(0, 0, 0, 0.48),
-                0 2px 6px rgba(0, 0, 0, 0.24);
+    border: var(--surface-border-width) solid transparent;
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(180deg, var(--surface-grad-top) 0%, var(--surface-grad-bottom) 100%) padding-box,
+      linear-gradient(
+        180deg,
+        var(--surface-border-top) 0%,
+        var(--surface-border-mid) 48%,
+        var(--surface-border-bottom) 100%
+      ) border-box;
+    box-shadow:
+      inset 0 1px 0 var(--surface-specular),
+      inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+      0 14px 34px -6px var(--card-shadow-lg),
+      0 3px 8px var(--card-shadow-sm);
     transition: box-shadow var(--duration-morph) var(--ease-fluid);
   }
 
+  :root[data-card-fx='off'] .question-card.question-card {
+    border: 0;
+    background: var(--surface);
+    box-shadow:
+      0 10px 26px -6px var(--card-shadow-lg),
+      0 2px 6px var(--card-shadow-sm);
+  }
+
   .question-card-editing.question-card-editing {
-    box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.56),
-                0 2px 8px rgba(0, 0, 0, 0.28);
+    box-shadow:
+      inset 0 1px 0 var(--surface-specular),
+      inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+      0 16px 38px -6px var(--card-shadow-lg),
+      0 4px 10px var(--card-shadow-sm);
+  }
+
+  :root[data-card-fx='off'] .question-card-editing.question-card-editing {
+    box-shadow:
+      0 12px 30px -6px var(--card-shadow-lg),
+      0 2px 8px var(--card-shadow-sm);
   }
 
   .question-card-body {
@@ -223,6 +371,7 @@
   }
 
   .edit-error-banner {
+    font-family: var(--app-body-font-family);
     animation: edit-error-enter var(--duration-fast) var(--ease-fluid) both;
   }
 
@@ -299,6 +448,7 @@
     --option-list-gap: var(--space-option-gap);
     display: flex;
     flex-direction: column;
+    font-family: var(--app-body-font-family);
   }
 
   .question-option-list-scroll {
@@ -320,42 +470,83 @@
   }
 
   .question-option {
-    padding: var(--space-option-py) var(--space-option-px);
+    position: relative;
+    padding: calc(var(--space-option-py) + var(--outline-secondary))
+             calc(var(--space-option-px) + var(--outline-secondary));
+    border: 0;
     font-size: var(--font-fluid-base);
     border-radius: var(--radius-lg);
   }
 
+  .question-option::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 var(--option-border-width) var(--border);
+    transition: box-shadow var(--duration-base) var(--ease-fluid);
+  }
+
   .question-option-interactive {
-    border: var(--outline-secondary) solid var(--border);
     background-color: var(--surface);
   }
 
   .question-option-interactive:hover {
-    border-color: var(--highlight);
-    background-color: var(--highlight-subtle);
+    background-color: color-mix(
+      in srgb,
+      var(--highlight) var(--option-hover-overlay-opacity),
+      var(--surface)
+    );
+  }
+
+  .question-option-interactive:hover::after {
+    box-shadow: inset 0 0 0 var(--option-border-width) var(--highlight);
   }
 
   .question-option-selected {
-    border: var(--outline-secondary) solid var(--highlight);
-    background-color: var(--highlight-soft);
-    box-shadow: inset 0 0 0 max(0px, calc(var(--outline-primary) - var(--outline-secondary))) var(--highlight);
+    background-color: color-mix(
+      in srgb,
+      var(--highlight) var(--option-selection-overlay-opacity),
+      var(--surface)
+    );
+  }
+
+  .question-option-selected::after {
+    box-shadow: inset 0 0 0 var(--option-selection-border-width) var(--highlight);
   }
 
   .question-option-selected:hover {
-    border-color: var(--highlight);
-    background-color: var(--highlight-soft);
+    background-color: color-mix(
+      in srgb,
+      var(--highlight) var(--option-selection-overlay-opacity),
+      var(--surface)
+    );
   }
 
   .question-option-correct {
-    border: var(--outline-secondary) solid var(--correct);
-    background-color: var(--correct-soft);
-    box-shadow: inset 0 0 0 max(0px, calc(var(--outline-primary) - var(--outline-secondary))) var(--correct);
+    background-color: color-mix(
+      in srgb,
+      var(--correct) var(--option-selection-overlay-opacity),
+      var(--surface)
+    );
+  }
+
+  .question-option-correct::after {
+    box-shadow: inset 0 0 0 var(--option-selection-border-width) var(--correct);
   }
 
   .question-option-incorrect {
-    border: var(--outline-secondary) solid var(--incorrect);
-    background-color: var(--incorrect-soft);
-    box-shadow: inset 0 0 0 max(0px, calc(var(--outline-primary) - var(--outline-secondary))) var(--incorrect);
+    background-color: color-mix(
+      in srgb,
+      var(--incorrect) var(--option-selection-overlay-opacity),
+      var(--surface)
+    );
+  }
+
+  .question-option-incorrect::after {
+    box-shadow: inset 0 0 0 var(--option-selection-border-width) var(--incorrect);
   }
 
   .question-option-text {
@@ -433,51 +624,75 @@
 
   @keyframes copy-card-shadow-a {
     0% {
-      box-shadow: 0 10px 26px -6px rgba(0, 0, 0, 0.48),
-                  0 2px 6px rgba(0, 0, 0, 0.24);
+      box-shadow:
+        inset 0 1px 0 var(--surface-specular),
+        inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+        0 14px 34px -6px var(--card-shadow-lg),
+        0 3px 8px var(--card-shadow-sm);
       animation-timing-function: cubic-bezier(0.25, 0.9, 0.4, 1);
     }
 
     13% {
-      box-shadow: 0 3px 10px -3px rgba(0, 0, 0, 0.38),
-                  0 1px 3px rgba(0, 0, 0, 0.2);
+      box-shadow:
+        inset 0 1px 0 var(--surface-specular),
+        inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+        0 3px 10px -3px rgba(0, 0, 0, 0.38),
+        0 1px 3px rgba(0, 0, 0, 0.2);
       animation-timing-function: cubic-bezier(0.18, 1, 0.3, 1);
     }
 
     23% {
-      box-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.78),
-                  0 10px 22px -4px rgba(0, 0, 0, 0.44);
+      box-shadow:
+        inset 0 1px 0 var(--surface-specular),
+        inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+        0 26px 52px -8px rgba(0, 0, 0, 0.8),
+        0 10px 24px -4px rgba(0, 0, 0, 0.46);
       animation-timing-function: var(--ease-fluid);
     }
 
     100% {
-      box-shadow: 0 10px 26px -6px rgba(0, 0, 0, 0.48),
-                  0 2px 6px rgba(0, 0, 0, 0.24);
+      box-shadow:
+        inset 0 1px 0 var(--surface-specular),
+        inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+        0 14px 34px -6px var(--card-shadow-lg),
+        0 3px 8px var(--card-shadow-sm);
     }
   }
 
   @keyframes copy-card-shadow-b {
     0% {
-      box-shadow: 0 10px 26px -6px rgba(0, 0, 0, 0.48),
-                  0 2px 6px rgba(0, 0, 0, 0.24);
+      box-shadow:
+        inset 0 1px 0 var(--surface-specular),
+        inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+        0 14px 34px -6px var(--card-shadow-lg),
+        0 3px 8px var(--card-shadow-sm);
       animation-timing-function: cubic-bezier(0.25, 0.9, 0.4, 1);
     }
 
     13% {
-      box-shadow: 0 3px 10px -3px rgba(0, 0, 0, 0.38),
-                  0 1px 3px rgba(0, 0, 0, 0.2);
+      box-shadow:
+        inset 0 1px 0 var(--surface-specular),
+        inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+        0 3px 10px -3px rgba(0, 0, 0, 0.38),
+        0 1px 3px rgba(0, 0, 0, 0.2);
       animation-timing-function: cubic-bezier(0.18, 1, 0.3, 1);
     }
 
     23% {
-      box-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.78),
-                  0 10px 22px -4px rgba(0, 0, 0, 0.44);
+      box-shadow:
+        inset 0 1px 0 var(--surface-specular),
+        inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+        0 26px 52px -8px rgba(0, 0, 0, 0.8),
+        0 10px 24px -4px rgba(0, 0, 0, 0.46);
       animation-timing-function: var(--ease-fluid);
     }
 
     100% {
-      box-shadow: 0 10px 26px -6px rgba(0, 0, 0, 0.48),
-                  0 2px 6px rgba(0, 0, 0, 0.24);
+      box-shadow:
+        inset 0 1px 0 var(--surface-specular),
+        inset 0 -1px 0 color-mix(in srgb, #000000 18%, transparent),
+        0 14px 34px -6px var(--card-shadow-lg),
+        0 3px 8px var(--card-shadow-sm);
     }
   }
 

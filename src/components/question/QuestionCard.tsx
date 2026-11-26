@@ -399,7 +399,7 @@ export const QuestionCard = memo(function QuestionCard({
 
   return (
     <div
-      className={`question-card relative flex h-[calc(100dvh-9.5rem)] min-h-0 min-w-0 flex-col rounded-xl bg-white sm:h-[calc(100dvh-8.75rem)] lg:h-auto lg:flex-1 ${
+      className={`question-card relative flex h-[calc(100dvh-9.5rem)] min-h-0 min-w-0 flex-col rounded-xl sm:h-[calc(100dvh-8.75rem)] lg:h-auto lg:flex-1 ${
         isEditing ? 'question-card-editing' : ''
       } ${shutterClass}`}
     >

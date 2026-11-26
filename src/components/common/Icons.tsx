@@ -12,10 +12,14 @@ import {
   Gauge,
   Image,
   ListChecks,
+  PanelLeft,
+  PanelRight,
   Pencil,
   PencilLine,
   Repeat,
+  RotateCcw,
   Search,
+  SlidersHorizontal,
   Tally5,
   TrendingDown,
   TrendingUp,
@@ -244,6 +248,50 @@ export function AttemptsIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: Ico
 export function ReviseIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: IconProps) {
   return (
     <Repeat
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function SlidersIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: IconProps) {
+  return (
+    <SlidersHorizontal
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function ResetIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: IconProps) {
+  return (
+    <RotateCcw
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function PanelLeftIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: IconProps) {
+  return (
+    <PanelLeft
+      aria-hidden="true"
+      className={className}
+      strokeWidth={strokeWidth}
+      style={iconStyle(strokeWidth)}
+    />
+  );
+}
+
+export function PanelRightIcon({ className = 'h-3.5 w-3.5', strokeWidth = 2 }: IconProps) {
+  return (
+    <PanelRight
       aria-hidden="true"
       className={className}
       strokeWidth={strokeWidth}

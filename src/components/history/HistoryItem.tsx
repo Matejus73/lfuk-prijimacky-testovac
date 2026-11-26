@@ -129,7 +129,7 @@ export const HistoryItem = memo(function HistoryItem({
     <div
       className={`history-item shadow-2xs ${
         isCurrent ? 'history-item-current' : ''
-      }`}
+      } ${isExpanded ? 'history-item-expanded' : ''}`}
     >
       <div className="history-item-header">
         <button
@@ -153,7 +153,7 @@ export const HistoryItem = memo(function HistoryItem({
 
             {hasAttempts ? (
               <span
-                className={`flex shrink-0 items-center gap-1 text-xs font-semibold tabular-nums ${stateTextClass}`}
+                className={`history-item-mastery flex shrink-0 items-center gap-1 text-xs font-semibold ${stateTextClass}`}
                 title={badgeTitle}
                 aria-label={`${stateDisplayLabel} ${masteryPercentage}%`}
               >
@@ -249,10 +249,8 @@ export const HistoryItem = memo(function HistoryItem({
                         readOnly
                         className="circle-checkbox mt-[0.1875rem]"
                       />
-                      <span className="ml-2 shrink-0 font-semibold uppercase leading-snug text-gray-700">
-                        {option.label})
-                      </span>
-                      <span className="question-option-text ml-2 min-w-0 leading-snug text-gray-700">
+                      <span className="ml-2.5 leading-snug text-gray-800">
+                        <strong className="mr-1 font-semibold">{option.label})</strong>
                         {option.text}
                       </span>
                     </label>

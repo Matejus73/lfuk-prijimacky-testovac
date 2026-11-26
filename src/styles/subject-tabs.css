@@ -30,31 +30,39 @@
     display: flex;
     flex: 1 1 16rem;
     min-width: 0;
-    max-width: min(23.5rem, calc(100% - 2rem));
-    margin-left: 1rem;
+    max-width: min(23.5rem, calc(100% - 2.25rem));
+    margin-left: 1.125rem;
     align-items: flex-end;
     gap: 0.5rem;
     transition: max-width var(--duration-morph) var(--ease-fluid);
   }
 
   .subject-selector-random {
-    max-width: min(29rem, calc(100% - 2rem));
+    max-width: min(29rem, calc(100% - 2.25rem));
   }
 
   .subject-tab {
+    --tab-border-w: var(--surface-border-width);
     --tab-fillet: var(--radius-sm);
     --tab-pad-x: 0.875rem;
-    --tab-inactive-bg: color-mix(in srgb, var(--surface) 62%, var(--background));
+    --tab-active-top: color-mix(in srgb, var(--surface-grad-top) 97%, var(--text));
+    --tab-inactive-bg: color-mix(in srgb, var(--surface) 60%, var(--background));
     --tab-hover-bg: color-mix(in srgb, var(--surface) 84%, var(--background));
+    --tab-inactive-border: color-mix(in srgb, var(--border) 30%, var(--background));
+    --tab-hover-border: color-mix(in srgb, var(--border) 48%, var(--background));
     position: relative;
     display: block;
     flex: 1 1 0%;
     min-width: 0;
-    height: calc(2.5rem + 1px);
-    margin-bottom: -1px;
+    height: calc(2.5rem + var(--tab-border-w));
+    margin-bottom: calc(-1 * var(--tab-border-w));
     padding: 0;
-    clip-path: inset(-8px -12px 0 -12px);
+    clip-path: inset(-8px -12px -2px -12px);
     transition: flex-grow var(--duration-morph) var(--ease-fluid);
+  }
+
+  :root[data-card-fx='off'] .subject-tab {
+    --tab-border-w: 0px;
   }
 
   .subject-selector-random .subject-tab-active {
@@ -81,8 +89,7 @@
   }
 
   .subject-tab-active {
-    z-index: 15;
-    clip-path: inset(-8px -12px -4px -12px);
+    z-index: 16;
   }
 
   .subject-tab-active.copy-tab-shutter-a {
@@ -99,111 +106,65 @@
 
   .subject-tab-inactive {
     z-index: 5;
+    transition: flex-grow var(--duration-morph) var(--ease-fluid),
+                z-index var(--duration-morph) step-end;
+  }
+
+  .subject-tab-clip {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: calc(100% - var(--tab-border-w));
+    overflow: hidden;
   }
 
   .subject-tab-fillet {
     position: absolute;
     bottom: -2px;
-    width: var(--tab-fillet);
-    height: calc(var(--tab-fillet) + 2px);
-    pointer-events: none;
-  }
-
-  .subject-tab-fillet-left {
-    right: 100%;
-    background-image:
-      radial-gradient(
-        circle at 0 0,
-        transparent var(--tab-fillet),
-        var(--tab-inactive-bg) calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(var(--tab-inactive-bg), var(--tab-inactive-bg));
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-fillet-right {
-    left: 100%;
-    background-image:
-      radial-gradient(
-        circle at 100% 0,
-        transparent var(--tab-fillet),
-        var(--tab-inactive-bg) calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(var(--tab-inactive-bg), var(--tab-inactive-bg));
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-fillet::before,
-  .subject-tab-fillet::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+    z-index: 3;
+    width: 6px;
+    height: 9px;
     opacity: 0;
+    pointer-events: none;
     transition: opacity var(--duration-morph) var(--ease-fluid);
   }
 
-  .subject-tab-fillet-left::before {
-    background-image:
-      radial-gradient(
-        circle at 0 0,
-        transparent var(--tab-fillet),
-        var(--tab-hover-bg) calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(var(--tab-hover-bg), var(--tab-hover-bg));
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-fillet-right::before {
-    background-image:
-      radial-gradient(
-        circle at 100% 0,
-        transparent var(--tab-fillet),
-        var(--tab-hover-bg) calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(var(--tab-hover-bg), var(--tab-hover-bg));
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-fillet-left::after {
-    background-image:
-      radial-gradient(
-        circle at 0 0,
-        transparent var(--tab-fillet),
-        var(--surface) calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(var(--surface), var(--surface));
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-fillet-right::after {
-    background-image:
-      radial-gradient(
-        circle at 100% 0,
-        transparent var(--tab-fillet),
-        var(--surface) calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(var(--surface), var(--surface));
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-inactive:hover .subject-tab-fillet::before {
+  .subject-tab-active .subject-tab-fillet {
     opacity: 1;
   }
 
-  .subject-tab-active .subject-tab-fillet::after {
-    opacity: 1;
+  .subject-tab-fillet-left {
+    left: -5px;
+    transform: scaleX(-1);
+  }
+
+  .subject-tab-fillet-right {
+    right: -5px;
+  }
+
+  .subject-tab-fillet-svg,
+  .subject-tab-fillet-flash {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .subject-tab-fillet-fill {
+    fill: var(--surface-grad-top);
+  }
+
+  .subject-tab-fillet-border {
+    stroke-width: var(--surface-border-width);
+  }
+
+  :root[data-card-fx='off'] .subject-tab-fillet-fill {
+    fill: var(--surface);
+  }
+
+  :root[data-card-fx='off'] .subject-tab-fillet-border,
+  :root[data-card-fx='off'] .subject-tab-fillet-specular {
+    opacity: 0;
   }
 
   .subject-tab-fillet-flash {
@@ -213,88 +174,43 @@
     pointer-events: none;
   }
 
-  .subject-tab-fillet-flash::before,
-  .subject-tab-fillet-flash::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+  .subject-tab-fillet-flash-dip {
+    fill: #000000;
     opacity: 0;
     will-change: opacity;
-  }
-
-  .subject-tab-fillet-left .subject-tab-fillet-flash::before {
-    background-image:
-      radial-gradient(
-        circle at 0 0,
-        transparent var(--tab-fillet),
-        #000000 calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(#000000, #000000);
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-fillet-right .subject-tab-fillet-flash::before {
-    background-image:
-      radial-gradient(
-        circle at 100% 0,
-        transparent var(--tab-fillet),
-        #000000 calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(#000000, #000000);
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-fillet-left .subject-tab-fillet-flash::after {
-    background-image:
-      radial-gradient(
-        circle at 0 0,
-        transparent var(--tab-fillet),
-        #ffffff calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(#ffffff, #ffffff);
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-fillet-right .subject-tab-fillet-flash::after {
-    background-image:
-      radial-gradient(
-        circle at 100% 0,
-        transparent var(--tab-fillet),
-        #ffffff calc(var(--tab-fillet) + 0.5px)
-      ),
-      linear-gradient(#ffffff, #ffffff);
-    background-position: 0 0, 0 var(--tab-fillet);
-    background-size: 100% var(--tab-fillet), 100% 2px;
-    background-repeat: no-repeat;
-  }
-
-  .subject-tab-fillet-flash::before {
     animation: copy-fillet-dip 880ms forwards;
   }
 
-  .subject-tab-fillet-flash::after {
+  .subject-tab-fillet-flash-glow {
+    fill: #ffffff;
+    opacity: 0;
+    will-change: opacity;
     animation: copy-fillet-flash 880ms forwards;
   }
 
   .subject-tab-seam,
   .subject-tab-seam-flash {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    height: 3px;
+    left: var(--tab-border-w);
+    right: var(--tab-border-w);
+    top: calc(100% - var(--tab-border-w) - 0.5px);
+    height: calc(var(--tab-border-w) + 2.5px);
     pointer-events: none;
   }
 
   .subject-tab-seam {
     z-index: 1;
+    background-color: var(--surface-grad-top);
+    opacity: 0;
+    transition: opacity var(--duration-morph) var(--ease-fluid);
+  }
+
+  :root[data-card-fx='off'] .subject-tab-seam {
     background-color: var(--surface);
+  }
+
+  .subject-tab-active .subject-tab-seam {
+    opacity: 1;
   }
 
   .subject-tab-seam-flash {
@@ -307,13 +223,18 @@
     position: relative;
     display: flex;
     width: 100%;
-    height: 100%;
+    height: calc(100% + var(--tab-border-w));
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    background-color: var(--tab-inactive-bg);
-    padding: 0 var(--tab-pad-x) 0.1875rem;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--tab-inactive-bg) 96%, var(--text)) 0%,
+      var(--tab-inactive-bg) 100%
+    );
+    box-shadow: inset 0 0 0 var(--surface-border-width) var(--tab-inactive-border);
+    padding: 0 var(--tab-pad-x) calc(0.125rem + var(--tab-border-w));
     color: var(--text-muted);
     font-size: clamp(0.875rem, 3vw, 1rem);
     font-weight: 600;
@@ -346,11 +267,30 @@
   }
 
   .subject-tab-surface-hover {
-    background-color: var(--tab-hover-bg);
+    border: var(--surface-border-width) solid transparent;
+    border-bottom: 0;
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--tab-hover-bg) 97%, var(--text)) 0%,
+        var(--tab-hover-bg) 100%
+      ) padding-box,
+      linear-gradient(180deg, var(--tab-hover-border) 0%, var(--tab-inactive-border) 100%) border-box;
   }
 
   .subject-tab-surface-active {
-    background-color: var(--surface);
+    border: var(--surface-border-width) solid transparent;
+    border-bottom: 0;
+    background:
+      linear-gradient(180deg, var(--tab-active-top) 0%, var(--surface-grad-top) 100%) padding-box,
+      linear-gradient(180deg, var(--surface-border-top) 0%, var(--surface-border-top) 100%) border-box;
+    box-shadow: inset 0 1px 0 var(--surface-specular);
+  }
+
+  :root[data-card-fx='off'] .subject-tab-surface-active {
+    border: 0;
+    background: var(--surface);
+    box-shadow: none;
   }
 
   .subject-tab-inactive:hover .subject-tab-surface-hover {
@@ -534,6 +474,7 @@
     flex-shrink: 0;
     margin-left: var(--tab-pad-x);
     color: var(--text-muted);
+    font-family: var(--app-number-font-family);
     font-size: 0.75rem;
     font-weight: 500;
     font-variant-numeric: tabular-nums;
@@ -603,16 +544,15 @@
     padding: 0.125rem 0.25rem 0.5rem;
   }
 
-
   @media (min-width: 640px) {
     .subject-selector {
-      max-width: min(24.5rem, calc(100% - 2.25rem));
-      margin-left: 1.125rem;
+      max-width: min(24.5rem, calc(100% - 2.5rem));
+      margin-left: 1.25rem;
       gap: 0.625rem;
     }
 
     .subject-selector-random {
-      max-width: min(30rem, calc(100% - 2.25rem));
+      max-width: min(30rem, calc(100% - 2.5rem));
     }
 
     .subject-tab {
